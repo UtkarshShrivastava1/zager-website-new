@@ -1,0 +1,176 @@
+/* About Section - Vibrant, Modern Look */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #d2d2df, #b7b9bd);
+  text-align: center;
+  color: #ffffff;
+  animation: fadeIn 1s ease-out;
+  border-radius: 15px;
+}
+
+/* Subtle glowing radial overlay for a futuristic touch */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 70%
+  );
+  animation: rotateBg 40s linear infinite;
+  z-index: 0;
+}
+
+/* Ensure content stays above the overlay */
+.about-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title - Bold, futuristic font with a glowing effect */
+.about-title {
+  font-weight: 800;
+  color: #8bd5ca;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(231, 200, 195, 0.6);
+  animation: slideInDown 1s ease-out both;
+}
+
+/* About Description - Enhanced readability */
+.about-description {
+  max-width: 850px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Vision & Mission Section Styling */
+.about-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Section Titles (Vision & Mission) */
+.section-title {
+  font-weight: 700;
+  color: #1e3d5c;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(0, 247, 255, 0.7);
+  animation: slideInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Section Description */
+.section-description {
+  max-width: 750px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #dcdcdc;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* Mission List */
+.mission-list {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+  animation-delay: 0.9s;
+}
+
+/* Individual Mission Items - Stylish hover effect */
+.mission-item {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(90deg, #bdbbba, #bdb0b3);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotateBg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+  .about-title {
+    font-size: 2.3rem;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .about-description,
+  .section-description {
+    font-size: 1rem;
+  }
+}

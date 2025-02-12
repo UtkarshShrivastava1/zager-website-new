@@ -1,0 +1,241 @@
+/* General navbar styling */
+.custom-navbar {
+  background-color: #182848 !important; /* Deep gradient color */
+  /* Gradient background */
+  border-bottom: 3px solid #444444; /* Dark gray border at the bottom */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: fixed; /* Fix navbar at the top of the page */
+  top: 0; /* Position at the top of the viewport */
+  left: 0; /* Align left edge */
+  right: 0; /* Align right edge */
+  z-index: 9999; /* Ensure navbar is on top of all content */
+  overflow: hidden; /* Prevent overflowing content from breaking layout */
+}
+
+/* Brand styling */
+.brand {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff !important; /* Ensure white color */
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  max-width: 100%; /* Ensure brand name stays within the container */
+}
+
+/* Brand highlight color */
+.brand-highlight {
+  color: #8888ff; /* Lighter blue color for highlighting */
+}
+
+/* Navigation links styling */
+.custom-nav-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #bbbbbb !important; /* Light gray text */
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin: 0 1rem;
+}
+
+/* Hover effect on navigation links */
+.custom-nav-link:hover {
+  color: #ffffff !important; /* Change text color to white */
+  transform: scale(1.1); /* Slight scaling effect on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Navigation container */
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Button styling */
+.login-btn,
+.profile-btn,
+.logout-btn {
+  font-size: 1rem;
+  border: 2px solid #444444;
+  color: #bbbbbb;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+/* Hover effect on buttons */
+.login-btn:hover,
+.profile-btn:hover,
+.logout-btn:hover {
+  background-color: #444444;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Logout button special hover effect */
+.logout-btn:hover {
+  color: #ff5555; /* Red color for logout button */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .custom-navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 1rem;
+    position: fixed; /* Keep navbar fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /* Ensure navbar stays on top */
+    width: 100%; /* Stretch navbar to full width */
+  }
+
+  /* Adjust brand font size for mobile */
+  .brand {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: center; /* Center brand name on mobile */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  /* Mobile navigation links styling */
+  .custom-nav-link {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    text-align: center; /* Center text */
+    width: 100%;
+  }
+
+  /* Adjust the nav container for mobile */
+  .nav-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* Center items */
+  }
+
+  /* Button styling for mobile */
+  .login-btn,
+  .profile-btn,
+  .logout-btn {
+    width: 100%; /* Full width buttons */
+    text-align: center;
+    margin: 0.5rem 0;
+    padding: 0.6rem 1rem; /* Larger padding for touch-friendly buttons */
+  }
+
+  /* Hamburger menu styling */
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 10000; /* Ensure it stays on top */
+  }
+
+  .hamburger-menu span {
+    width: 25px;
+    height: 4px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    display: block;
+    transition: 0.4s;
+  }
+
+  /* Open menu state for hamburger */
+  .hamburger-menu.open span:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 9px;
+  }
+
+  .hamburger-menu.open span:nth-child(2) {
+    opacity: 0; /* Hide middle span */
+  }
+
+  .hamburger-menu.open span:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -9px;
+  }
+
+  /* Navbar menu dropdown on mobile */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #000000;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem 0;
+  }
+
+  .navbar-menu.open {
+    display: flex; /* Show menu when active */
+  }
+
+  /* Make dropdown items take full width and align center on mobile */
+  .navbar-menu .custom-nav-link {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.8rem 0;
+    width: 100%;
+  }
+
+  /* Adjust dropdown for mobile */
+  #dashboard-dropdown {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Mobile-friendly links for dropdown */
+  #dashboard-dropdown .dropdown-item {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Banner Section Styles */
+.banner-section {
+  background: linear-gradient(
+    90deg,
+    #d1d4da 0%,
+    #cfd6e4 100%
+  ); /* Gradient background */
+  border-bottom: 2px solid #ddd; /* Optional border for separation */
+  padding: 5px 0;
+  z-index: 1030; /* Ensure it appears above other elements */
+  position: relative;
+}
+
+/* Navbar Section Styles */
+.custom-navbar {
+  margin-top: 0; /* Remove default margin */
+  z-index: 1020; /* Ensure it's below the banner */
+  position: sticky; /* Make navbar sticky on scroll */
+  top: 0; /* Stick to the top of the page */
+}
+
+/* Reset margins and paddings for the page */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the banner starts at the top */
+.banner-section {
+  margin-top: 0; /* Remove any default margin above */
+  padding-top: 5px; /* Adjust as needed for spacing */
+}

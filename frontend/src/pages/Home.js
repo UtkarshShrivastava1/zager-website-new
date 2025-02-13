@@ -23,6 +23,7 @@ import "aos/dist/aos.css";
 import OurServicesSection from "../components/OurServicesSection";
 import AboutUsSection from "../components/AboutUsSection";
 import csitBanner from "../assets/zager_banner.png";
+import { AnimatedTestimonials } from '../components/AnimatedTestimonials';
 const Home = () => {
   // Carousel settings for react-slick
   const carouselSettings = {
@@ -42,6 +43,28 @@ const Home = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
+  const testimonials = [
+    {
+      src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&h=500",
+      name: "John Doe",
+      designation: "CEO at TechCorp",
+      quote: "This product has transformed how we do business. The results have been nothing short of amazing."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&h=500",
+      name: "Jane Smith",
+      designation: "Marketing Director",
+      quote: "I've never seen such impressive results. The implementation was smooth and the support is fantastic."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1527082395-e939b847da0d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Dayle Smith",
+      designation: "Sales Director",
+      quote: "I've never seen such impressive results. The implementation was smooth and the support is fantastic."
+    },
+    // Add more testimonials as needed
+  ];
+
   return (
     <>
       {/* Hero Section */}
@@ -58,27 +81,27 @@ const Home = () => {
       </Box>
 
       {/* News Ticker Section */}
-      <Box className="news-ticker">
-        <Slider
-          dots={false}
-          infinite
-          autoplay
-          speed={1}
-          autoplaySpeed={0}
-          cssEase="linear"
-          className="news-ticker-slider"
-        >
-          <Typography>
-            Innovating digital solutions for a smarter, connected world.
-          </Typography>
-          <Typography>
-            Empowering businesses through cutting-edge technology.
-          </Typography>
-          <Typography>
-            Zager Digital Services – Your partner in digital transformation.
-          </Typography>
-        </Slider>
-      </Box>
+        {/* <Box className="news-ticker">
+          <Slider
+            dots={false}
+            infinite
+            autoplay
+            speed={1}
+            autoplaySpeed={0}
+            cssEase="linear"
+            className="news-ticker-slider"
+          >
+            <Typography>
+              Innovating digital solutions for a smarter, connected world.
+            </Typography>
+            <Typography>
+              Empowering businesses through cutting-edge technology.
+            </Typography>
+            <Typography>
+              Zager Digital Services – Your partner in digital transformation.
+            </Typography>
+          </Slider>
+        </Box> */}
 
       {/* Our Services Section */}
       <OurServicesSection />
@@ -326,8 +349,8 @@ const Home = () => {
       </Box>
 
       {/* Testimonials Section */}
-      <Box py={5} className="testimonials-section">
-        <Container>
+      {/* <Box py={5} className="testimonials-section"> */}
+        {/* <Container> */}
           <Typography
             variant="h4"
             align="center"
@@ -336,9 +359,9 @@ const Home = () => {
           >
             Testimonials
           </Typography>
-          <Slider {...carouselSettings}>
+          {/* <Slider {...carouselSettings}> */}
             {/* Testimonial 1 */}
-            <Box className="testimonial-item">
+            {/* <Box className="testimonial-item">
               <Box className="testimonial-content">
                 <img
                   src="https://via.placeholder.com/100?text=Client+1"
@@ -359,9 +382,9 @@ const Home = () => {
                   </Typography>
                 </Box>
               </Box>
-            </Box>
+            </Box> */}
             {/* Testimonial 2 */}
-            <Box className="testimonial-item">
+            {/* <Box className="testimonial-item">
               <Box className="testimonial-content">
                 <img
                   src="https://via.placeholder.com/100?text=Client+2"
@@ -382,9 +405,9 @@ const Home = () => {
                   </Typography>
                 </Box>
               </Box>
-            </Box>
+            </Box> */}
             {/* Testimonial 3 */}
-            <Box className="testimonial-item">
+            {/* <Box className="testimonial-item">
               <Box className="testimonial-content">
                 <img
                   src="https://via.placeholder.com/100?text=Client+3"
@@ -408,7 +431,12 @@ const Home = () => {
             </Box>
           </Slider>
         </Container>
-      </Box>
+      </Box> */}
+
+      <AnimatedTestimonials 
+        testimonials={testimonials} 
+        autoplay={true} 
+      />
     </>
   );
 };

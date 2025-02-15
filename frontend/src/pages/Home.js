@@ -115,7 +115,7 @@ const Home = () => {
           variant="h4"
           align="center"
           gutterBottom
-          style={{ fontWeight: "bold", fontSize: "2.5rem" }}
+          sx={{ fontWeight: "700", fontSize: "2.5rem", color:"#ffbe00", textShadow:"0 0 12px rgba(238, 201, 115, 0.753)" }}
         >
           Our Products
         </Typography>
@@ -123,12 +123,17 @@ const Home = () => {
           <Grid item xs={12} sm={6}>
             <Slider {...carouselSettings}>
               <img
-                src="https://via.placeholder.com/600x400?text=Innovation+1"
+                src="https://images.unsplash.com/photo-1581868608505-ace259397b88?q=80&w=1914&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Technology 1"
                 className="carousel-image"
               />
               <img
-                src="https://via.placeholder.com/600x400?text=Innovation+2"
+                src="https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Technology 2"
+                className="carousel-image"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Technology 2"
                 className="carousel-image"
               />
@@ -151,10 +156,10 @@ const Home = () => {
         </Grid>
       </Container>
 
-      <Divider className="custom-divider" variant="middle" />
+      {/* <Divider className="custom-divider" variant="middle" /> */}
 
       {/* Gallery Section */}
-      <Container className="section">
+      {/* <Container className="section">
         <Typography
           variant="h4"
           align="center"
@@ -193,9 +198,9 @@ const Home = () => {
             </Slider>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
 
-      <Divider className="custom-divider" variant="middle" />
+      {/* <Divider className="custom-divider" variant="middle" /> */}
 
       {/* Promotional Video Section */}
       <Container className="section">
@@ -203,7 +208,7 @@ const Home = () => {
           variant="h4"
           align="center"
           gutterBottom
-          style={{ fontWeight: "bold", fontSize: "2.5rem" }}
+          sx={{ fontWeight: "700", fontSize: "2.5rem", color:"#ffbe00", textShadow:"0 0 12px rgba(238, 201, 115, 0.753)" }}
         >
           Promotional Video
         </Typography>
@@ -234,7 +239,7 @@ const Home = () => {
       </Container>
 
       {/* Our Clients Section */}
-      <Box className="clients-section" py={5}>
+      {/* <Box className="clients-section" py={5}>
         <Container>
           <Typography variant="h4" align="center" gutterBottom>
             Our Clients
@@ -246,7 +251,7 @@ const Home = () => {
           <Box className="logo-marquee">
             <div className="marquee">
               <img
-                src="https://via.placeholder.com/150x80?text=Client+1"
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Ffusion.png?alt=media&token=95dea704-ce1c-4b1b-87c7-60d7c7896d7d"
                 alt="Client 1"
                 className="client-logo"
               />
@@ -264,9 +269,9 @@ const Home = () => {
                 src="https://via.placeholder.com/150x80?text=Client+4"
                 alt="Client 4"
                 className="client-logo"
-              />
+              /> */}
               {/* Duplicate logos for seamless looping */}
-              <img
+              {/* <img
                 src="https://via.placeholder.com/150x80?text=Client+1"
                 alt="Client 1"
                 className="client-logo"
@@ -289,10 +294,87 @@ const Home = () => {
             </div>
           </Box>
         </Container>
+      </Box> */}
+
+
+      {/* Our Clients Section */}
+      <Box className="clients-section" py={5}>
+        <Container>
+          <Typography variant="h3" align="center" gutterBottom className="clients-heading" >
+            Our Clients
+          </Typography>
+          <Typography variant="body1" align="center" gutterBottom>
+            We partner with leading organizations to deliver innovative digital
+            solutions.
+          </Typography>
+          <Box className="logo-marquee">
+            <div className="marquee">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Fchurch.png?alt=media&token=eed5fec7-f791-4411-afab-6b24de04cc85"
+                alt="Client 1"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Ffusion.png?alt=media&token=95dea704-ce1c-4b1b-87c7-60d7c7896d7d"
+                alt="Client 2"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Flpc.png?alt=media&token=c7236b6b-4b59-40e5-8b0e-e0bbb593955b"
+                alt="Client 3"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Fmomos_nation2.png?alt=media&token=636db2fd-46f3-47b7-a0f6-aea8c949317e"
+                alt="Client 4"
+                className="client-logo"
+              />
+              {/* Duplicate logos for seamless looping */}
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Fargo.png?alt=media&token=29f0c24f-2f7b-4d20-8aba-1e0d36f26d0f"
+                alt="Client 1"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Ftimepass.png?alt=media&token=4a37737d-5661-4a6a-98d0-e54b497794db"
+                alt="Client 2"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Fnidaanmonopng.PNG.png?alt=media&token=2a4349bf-2714-4b7f-920a-70cede7ae914"
+                alt="Client 3"
+                className="client-logo"
+              />
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Farise.jpg?alt=media&token=88c4161d-8988-419c-970a-53ef8169b8ae"
+                alt="Client 4"
+                className="client-logo"
+              />
+              
+              <img
+              src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2FFront4x.png?alt=media&token=46b10c41-8e70-4a1e-a51b-633779a491dc"
+              alt="client 5"
+              className="client-logo"
+              />
+             <img
+              src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2Fvkb.png?alt=media&token=0657bc05-fed8-4d29-8013-bd16240ee991"
+              alt="client 5"
+              className="client-logo"
+              />
+
+              <img
+              src="https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/companiesImages%2FSANKALPA.png?alt=media&token=676ff2e2-1c00-4983-a657-a61e48d269af"
+              alt="client 5"
+              className="client-logo"
+              />
+
+            </div>
+          </Box>
+        </Container>
       </Box>
 
       {/* Success Metrics Section */}
-      <Box className="success-metrics-section" py={5} textAlign="center">
+      {/* <Box className="success-metrics-section" py={5} textAlign="center">
         <Typography variant="h4" gutterBottom>
           Success Metrics
         </Typography>
@@ -346,7 +428,7 @@ const Home = () => {
             </Box>
           </Grid>
         </Grid>
-      </Box>
+      </Box> */}
 
       {/* Testimonials Section */}
       {/* <Box py={5} className="testimonials-section"> */}
@@ -355,7 +437,7 @@ const Home = () => {
             variant="h4"
             align="center"
             gutterBottom
-            style={{ fontWeight: "bold", fontSize: "2.5rem" }}
+            style={{ fontWeight: "700", fontSize: "2.5rem", color:"#ffbe00", textShadow:"0 0 12px rgba(238, 201, 115, 0.753)", marginBottom:"0px" }}
           >
             Testimonials
           </Typography>

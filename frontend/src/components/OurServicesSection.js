@@ -62,7 +62,7 @@ const OurServicesSection = () => {
         variant="h4"
         align="center"
         gutterBottom
-        sx={{ fontWeight: "bold", fontSize: "2.5rem" }}
+        sx={{ fontWeight: "700", fontSize: "2.5rem", color:"#ffbe00", textShadow:"0 0 12px rgba(238, 201, 115, 0.753)" }}
       >
         Our Services
       </Typography>

@@ -19,6 +19,7 @@ body {
   margin: 0;
   padding: 0;
   padding: 80px 0 0; /* Prevent navbar overlap */
+  background-color: white;
 }
 
 .container {

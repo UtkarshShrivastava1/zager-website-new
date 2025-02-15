@@ -178,11 +178,11 @@ h6 {
 /* -------------------------------------------------------------------------------------- */
 /* About Section Styles */
 .about-section {
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #f9f9f9 40%,
     #ffffff
-  ); /* Subtle gradient background */
+  ); Subtle gradient background */
   padding: 80px 20px; /* Increased padding for breathing room */
   color: #333;
   text-align: center; /* Center align by default for better visual impact */
@@ -341,8 +341,15 @@ h6 {
   animation: marquee 20s linear infinite; /* Slower and smoother scrolling */
 }
 
+.clients-heading{
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  color: #ffbe00;
+  text-shadow: 0 0 12px rgba(238, 201, 115, 0.753);
+}
+
 /* Company Logos */
-.company-logo {
+.client-logo {
   flex-shrink: 0; /* Prevent shrinking */
   max-width: 200px; /* Increased logo size */
   max-height: 140px; /* Increased height */

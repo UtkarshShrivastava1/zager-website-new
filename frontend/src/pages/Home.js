@@ -43,6 +43,34 @@ const Home = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
+
+  const products = [
+    {
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+      name: "Smart Technology Hub",
+      description: "Advanced technology solution for seamless integration of your smart devices. Features include AI-powered automation, real-time monitoring, and enhanced security protocols.",
+      link: "/products/smart-hub"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=1919&auto=format&fit=crop",
+      name: "Digital Assistant Pro",
+      description: "Next-generation digital assistant with voice recognition, task automation, and intelligent scheduling capabilities.",
+      link: "/products/digital-assistant"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1928&auto=format&fit=crop",
+      name: "Cloud Security Suite",
+      description: "Comprehensive cloud security solution offering advanced threat detection and real-time monitoring.",
+      link: "/products/security-suite"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+      name: "Smart Technology Hub",
+      description: "Advanced technology solution for seamless integration of your smart devices. Features include AI-powered automation, real-time monitoring, and enhanced security protocols.",
+      link: "/products/smart-hub"
+    },
+];
+
   const testimonials = [
     {
       src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&h=500",
@@ -69,7 +97,7 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <Box className="hero-section">
-        <Slider {...carouselSettings} className="banner-carousel">
+        {/* <Slider {...carouselSettings} className="banner-carousel">
           <div className="banner-slide">
             <img
               src={csitBanner}
@@ -77,7 +105,16 @@ const Home = () => {
               className="banner-slide-image"
             />
           </div>
-        </Slider>{" "}
+        </Slider>{" "} */}
+        <div className="hero-section-background-cover"></div>
+        <div className="hero-section-content">
+          {/* <h1>Empowering Businesses with <br/> IT Solutions <br/>&<br/> Digital Marketing</h1> */}
+          <h1>Empowering Businesses with <br/> <span style={{color:"#ffbe00"}}>IT</span> Solutions <br/>&<br/> Digital <span style={{color:"#ffbe00"}}>Marketing</span> </h1>
+          <p>We provide cutting-edge solutions to elevate your business.</p>
+          <a href={""} className="product-button">
+                    Get Started
+          </a>
+        </div>
       </Box>
 
       {/* News Ticker Section */}
@@ -110,7 +147,7 @@ const Home = () => {
       <AboutUsSection />
 
       {/* Our Products Section */}
-      <Container className="section">
+      {/* <Container className="section">
         <Typography
           variant="h4"
           align="center"
@@ -154,7 +191,48 @@ const Home = () => {
             </Slider>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
+
+      {/* Our Products Section */}
+      <Container className="section">
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{
+          fontWeight: "700",
+          fontSize: "2.5rem",
+          color: "#ffbe00",
+          textShadow: "0 0 12px rgba(238, 201, 115, 0.753)"
+        }}
+      >
+        Our Products
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Slider {...carouselSettings}>
+            {products.map((product, index) => (
+              <Grid container key={index} className="product-slide">
+                <Grid item xs={12} md={6} className="image-container">
+                  <img src={product.image} alt={product.name} className="carousel-image" />
+                </Grid>
+                <Grid item xs={12} md={6} className="product-details">
+                  <Typography variant="h5" className="product-name">
+                    {product.name}
+                  </Typography>
+                  <Typography variant="body1" className="product-description">
+                    {product.description}
+                  </Typography>
+                  <a href={product.link} className="product-button">
+                    See Product
+                  </a>
+                </Grid>
+              </Grid>
+            ))}
+          </Slider>
+        </Grid>
+      </Grid>
+    </Container>    
 
       {/* <Divider className="custom-divider" variant="middle" /> */}
 

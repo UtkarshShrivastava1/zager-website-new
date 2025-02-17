@@ -7,8 +7,71 @@ h4 {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 83vh; /* Dynamic height based on viewport */
+  height: 88vh; /* Dynamic height based on viewport */
   overflow: hidden;
+  /* background-color: red; */
+  background-image: url("../assets/zager_banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-section-background-cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+/* Add media queries for different screen sizes */
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: 70vh; /* Slightly shorter height for mobile */
+    background-position: center center; /* Ensure center positioning on mobile */
+    background-color: blue;
+  }
+  .hero-section-content h1{
+    text-align: center;
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-section {
+    height: 60vh; /* Even shorter for smaller devices */
+    background-color: rgb(81, 81, 0);
+
+  }
+  .hero-section-content h1{
+    text-align: center;
+    font-size: 1.5rem !important;
+  }
+}
+
+.hero-section-content{
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+}
+.hero-section-content h1{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -.8px;
+}
+.hero-section-content p{
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: -.8px;
 }
 
 .banner-carousel {
@@ -597,4 +660,67 @@ h6 {
 .placement-stats-section .cta-button:hover {
   background-color: #e65b50;
   transform: translateY(-3px);
+}
+
+
+
+ /* our products code  */
+ .section {
+  padding: 40px 0;
+}
+
+.product-slide {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+
+.image-container {
+  padding: 20px !important;
+}
+
+.carousel-image {
+  width: 100%;
+  /* height: 400px; */
+  height: 100%; 
+  object-fit: cover;
+  /* border-radius: 18px; */
+}
+
+.product-details {
+  padding: 20px !important;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+.product-name {
+  margin-bottom: 20px !important;
+  color: #333;
+  font-size: 1.8rem !important;
+}
+
+.product-description {
+  margin-bottom: 30px !important;
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem !important;
+}
+
+.product-button {
+  display: inline-block;
+  padding: 6px 24px;
+  background-color: #ffbe00;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.product-button:hover {
+  /* background-color: #e6ab00; */
+  scale: 1.1;
 }

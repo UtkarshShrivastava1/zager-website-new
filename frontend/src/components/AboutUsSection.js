@@ -27,6 +27,11 @@ const AboutUsSection = () => {
               Our expert team delivers end-to-end services, ensuring that our
               clients stay ahead in an ever-evolving digital landscape.
             </Typography>
+            <Typography variant="body2" align="justify">
+            <a href={"/about"} className="product-button" align="justify">
+              Know More About Us 
+            </a> 
+            </Typography>
           </Box>
         </Grid>
 

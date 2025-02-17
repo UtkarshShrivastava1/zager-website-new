@@ -14,6 +14,7 @@
   right: 0; /* Align right edge */
   z-index: 9999; /* Ensure navbar is on top of all content */
   overflow: hidden; /* Prevent overflowing content from breaking layout */
+  height: 12vh; /*  */
 }
 
 /* Brand styling */

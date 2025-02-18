@@ -102,10 +102,10 @@ const NavBar = ({ isLoggedIn, userRole, handleLogout }) => {
                 Services
               </Nav.Link>
               <Nav.Link as={Link} to="/portfolio" className="custom-nav-link">
-                Portfolio
+                Porduct
               </Nav.Link>
               <Nav.Link as={Link} to="/blog" className="custom-nav-link">
-                Blog
+                Testimonial
               </Nav.Link>
               <Nav.Link as={Link} to="/contact" className="custom-nav-link">
                 Contact

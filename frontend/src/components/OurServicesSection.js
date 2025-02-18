@@ -1,105 +1,41 @@
 import React from "react";
-import { Container, Typography, Grid, Card, CardContent } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+
+// import {Carousel,Card} from "./Carousel.js";
+// import{ Card} from "./Carousel.js";
+// import "./Carousel.css";
+
+// import { useNavigate } from "react-router-dom";
 import "./OurServicesSection.css";
+import  FocusCards  from "./FocusCard.js";
+import '../styles/FocusCards.css'
+
+const cardData = [
+  { title: "Web development",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "Digital Marketing",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "Architecture",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/4491459/pexels-photo-4491459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "Graphic Designer",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/28608026/pexels-photo-28608026/free-photo-of-digital-art-creation-on-tablet-with-stylus.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "IT Solutions",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/7876783/pexels-photo-7876783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "Content Creations",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "Media Production",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+
+  { title: "influencer marketing",description :" Web development refers to the creating, building, and maintaining of websites", src: "https://images.pexels.com/photos/7480565/pexels-photo-7480565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+];
 const OurServicesSection = () => {
-  const navigate = useNavigate();
-
-  const services = [
-    {
-      name: "Digital Marketing",
-      path: "/services/digital-marketing",
-      description:
-        "Cutting-edge strategies to enhance your brand’s online presence.",
-    },
-    {
-      name: "Web Development",
-      path: "/services/web-development",
-      description:
-        "Custom-built websites and applications tailored to your business needs.",
-    },
-    {
-      name: "IT Solutions",
-      path: "/services/it-solutions",
-      description:
-        "Comprehensive IT services to optimize and secure your infrastructure.",
-    },
-    {
-      name: "Designing",
-      path: "/services/designing",
-      description:
-        "Stunning graphic, UI/UX, and branding designs to elevate your business.",
-    },
-    {
-      name: "Content Creation",
-      path: "/services/content-creation",
-      description:
-        "Engaging and high-quality content tailored to your audience.",
-    },
-    {
-      name: "Media Production",
-      path: "/services/media-production",
-      description:
-        "High-quality photography, videography, and multimedia production.",
-    },
-    {
-      name: "Architecture",
-      path: "/services/architecture",
-      description:
-        "Innovative architectural designs for modern and functional spaces.",
-    },
-    {
-      name: "Influencer Marketing",
-      path: "/services/influencer-marketing",
-      description:
-        "Connect with top influencers to boost your brand’s reach and engagement.",
-    },
-  ];
-
+ 
   return (
-    <Container className="section">
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        sx={{ fontWeight: "bold", fontSize: "2.5rem" }}
-      >
-        Our Services
-      </Typography>
-      <Grid container spacing={4} justifyContent="center">
-        {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card
-              className="service-card"
-              onClick={() => navigate(service.path)}
-              sx={{
-                cursor: "pointer",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
-                },
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)",
-              }}
-            >
-              <CardContent sx={{ textAlign: "center", padding: "24px" }}>
-                <Typography
-                  variant="h5"
-                  className="service-name"
-                  sx={{ mb: 2, fontWeight: 600 }}
-                >
-                  {service.name}
-                </Typography>
-                <Typography variant="body2" className="service-description">
-                  {service.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <div className="our-services-section">
+      <h1><span>Our Digital Marketing Services</span></h1>
+      <hr/>
+      <div >
+      <FocusCards cards={cardData} />
+  </div>
+    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 /* Global Styles */
+
 h4 {
   font-weight: bold;
 }
@@ -7,7 +8,7 @@ h4 {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 83vh; /* Dynamic height based on viewport */
+  height: 85vh; /* Dynamic height based on viewport */
   overflow: hidden;
 }
 
@@ -15,21 +16,24 @@ h4 {
   position: relative;
   width: 100%;
   height: 100%; /* Ensure the carousel fills the section */
+
 }
 
 .banner-slide {
-  position: relative;
   width: 100%;
-  height: 100%; /* Inherit the parent height */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-slide img {
-  display: block; /* Prevent inline gaps */
-  width: 100%; /* Ensure the image scales to the container width */
-  height: 100%; /* Ensure the image scales to the container height */
-  object-fit: cover; /* Maintain aspect ratio while filling the container */
-  transition: transform 0.5s ease-in-out; /* Smooth zoom effect */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the container */
 }
+
+
 
 .hero-overlay {
   position: absolute;
@@ -342,7 +346,7 @@ h6 {
 }
 
 /* Company Logos */
-.company-logo {
+.client-logo{
   flex-shrink: 0; /* Prevent shrinking */
   max-width: 200px; /* Increased logo size */
   max-height: 140px; /* Increased height */

@@ -1,0 +1,153 @@
+/* AnimatedTestimonials.css */
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.image-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+.testimonial-image-wrapper {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom;
+}
+
+.testimonial-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.testimonial-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .testimonial-name {
+    color: #000000;
+  }
+}
+
+.testimonial-designation {
+  font-size: 14px;
+  color: #000000;
+  margin: 8px 0 0 0;
+  font-weight: 400;
+}
+
+.testimonial-quote {
+  font-size: 18px;
+  color: #838a9b;
+  margin: 32px 0 0 0;
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .testimonial-quote {
+    color: #d1d5db;
+  }
+}
+
+.word-span {
+  display: inline-block;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 16px;
+  padding-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .navigation-buttons {
+    padding-top: 0;
+  }
+}
+
+/* .nav-button {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-color: #182848;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+} */
+ .nav-button{
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #182848;
+ }
+
+/* @media (prefers-color-scheme: dark) {
+  .nav-button {
+   
+    background-color: #182848;
+  }
+} */
+
+.nav-button:hover {
+  transform: scale(1.05);
+}
+
+.nav-icon {
+  height: 25px;
+  width: 25px;
+  color: #ffffff ;
+  transition: transform 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-icon {
+    color: #ffffff ;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.nav-button:hover .nav-icon {
+  transform: rotate(12deg);
+}
+
+.nav-button:last-child:hover .nav-icon {
+  transform: rotate(-12deg);
+}

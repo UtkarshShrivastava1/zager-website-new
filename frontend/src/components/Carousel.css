@@ -1,0 +1,99 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Light transparent background over image */
+}
+
+.text-container {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7); /* Light translucent background for text */
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.slide-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.slide-description {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Navigation Buttons */
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Pagination Dots */
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: black;
+}

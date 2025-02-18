@@ -6,6 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import Home from "./pages/Home"; // Import Home Page
+import About from "./pages/About.js"; // Import About Page
+import Services from "./pages/Services.js"; // Import Services Page
 import AdminLogin from "./pages/Admin/AdminLogin"; // Import Admin Login Page (if separate)
 import AdminDashboardPage from "./pages/Admin/AdminDashboardPage"; // Admin Dashboard Page
 import ProfilePage from "./pages/Admin/AdminProfileManage"; // Admin Profile Page (Ensure this is created)
@@ -33,7 +35,7 @@ const App = () => {
       setIsLoggedIn(false);
       setLoading(false); // No token, done loading
     }
-  }, []);
+  },[]);
 
   const validateToken = async (token) => {
     console.log("Validating token...");
@@ -95,7 +97,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/homepage" replace />} />
         <Route path="/homepage" element={<Home />} />
-
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
         <Route
           path="/admin-login"
           element={

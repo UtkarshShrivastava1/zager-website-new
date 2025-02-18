@@ -14,6 +14,7 @@ import ProfilePage from "./pages/Admin/AdminProfileManage"; // Admin Profile Pag
 import RegisterAdminPage from "./pages/Admin/AdminRegisterForm"; // Admin Register Admin Page (Ensure this is created)
 import Navbar from "./components/Navbar"; // Import Navbar
 import Footer from "./components/Footer"; // Import Footer
+import Contact from "./pages/Contact.js";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -99,6 +100,7 @@ const App = () => {
         <Route path="/homepage" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/admin-login"
           element={

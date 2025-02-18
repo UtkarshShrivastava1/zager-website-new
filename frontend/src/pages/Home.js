@@ -27,6 +27,8 @@ import { AnimatedTestimonials } from "../components/AnimatedTestimonials";
 // import VisibilitySensor from "react-visibility-sensor";
 // import AOS from "aos";
 import "aos/dist/aos.css";
+import { Contact } from "lucide-react";
+import ContactForm from "../components/Contactform"
 // import { yellow } from "@mui/material/colors";
 const Home = () => {
   // Carousel settings for react-slick
@@ -337,6 +339,8 @@ const Home = () => {
         testimonials={testimonials} 
         autoplay={true} 
       />
+
+      <ContactForm/>
     </>
   );
 };

@@ -62,3 +62,13 @@ exports.resetPassword = async (req, res) => {
     res.status(500).json({ message: 'Error resetting password' });
   }
 };
+
+// Add to authController.js
+exports.getMe = async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.admin._id).select('-password')
+    res.json(admin)
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' })
+  }
+}

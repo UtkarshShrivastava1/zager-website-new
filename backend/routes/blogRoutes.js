@@ -6,7 +6,8 @@ const {
   getAllBlogs,
   createBlog,
   updateBlog,
-  deleteBlog
+  deleteBlog,
+  getBlogById // Added
 } = require('../controllers/blogController');
 
 // Test route
@@ -15,9 +16,11 @@ router.get('/test', (req, res) => {
 });
 
 // Blog routes
-router.get('/', getAllBlogs);  // Public route
-router.post('/', protect, upload, createBlog);  // Protected route
-router.put('/:id', protect, upload, updateBlog);  // Protected route
-router.delete('/:id', protect, deleteBlog);  // Protected route
+router.get('/', getAllBlogs);          // Get all blogs
+router.get('/:id', getBlogById);       // Get single blog (NEW)
+router.post('/', protect, upload, createBlog);
+router.put('/:id', protect, upload, updateBlog);
+router.delete('/:id', protect, deleteBlog);
+
 
 module.exports = router;

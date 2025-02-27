@@ -1,68 +1,42 @@
-/* Ensure no global margin or padding interference from Bootstrap */
-* {
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box;
-}
-
-/* Remove unwanted margins from body, container, and row */
-body,
-.container,
-.row {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Custom styles for the app */
-.App {
-  text-align: center;
-  font-family: "Arial", sans-serif;
-  background-color: #f0f4f8;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.App-header {
-  background-color: #282c34;
-  color: white;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem; /* Fix any margin issue */
 }
 
-.App-logo {
-  height: 10rem;
-  pointer-events: none;
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 1.5rem;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Custom margins and paddings for mobile responsiveness */
-@media (max-width: 768px) {
-  .App-logo {
-    height: 8rem;
-    margin-bottom: 1rem;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .App-header h1 {
-    font-size: 2.5rem;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
+}
 
-  .App-header p {
-    font-size: 1rem;
-  }
+.card {
+  padding: 2em;
+}
 
-  .App-link {
-    font-size: 1rem;
-  }
+.read-the-docs {
+  color: #888;
 }

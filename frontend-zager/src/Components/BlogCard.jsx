@@ -1,15 +1,23 @@
-import { Card, CardMedia, CardContent, Typography, Button, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
-import DeleteIcon from '@mui/icons-material/Delete';
-import axios from 'axios';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Button,
+  IconButton,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 const BlogCard = ({ blog }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`/api/blogs/${blog._id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
       window.location.reload();
     } catch (err) {
@@ -18,27 +26,29 @@ const BlogCard = ({ blog }) => {
   };
 
   return (
-    <Card sx={{ 
-      bgcolor: 'background.paper',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      position: 'relative'
-    }}>
-      {localStorage.getItem('token') && (
-        <IconButton 
-          sx={{ 
-            position: 'absolute', 
-            right: 8, 
-            top: 8, 
-            color: 'error.main' 
+    <Card
+      sx={{
+        bgcolor: "background.paper",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
+    >
+      {localStorage.getItem("token") && (
+        <IconButton
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: "error.main",
           }}
           onClick={handleDelete}
         >
           <DeleteIcon />
         </IconButton>
       )}
-      
+
       <CardMedia
         component="img"
         height="200"
@@ -46,24 +56,39 @@ const BlogCard = ({ blog }) => {
         alt={blog.title}
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h5" component="h2" color="text.primary">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h2"
+          color="text.primary"
+        >
           {blog.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" paragraph>
           {blog.content.substring(0, 150)}...
         </Typography>
-        <Button 
-          component={Link} 
-          to={`/edit/${blog._id}`} 
-          variant="contained" 
+        <Button
+          component={Link}
+          to={`/edit/${blog._id}`}
+          variant="contained"
           color="secondary"
           sx={{ mt: 2 }}
         >
-          {localStorage.getItem('token') ? 'Edit Post' : 'Read More'}
+          {localStorage.getItem("token") ? "Edit Post" : "Read More"}
         </Button>
       </CardContent>
     </Card>
   );
+};
+BlogCard.propTypes = {
+  blog: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BlogCard;

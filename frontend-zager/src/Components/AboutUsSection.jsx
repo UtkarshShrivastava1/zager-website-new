@@ -13,7 +13,7 @@ const AboutUsSection = () => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Set initial states
+    // Set initial states for text and image animations
     gsap.set([contentRef.current, imageRef.current], {
       y: 100,
       opacity: 0,
@@ -37,16 +37,39 @@ const AboutUsSection = () => {
       stagger: 0.2,
     });
 
-    // Cleanup
+    // Cleanup timeline on unmount
     return () => {
       tl.kill();
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16">
-        {/* Title Section: Spans full container and is centered */}
+    <section
+      ref={sectionRef}
+      className="relative py-16 bg-white overflow-hidden"
+    >
+      {/* Decorative Background Elements with flipped diagonal corners */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: "scaleY(-1)" }}
+      >
+        {/* Even Gradient Overlay */}
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        {/* Blurred circle in top-left corner (after flip, appears at bottom-left) */}
+        <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Blurred circle in bottom-right corner (after flip, appears at top-right) */}
+        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+      </div>
+
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        {/* Title Section: Centered across the full container */}
         <div className="text-center mb-12">
           <h4
             style={{

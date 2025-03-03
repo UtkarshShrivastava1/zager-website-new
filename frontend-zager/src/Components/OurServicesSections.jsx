@@ -56,14 +56,24 @@ const services = [
 const OurServicesSections = () => {
   return (
     <section className="relative py-16 bg-white text-[#051224] overflow-hidden">
-      {/* Decorative Background Elements Wrapped in a Horizontally Flipped Container */}
+      {/* Decorative Background Elements: Even Gradient Overlay & Blurred Circles, flipped vertically */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ transform: "scaleX(-1)" }}
+        style={{ transform: "scaleY(-1)" }}
       >
-        <div className="w-full h-full bg-gradient-to-br from-[#ffbe00] to-transparent opacity-10"></div>
-        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse"></div>
+        {/* Even Gradient Overlay */}
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        {/* Blurred Circle in top-right corner (after flip, appears at bottom-right) */}
+        <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Blurred Circle in bottom-left corner (after flip, appears at top-left) */}
+        <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
 
       {/* Content */}

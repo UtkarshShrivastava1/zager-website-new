@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const products = [
   {
@@ -39,7 +39,7 @@ const OurProducts = () => {
     products[0],
   ];
 
-  const slide = (direction) => {
+  const slide = useCallback((direction) => {
     let newIndex = index + direction;
 
     // Handle wrap-around logic
@@ -59,7 +59,7 @@ const OurProducts = () => {
       ease: "power2.out",
       duration: 0.6, // Adjusted duration for smoother transition
     });
-  };
+  }, [index, totalProducts, displayProducts.length]);
 
   const handleDotClick = (dotIndex) => {
     const direction = dotIndex - index;
@@ -71,7 +71,7 @@ const OurProducts = () => {
       slide(1);
     }, 3500);
     return () => clearInterval(interval);
-  }, [index]);
+  }, [index, slide]);
 
   return (
     <div className=" relative overflow-hidden min-h-[100vh]">

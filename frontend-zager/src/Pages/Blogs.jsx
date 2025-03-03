@@ -8,6 +8,10 @@ function Blogs() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -20,7 +24,6 @@ function Blogs() {
       }
     };
     fetchBlogs();
-    console.log(blogs);
   }, []);
 
   const filteredBlogs = blogs.filter(
@@ -49,7 +52,16 @@ function Blogs() {
   }
 
   return (
-    <>
+    <div>
+      <div className="flex justify-between items-center mb-6">
+        <input
+          type="text"
+          placeholder="Search blogs..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="border p-2 rounded"
+        />
+      </div>
       <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
         {filteredBlogs.length > 0 ? (
           <div>
@@ -77,7 +89,7 @@ function Blogs() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

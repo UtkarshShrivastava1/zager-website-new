@@ -1,5 +1,3 @@
-import React from "react";
-import { BentoGridDemo } from "../Components/BentoGrid";
 import { TimelineDemo } from "../Components/TimelineDemo";
 
 const AboutUsPage = () => {
@@ -48,7 +46,7 @@ const AboutUsPage = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffbe00] mb-6">
-              We're changing the way people connect
+              We&apos;re changing the way people connect
             </h1>
             <p className="text-lg text-gray-600">
               At{" "}
@@ -221,8 +219,8 @@ const AboutUsPage = () => {
                     Client-Centric Solution
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    "Deliver tailor-made digital solutions that meet our
-                    clients' unique needs.
+                    &quot;Deliver tailor-made digital solutions that meet our
+                    clients&apos; unique needs.
                   </p>
                 </div>
                 <div className="relative min-h-[30rem] w-full grow">
@@ -260,7 +258,7 @@ const AboutUsPage = () => {
           comprehensive digital marketing and IT solutions that empower
           businesses to thrive in the digital era. We aim to redefine excellence
           and inspire growth by delivering cutting-edge technology and creative
-          strategies tailored to meet our clients' evolving needs.
+          strategies tailored to meet our clients&apos; evolving needs.
         </p>
       </div>
 

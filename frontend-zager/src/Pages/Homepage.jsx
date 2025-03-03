@@ -7,7 +7,7 @@ import OurServicesSections from "../Components/OurServicesSections";
 import OurProducts from "../Components/Products";
 import Clients from "../Components/Client";
 import OurPlatforms from "../Components/OurPlatform";
-import graphicVideo from "../assets/design1.gif";
+import graphicVideo from "../assets/graphics4.webm";
 
 const HeroSection = () => {
   useGSAP(() => {
@@ -30,11 +30,23 @@ const HeroSection = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen w-full flex items-center justify-center bg-white text-[#051224] py-12 overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#ffbe00] to-transparent opacity-10 pointer-events-none"></div>
-        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-        <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+      <section className="min-h-screen w-full flex items-center justify-center bg-white text-[#051224] py-12 overflow-hidden relative">
+        {/* Decorative Background Elements: Even Gradient Overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Even Gradient Overlay: fades from transparent at the top,
+              to amber in the middle, then back to transparent at the bottom */}
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+              opacity: 0.1,
+            }}
+          ></div>
+          {/* Diagonal Blurred Circles */}
+          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        </div>
 
         <div className="relative w-full max-w-6xl flex items-center justify-between px-8 lg:px-12">
           {/* Left Content Section with Animated Text */}

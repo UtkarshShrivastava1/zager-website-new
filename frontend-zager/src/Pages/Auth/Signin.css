@@ -1,0 +1,149 @@
+/* Center everything properly */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #dae0e6, #f0f3f8);
+  padding: 20px;
+}
+
+/* Stylish login card */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom, #35558a, #1e2a47);
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Improve heading appearance */
+h3 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #ffbe00;
+  text-shadow: 1px 1px 3px rgba(195, 197, 180, 0.641);
+}
+
+/* Center and align icon properly */
+.role-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.role-icon-container svg {
+  color: #f1f4f9;
+  font-size: 70px;
+}
+
+/* Form styles */
+form {
+  width: 100%;
+}
+
+/* Label styling */
+.form-label {
+  font-weight: 600;
+  color: #f4f5f8;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.form-control {
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.959);
+  color: #000000;
+  transition: 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.837);
+}
+
+/* Fix input group alignment */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group .btn-outline-secondary {
+  border: none;
+  color: #d3d5d9;
+  background: transparent;
+}
+
+.input-group .btn-outline-secondary:hover {
+  background-color: #051224;
+  color: white;
+}
+
+/* Primary button styling */
+.w-100 {
+  width: 100%;
+  background: linear-gradient(to right, #167c3f, #099627);
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.w-100:hover {
+  background: linear-gradient(to right, #224477, #35558a);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Fix alert message alignment */
+.alert-danger {
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.2);
+  color: #ffdddd;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+  }
+
+  .role-icon-container svg {
+    font-size: 50px;
+  }
+
+  .w-100 {
+    font-size: 14px;
+  }
+}

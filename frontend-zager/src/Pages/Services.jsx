@@ -1,12 +1,12 @@
-import ServicesIntro from "../components/ServicesIntro";
-import DigitalMarketing from "../components/Digital_Marketing";
-import WebDevelopment from "../components/WebDevelopment";
-import MediaProduction from "../components/MediaProduction";
-import ItSolution from "../components/ItSolution";
-import Designing from "../components/Designing";
-import ContentCreation from "../components/ContentCreation";
-import StickyScroll from "../components/StickyScroll";
-import Architecture from "../components/Architecture";
+import ServicesIntro from "../Components/ServicesIntro";
+import DigitalMarketing from "../Components/Digital_Marketing";
+import WebDevelopment from "../Components/WebDevelopment";
+import MediaProduction from "../Components/MediaProduction";
+import ItSolution from "../Components/ItSolution";
+import Designing from "../Components/Designing";
+import ContentCreation from "../Components/ContentCreation";
+import StickyScroll from "../Components/StickyScroll";
+import Architecture from "../Components/Architecture";
 
 // Local image imports (ensure these paths and filenames are correct)
 import digitalMarketingImage from "../assets/design1.gif";

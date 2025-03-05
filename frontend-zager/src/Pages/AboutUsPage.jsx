@@ -36,11 +36,11 @@ const AboutUsPage = () => {
               <span className="text-[#051244] font-bold">
                 Zager Digital Services
               </span>
-              , we believe exceptional digital marketing and IT solutions stem
-              from a commitment to integrity, innovation, and excellence. We
-              empower businesses with cutting-edge technology and strategic
-              marketing to deliver tailored solutions that drive growth and
-              success.
+              , We are a passionate team of designers, developers, and
+              strategists dedicated to crafting cutting-edge solutions. Our goal
+              is to help businesses thrive in the digital landscape by providing
+              top-notch web development, media production, and creative design
+              services.
             </p>
           </div>
           <div className="md:w-1/2 flex gap-4">

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   Facebook,
@@ -133,7 +132,7 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-gray-300 text-sm text-center md:text-right">
-              © 2025 Zager Digital Management. All rights reserved.{" "}
+              © 2025 Zager Digital Services. All rights reserved.{" "}
               <span className=" text-sm text-center md:text-right">
                 <NavLink to={"/admin/admin-login"} className={"!text-gray-200"}>
                   Admin

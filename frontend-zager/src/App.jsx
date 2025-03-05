@@ -19,6 +19,10 @@ import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 import Blogs from "./Pages/Blogs";
 import Services from "./Pages/Services";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+
+import TermsofService from "./Pages/TermsofService";
+
 function App() {
   // Function to check if the user is authenticated
   const isAuthenticated = () => {
@@ -39,6 +43,8 @@ function App() {
           <Route path="/contactus" element={<ContactUsPage />} />
           <Route path="/carrer" element={<CarrerPage />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsofService />} />
 
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
           <Route path="/ourplatforms/jkworks" element={<JKWorks />} />

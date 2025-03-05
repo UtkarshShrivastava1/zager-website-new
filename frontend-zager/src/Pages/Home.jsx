@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Home = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -7,7 +5,7 @@ const Home = () => {
         Welcome to Zager Website
       </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

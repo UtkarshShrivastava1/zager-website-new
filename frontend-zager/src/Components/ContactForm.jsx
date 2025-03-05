@@ -18,21 +18,21 @@ const ContactForm = () => {
       icon: (
         <Instagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.instagram.com/zagerdigitalservices",
     },
     {
       title: "Facebook",
       icon: (
         <Facebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.facebook.com/zagerdigitalservices",
     },
     {
       title: "Linkedin",
       icon: (
         <Linkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.linkedin.com/company/zagerdigitalservices/posts/?feedView=all",
     },
     {
       title: "Twitter",

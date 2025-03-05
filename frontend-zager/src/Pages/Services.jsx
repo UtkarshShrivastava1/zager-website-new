@@ -39,14 +39,6 @@ const contentData = [
     imageUrl: webDevelopmentImage,
   },
   {
-    id: "media-production",
-    title: "Media Production",
-    description:
-      "Create captivating video and media content through end-to-end production—from concept development to final editing.",
-    tags: <MediaProduction />,
-    imageUrl: mediaProductionImage,
-  },
-  {
     id: "it-solutions",
     title: "IT Solutions and Services",
     description:
@@ -55,20 +47,28 @@ const contentData = [
     imageUrl: itSolutionsImage,
   },
   {
-    id: "content-creation",
-    title: "Content Creation",
-    description:
-      "Engage your audience with high-quality content in various formats that supports your marketing goals and builds your brand.",
-    tags: <ContentCreation />,
-    imageUrl: contentCreationImage,
-  },
-  {
     id: "designing",
     title: "Graphic & Brand Design",
     description:
       "Enhance your brand identity with visually stunning designs that capture attention and convey your message effectively.",
     tags: <Designing />,
     imageUrl: designingImage,
+  },
+  {
+    id: "media-production",
+    title: "Media Production",
+    description:
+      "Create captivating video and media content through end-to-end production—from concept development to final editing.",
+    tags: <MediaProduction />,
+    imageUrl: mediaProductionImage,
+  },
+  {
+    id: "content-creation",
+    title: "Content Creation",
+    description:
+      "Engage your audience with high-quality content in various formats that supports your marketing goals and builds your brand.",
+    tags: <ContentCreation />,
+    imageUrl: contentCreationImage,
   },
   {
     id: "architecture",

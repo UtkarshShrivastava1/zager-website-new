@@ -89,10 +89,12 @@ const AboutUsSection = () => {
               Empowering Your Business <br /> with Digital Innovation
             </h2>
             <p className="text-gray-600 mt-4 text-lg leading-relaxed">
-              We are a passionate team of designers, developers, and strategists
-              dedicated to crafting cutting-edge solutions. Our goal is to help
-              businesses thrive in the digital landscape by providing top-notch
-              web development, media production, and creative design services.
+              At Zager Digital Services, we believe that exceptional Digital
+              Marketing and IT solutions stem from a core commitment to
+              integrity, innovation, and excellence. Founded with the mission to
+              empower businesses through cutting-edge technology and strategic
+              marketing, we take pride in delivering tailored solutions that
+              drive growth and success.
             </p>
             <button
               onClick={() => navigate("/aboutus")}

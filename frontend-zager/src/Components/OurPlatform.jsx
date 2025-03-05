@@ -11,16 +11,17 @@ import jkworksImg from "../assets/jkworks.jpeg";
 
 const platforms = [
   {
-    title: "Gyaanadari",
+    title: "Gyaanadri ",
     description:
-      "Welcome to Gyaanadari, your premier destination for insightful content and engaging media.",
+      "Welcome to Gyaanadri, your premier destination for insightful content and engaging media.",
     imageUrl: gyaanadariImg,
     link: "/gyaanadari",
     icon: <BookOpen className="text-[#ffbe00] w-10 h-10" />,
   },
   {
-    title: "ZMS",
-    description: "Explore ZMS and its cutting-edge innovations.",
+    title: "Zager Management System(ZMS)",
+    description:
+      "Explore ZMS and its cutting-edge innovations comprehensive, unified platform that brings together a diverse range of automation and ERP (Enterprise Resource Planning) systems into one seamless platform.",
     imageUrl: zmsImg,
     link: "/zms",
     icon: <Cpu className="text-[#ffbe00] w-10 h-10" />,

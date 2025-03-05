@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
 import Heading from "../Components/Heading";
 import { TextGenerateEffect } from "../Components/ui/text-generate-effect";
 import { cn } from "../lib/utils";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useEffect } from "react";
 
 function Gyaanadari() {
   const workValues = [
@@ -43,13 +42,13 @@ function Gyaanadari() {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Set initial states
+    // Set initial states for scroll-triggered elements
     gsap.set([contentRef.current, imageRef.current], {
       y: 100,
       opacity: 0,
     });
 
-    // Create the scroll trigger animation
+    // Create scroll trigger animation for text and image
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -64,21 +63,53 @@ function Gyaanadari() {
       opacity: 1,
       duration: 1.5,
       ease: "power3.out",
-      stagger: 0.2, // Add slight delay between content and image animation
+      stagger: 0.2,
     });
 
-    // Cleanup
+    // Animate background elements (glowing circles)
+    gsap.to(".top-glow", {
+      y: -20,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "power1.inOut",
+    });
+
+    gsap.to(".bottom-glow", {
+      scale: 1.2,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "power1.inOut",
+    });
+
     return () => {
       tl.kill();
     };
   }, []);
+
   return (
-    <>
-      <div className="mt-15">
+    <div className="relative">
+      {/* Background Gradient Overlay & Glowing Circles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+        <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+      </div>
+
+      {/* Main Content with higher z-index */}
+      <div className="mt-15 relative z-10">
         <Heading value={"GYAANDARI"} />
         <div className="flex flex-col items-center justify-center py-5 gap-2">
           <TextGenerateEffect words={words} />
-          <p className="w-[50%] text-center text-lg">
+          <p className="w-[100%] text-center text-lg">
             Your premier destination for insightful content and engaging media.
             At Gyaanadri, we’re dedicated to delivering high-quality,
             informative content that informs, inspires, and entertains. Our
@@ -88,27 +119,14 @@ function Gyaanadari() {
           </p>
         </div>
 
-        {/* <div className=" flex flex-col items-center justify-center py-5 gap-2">
-          <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00]  text-center">
-            Our Mission
-          </h2>
-          <p className=" w-[50%] text-center text-lg">
-          Our mission at Gyaanadri is to empower our audience with valuable knowledge and perspectives through a variety of content formats. We strive to be a trusted source for the latest news, thought-provoking interviews, and enriching podcasts. By curating and creating content that resonates with our audience, we aim to foster a more informed and connected community.
-          </p>
-        </div> */}
-
-        <section ref={sectionRef} className=" py-16">
+        <section ref={sectionRef} className="py-16">
           <div className="container mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <div ref={contentRef} className="text-center md:text-left">
-                <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal ">
+                <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
                   Our Mission
                 </h3>
-                {/* <Heading value={"Our Mission"}/> */}
-                {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 leading-tight">
-              Empowering Your Business <br /> with Digital Innovation
-            </h2> */}
                 <p className="text-gray-900 mt-4 text-lg leading-relaxed">
                   Our mission at Gyaanadri is to empower our audience with
                   valuable knowledge and perspectives through a variety of
@@ -118,9 +136,6 @@ function Gyaanadari() {
                   our audience, we aim to foster a more informed and connected
                   community.
                 </p>
-                {/* <button className="mt-6 bg-[#ffbe00] text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 hover:cursor-pointer transition">
-              Read More
-            </button> */}
               </div>
 
               {/* Image Section */}
@@ -143,9 +158,7 @@ function Gyaanadari() {
             <div key={index} className="max-w-xs w-full group/card">
               <div
                 className={cn(
-                  " cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl  max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
-                  //   `bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover`
-                  //   `bg-[url(${value.imageUrl})] bg-cover`
+                  "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
                 )}
                 style={{
                   backgroundImage: `url(${value.imageUrl})`,
@@ -154,7 +167,6 @@ function Gyaanadari() {
                 }}
               >
                 <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-                <div className="flex flex-row items-center space-x-4 z-10"></div>
                 <div className="text content">
                   <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
                     {value.name}
@@ -165,50 +177,22 @@ function Gyaanadari() {
                 </div>
               </div>
             </div>
-            // <div className="max-w-xs w-full">
-            //   <div
-            //     className={cn(
-            //       "group w-full cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800",
-
-            //         // Preload hover image by setting it in a pseudo-element
-            //         "before:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)] before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
-            //       //   `before:bg-[url(${value.imageUrl})] before:fixed before:inset-0 before:opacity-0 before:z-[-1]`,
-            //         "hover:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)]",
-            //         "hover:after:content-[''] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-50",
-            //         "transition-all duration-500"
-            //     )}
-            //     style={{
-            //       backgroundImage: `url(${value.imageUrl})`,
-            //       backgroundSize: "cover",
-            //       backgroundPosition: "center",
-            //     }}
-            //   >
-            //     <div className="text relative z-50">
-            //       <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
-            //         {value.name}
-            //       </h1>
-            //       <p className="font-normal text-base text-gray-50 relative my-4">
-            //         {value.description}
-            //       </p>
-            //     </div>
-            //   </div>
-            // </div>
           ))}
         </div>
 
-        <div className=" flex flex-col items-center justify-center py-5 gap-2 mt-15">
-          <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00]  text-center ">
+        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15">
+          <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
             Join Us On Our Journery
           </h2>
-          <p className=" w-[50%] text-center text-lg">
+          <p className="w-[100%] text-center text-lg">
             Explore the world of Gyaanadri and discover a wealth of content
             designed to enrich your knowledge and entertain your mind. Connect
             with us through social media, and stay tuned for the latest updates
-            and content releases..
+            and content releases.
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

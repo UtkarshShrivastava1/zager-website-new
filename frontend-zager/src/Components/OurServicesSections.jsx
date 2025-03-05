@@ -26,9 +26,8 @@ const services = [
     link: "/services#custom-web-application-development",
   },
   {
-    title: "Digital Media",
-    description:
-      "We create and manage digital media strategies to grow your brand online.",
+    title: "Digital Marketing",
+    description: "Custom IT solutions and Digital Marketing for your Business.",
     video: serviceVideo3,
     link: "/services#digital-media",
   },

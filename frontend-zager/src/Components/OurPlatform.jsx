@@ -3,41 +3,43 @@
 import { motion } from "framer-motion";
 import { BookOpen, Building, Film, Cpu } from "lucide-react";
 
+// Import local images
+import gyaanadariImg from "../assets/gyanadari.jpeg";
+import zmsImg from "../assets/zms.jpeg";
+import iramediaImg from "../assets/iramedia.jpeg";
+import jkworksImg from "../assets/jkworks.jpeg";
+
 const platforms = [
   {
     title: "Gyaanadari",
     description:
-      "Welcome to Gyaandari, your premier destination for insightful content and engaging media.",
-    imageUrl:
-      "https://images.pexels.com/photos/16735210/pexels-photo-16735210/free-photo-of-drone-on-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "Welcome to Gyaanadari, your premier destination for insightful content and engaging media.",
+    imageUrl: gyaanadariImg,
     link: "/gyaanadari",
     icon: <BookOpen className="text-[#ffbe00] w-10 h-10" />,
   },
   {
-    title: "JK WORKS",
-    description:
-      "Welcome to JK Works, your premier partner in architecture and interior design.",
-    imageUrl:
-      "https://images.pexels.com/photos/16735210/pexels-photo-16735210/free-photo-of-drone-on-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    link: "/jkworks",
-    icon: <Building className="text-[#ffbe00] w-10 h-10" />,
+    title: "ZMS",
+    description: "Explore ZMS and its cutting-edge innovations.",
+    imageUrl: zmsImg,
+    link: "/zms",
+    icon: <Cpu className="text-[#ffbe00] w-10 h-10" />,
   },
   {
     title: "IRA MEDIA & PRODUCTION",
     description:
       "Welcome to IRA Media and Production, where creativity meets strategy to bring your media projects to life.",
-    imageUrl:
-      "https://images.pexels.com/photos/16735210/pexels-photo-16735210/free-photo-of-drone-on-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: iramediaImg,
     link: "/iramedia",
     icon: <Film className="text-[#ffbe00] w-10 h-10" />,
   },
   {
-    title: "ZMS",
-    description: "Explore ZMS and its cutting-edge innovations.",
-    imageUrl:
-      "https://images.pexels.com/photos/16735210/pexels-photo-16735210/free-photo-of-drone-on-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    link: "/zms",
-    icon: <Cpu className="text-[#ffbe00] w-10 h-10" />,
+    title: "JK WORKS",
+    description:
+      "Welcome to JK Works, your premier partner in architecture and interior design.",
+    imageUrl: jkworksImg,
+    link: "/jkworks",
+    icon: <Building className="text-[#ffbe00] w-10 h-10" />,
   },
 ];
 

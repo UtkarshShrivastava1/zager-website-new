@@ -1,30 +1,34 @@
+"use client";
+
 import { gsap } from "gsap";
 import { useEffect, useRef, useState, useCallback } from "react";
 
+// Import local images for products
+import schoolManagementImg from "../assets/schoolmanagement.jpg";
+import employeeManagementImg from "../assets/employee-management.jpg";
+import mysavuiorImg from "../assets/mysavuior.jpg";
+
 const products = [
   {
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-    name: "Smart Technology Hub",
+    image: schoolManagementImg,
+    name: "School Management System By Zager",
     description:
-      "Advanced technology solution for seamless integration of your smart devices. If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear",
-    link: "/products/smart-hub",
+      "An all-in-one platform to streamline school operations, manage student records, and enhance communication.",
+    link: "/products/school-management",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1520923642038-b4259acecbd7?q=80&w=1919&auto=format&fit=crop",
-    name: "Digital Assistant Pro",
+    image: employeeManagementImg,
+    name: "Employee Management System By Zager",
     description:
-      "Next-generation digital assistant with voice recognition and task automation.",
-    link: "/products/digital-assistant",
+      "A robust solution to handle employee data, attendance, and HR processes efficiently.",
+    link: "/products/employee-management",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1928&auto=format&fit=crop",
-    name: "Cloud Security Suite",
+    image: mysavuiorImg,
+    name: "MySavuior",
     description:
-      "Comprehensive cloud security solution offering advanced threat detection. If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear",
-    link: "/products/security-suite",
+      "A comprehensive website for maintaining blood donor lists, ensuring timely and efficient donation matching.",
+    link: "/products/mysavuior",
   },
 ];
 
@@ -33,6 +37,7 @@ const OurProducts = () => {
   const [index, setIndex] = useState(1);
   const totalProducts = products.length;
 
+  // Prepare a display array with wrap-around elements
   const displayProducts = [
     products[totalProducts - 1],
     ...products,
@@ -45,16 +50,16 @@ const OurProducts = () => {
 
       // Handle wrap-around logic
       if (newIndex <= 0) {
-        newIndex = totalProducts; // Go to the last product
-        gsap.set(carouselRef.current, { x: -totalProducts * 100 + "%" }); // Reset position
+        newIndex = totalProducts; // Jump to last product
+        gsap.set(carouselRef.current, { x: -totalProducts * 100 + "%" });
       } else if (newIndex >= displayProducts.length - 1) {
-        newIndex = 1; // Go to the first product
-        gsap.set(carouselRef.current, { x: "-100%" }); // Reset position
+        newIndex = 1; // Jump to first product
+        gsap.set(carouselRef.current, { x: "-100%" });
       }
 
       setIndex(newIndex);
 
-      // Smooth transition
+      // Animate the carousel slide
       gsap.to(carouselRef.current, {
         x: -newIndex * 100 + "%",
         ease: "power2.out",
@@ -69,6 +74,7 @@ const OurProducts = () => {
     slide(direction);
   };
 
+  // Auto-slide interval
   useEffect(() => {
     const interval = setInterval(() => {
       slide(1);
@@ -76,15 +82,13 @@ const OurProducts = () => {
     return () => clearInterval(interval);
   }, [index, slide]);
 
-  // Background gradient animation with white at the top edge
+  // Background gradient animation (using a subtle effect)
   useEffect(() => {
     gsap.fromTo(
       ".products-bg",
       {
         opacity: 1,
         background: "linear-gradient(to bottom, #ffffff, transparent, #ffffff)",
-        duration: 1.5,
-        ease: "power2.out",
       },
       {
         opacity: 1,
@@ -99,7 +103,6 @@ const OurProducts = () => {
     <div className="products-bg relative overflow-hidden min-h-[100vh]">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gradient Overlay */}
         <div
           className="w-full h-full"
           style={{
@@ -108,11 +111,8 @@ const OurProducts = () => {
             opacity: 0.1,
           }}
         ></div>
-        {/* Large circle at top-right */}
         <div className="absolute -top-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-        {/* (Optional) You can add a small circle at bottom-left if needed */}
       </div>
 
       <h4
@@ -140,7 +140,7 @@ const OurProducts = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="flex flex-col justify-center w-full md:w-[50%] p-4">
@@ -152,9 +152,9 @@ const OurProducts = () => {
                 </p>
                 <a
                   href={product.link}
-                  className="bg-[#ffbe00] w-[100px] md:w-[120px] py-2 px-4 rounded-md hover:scale-110 transition duration-300 !text-white"
+                  className="bg-[#ffbe00] w-[100px] md:w-[120px] py-2 px-4 rounded-md hover:scale-110 transition duration-300 text-white flex items-center justify-center gap-2"
                 >
-                  See Product
+                  See Product <span className="font-bold text-xl">→</span>
                 </a>
               </div>
             </div>

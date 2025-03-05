@@ -1,20 +1,36 @@
-import design from "../assets/graphics.gif"; // Import the design GIF from local assets
+"use client";
 
-// Functional component for the Services Intro Section
+import design from "../assets/design1.mp4"; // Ensure this is the correct video file
+
 const ServicesIntro = () => {
   return (
-    // Main section container with full width and centered text
-    <section className="w-full py-16 px-6 text-center">
-      {/* Heading container centered within a max width */}
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-black leading-tight">
-          Partner{" "}
+    <section className="relative w-full py-16 px-6 text-center overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Gradient Overlay */}
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(80deg, transparent 0%, #ffbe00 30%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        {/* Large circle at top-left */}
+        {/* Small circle at bottom-right */}
+        <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+      </div>
+
+      {/* Heading container */}
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+          Partner with{" "}
           <span className="text-[#ffbe00]">
-            One of the fastest growing Digital Marketing Agency
+            one of the fastest-growing digital marketing agencies
           </span>{" "}
           in India
         </h2>
-        <p className="text-lg text-gray-600 mt-4">
+        <p className="text-lg md:text-xl text-gray-600 mt-4">
           Discover a suite of tailored solutions designed to elevate your brand
           in the digital realm. At <span className="font-semibold">Zager</span>,
           we specialize in a range of services that synergize to maximize your
@@ -22,30 +38,30 @@ const ServicesIntro = () => {
         </p>
       </div>
 
-      {/* Image with text overlay container */}
-      <div className="mt-10 flex justify-center">
-        {/* Container for the GIF image with increased height */}
-        <div className="relative rounded-2xl overflow-hidden w-[50%] h-150 shadow-lg">
-          {/* The design GIF fills the container */}
-          <img
-            src={design}
-            alt="Digital Media Maestro"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay container for text placed on top of the image */}
-          <div className="absolute inset-0 flex items-center justify-start p-8 bg-opacity-50">
-            <div className="text-left text-white">
-              <h3 className="text-2xl md:text-3xl font-semibold">
-                We are your
-              </h3>
-              <h3 className="text-3xl md:text-4xl font-bold mt-2">
-                <span className="bg-[#ffbe00] text-white px-2 py-1 rounded">
-                  DIGITAL MEDIA MAESTRO
-                </span>
-              </h3>
-              <p className="mt-3 text-lg text-black italic"></p>
-            </div>
-          </div>
+      {/* Responsive video container */}
+      <div className="relative mx-auto mt-12 w-full max-w-4xl aspect-video shadow-2xl rounded-lg overflow-hidden">
+        <video
+          src={design}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Overlay container with hover effect */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-grey-100 bg-opacity-80 transition duration-500 ease-in-out hover:bg-opacity-50">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+            We are your
+          </h3>
+          <h3 className="text-3xl md:text-5xl font-extrabold mt-2">
+            <span className="bg-[#ffbe00] text-gray-900 px-4 py-2 rounded-lg shadow-md">
+              DIGITAL MEDIA MAESTRO
+            </span>
+          </h3>
+          <p className="mt-4 text-lg md:text-xl text-gray-700 italic">
+            Elevating your brand to new heights.
+          </p>
         </div>
       </div>
     </section>

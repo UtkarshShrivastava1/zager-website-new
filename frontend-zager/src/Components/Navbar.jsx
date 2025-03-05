@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import logo from '../assets/Final_Logo_White.png';
+import { useEffect, useState } from "react";
+import logo from "../assets/Final_Logo_White.png";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -18,23 +18,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-[#051224] border-gray-200  sm:w-full">
-      <div className=" flex flex-wrap items-center justify-between px-16 py-4">
+    <nav className="bg-[#051224] border-gray-200 w-full">
+      <div className="flex items-center justify-between px-8 py-4">
         <NavLink to="/" className="flex items-center space-x-3">
-          <img
-            src={
-              // "https://github.com/ut-zager/zager-website-official/blob/Vinay/Frontend/src/assets/Final_Logo_White.png?raw=true"
-              logo
-            }
-            className="h-8"
-            alt="Flowbite Logo"
-          />
+          <img src={logo} className="h-12" alt="Zager Logo" />
         </NavLink>
 
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -55,26 +48,30 @@ const Navbar = () => {
 
         {/* Navbar Links */}
         <div
-          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto ` }
+          className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
         >
-          <ul className="flex flex-col md:flex-row font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#051224] md:space-x-8 md:mt-0 md:border-0 ">
+          <ul className="flex flex-col md:flex-row font-medium p-4 md:p-0 mt-4 border rounded-lg bg-[#051224] md:space-x-8 md:mt-0 md:border-0">
             <li>
               <NavLink
                 to="/"
-                className="block text-lg py-2 px-3 !text-white md:text-blue-500 hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out "
+                className={({ isActive }) =>
+                  `block text-lg py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 Home
               </NavLink>
             </li>
 
             {/* Dropdown */}
-            <li className="relative dropdown-container text-lg ">
+            <li className="relative dropdown-container text-lg">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsDropdownOpen(!isDropdownOpen);
                 }}
-                className="flex items-center py-2 px-3 text-white hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out cursor-pointer "
+                className="flex items-center py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out cursor-pointer"
               >
                 Platforms
                 <svg
@@ -91,46 +88,15 @@ const Navbar = () => {
                   />
                 </svg>
               </button>
-
-              {/* {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-1000">
-                  <ul className="py-2 text-sm text-gray-700">
-                    <li><NavLink to="#" className="block px-4 py-2 hover:bg-gray-100">Dashboard</NavLink></li>
-                    <li><NavLink to="#" className="block px-4 py-2 hover:bg-gray-100">Settings</NavLink></li>
-                    <li><NavLink to="#" className="block px-4 py-2 hover:bg-gray-100">Earnings</NavLink></li>
-                  </ul>
-                  <div className="py-1">
-                    <NavLink to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</NavLink>
-                  </div>
-                </div>
-              )} */}
-
               <div
-                className={`
-          absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-50
-          transform transition-all duration-200 ease-in-out 
-          ${
-            isDropdownOpen
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }
-        `}
+                className={`absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-50 transform transition-all duration-200 ease-in-out ${
+                  isDropdownOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-2 pointer-events-none"
+                }`}
               >
                 <ul className="py-2 text-sm text-gray-700">
-                <li>
-                    <NavLink
-                      to="#"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Our Platforms
-                    </NavLink>
-                  </li>
-                  <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDropdownOpen(!isDropdownOpen);
-                  }}
-                  >
+                  <li>
                     <NavLink
                       to="/ourplatforms/gyaanadari"
                       className="block px-4 py-2 hover:bg-gray-100"
@@ -138,25 +104,15 @@ const Navbar = () => {
                       Gyaanadari
                     </NavLink>
                   </li>
-                  <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDropdownOpen(!isDropdownOpen);
-                  }}
-                  >
+                  <li>
                     <NavLink
-                      to="/ourplatforms/jkworks"
+                      to="/"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      JK Works
+                      Zager Management System
                     </NavLink>
                   </li>
-                  <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDropdownOpen(!isDropdownOpen);
-                  }}
-                  >
+                  <li>
                     <NavLink
                       to="/ourplatforms/ira-media-and-productions"
                       className="block px-4 py-2 hover:bg-gray-100"
@@ -164,35 +120,26 @@ const Navbar = () => {
                       Ira Media & Productions
                     </NavLink>
                   </li>
-                  <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDropdownOpen(!isDropdownOpen);
-                  }}
-                  >
+                  <li>
                     <NavLink
-                      to="/"
+                      to="/ourplatforms/jkworks"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      ZMS
+                      JK Works
                     </NavLink>
                   </li>
                 </ul>
-                {/* <div className="py-1">
-                  <NavLink
-                    to="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    ZMS
-                  </NavLink>
-                </div> */}
               </div>
             </li>
 
             <li>
               <NavLink
                 to="/services"
-                className="block py-2 px-3 !text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 Services
               </NavLink>
@@ -200,7 +147,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/aboutus"
-                className="block py-2 px-3 !text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 About
               </NavLink>
@@ -208,7 +159,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/contactus"
-                className="block py-2 px-3 !text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 Contact
               </NavLink>
@@ -216,7 +171,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/carrer"
-                className="block py-2 px-3 !text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 Careers
               </NavLink>
@@ -224,7 +183,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/blogs"
-                className="block py-2 px-3 !text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transform transition-all duration-200 ease-in-out"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
               >
                 Blogs
               </NavLink>

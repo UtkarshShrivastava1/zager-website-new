@@ -4,100 +4,76 @@ const AboutUsPage = () => {
   const values = [
     {
       icon: "👥",
-      title: "Integrity.",
+      title: "Integrity",
       description:
         "We uphold the highest standards of honesty and transparency in every interaction.",
     },
     {
       icon: "🚀",
-      title: "Innovation.",
+      title: "Innovation",
       description:
         "We continuously explore new technologies and methodologies to offer creative and effective solutions.",
     },
     {
       icon: "👋",
-      title: "Excellence.",
+      title: "Excellence",
       description:
         "We are committed to delivering outstanding results and exceeding client expectations.",
     },
-    // {
-    //   icon: "🎓",
-    //   title: "Always learning.",
-    //   description:
-    //     "Iure sed ab. Aperiam optio placeat dolor facere. Officiis pariatur eveniet atque et dolor.",
-    // },
-    // {
-    //   icon: "🔄",
-    //   title: "Share everything you know.",
-    //   description:
-    //     "Laudantium tempora sint ut consectetur ratione. Ut illum ut rem numquam fuga delectus.",
-    // },
-    // {
-    //   icon: "☀️",
-    //   title: "Enjoy downtime.",
-    //   description:
-    //     "Culpa dolorem voluptatem velit autem rerum qui et corrupti. Quibusdam quo placeat.",
-    // },
   ];
+
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-10 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+      <div className="container mx-auto px-8 py-16 md:py-24">
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="md:w-1/2">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffbe00] mb-6">
-              We&apos;re changing the way people connect
+              We’re Changing the Way People Connect
             </h1>
             <p className="text-lg text-gray-600">
               At{" "}
-              <span className="text-[#051244] font-bold ">
+              <span className="text-[#051244] font-bold">
                 Zager Digital Services
               </span>
-              , we believe that exceptional Digital Marketing and IT solutions
-              stem from a core commitment to integrity, innovation, and
-              excellence. Founded with the mission to empower businesses through
-              cutting-edge technology and strategic marketing, we take pride in
-              delivering tailored solutions that drive growth and success.
+              , we believe exceptional digital marketing and IT solutions stem
+              from a commitment to integrity, innovation, and excellence. We
+              empower businesses with cutting-edge technology and strategic
+              marketing to deliver tailored solutions that drive growth and
+              success.
             </p>
           </div>
-          <div className="md:w-1/2 md:pl-10 gap-4 flex md:gap-10 m-auto ">
+          <div className="md:w-1/2 flex gap-4">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
               alt="Digital Marketing"
-              className="md:w-[40%] md:h-[400px] w-[50%] h-[300px] object-cover rounded-2xl"
+              className="w-1/2 h-64 object-cover rounded-2xl"
             />
             <img
-              src="https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80  "
-              alt=""
-              className="md:w-[40%] md:h-[400px] w-[50%] h-[300px] object-cover rounded-2xl mt-20"
+              src="https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+              alt="Team Collaboration"
+              className="w-1/2 h-64 object-cover rounded-2xl mt-4 md:mt-0"
             />
           </div>
         </div>
       </div>
 
-      {/* <div>
-        <BentoGridDemo/>
-      </div> */}
-
-      <div className=" text-black !pt-0 py-16 px-10 md:px-24">
-        <div className="max-w-7xl mx-auto ">
-          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-[#ffbe00]  text-center">
-            Our values
+      {/* Our Values Section */}
+      <div className="py-16 px-8 md:px-24">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-[#ffbe00]">
+            Our Values
           </h2>
-          <p className=" text-xl mb-16 ml-1 text-center w-full">
-            Values That Inspire
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          <p className="text-xl mb-12">Values That Inspire</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="flex">
-                {/* <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-indigo-600 bg-opacity-10 text-2xl mr-4"> */}
-                <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-opacity-10 text-2xl mr-4">
+              <div key={index} className="flex items-start gap-4">
+                <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-[#ffbe00] bg-opacity-10 text-2xl">
                   {value.icon}
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-400">{value.description}</p>
+                <div className="text-left">
+                  <h3 className="text-xl font-semibold mb-1">{value.title}</h3>
+                  <p className="text-gray-500">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -105,163 +81,106 @@ const AboutUsPage = () => {
         </div>
       </div>
 
-      {/* Mission Section */}
-
-      {/* Contact CTA */}
-      {/* <div className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's discuss how our digital and IT services can help your business thrive in the digital age.
-          </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
-            Contact Us Today
-          </button>
-        </div>
-      </div> */}
-
-      <div className="!pt-10 py-24 sm:py-32">
-        <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-          <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-bold tracking-tight text-balance text-[#ffbe00] sm:text-5xl">
+      {/* Our Mission Section with Subtle Gradient Overlay */}
+      <div className="relative py-16 sm:py-20 text-center">
+        {/* Subtle Gradient Overlay (matching HeroSection) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        <div className="relative max-w-3xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#ffbe00]">
             Our Mission
+          </h2>
+          <p className="text-xl tracking-tight text-gray-600">
+            Our mission is to deliver exceptional digital marketing and IT
+            services that empower businesses to thrive in the digital age.
+            Through innovative strategies, robust technology, and an unwavering
+            commitment to excellence, we drive growth and lasting success.
           </p>
-          {/* <h2 className="text-center text-base/7 font-semibold text-[#051244]">
-            Our mission is simple yet profound
-          </h2> */}
-          <p className=" text-xl !mt-2 mb-8  mx-auto w-[60%] text-center tracking-tight">
-            Our mission is to provide exceptional digital marketing and IT
-            services that help businesses achieve their goals. We are committed
-            to enhancing online visibility and engagement through innovative
-            marketing strategies, delivering robust IT solutions that streamline
-            operations and drive efficiency, and empowering clients to embrace
-            the digital revolution with confidence and success.
-          </p>
-          <div className="!mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-            <div className="relative lg:row-span-2 hover:scale-105 transform transition-all duration-200 ease-in-out">
-              <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)] shadow-2xl">
-                <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
-                  <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
-                    Innovation Culture
-                  </p>
-                  <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Cultivate a culture of innovation and continuous
-                    improvement.
-                  </p>
-                </div>
-                <div className="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
-                  <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
-                    <img
-                      className="size-full object-cover object-top"
-                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 lg:rounded-l-[2rem]"></div>
+        </div>
+      </div>
+
+      {/* Highlights Section */}
+      <div className="py-16 px-8 sm:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Innovation Culture */}
+          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+                Innovation Culture
+              </h3>
+              <p className="text-sm text-gray-600 text-center">
+                Cultivating continuous innovation and improvement.
+              </p>
             </div>
-            <div className="relative max-lg:row-start-1  hover:scale-105 transform transition-all duration-200 ease-in-out">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] shadow-2xl">
-                <div className="px-8 pt-8 sm:px-10 sm:pt-10">
-                  <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
-                    Tech-Driven Problem Solving
-                  </p>
-                  <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Leverage technology to solve complex business challenges.
-                  </p>
-                </div>
-                <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-                  <img
-                    className="w-full max-lg:max-w-xs rounded-lg mt-1"
-                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-t-[2rem]"></div>
+          </div>
+          {/* Tech-Driven Problem Solving */}
+          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+                Tech-Driven Problem Solving
+              </h3>
+              <p className="text-sm text-gray-600 text-center">
+                Leveraging technology to tackle complex challenges.
+              </p>
             </div>
-            <div className="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2  hover:scale-105 transform transition-all duration-200 ease-in-out">
-              <div className="absolute inset-px rounded-lg bg-white"></div>
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] shadow-2xl">
-                <div className="px-8 pt-8 sm:px-10 sm:pt-10">
-                  <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
-                    Global Reach
-                  </p>
-                  <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Connect businesses with opportunities across borders through
-                    innovative technology.
-                  </p>
-                </div>
-                {/* <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2 justify-between">
-                <img
-                  className="h-[min(152px,40cqw)] w-[80%] max-lg:max-w-xs rounded-lg mt-1 object-cover"
-                  src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc"
-                  alt=""
-                />
-              </div> */}
-                <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-                  <img
-                    className="w-full max-lg:max-w-xs rounded-lg mt-1"
-                    src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5"></div>
+          </div>
+          {/* Global Reach */}
+          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+                Global Reach
+              </h3>
+              <p className="text-sm text-gray-600 text-center">
+                Connecting businesses with global opportunities.
+              </p>
             </div>
-            <div className="relative lg:row-span-2  hover:scale-105 transform transition-all duration-200 ease-in-out">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)] shadow-2xl">
-                <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
-                  <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
-                    Client-Centric Solution
-                  </p>
-                  <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    &quot;Deliver tailor-made digital solutions that meet our
-                    clients&apos; unique needs.
-                  </p>
-                </div>
-                <div className="relative min-h-[30rem] w-full grow">
-                  <div className="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl shadow-2xl">
-                    {/* <div className="flex bg-gray-800/40 ring-1 ring-white/5">
-                    <div className="-mb-px flex text-sm/6 font-medium text-gray-400">
-                      <div className="border-r border-b border-r-white/10 border-b-white/20 bg-white/5 px-4 py-2 text-white">
-                        NotificationSetting.jsx
-                      </div>
-                      <div className="border-r border-gray-600/10 px-4 py-2">App.jsx</div>
-                    </div>
-                  </div> */}
-                    {/* <div className="px-6 pt-6 pb-14">Your code example</div> */}
-                    <img
-                      className="w-full h-full max-lg:max-w-xs !rounded-tl-xl mt-1 object-cover"
-                      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
+          </div>
+          {/* Client-Centric Solutions */}
+          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out lg:col-span-3">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+                Client-Centric Solutions
+              </h3>
+              <p className="text-sm text-gray-600 text-center">
+                Delivering customized digital solutions to meet unique client
+                needs.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Our Values section  */}
-      <div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-[#ffbe00]  text-center">
-          Our Vision
-        </h2>
-        <p className=" text-xl !mt-6 mb-8  mx-auto w-[40%] text-center tracking-tight">
-          To be a global leader in providing innovative, customised, and
-          comprehensive digital marketing and IT solutions that empower
-          businesses to thrive in the digital era. We aim to redefine excellence
-          and inspire growth by delivering cutting-edge technology and creative
-          strategies tailored to meet our clients&apos; evolving needs.
-        </p>
+      {/* Our Vision Section with Subtle Gradient Overlay */}
+      <div className="relative py-16 px-8 md:px-24">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#ffbe00]">
+            Our Vision
+          </h2>
+          <p className="text-xl tracking-tight text-gray-600 mx-auto">
+            To be a global leader in providing innovative, customized, and
+            comprehensive digital marketing and IT solutions that empower
+            businesses to excel in the digital era. We strive to redefine
+            excellence and inspire growth with cutting-edge technology and
+            creative strategies tailored to our clients’ evolving needs.
+          </p>
+        </div>
       </div>
 
+      {/* Timeline Section */}
       <TimelineDemo />
     </div>
   );

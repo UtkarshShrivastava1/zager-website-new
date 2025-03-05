@@ -1,13 +1,13 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Testimonial from "../Components/Testimonial";
+//import Testimonial from "../Components/Testimonial";
 import ContactForm from "../Components/ContactForm";
 import AboutUsSection from "../Components/AboutUsSection";
 import OurServicesSections from "../Components/OurServicesSections";
 import OurProducts from "../Components/Products";
 import Clients from "../Components/Client";
 import OurPlatforms from "../Components/OurPlatform";
-import graphicVideo from "../assets/graphics4.webm";
+import graphicVideo from "../assets/graphics5.webm";
 
 const HeroSection = () => {
   useGSAP(() => {
@@ -18,6 +18,7 @@ const HeroSection = () => {
       delay: 0.5,
       ease: "power3.out",
     });
+
     gsap.from(".video-div", {
       x: 200,
       opacity: 0,
@@ -25,16 +26,33 @@ const HeroSection = () => {
       delay: 0.5,
       ease: "power3.out",
     });
+
+    // Floating effect for the top-right glowing circle (larger)
+    gsap.to(".top-glow", {
+      y: -20,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "power1.inOut",
+    });
+
+    // Expanding & shrinking effect for the bottom-left glowing circle (smaller)
+    gsap.to(".bottom-glow", {
+      scale: 1.2,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "power1.inOut",
+    });
   });
 
   return (
     <>
       {/* Hero Section */}
       <section className="min-h-screen w-full flex items-center justify-center bg-white text-[#051224] py-12 overflow-hidden relative">
-        {/* Decorative Background Elements: Even Gradient Overlay */}
+        {/* Decorative Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Even Gradient Overlay: fades from transparent at the top,
-              to amber in the middle, then back to transparent at the bottom */}
+          {/* Gradient Overlay */}
           <div
             className="w-full h-full"
             style={{
@@ -43,9 +61,11 @@ const HeroSection = () => {
               opacity: 0.1,
             }}
           ></div>
-          {/* Diagonal Blurred Circles */}
-          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+          {/* Diagonally flipped circles */}
+          {/* Larger circle now at top-right */}
+          <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+          {/* Small circle now at bottom-left */}
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>{" "}
         </div>
 
         <div className="relative w-full max-w-6xl flex items-center justify-between px-8 lg:px-12">
@@ -71,6 +91,7 @@ const HeroSection = () => {
               </button>
             </div>
           </div>
+
           {/* Right Video Section for Seamless Loop */}
           <div className="video-div flex-1 flex justify-center mt-8 md:mt-0">
             <div className="overflow-hidden rounded-lg w-full md:w-auto">
@@ -88,6 +109,7 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
+
       {/* Other Sections of the Page */}
       <OurServicesSections />
       <AboutUsSection />
@@ -95,7 +117,8 @@ const HeroSection = () => {
       <OurPlatforms />
       <Clients />
       <ContactForm />
-      <Testimonial />
+
+      {/* <Testimonial /> */}
     </>
   );
 };

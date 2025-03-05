@@ -48,12 +48,9 @@ const AboutUsSection = () => {
       ref={sectionRef}
       className="relative py-16 bg-white overflow-hidden"
     >
-      {/* Decorative Background Elements with flipped diagonal corners */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: "scaleY(-1)" }}
-      >
-        {/* Even Gradient Overlay */}
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Gradient Overlay */}
         <div
           className="w-full h-full"
           style={{
@@ -62,10 +59,10 @@ const AboutUsSection = () => {
             opacity: 0.1,
           }}
         ></div>
-        {/* Blurred circle in top-left corner (after flip, appears at bottom-left) */}
-        <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-        {/* Blurred circle in bottom-right corner (after flip, appears at top-right) */}
-        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Large circle at top-right */}
+        <div className="absolute -top-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Small circle at bottom-left */}
+        <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">

@@ -43,7 +43,16 @@ const platforms = [
 
 const OurPlatform = () => {
   return (
-    <section className="bg-white py-20 px-5 md:px-20">
+    <section className="relative bg-white py-20 px-5 md:px-20 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large circle at top-right */}
+        <div className="absolute -top-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Small circle at bottom-left */}
+        <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+      </div>
+
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h4
           style={{

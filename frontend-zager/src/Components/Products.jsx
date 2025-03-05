@@ -7,7 +7,7 @@ const products = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
     name: "Smart Technology Hub",
     description:
-      "Advanced technology solution for seamless integration of your smart devices.f you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear",
+      "Advanced technology solution for seamless integration of your smart devices. If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear",
     link: "/products/smart-hub",
   },
   {
@@ -39,27 +39,30 @@ const OurProducts = () => {
     products[0],
   ];
 
-  const slide = useCallback((direction) => {
-    let newIndex = index + direction;
+  const slide = useCallback(
+    (direction) => {
+      let newIndex = index + direction;
 
-    // Handle wrap-around logic
-    if (newIndex <= 0) {
-      newIndex = totalProducts; // Go to the last product
-      gsap.set(carouselRef.current, { x: -totalProducts * 100 + "%" }); // Reset position
-    } else if (newIndex >= displayProducts.length - 1) {
-      newIndex = 1; // Go to the first product
-      gsap.set(carouselRef.current, { x: -100 + "%" }); // Reset position
-    }
+      // Handle wrap-around logic
+      if (newIndex <= 0) {
+        newIndex = totalProducts; // Go to the last product
+        gsap.set(carouselRef.current, { x: -totalProducts * 100 + "%" }); // Reset position
+      } else if (newIndex >= displayProducts.length - 1) {
+        newIndex = 1; // Go to the first product
+        gsap.set(carouselRef.current, { x: "-100%" }); // Reset position
+      }
 
-    setIndex(newIndex);
+      setIndex(newIndex);
 
-    // Smooth transition
-    gsap.to(carouselRef.current, {
-      x: -newIndex * 100 + "%",
-      ease: "power2.out",
-      duration: 0.6, // Adjusted duration for smoother transition
-    });
-  }, [index, totalProducts, displayProducts.length]);
+      // Smooth transition
+      gsap.to(carouselRef.current, {
+        x: -newIndex * 100 + "%",
+        ease: "power2.out",
+        duration: 0.6,
+      });
+    },
+    [index, totalProducts, displayProducts.length]
+  );
 
   const handleDotClick = (dotIndex) => {
     const direction = dotIndex - index;
@@ -73,8 +76,45 @@ const OurProducts = () => {
     return () => clearInterval(interval);
   }, [index, slide]);
 
+  // Background gradient animation with white at the top edge
+  useEffect(() => {
+    gsap.fromTo(
+      ".products-bg",
+      {
+        opacity: 1,
+        background: "linear-gradient(to bottom, #ffffff, transparent, #ffffff)",
+        duration: 1.5,
+        ease: "power2.out",
+      },
+      {
+        opacity: 1,
+        background: "linear-gradient(to bottom, #ffffff, transparent, #ffffff)",
+        duration: 1.5,
+        ease: "power2.out",
+      }
+    );
+  }, []);
+
   return (
-    <div className=" relative overflow-hidden min-h-[100vh]">
+    <div className="products-bg relative overflow-hidden min-h-[100vh]">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Gradient Overlay */}
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 30%, #ffbe00 50%, transparent 100%)",
+            opacity: 0.1,
+          }}
+        ></div>
+        {/* Large circle at top-right */}
+        <div className="absolute -top-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+
+        <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* (Optional) You can add a small circle at bottom-left if needed */}
+      </div>
+
       <h4
         style={{
           fontWeight: "700",
@@ -103,18 +143,17 @@ const OurProducts = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col justify-center w-full md:w-[50%] p-4 ">
+              <div className="flex flex-col justify-center w-full md:w-[50%] p-4">
                 <h4 className="text-xl md:text-2xl font-bold tracking-tight mb-4">
                   {product.name}
                 </h4>
-                <p className="text-base md:text-lg text-gray-500 mb-6 overflow-hidden min-h-28 overflow-y-auto ">
+                <p className="text-base md:text-lg text-gray-500 mb-6 overflow-hidden min-h-28 overflow-y-auto">
                   {product.description}
                 </p>
                 <a
                   href={product.link}
                   className="bg-[#ffbe00] w-[100px] md:w-[120px] py-2 px-4 rounded-md hover:scale-110 transition duration-300 !text-white"
                 >
-                  {" "}
                   See Product
                 </a>
               </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import promo from "../assets/promo.mp4";
 import background from "../assets/Background.jpg"; // ✅ Import the local background image
 
@@ -15,7 +14,7 @@ const PromotionalVideos = () => {
 
       <div className="relative z-10 text-center text-white px-6">
         <h2 className="text-4xl font-bold mb-4">Elevate Your Brand</h2>
-        <p className="text-lg mb-6">Unlock the power of digital marketing.</p>
+        <p className="text-lg mb-6">Unlock the power of Digital Marketing.</p>
 
         {/* 🔴 Centered Video */}
         <div className="w-full max-w-md mx-auto bg-white p-4 rounded-xl shadow-lg">

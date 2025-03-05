@@ -3,3 +3,8 @@ ArtyClick Amber -  #ffbeoo
 White-            #ffffff
 (other colors if complements the page and pallet)
 
+to do
+
+- update about us content
+-space allignment in services
+- remove news ref from gyaanadri

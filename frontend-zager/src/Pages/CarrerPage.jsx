@@ -6,14 +6,14 @@ import { gsap } from "gsap";
 
 function CarrerPage() {
   const heroWords =
-    "Are you passionate about digital marketing and IT solutions?";
+    "Are you passionate about Digital Marketing and IT solutions?";
   const candidateWords = "We are looking for individuals who are:";
 
   const workValues = [
     {
       name: "Innovative Environment",
       description:
-        "At Zager Digital Services, we thrive on innovation. Work with cutting-edge technologies and strategies that are shaping the future of digital marketing and IT solutions.",
+        "At Zager Digital Services, we thrive on innovation. Work with cutting-edge technologies and strategies that are shaping the future of Digital Marketing and IT solutions.",
       imageUrl:
         "https://plus.unsplash.com/premium_photo-1707155465551-0d2b570926d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGlubm92YXRpdmUlMjBlbnZpcm9ubWVudHxlbnwwfDF8MHx8fDA%3D",
     },

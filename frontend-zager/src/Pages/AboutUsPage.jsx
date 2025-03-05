@@ -97,7 +97,7 @@ const AboutUsPage = () => {
             Our Mission
           </h2>
           <p className="text-xl tracking-tight text-gray-600">
-            Our mission is to deliver exceptional digital marketing and IT
+            Our mission is to deliver exceptional Digital Marketing and IT
             services that empower businesses to thrive in the digital age.
             Through innovative strategies, robust technology, and an unwavering
             commitment to excellence, we drive growth and lasting success.
@@ -172,7 +172,7 @@ const AboutUsPage = () => {
           </h2>
           <p className="text-xl tracking-tight text-gray-600 mx-auto">
             To be a global leader in providing innovative, customized, and
-            comprehensive digital marketing and IT solutions that empower
+            comprehensive Digital Marketing and IT solutions that empower
             businesses to excel in the digital era. We strive to redefine
             excellence and inspire growth with cutting-edge technology and
             creative strategies tailored to our clients’ evolving needs.

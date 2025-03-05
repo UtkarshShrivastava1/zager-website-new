@@ -48,7 +48,7 @@ const contentData = [
   },
   {
     id: "designing",
-    title: "Graphic & Brand Design",
+    title: "Graphic Designing & Branding",
     description:
       "Enhance your brand identity with visually stunning designs that capture attention and convey your message effectively.",
     tags: <Designing />,

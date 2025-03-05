@@ -106,7 +106,7 @@ function Gyaanadari() {
 
       {/* Main Content with higher z-index */}
       <div className="mt-15 relative z-10">
-        <Heading value={"GYAANDARI"} />
+        <Heading value={"GYAANADRI"} />
         <div className="flex flex-col items-center justify-center py-5 gap-2">
           <TextGenerateEffect words={words} />
           <p className="w-[100%] text-center text-lg">

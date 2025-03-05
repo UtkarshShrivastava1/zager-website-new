@@ -25,11 +25,8 @@ const ServicesIntro = () => {
         {/* Left: Text Section */}
         <div className="space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
-            Partner with{" "}
-            <span className="text-[#ffbe00]">
-              one of the fastest-growing digital marketing agencies
-            </span>{" "}
-            in India
+            Empowering Your Business with{" "}
+            <span className="text-[#ffbe00]"> Digital Innovation</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600">
             Discover a suite of tailored solutions designed to elevate your

@@ -20,7 +20,7 @@ const Designing = () => {
     { title: "UI/UX", icon: <FaVectorSquare size={24} /> },
     { title: "Product Design", icon: <FaPalette size={24} /> },
     { title: "Brochure & Package Design", icon: <FaFileAlt size={24} /> },
-    { title: "Social Media Design", icon: <FaFileImage size={24} /> },
+    { title: "Social Media Post Design", icon: <FaFileImage size={24} /> },
     { title: "Typography", icon: <FaBrush size={24} /> },
     { title: "3D Design", icon: <FaVectorSquare size={24} /> },
     { title: "Flyer Design", icon: <FaFileImage size={24} /> },
@@ -42,7 +42,9 @@ const Designing = () => {
             key={index}
             className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm font-medium px-4 py-3 rounded-lg shadow-md transition-all duration-300 cursor-pointer"
           >
-            <div className="bg-yellow-500 text-white p-2 rounded-full">{item.icon}</div>
+            <div className="bg-yellow-500 text-white p-2 rounded-full">
+              {item.icon}
+            </div>
             <span>{item.title}</span>
           </div>
         ))}

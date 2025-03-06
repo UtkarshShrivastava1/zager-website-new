@@ -1,7 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import NavBar from "./Components/Navbar";
-
 import Footer from "./Components/Footer";
 import AboutUsPage from "./Pages/AboutUsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
@@ -20,8 +19,8 @@ import ResetPassword from "./Pages/Auth/ResetPassword";
 import Blogs from "./Pages/Blogs";
 import Services from "./Pages/Services";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
-
 import TermsofService from "./Pages/TermsofService";
+import ZagerManagementSystem from "./Pages/Zms";
 
 function App() {
   // Function to check if the user is authenticated
@@ -34,8 +33,11 @@ function App() {
       <NavBar />
       <div className="min-h-screen">
         <Routes>
+          {/* Redirect root to /homepage */}
+          <Route path="/" element={<Navigate to="/homepage" replace />} />
+
           {/* Public Routes */}
-          <Route path="/" element={<Homepage />} />
+          <Route path="/homepage" element={<Homepage />} />
           <Route path="/admin/admin-login" element={<Signin />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
@@ -45,8 +47,9 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsofService />} />
-
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
+          <Route path="/ourplatforms/zms" element={<ZagerManagementSystem />} />
+
           <Route path="/ourplatforms/jkworks" element={<JKWorks />} />
           <Route
             path="/ourplatforms/ira-media-and-productions"

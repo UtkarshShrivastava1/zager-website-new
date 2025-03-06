@@ -52,7 +52,8 @@ const HeroSection = () => {
       <section className="min-h-screen w-full flex items-center justify-center bg-white text-[#051224] py-12 overflow-hidden relative">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Gradient Overlay */}
+          {/* Gradient Overlay Removed */}
+          {/*
           <div
             className="w-full h-full"
             style={{
@@ -61,11 +62,12 @@ const HeroSection = () => {
               opacity: 0.1,
             }}
           ></div>
+          */}
           {/* Diagonally flipped circles */}
           {/* Larger circle now at top-right */}
           <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
           {/* Small circle now at bottom-left */}
-          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>{" "}
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         </div>
 
         <div className="relative w-full max-w-6xl flex items-center justify-between px-8 lg:px-12">

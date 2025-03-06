@@ -33,7 +33,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <NavLink
-                  to="/about"
+                  to="/aboutus"
                   className="quick-link !text-gray-300 hover:text-white transition-colors hover:opacity-80"
                 >
                   About
@@ -41,7 +41,7 @@ const Footer = () => {
               </li>
               <li>
                 <NavLink
-                  to="/contact"
+                  to="/contactus"
                   className="!text-gray-300 hover:text-white transition-colors hover:opacity-80"
                 >
                   Contact Us

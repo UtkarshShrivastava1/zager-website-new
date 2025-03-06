@@ -2,12 +2,13 @@ const PrivacyPolicy = () => {
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-8 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffbe00] mb-6">
+          {/* Reduced heading font size and margin for a compact look */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ffbe00] mb-3">
             Privacy Policy
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base md:text-lg text-gray-600 leading-snug">
             Zager Digital Services Pvt. Ltd. (&quot;Zager,&quot; &quot;we,&quot;
             &quot;our,&quot; or &quot;us&quot;) is dedicated to safeguarding
             your privacy. This Privacy Policy outlines the methods by which we
@@ -22,16 +23,17 @@ const PrivacyPolicy = () => {
         </div>
       </div>
 
-      {/* 1. Information We Collect */}
-      <div className="py-16 px-8 md:px-24">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+      {/* Main Content Container */}
+      <div className="container mx-auto px-4 md:px-8 space-y-6">
+        {/* Section 1: Information We Collect */}
+        <div className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             1. Information We Collect
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base mb-2">
             We may gather the following categories of information:
           </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
+          <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
             <li>
               <strong>Personal Information:</strong> Your name, email address,
               phone number, and any other information you voluntarily provide
@@ -49,18 +51,16 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
         </div>
-      </div>
 
-      {/* 2. Purpose of Information Usage */}
-      <div className="py-16 px-8 md:px-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 2: Purpose of Information Usage */}
+        <div className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             2. Purpose of Information Usage
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base mb-2">
             The information we collect is utilized for the following purposes:
           </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
+          <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
             <li>To operate, maintain, and enhance our website and services.</li>
             <li>To respond to inquiries and deliver customer support.</li>
             <li>
@@ -73,19 +73,17 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
         </div>
-      </div>
 
-      {/* 3. Information Sharing Practices */}
-      <div className="py-16 px-8 md:px-24">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 3: Information Sharing Practices */}
+        <div className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             3. Information Sharing Practices
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base mb-2">
             We do not engage in the sale or rental of your personal data.
             However, we may disclose information in certain circumstances:
           </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
+          <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
             <li>
               <strong>Service Providers:</strong> Information may be shared with
               third-party vendors who assist in website functionality,
@@ -102,30 +100,26 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
         </div>
-      </div>
 
-      {/* 4. Data Security Measures */}
-      <div className="py-16 px-8 md:px-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 4: Data Security Measures */}
+        <div className="border-b border-gray-200 pb-3 bg-gray-50">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             4. Data Security Measures
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base">
             We implement reasonable security measures to protect your personal
             information from unauthorized access, alteration, or disclosure.
             However, please be aware that no method of internet transmission is
             entirely secure.
           </p>
         </div>
-      </div>
 
-      {/* 5. Rights and Options Available to You */}
-      <div className="py-16 px-8 md:px-24">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 5: Rights and Options Available to You */}
+        <div className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             5. Rights and Options Available to You
           </h2>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
+          <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
             <li>
               You may opt out of marketing communications by clicking
               &quot;Unsubscribe&quot; in our emails.
@@ -139,45 +133,39 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
         </div>
-      </div>
 
-      {/* 6. Third-Party Links */}
-      <div className="py-16 px-8 md:px-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 6: Third-Party Links */}
+        <div className="border-b border-gray-200 pb-3 bg-gray-50">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             6. Third-Party Links
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base">
             Our website may contain links to third-party sites. We are not
             responsible for their privacy practices, and we encourage you to
             review their policies individually.
           </p>
         </div>
-      </div>
 
-      {/* 7. Policy Updates */}
-      <div className="py-16 px-8 md:px-24">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 7: Policy Updates */}
+        <div className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             7. Policy Updates
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base">
             This Privacy Policy may be amended periodically. Any modifications
             will be posted on this page along with the updated effective date.
           </p>
         </div>
-      </div>
 
-      {/* 8. Contact Information */}
-      <div className="py-16 px-8 md:px-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+        {/* Section 8: Contact Information */}
+        <div className="pb-3 bg-gray-50">
+          <h2 className="text-2xl font-bold text-[#ffbe00] mb-2">
             8. Contact Information
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-base mb-1">
             For inquiries regarding this Privacy Policy, please contact us at:
           </p>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm leading-snug">
             <strong>Zager Digital Services Pvt. Ltd.</strong>
             <br />
             Address: Startup Enclave, CSIT Campus, Shivaji Nagar, Balod Road,

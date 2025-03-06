@@ -1,9 +1,4 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
+import PropTypes from "prop-types"; // Import at the top
 import { cn } from "../../lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -13,19 +8,16 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-// import Link from "next/link";
-import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
-export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
-  return (
-    <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      {/* <FloatingDockMobile items={items} className={mobileClassName} /> */}
-    </>
-  );
-};
+/**
+ * Note: Use position fixed according to your needs
+ * Desktop navbar is better positioned at the bottom
+ * Mobile navbar is better positioned at bottom right.
+ **/
 
+// Define FloatingDockMobile first
 const FloatingDockMobile = ({ items, className }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -40,21 +32,16 @@ const FloatingDockMobile = ({ items, className }) => {
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{
                   opacity: 0,
                   y: 10,
-                  transition: {
-                    delay: idx * 0.05,
-                  },
+                  transition: { delay: idx * 0.05 },
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
                 <Link
-                  href={item.href}
+                  to={item.href}
                   key={item.title}
                   className="h-10 w-10 rounded-full flex items-center justify-center"
                 >
@@ -75,6 +62,12 @@ const FloatingDockMobile = ({ items, className }) => {
   );
 };
 
+FloatingDockMobile.propTypes = {
+  items: PropTypes.array.isRequired,
+  className: PropTypes.string,
+};
+
+// Define FloatingDockDesktop
 const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
   return (
@@ -82,7 +75,7 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl px-4 pb-3",
+        "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl px-4 pb-3",
         className
       )}
     >
@@ -93,12 +86,16 @@ const FloatingDockDesktop = ({ items, className }) => {
   );
 };
 
+FloatingDockDesktop.propTypes = {
+  items: PropTypes.array.isRequired,
+  className: PropTypes.string,
+};
+
 function IconContainer({ mouseX, title, icon, href }) {
   let ref = useRef(null);
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
@@ -137,7 +134,7 @@ function IconContainer({ mouseX, title, icon, href }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link href={href}>
+    <Link to={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -167,3 +164,25 @@ function IconContainer({ mouseX, title, icon, href }) {
     </Link>
   );
 }
+
+IconContainer.propTypes = {
+  mouseX: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  href: PropTypes.string.isRequired,
+};
+
+export const FloatingDock = ({ items, desktopClassName }) => {
+  return (
+    <>
+      <FloatingDockDesktop items={items} className={desktopClassName} />
+      {/* <FloatingDockMobile items={items} className={mobileClassName} /> */}
+    </>
+  );
+};
+
+FloatingDock.propTypes = {
+  items: PropTypes.array.isRequired,
+  desktopClassName: PropTypes.string,
+  mobileClassName: PropTypes.string,
+};

@@ -4,52 +4,54 @@ import { cn } from "../lib/utils";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
 
-function Gyaanadari() {
-  const workValues = [
+// Local image imports
+import schoolManagementImg from "../assets/schoolmanagement.jpg";
+import employeeManagementImg from "../assets/employee-management.jpg";
+import hotelErpImg from "../assets/zms.jpeg";
+import hospitalErpImg from "../assets/mysavuior.jpg";
+import zmsPlatformImg from "../assets/zms.jpeg";
+
+function ZagerManagementSystem() {
+  const solutions = [
     {
-      name: "Content Creation",
+      name: "School Management System",
       description:
-        "Our team of skilled creators produces high-quality content tailored to your interests. From in-depth articles to engaging multimedia, we ensure that every piece of content is crafted with care and accuracy.",
-      imageUrl:
-        "https://plus.unsplash.com/premium_photo-1677396466885-5f97c45ac1e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29udGVudCUyMENyZWF0aW9ufGVufDB8MXwwfHx8MA%3D%3D",
+        "Our comprehensive School Management System automates daily operations—managing student records, attendance, scheduling, and communication—in one seamless solution.",
+      imageUrl: schoolManagementImg,
     },
     {
-      name: "Updates & Trends",
+      name: "Employee Management System",
       description:
-        "Stay updated with the latest developments across various sectors. We provide timely and comprehensive updates and trends, ensuring you’re always informed about what matters most.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VXBkYXRlc3xlbnwwfDF8MHx8fDA%3D",
+        "Streamline HR processes with our Employee Management System, integrating payroll, attendance, performance tracking, and employee records for efficient workforce management.",
+      imageUrl: employeeManagementImg,
     },
     {
-      name: "Podcasting",
+      name: "Hotel ERP",
       description:
-        "Tune into our diverse range of podcasts, where we explore intriguing subjects, share expert opinions, and engage in thought-provoking discussions. Our podcasts are designed to entertain and educate, providing valuable content you can listen to anytime, anywhere.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1615458318132-1f151a3d18f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UG9kY2FzdGluZ3xlbnwwfDF8MHx8fDA%3D",
+        "Our Hotel ERP solution unifies guest management, reservations, inventory, and billing into one platform—delivering an enhanced hospitality experience.",
+      imageUrl: hotelErpImg,
     },
     {
-      name: "Interviews",
+      name: "Hospital ERP",
       description:
-        "Dive deep with exclusive interviews featuring industry experts, thought leaders, and other key figures. Our interviews provide unique insights and perspectives on current trends and topics.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fEludGVydmlld3N8ZW58MHwxfDB8fHww",
+        "Tailored for healthcare, our Hospital ERP integrates patient management, scheduling, billing, and resource allocation, ensuring smooth and efficient operations.",
+      imageUrl: hospitalErpImg,
     },
   ];
 
-  const words = "Welcome to Gyaanadri,";
-
+  const words = "Welcome to Zager Management System (ZMS),";
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Set initial states for scroll-triggered elements
+    // Set initial state for scroll-triggered elements
     gsap.set([contentRef.current, imageRef.current], {
       y: 100,
       opacity: 0,
     });
 
-    // Create scroll trigger animation for text and image
+    // Animate text and image on scroll
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -67,7 +69,7 @@ function Gyaanadari() {
       stagger: 0.2,
     });
 
-    // Animate background elements (glowing circles)
+    // Animate background glowing circles
     gsap.to(".top-glow", {
       y: -20,
       repeat: -1,
@@ -75,7 +77,6 @@ function Gyaanadari() {
       duration: 3,
       ease: "power1.inOut",
     });
-
     gsap.to(".bottom-glow", {
       scale: 1.2,
       repeat: -1,
@@ -91,7 +92,7 @@ function Gyaanadari() {
 
   return (
     <div className="relative">
-      {/* Background Gradient Overlay & Glowing Circles */}
+      {/* Background Glowing Circles */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="w-full h-full"
@@ -107,43 +108,41 @@ function Gyaanadari() {
 
       {/* Main Content with higher z-index */}
       <div className="mt-15 relative z-10">
-        <Heading value={"GYAANADRI"} />
+        <Heading value={"ZAGER MANAGEMENT SYSTEM"} />
         <div className="flex flex-col items-center justify-center py-5 gap-2">
           <TextGenerateEffect words={words} />
-          <p className="w-[100%] text-center text-lg">
-            Your premier destination for insightful content and engaging media.
-            At Gyaanadri, we’re dedicated to delivering high-quality,
-            informative content that informs, inspires, and entertains. Our
-            platform is designed to be a hub for diverse content ranging from
-            the latest updates and in-depth interviews to captivating podcasts
-            and informative articles.
+          <p className="w-full text-center text-lg">
+            Zager Management System (ZMS) is a comprehensive, unified platform
+            that brings together a diverse range of automation and ERP systems
+            into one seamless solution. Our platform offers cutting-edge
+            innovations tailored for various industries—our latest projects
+            include the School Management System and Employee Management System,
+            with many more solutions like Hotel and Hospital ERPs on the
+            pipeline.
           </p>
         </div>
 
         <section ref={sectionRef} className="py-16">
           <div className="container mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Text Content */}
+              {/* Vision & Mission Section */}
               <div ref={contentRef} className="text-center md:text-left">
                 <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
-                  Our Mission
+                  Our Vision & Mission
                 </h3>
                 <p className="text-gray-900 mt-4 text-lg leading-relaxed">
-                  Our mission at Gyaanadri is to empower our audience with
-                  valuable knowledge and perspectives through a variety of
-                  content formats. We strive to be a trusted source for the
-                  latest updates, thought- provoking interviews, and enriching
-                  podcasts. By curating and creating content that resonates with
-                  our audience, we aim to foster a more informed and connected
-                  community.
+                  Our vision is to revolutionize business operations through
+                  innovative ERP solutions that streamline processes and empower
+                  decision-making. We are dedicated to delivering automation and
+                  technology that drive efficiency and growth across industries.
                 </p>
               </div>
 
               {/* Image Section */}
               <div ref={imageRef} className="flex justify-center">
                 <img
-                  src="https://media.istockphoto.com/id/2151935467/vector/idea-to-achieve-target-and-strategy-or-planning-to-achieve-goal-innovation-to-insight-to.webp?a=1&b=1&s=612x612&w=0&k=20&c=Yh4s7GZEUJm9CNAuN0dfItK2TXvz-cqfd61LsAx4O-0="
-                  alt="About Us"
+                  src={zmsPlatformImg}
+                  alt="ZMS Platform"
                   className="rounded-lg w-full md:w-96"
                 />
               </div>
@@ -152,17 +151,17 @@ function Gyaanadari() {
         </section>
 
         <div className="mt-17">
-          <Heading value={"What we Do?"} />
+          <Heading value={"Our Solutions"} />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
-          {workValues.map((value, index) => (
+          {solutions.map((solution, index) => (
             <div key={index} className="max-w-xs w-full group/card">
               <div
                 className={cn(
                   "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
                 )}
                 style={{
-                  backgroundImage: `url(${value.imageUrl})`,
+                  backgroundImage: `url(${solution.imageUrl})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -170,10 +169,10 @@ function Gyaanadari() {
                 <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
                 <div className="text content">
                   <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                    {value.name}
+                    {solution.name}
                   </h1>
                   <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                    {value.description}
+                    {solution.description}
                   </p>
                 </div>
               </div>
@@ -183,13 +182,12 @@ function Gyaanadari() {
 
         <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15">
           <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
-            Join Us On Our Journey
+            Explore More ERP Solutions
           </h2>
-          <p className="w-[100%] text-center text-lg">
-            Explore the world of Gyaanadri and discover a wealth of content
-            designed to enrich your knowledge and entertain your mind. Connect
-            with us through social media, and stay tuned for the latest updates
-            and content releases.
+          <p className="w-full text-center text-lg">
+            Discover how Zager Management System can transform your business
+            processes and elevate operational efficiency with our innovative ERP
+            solutions.
           </p>
         </div>
       </div>
@@ -197,4 +195,4 @@ function Gyaanadari() {
   );
 }
 
-export default Gyaanadari;
+export default ZagerManagementSystem;

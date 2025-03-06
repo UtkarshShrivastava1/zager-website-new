@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#051224] border-gray-200 w-full">
       <div className="flex items-center justify-between px-8 py-4">
-        <NavLink to="/" className="flex items-center space-x-3">
+        <NavLink to="/homepage" className="flex items-center space-x-3">
           <img src={logo} className="h-12" alt="Zager Logo" />
         </NavLink>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
           <ul className="flex flex-col md:flex-row font-medium p-4 md:p-0 mt-4 border rounded-lg bg-[#051224] md:space-x-8 md:mt-0 md:border-0">
             <li>
               <NavLink
-                to="/"
+                to="/homepage"
                 className={({ isActive }) =>
                   `block text-lg py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
                     isActive ? "border-b-2 border-[#ffbe00]" : ""
@@ -63,7 +63,30 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-
+            <li>
+              <NavLink
+                to="/aboutus"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
+                    isActive ? "border-b-2 border-[#ffbe00]" : ""
+                  }`
+                }
+              >
+                Services
+              </NavLink>
+            </li>
             {/* Dropdown */}
             <li className="relative dropdown-container text-lg">
               <button
@@ -106,7 +129,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/"
+                      to="/ourplatforms/zms"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Zager Management System
@@ -132,30 +155,6 @@ const Navbar = () => {
               </div>
             </li>
 
-            <li>
-              <NavLink
-                to="/services"
-                className={({ isActive }) =>
-                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
-                    isActive ? "border-b-2 border-[#ffbe00]" : ""
-                  }`
-                }
-              >
-                Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/aboutus"
-                className={({ isActive }) =>
-                  `block py-2 px-3 text-white hover:text-blue-500 text-lg hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
-                    isActive ? "border-b-2 border-[#ffbe00]" : ""
-                  }`
-                }
-              >
-                About
-              </NavLink>
-            </li>
             <li>
               <NavLink
                 to="/contactus"

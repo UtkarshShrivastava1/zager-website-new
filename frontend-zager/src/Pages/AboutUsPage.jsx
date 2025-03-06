@@ -6,19 +6,19 @@ const AboutUsPage = () => {
       icon: "👥",
       title: "Integrity",
       description:
-        "We uphold the highest standards of honesty and transparency in every interaction.",
+        "We operate with honesty, transparency, and accountability in every interaction, fostering trust and long-term partnerships with our clients.",
     },
     {
       icon: "🚀",
       title: "Innovation",
       description:
-        "We continuously explore new technologies and methodologies to offer creative and effective solutions.",
+        "We embrace new technologies and creative approaches to solve complex challenges and deliver outstanding solutions that exceed expectations.",
     },
     {
       icon: "👋",
       title: "Excellence",
       description:
-        "We are committed to delivering outstanding results and exceeding client expectations.",
+        "We are dedicated to achieving the highest standards of quality in every project, ensuring measurable success and customer satisfaction.",
     },
   ];
 
@@ -97,10 +97,12 @@ const AboutUsPage = () => {
             Our Mission
           </h2>
           <p className="text-xl tracking-tight text-gray-600">
-            Our mission is to deliver exceptional Digital Marketing and IT
-            services that empower businesses to thrive in the digital age.
-            Through innovative strategies, robust technology, and an unwavering
-            commitment to excellence, we drive growth and lasting success.
+            Our mission is to provide exceptional digital marketing and IT
+            services that help businesses achieve their goals. We are committed
+            to enhancing online visibility and engagement through innovative
+            marketing strategies, delivering robust IT solutions that streamline
+            operations and drive efficiency, and empowering clients to embrace
+            the digital revolution with confidence and success.
           </p>
         </div>
       </div>
@@ -171,11 +173,12 @@ const AboutUsPage = () => {
             Our Vision
           </h2>
           <p className="text-xl tracking-tight text-gray-600 mx-auto">
-            To be a global leader in providing innovative, customized, and
-            comprehensive Digital Marketing and IT solutions that empower
-            businesses to excel in the digital era. We strive to redefine
-            excellence and inspire growth with cutting-edge technology and
-            creative strategies tailored to our clients’ evolving needs.
+            To be a global leader in providing innovative, customised, and
+            comprehensive digital marketing and IT solutions that empower
+            businesses to thrive in the digital era. We aim to redefine
+            excellence and inspire growth by delivering cutting-edge technology
+            and creative strategies tailored to meet our client&apos;s evolving
+            needs.
           </p>
         </div>
       </div>

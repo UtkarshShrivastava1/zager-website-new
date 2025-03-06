@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,28 +17,28 @@ function ContactUsPage() {
       icon: (
         <Instagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.instagram.com/zagerdigitalservices/",
     },
     {
       title: "Facebook",
       icon: (
         <Facebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.facebook.com/zagerdigitalservices",
     },
     {
       title: "Linkedin",
       icon: (
         <Linkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.linkedin.com/company/zagerdigitalservices/posts/?feedView=all",
     },
     {
       title: "Twitter",
       icon: (
         <Twitter className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://twitter.com/zagerdigitalservices",
     },
   ];
 
@@ -52,21 +52,23 @@ function ContactUsPage() {
 
   useEffect(() => {
     // Set initial states
-    gsap.set(leftColumnRef.current, { x: -200, opacity: 0 });
-    gsap.set(rightColumnRef.current, { x: 200, opacity: 0 });
+    const leftColumn = leftColumnRef.current;
+    const rightColumn = rightColumnRef.current;
+    gsap.set(leftColumn, { x: -200, opacity: 0 });
+    gsap.set(rightColumn, { x: 200, opacity: 0 });
 
     // Create the scroll trigger animation
     ScrollTrigger.create({
       trigger: containerRef.current,
       start: "top center",
       onEnter: () => {
-        gsap.to(leftColumnRef.current, {
+        gsap.to(leftColumn, {
           x: 0,
           opacity: 1,
           duration: 1.5,
           ease: "power3.out",
         });
-        gsap.to(rightColumnRef.current, {
+        gsap.to(rightColumn, {
           x: 0,
           opacity: 1,
           duration: 1.5,
@@ -77,8 +79,8 @@ function ContactUsPage() {
 
     // Clean up on unmount
     return () => {
-      gsap.killTweensOf(leftColumnRef.current);
-      gsap.killTweensOf(rightColumnRef.current);
+      gsap.killTweensOf(leftColumn);
+      gsap.killTweensOf(rightColumn);
     };
   }, []);
 
@@ -206,41 +208,6 @@ function ContactUsPage() {
                   </button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-
-        {/* Social Media Links Section */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 md:mb-0">
-              <Link
-                to="https://www.facebook.com/zagerdigitalservices"
-                target="_blank"
-                className="!text-gray-300 hover:text-white transition-colors"
-              >
-                <Facebook className="w-6 h-6" />
-              </Link>
-              <Link
-                to="#"
-                className="!text-gray-300 hover:text-white transition-colors"
-              >
-                <Twitter className="w-6 h-6" />
-              </Link>
-              <Link
-                to="https://www.instagram.com/zagerdigitalservices/"
-                target="_blank"
-                className="!text-gray-300 hover:text-white transition-colors"
-              >
-                <Instagram className="w-6 h-6" />
-              </Link>
-              <Link
-                to="https://www.linkedin.com/company/zagerdigitalservices/posts/?feedView=all"
-                target="_blank"
-                className="!text-gray-300 hover:text-white transition-colors"
-              >
-                <Linkedin className="w-6 h-6" />
-              </Link>
             </div>
           </div>
         </div>

@@ -98,24 +98,34 @@ const Services = () => {
       {/* Intro Section */}
       <ServicesIntro />
 
-      {/* Section Header with a gradient background */}
-      <div className="py-12 bg-gradient-to-b">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
+      {/* Sticky Scroll Section with flipped gradient overlay and decorative background effects */}
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white text-[#051224] p-6 md:p-10 relative">
+        {/* Added: Flipped Gradient overlay and decorative circle */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(260deg, transparent 0%, #ffbe00 30%, transparent 100%)", // Flipped gradient
+              opacity: 0.1,
+            }}
+          ></div>
+          <div className="absolute -top-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        </div>
+        {/* End added effects */}
+
+        {/* Section Header */}
+        <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative">
           <h2 className="text-4xl md:text-5xl font-bold text-[#051224]">
             Our Services
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 mt-4">
+          <p className="text-lg md:text-xl text-gray-600 mt-1 leading-snug">
+            {/* Edited: Reduced margin from mt-2 to mt-1 and changed line-height from leading-tight to leading-snug */}
             Explore our range of services designed to boost your digital
             presence.
           </p>
         </div>
-      </div>
-
-      {/* Sticky Scroll Section with a soft gradient overlay */}
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white text-[#051224] p-6 md:p-10">
-        <div className="relative">
-          <StickyScroll content={contentData} />
-        </div>
+        <StickyScroll content={contentData} />
       </div>
     </div>
   );

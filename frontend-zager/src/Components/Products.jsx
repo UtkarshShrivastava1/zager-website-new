@@ -150,12 +150,12 @@ const OurProducts = () => {
                 <p className="text-base md:text-lg text-gray-500 mb-6 overflow-hidden min-h-28 overflow-y-auto">
                   {product.description}
                 </p>
-                <a
+                {/*    <a
                   href={product.link}
                   className="bg-[#ffbe00] w-[100px] md:w-[120px] py-2 px-4 rounded-md hover:scale-110 transition duration-300 text-white flex items-center justify-center gap-2"
                 >
                   See Product <span className="font-bold text-xl">→</span>
-                </a>
+                </a> */}
               </div>
             </div>
           ))}

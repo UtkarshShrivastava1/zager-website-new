@@ -15,7 +15,7 @@ const platforms = [
     description:
       "Welcome to Gyaanadri, your premier destination for insightful content and engaging media.",
     imageUrl: gyaanadariImg,
-    link: "/gyaanadari",
+    link: "/ourplatforms/gyaanadari",
     icon: <BookOpen className="text-[#ffbe00] w-10 h-10" />,
   },
   {
@@ -23,7 +23,7 @@ const platforms = [
     description:
       "Explore ZMS and its cutting-edge innovations comprehensive, unified platform that brings together a diverse range of automation and ERP (Enterprise Resource Planning) systems into one seamless platform.",
     imageUrl: zmsImg,
-    link: "/zms",
+    link: "/ourplatforms/zms",
     icon: <Cpu className="text-[#ffbe00] w-10 h-10" />,
   },
   {
@@ -31,7 +31,7 @@ const platforms = [
     description:
       "Welcome to IRA Media and Production, where creativity meets strategy to bring your media projects to life.",
     imageUrl: iramediaImg,
-    link: "/iramedia",
+    link: "/ourplatforms/ira-media-and-productions",
     icon: <Film className="text-[#ffbe00] w-10 h-10" />,
   },
   {
@@ -39,7 +39,7 @@ const platforms = [
     description:
       "Welcome to JK Works, your premier partner in architecture and interior design.",
     imageUrl: jkworksImg,
-    link: "/jkworks",
+    link: "/ourplatforms/jkworks",
     icon: <Building className="text-[#ffbe00] w-10 h-10" />,
   },
 ];

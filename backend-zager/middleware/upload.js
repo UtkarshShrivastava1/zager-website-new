@@ -1,56 +1,40 @@
-const multer = require('multer');
+const multer = require("multer");
 
+// Configure memory storage
 const storage = multer.memoryStorage();
+
+// File filter function
 const fileFilter = (req, file, cb) => {
-  // Check if a file was actually uploaded
-  if (!file) {
-    return cb(new Error('No file uploaded'), false);
+  if (!file.mimetype.startsWith("image/")) {
+    return cb(new Error("Invalid file type. Only images are allowed."), false);
   }
-  
-  // Check file type
-  if (!file.mimetype.startsWith('image/')) {
-    return cb(new Error('Only image files are allowed'), false);
-  }
-  
   cb(null, true);
 };
 
+// Multer instance with limits
 const upload = multer({
   storage,
-  limits: {
-    fileSize: 5 * 1024 * 1024, // 5MB
-    files: 1
-  },
-  fileFilter
-}).single('image');
+  limits: { fileSize: 10 * 1024 * 1024 }, // Increased limit to 10MB
+  fileFilter,
+}).single("image");
 
-// Enhanced error handling middleware
+// Middleware function
 const uploadMiddleware = (req, res, next) => {
-  upload(req, res, function(err) {
-    // Log the request details for debugging
-    console.log('Upload request received:', {
-      headers: req.headers,
-      files: req.file ? 'File present' : 'No file',
-      body: req.body
-    });
+  upload(req, res, (err) => {
+    console.log(
+      `Upload Attempt: ${req.file ? "File Uploaded" : "No File"} | Size: ${
+        req.file?.size || "N/A"
+      } bytes`
+    );
 
-    if (err instanceof multer.MulterError) {
-      console.error('Multer error:', err);
-      return res.status(400).json({
-        success: false,
-        message: `Upload error: ${err.message}`
-      });
-    } else if (err) {
-      console.error('Upload error:', err);
-      return res.status(400).json({
-        success: false,
-        message: err.message
-      });
+    if (err) {
+      console.error("Upload Error:", err.message);
+      return res.status(400).json({ success: false, message: err.message });
     }
 
-    // If no file was uploaded, continue without error
+    // If no file is uploaded, we just move forward without error
     if (!req.file) {
-      console.log('No file uploaded, continuing...');
+      console.log("⚠️ No file uploaded.");
     }
 
     next();

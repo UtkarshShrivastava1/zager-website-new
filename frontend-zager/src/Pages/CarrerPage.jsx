@@ -1,8 +1,11 @@
+"use client";
+
 import { TextGenerateEffect } from "../Components/ui/text-generate-effect";
 import { cn } from "../lib/utils";
 import Heading from "../Components/Heading";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import api from "../services/api";
 
 function CarrerPage() {
   const heroWords =
@@ -42,15 +45,24 @@ function CarrerPage() {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    role: "",
+    email: "",
+    phone: "",
+  });
+  const [resume, setResume] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  // GSAP animations
   useEffect(() => {
-    // Animate the images container
     gsap.fromTo(
       containerRef.current,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
     );
-    // Animate background glowing circles (similar to HeroSection)
     gsap.to(".top-glow", {
       y: -20,
       repeat: -1,
@@ -90,13 +102,6 @@ function CarrerPage() {
     },
   ];
 
-  const [formData, setFormData] = useState({
-    name: "",
-    role: "",
-    email: "",
-    phone: "",
-  });
-
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -104,9 +109,45 @@ function CarrerPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setSuccessMessage("");
+    setErrorMessage("");
+    setLoading(true);
+
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("companyName", formData.role); // using "companyName" field in backend as role
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    if (resume) {
+      data.append("resume", resume);
+    }
+    try {
+      const response = await api.post("/job-applications", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log("Application submitted:", response.data);
+      setSuccessMessage(
+        "Thank you for applying! Your application has been submitted successfully. We will contact you soon."
+      );
+      // Clear form fields
+      setFormData({
+        name: "",
+        role: "",
+        email: "",
+        phone: "",
+      });
+      setResume(null);
+    } catch (error) {
+      console.error("Error submitting job application:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while submitting your application. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -214,6 +255,16 @@ function CarrerPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
             Fill out the form to join our team
           </h2>
+          {successMessage && (
+            <p className="text-green-600 font-bold text-center mb-4">
+              {successMessage}
+            </p>
+          )}
+          {errorMessage && (
+            <p className="text-red-600 font-bold text-center mb-4">
+              {errorMessage}
+            </p>
+          )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <input
@@ -229,7 +280,7 @@ function CarrerPage() {
             <div>
               <input
                 type="text"
-                name="companyName"
+                name="role"
                 placeholder="Role*"
                 required
                 className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
@@ -268,17 +319,24 @@ function CarrerPage() {
                 name="resume"
                 required
                 className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                onChange={(e) => setResume(e.target.files && e.target.files[0])}
               />
             </div>
             <div className="text-right">
               <button
                 type="submit"
+                disabled={loading}
                 className="px-8 py-3 bg-[#ffbe00] text-white rounded transition-colors font-semibold hover:bg-yellow-600"
               >
-                SUBMIT
+                {loading ? "SUBMITTING..." : "SUBMIT"}
               </button>
             </div>
           </form>
+          {loading && (
+            <div className="flex justify-center mt-4">
+              <div className="w-8 h-8 border-4 border-t-4 border-gray-200 border-t-[#ffbe00] rounded-full animate-spin"></div>
+            </div>
+          )}
         </div>
       </div>
     </>

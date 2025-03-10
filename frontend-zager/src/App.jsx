@@ -10,6 +10,8 @@ import JKWorks from "./Pages/JKWorks";
 import IRMediaAndProductions from "./Pages/IRMediaAndProductions";
 import Signin from "./Pages/Auth/Signin";
 import Dashboard from "./Pages/Auth/AdminDashboardPage";
+import AdminBlogListPage from "./Pages/Auth/AdminBlogListPage";
+
 import CreateBlog from "./Pages/Blog/CreateBlog";
 import EditBlog from "./Pages/Blog/EditBlog";
 import BlogDetails from "./Pages/Blog/BlogDetails";
@@ -21,7 +23,7 @@ import Services from "./Pages/Services";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsofService from "./Pages/TermsofService";
 import ZagerManagementSystem from "./Pages/Zms";
-
+import ScrollToTop from "./ScrollToTop";
 function App() {
   // Function to check if the user is authenticated
   const isAuthenticated = () => {
@@ -30,12 +32,12 @@ function App() {
 
   return (
     <AuthProvider>
+      <ScrollToTop />
       <NavBar />
       <div className="min-h-screen">
         <Routes>
           {/* Redirect root to /homepage */}
           <Route path="/" element={<Navigate to="/homepage" replace />} />
-
           {/* Public Routes */}
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/admin/admin-login" element={<Signin />} />
@@ -49,7 +51,6 @@ function App() {
           <Route path="/terms" element={<TermsofService />} />
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
           <Route path="/ourplatforms/zms" element={<ZagerManagementSystem />} />
-
           <Route path="/ourplatforms/jkworks" element={<JKWorks />} />
           <Route
             path="/ourplatforms/ira-media-and-productions"
@@ -57,7 +58,6 @@ function App() {
           />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:id" element={<BlogDetails />} />
-
           {/* Protected Routes */}
           <Route
             path="/admin/admin-dashboard"
@@ -70,7 +70,7 @@ function App() {
             }
           />
           <Route
-            path="/blogs/create"
+            path="/admin/add-blogs"
             element={
               isAuthenticated() ? (
                 <CreateBlog />
@@ -84,6 +84,17 @@ function App() {
             element={
               isAuthenticated() ? (
                 <EditBlog />
+              ) : (
+                <Navigate to="/admin/admin-login" />
+              )
+            }
+          />
+
+          <Route
+            path="/admin/edit-blogs"
+            element={
+              isAuthenticated() ? (
+                <AdminBlogListPage />
               ) : (
                 <Navigate to="/admin/admin-login" />
               )

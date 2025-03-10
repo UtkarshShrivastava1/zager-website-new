@@ -5,6 +5,7 @@ import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect, useState } from "react";
+import api from "../services/api"; // Ensure your axios instance has the proper baseURL
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,7 @@ const ContactForm = () => {
   const leftColumnRef = useRef(null);
   const rightColumnRef = useRef(null);
   const containerRef = useRef(null);
+
   const links = [
     {
       title: "Instagram",
@@ -42,6 +44,7 @@ const ContactForm = () => {
       href: "#",
     },
   ];
+
   const [formData, setFormData] = useState({
     name: "",
     companyName: "",
@@ -49,6 +52,10 @@ const ContactForm = () => {
     phone: "",
     message: "",
   });
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     // Set initial states for left and right columns
@@ -77,17 +84,40 @@ const ContactForm = () => {
       },
     });
 
-    // Cleanup on unmount
+    // Clean up on unmount
     return () => {
       gsap.killTweensOf(leftColumn);
       gsap.killTweensOf(rightColumn);
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      // POST formData to /api/contacts (expects JSON payload)
+      const response = await api.post("/contacts", formData);
+      console.log("Form submitted:", response.data);
+      setSuccessMessage("Your message has been sent successfully!");
+      // Clear form fields
+      setFormData({
+        name: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setErrorMessage(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -110,11 +140,9 @@ const ContactForm = () => {
             opacity: 0.1,
           }}
         ></div>
-        {/* Large circle at top-right */}
+        {/* Large circles for decorative effect */}
         <div className="absolute -top-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         <div className="absolute -top-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-
-        {/* Small circle at bottom-left */}
         <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
@@ -160,6 +188,14 @@ const ContactForm = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Start a conversation with us
             </h2>
+            {successMessage && (
+              <p className="text-green-600 font-semibold mb-4">
+                {successMessage}
+              </p>
+            )}
+            {errorMessage && (
+              <p className="text-red-600 font-semibold mb-4">{errorMessage}</p>
+            )}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input
@@ -220,8 +256,9 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   className="px-8 py-3 bg-[#ffbe00] text-white rounded hover:cursor-pointer transition-colors font-semibold"
+                  disabled={loading}
                 >
-                  SUBMIT
+                  {loading ? "SUBMITTING..." : "SUBMIT"}
                 </button>
               </div>
             </form>

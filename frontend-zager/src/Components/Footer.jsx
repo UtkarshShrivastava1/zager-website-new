@@ -63,6 +63,15 @@ const Footer = () => {
                   Terms of Service
                 </NavLink>
               </li>
+              <li>
+                {" "}
+                <Link
+                  to="/admin/admin-login"
+                  className="bg-[#051224] text-[#fcfcfc] font-semibold py-1 px- rounded-lg hover:bg-yellow-600 transition-colors"
+                >
+                  Admin
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -81,7 +90,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <Link
                   to="tel:+919407655717"
-                  className="!text-gray-300 hover:text-white transition-colors "
+                  className="!text-gray-300 hover:text-white transition-colors"
                 >
                   +91-9407655717
                 </Link>
@@ -99,7 +108,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Links & Copyright */}
+        {/* Social Links, Admin Button & Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-4 md:mb-0">
@@ -131,14 +140,11 @@ const Footer = () => {
                 <LinkedinIcon className="w-6 h-6" />
               </Link>
             </div>
-            <p className="text-gray-300 text-sm text-center md:text-right">
-              © 2025 Zager Digital Services. All rights reserved.{" "}
-              <span className=" text-sm text-center md:text-right">
-                <NavLink to={"/admin/admin-login"} className={"!text-gray-200"}>
-                  Admin
-                </NavLink>
-              </span>
-            </p>
+            <div className="flex flex-col md:flex-row items-center space-x-4">
+              <p className="text-gray-300 text-sm">
+                © 2025 Zager Digital Services. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

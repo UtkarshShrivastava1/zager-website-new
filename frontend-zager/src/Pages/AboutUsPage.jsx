@@ -25,55 +25,55 @@ const AboutUsPage = () => {
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-8 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row items-center gap-6">
+      <div className="container mx-auto px-6 py-12 md:py-16">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <div className="md:w-1/2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#ffbe00] mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ffbe00] mb-4">
               We’re Changing the Way People Connect
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-600 leading-snug">
               At{" "}
               <span className="text-[#051244] font-bold">
                 Zager Digital Services
               </span>
-              , We are a passionate team of designers, developers, and
+              , we are a passionate team of designers, developers, and
               strategists dedicated to crafting cutting-edge solutions. Our goal
               is to help businesses thrive in the digital landscape by providing
               top-notch web development, media production, and creative design
               services.
             </p>
           </div>
-          <div className="md:w-1/2 flex gap-4">
+          <div className="md:w-1/2 flex gap-3">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
               alt="Digital Marketing"
-              className="w-1/2 h-64 object-cover rounded-2xl"
+              className="w-1/2 h-56 object-cover rounded-xl"
             />
             <img
               src="https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
               alt="Team Collaboration"
-              className="w-1/2 h-64 object-cover rounded-2xl mt-4 md:mt-0"
+              className="w-1/2 h-56 object-cover rounded-xl mt-2 md:mt-0"
             />
           </div>
         </div>
       </div>
 
       {/* Our Values Section */}
-      <div className="py-16 px-8 md:px-24">
+      <div className="py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-[#ffbe00]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#ffbe00]">
             Our Values
           </h2>
-          <p className="text-xl mb-12">Values That Inspire</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             {values.map((value, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-[#ffbe00] bg-opacity-10 text-2xl">
+              <div key={index} className="flex items-start gap-3">
+                <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-[#ffbe00] bg-opacity-10 text-xl">
                   {value.icon}
                 </div>
                 <div className="text-left">
-                  <h3 className="text-xl font-semibold mb-1">{value.title}</h3>
-                  <p className="text-gray-500">{value.description}</p>
+                  <h3 className="text-lg font-semibold mb-1">{value.title}</h3>
+                  {/* Increased font size from text-sm to text-base */}
+                  <p className="text-gray-500 text-base">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -82,8 +82,7 @@ const AboutUsPage = () => {
       </div>
 
       {/* Our Mission Section with Subtle Gradient Overlay */}
-      <div className="relative py-16 sm:py-20 text-center">
-        {/* Subtle Gradient Overlay (matching HeroSection) */}
+      <div className="relative py-12 sm:py-16 text-center">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -92,11 +91,11 @@ const AboutUsPage = () => {
             opacity: 0.1,
           }}
         ></div>
-        <div className="relative max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#ffbe00]">
+        <div className="relative max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#ffbe00]">
             Our Mission
           </h2>
-          <p className="text-xl tracking-tight text-gray-600">
+          <p className="text-base md:text-lg tracking-normal text-gray-600 leading-snug">
             Our mission is to provide exceptional digital marketing and IT
             services that help businesses achieve their goals. We are committed
             to enhancing online visibility and engagement through innovative
@@ -108,48 +107,48 @@ const AboutUsPage = () => {
       </div>
 
       {/* Highlights Section */}
-      <div className="py-16 px-8 sm:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="py-12 px-6 sm:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Innovation Culture */}
           <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+            <div className="bg-white rounded-lg shadow-md p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
                 Innovation Culture
               </h3>
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-base text-gray-600 text-center">
                 Cultivating continuous innovation and improvement.
               </p>
             </div>
           </div>
           {/* Tech-Driven Problem Solving */}
           <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+            <div className="bg-white rounded-lg shadow-md p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
                 Tech-Driven Problem Solving
               </h3>
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-base text-gray-600 text-center">
                 Leveraging technology to tackle complex challenges.
               </p>
             </div>
           </div>
           {/* Global Reach */}
           <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+            <div className="bg-white rounded-lg shadow-md p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
                 Global Reach
               </h3>
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-base text-gray-600 text-center">
                 Connecting businesses with global opportunities.
               </p>
             </div>
           </div>
-          {/* Client-Centric Solutions */}
+          {/* Client-Centric Solutions (Full-width on large screens) */}
           <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out lg:col-span-3">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+            <div className="bg-white rounded-lg shadow-md p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
                 Client-Centric Solutions
               </h3>
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-base text-gray-600 text-center">
                 Delivering customized digital solutions to meet unique client
                 needs.
               </p>
@@ -159,7 +158,7 @@ const AboutUsPage = () => {
       </div>
 
       {/* Our Vision Section with Subtle Gradient Overlay */}
-      <div className="relative py-16 px-8 md:px-24">
+      <div className="relative py-12 px-6 md:px-12">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -169,10 +168,10 @@ const AboutUsPage = () => {
           }}
         ></div>
         <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#ffbe00]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#ffbe00]">
             Our Vision
           </h2>
-          <p className="text-xl tracking-tight text-gray-600 mx-auto">
+          <p className="text-base md:text-lg tracking-normal text-gray-600 leading-snug mx-auto">
             To be a global leader in providing innovative, customised, and
             comprehensive digital marketing and IT solutions that empower
             businesses to thrive in the digital era. We aim to redefine

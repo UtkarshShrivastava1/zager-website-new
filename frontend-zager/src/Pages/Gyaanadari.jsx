@@ -3,6 +3,7 @@ import { TextGenerateEffect } from "../Components/ui/text-generate-effect";
 import { cn } from "../lib/utils";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
+import gyaanadariImg from "../assets/gyanadari.jpeg";
 
 function Gyaanadari() {
   const workValues = [
@@ -37,7 +38,6 @@ function Gyaanadari() {
   ];
 
   const words = "Welcome to Gyaanadri,";
-
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
@@ -120,19 +120,25 @@ function Gyaanadari() {
           </p>
         </div>
 
-        <section ref={sectionRef} className="py-16">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Our Mission Section - Adjusted gap */}
+        <section ref={sectionRef} className="py-12">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
+            {/*
+              Adjust the 'mt-[-16]' value here:
+                - More negative (e.g., mt-[-20]) pushes it closer.
+                - Less negative (e.g., mt-[-12]) increases the gap.
+            */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Text Content */}
               <div ref={contentRef} className="text-center md:text-left">
-                <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
+                <h3 className="text-[#ffbe00] text-5xl font-bold tracking-normal">
                   Our Mission
                 </h3>
                 <p className="text-gray-900 mt-4 text-lg leading-relaxed">
                   Our mission at Gyaanadri is to empower our audience with
                   valuable knowledge and perspectives through a variety of
                   content formats. We strive to be a trusted source for the
-                  latest updates, thought- provoking interviews, and enriching
+                  latest updates, thought-provoking interviews, and enriching
                   podcasts. By curating and creating content that resonates with
                   our audience, we aim to foster a more informed and connected
                   community.
@@ -140,10 +146,11 @@ function Gyaanadari() {
               </div>
 
               {/* Image Section */}
+              {/* Image Section */}
               <div ref={imageRef} className="flex justify-center">
                 <img
-                  src="https://media.istockphoto.com/id/2151935467/vector/idea-to-achieve-target-and-strategy-or-planning-to-achieve-goal-innovation-to-insight-to.webp?a=1&b=1&s=612x612&w=0&k=20&c=Yh4s7GZEUJm9CNAuN0dfItK2TXvz-cqfd61LsAx4O-0="
-                  alt="About Us"
+                  src={gyaanadariImg}
+                  alt="ZMS Platform"
                   className="rounded-lg w-full md:w-96"
                 />
               </div>
@@ -181,7 +188,11 @@ function Gyaanadari() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15">
+        {/* Join Us Section with additional bottom margin for logical gap */}
+        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-20">
+          {/*
+            Added 'mb-12' to create a clear gap after the section ends.
+          */}
           <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
             Join Us On Our Journey
           </h2>

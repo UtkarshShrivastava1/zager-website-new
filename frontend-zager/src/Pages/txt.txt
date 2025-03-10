@@ -5,6 +5,5 @@ White-            #ffffff
 
 to do
 
-- update about us content
--space allignment in services
-- remove news ref from gyaanadri
+-about us read more
+-our platform buttons

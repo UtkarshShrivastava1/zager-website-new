@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import api from "../services/api"; // Ensure your axios instance has the proper baseURL
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,8 +51,12 @@ function ContactUsPage() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
-    // Set initial states
+    // Set initial states for animations
     const leftColumn = leftColumnRef.current;
     const rightColumn = rightColumnRef.current;
     gsap.set(leftColumn, { x: -200, opacity: 0 });
@@ -84,10 +89,33 @@ function ContactUsPage() {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      // POST formData to /api/contacts (expects JSON payload)
+      const response = await api.post("/contacts", formData);
+      console.log("Form submitted:", response.data);
+      setSuccessMessage("Your message has been sent successfully!");
+      // Clear form fields
+      setFormData({
+        name: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setErrorMessage(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -143,6 +171,16 @@ function ContactUsPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                 Start a conversation with us
               </h2>
+              {successMessage && (
+                <p className="text-green-600 font-semibold mb-4">
+                  {successMessage}
+                </p>
+              )}
+              {errorMessage && (
+                <p className="text-red-600 font-semibold mb-4">
+                  {errorMessage}
+                </p>
+              )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <input
@@ -203,8 +241,9 @@ function ContactUsPage() {
                   <button
                     type="submit"
                     className="px-8 py-3 bg-[#ffbe00] text-white rounded hover:cursor-pointer transition-colors font-semibold"
+                    disabled={loading}
                   >
-                    SUBMIT
+                    {loading ? "SUBMITTING..." : "SUBMIT"}
                   </button>
                 </div>
               </form>

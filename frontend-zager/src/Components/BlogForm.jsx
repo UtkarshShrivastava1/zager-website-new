@@ -4,38 +4,57 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 const BlogForm = ({ initialData }) => {
-  const [formData, setFormData] = useState(
-    initialData || {
-      title: "",
-      content: "",
-    }
-  );
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    title: initialData?.title || "",
+    content: initialData?.content || "",
+  });
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
 
+  // Get stored token from localStorage
+  const getToken = () => {
+    const adminInfo = localStorage.getItem("adminInfo");
+    return adminInfo ? JSON.parse(adminInfo).token : null;
+  };
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
-    const formPayload = new FormData();
-    formPayload.append("title", formData.title);
-    formPayload.append("content", formData.content);
-    if (imageFile) formPayload.append("image", imageFile);
+    const token = getToken();
+    if (!token) {
+      setError("No token, authorization denied.");
+      setLoading(false);
+      return;
+    }
 
     try {
-      if (initialData) {
-        await api.put(`/blogs/${initialData._id}`, formPayload, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+      const formPayload = new FormData();
+      formPayload.append("title", formData.title);
+      formPayload.append("content", formData.content);
+      if (imageFile) formPayload.append("image", imageFile);
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      if (initialData?._id) {
+        await api.put(`/blogs/${initialData._id}`, formPayload, config);
       } else {
-        await api.post("/blogs", formPayload, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        await api.post("/blogs", formPayload, config);
       }
-      navigate("/Dashboard");
+
+      navigate("/admin/admin-dashboard");
     } catch (error) {
       console.error("Submission error:", error);
+      setError(error.response?.data?.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -44,8 +63,11 @@ const BlogForm = ({ initialData }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow"
+      className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md"
     >
+      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+      {/* Title Input */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Title
@@ -59,6 +81,7 @@ const BlogForm = ({ initialData }) => {
         />
       </div>
 
+      {/* Content Input */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Content
@@ -73,6 +96,7 @@ const BlogForm = ({ initialData }) => {
         />
       </div>
 
+      {/* Image Upload */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Blog Image
@@ -95,6 +119,7 @@ const BlogForm = ({ initialData }) => {
         )}
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={loading}
@@ -105,6 +130,7 @@ const BlogForm = ({ initialData }) => {
     </form>
   );
 };
+
 BlogForm.propTypes = {
   initialData: PropTypes.shape({
     _id: PropTypes.string,

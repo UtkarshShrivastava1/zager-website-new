@@ -1,6 +1,7 @@
 import {
   FaUserAlt,
   FaBlog,
+  FaEdit,
   FaCamera,
   FaBars,
   FaSignOutAlt,
@@ -28,6 +29,11 @@ const dashboardSections = [
         icon: <FaBlog size={40} />,
         title: "Add Blogs",
         page: "add-blogs",
+      },
+      {
+        icon: <FaEdit size={40} />,
+        title: "View/Edit Blogs",
+        page: "edit-blogs",
       },
       {
         icon: <FaCamera size={40} />,

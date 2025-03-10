@@ -122,10 +122,16 @@ function ZagerManagementSystem() {
           </p>
         </div>
 
-        <section ref={sectionRef} className="py-16">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Vision & Mission Section */}
+        {/* Vision & Mission Section */}
+        <section ref={sectionRef} className="py-12">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
+            {/*
+              Adjust the 'mt-[-16]' value here:
+                - More negative (e.g., mt-[-20]) pushes the section closer.
+                - Less negative (e.g., mt-[-12]) creates more gap.
+            */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              {/* Text Content */}
               <div ref={contentRef} className="text-center md:text-left">
                 <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
                   Our Vision & Mission
@@ -150,6 +156,7 @@ function ZagerManagementSystem() {
           </div>
         </section>
 
+        {/* Our Solutions Section */}
         <div className="mt-17">
           <Heading value={"Our Solutions"} />
         </div>
@@ -180,7 +187,11 @@ function ZagerManagementSystem() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15">
+        {/* Join Us Section */}
+        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-20">
+          {/*
+            Added 'mb-20' to create a clear gap after the section ends.
+          */}
           <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
             Explore More ERP Solutions
           </h2>

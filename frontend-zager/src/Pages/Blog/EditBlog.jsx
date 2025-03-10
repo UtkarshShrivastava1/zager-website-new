@@ -3,6 +3,11 @@ import { useParams } from "react-router-dom";
 import api from "../../services/api";
 import BlogForm from "../../Components/BlogForm";
 
+const getToken = () => {
+  const adminInfo = localStorage.getItem("adminInfo");
+  return adminInfo ? JSON.parse(adminInfo).token : null;
+};
+
 const EditBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -10,15 +15,25 @@ const EditBlog = () => {
 
   useEffect(() => {
     const fetchBlog = async () => {
+      const token = getToken();
+      if (!token) {
+        console.error("No token, authorization denied.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const { data } = await api.get(`/blogs/${id}`);
+        const { data } = await api.get(`/blogs/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         setBlog(data.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching blog:", error);
       } finally {
         setLoading(false);
       }
     };
+
     fetchBlog();
   }, [id]);
 

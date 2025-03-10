@@ -8,30 +8,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UtkarshShrivastava1/zager-website-new .git"
+    "url": "git+https://github.com/UtkarshShrivastava1/zager-website-new.git"
   },
   "author": "Utkarsh Shrivastava",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UtkarshShrivastava1/zager-website-new /issues"
+    "url": "https://github.com/UtkarshShrivastava1/zager-website-new/issues"
   },
-  "homepage": "https://github.com/UtkarshShrivastava1/zager-website-new #readme",
+  "homepage": "https://github.com/UtkarshShrivastava1/zager-website-new#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "chalk": "^5.3.0",
+    "cloudinary": "^2.5.1",
     "colors": "^1.4.0",
     "compression": "^1.7.5",
     "cors": "^2.8.5",
-    "zager-website-new -backend": "file:",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-validator": "^7.0.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.0",
+    "mongoose": "^8.11.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "school-management-system-backend": "file:"
+    "nodemailer": "^6.10.0",
+    "zager-website-backend": "file:"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

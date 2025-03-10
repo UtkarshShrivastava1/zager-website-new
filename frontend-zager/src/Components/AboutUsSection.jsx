@@ -2,7 +2,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,7 +97,7 @@ const AboutUsSection = () => {
             </p>
             <button
               onClick={() => navigate("/aboutus")}
-              className="mt-6 bg-[#ffbe00] text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition"
+              className="mt-6 bg-[#ffbe00] text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition cursor-pointer"
             >
               Read More
             </button>

@@ -90,7 +90,17 @@ const OurServicesSections = () => {
       </div>
 
       <div className="text-center mb-12 relative z-10">
-        <h4 className="text-3xl font-bold text-[#ffbe00] mb-4">Our Services</h4>
+        <h4
+          style={{
+            fontWeight: "700",
+            fontSize: "2.5rem",
+            color: "#ffbe00",
+            marginBottom: "20px",
+          }}
+          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+        >
+          Our Services
+        </h4>{" "}
         <h2 className="text-3xl md:text-4xl font-bold mt-2">
           Custom Digital Solutions for <br /> Your Successful Business
         </h2>

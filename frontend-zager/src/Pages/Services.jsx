@@ -116,9 +116,17 @@ const Services = () => {
 
         {/* Section Header */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#051224]">
-            Our Services
-          </h2>
+          <h4
+            style={{
+              fontWeight: "700",
+              fontSize: "2.5rem",
+              color: "#ffbe00",
+              marginBottom: "20px",
+            }}
+            className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          >
+            Our Services{" "}
+          </h4>
           <p className="text-lg md:text-xl text-gray-600 mt-1 leading-snug">
             {/* Edited: Reduced margin from mt-2 to mt-1 and changed line-height from leading-tight to leading-snug */}
             Explore our range of services designed to boost your digital

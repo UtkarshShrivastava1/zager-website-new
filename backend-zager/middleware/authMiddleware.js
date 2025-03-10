@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("../models/adminModel");
+const Admin = require("../models/AdminModel");
 
 // Helper function to verify JWT and role
 const verifyTokenAndRole = async (req, res, next, role) => {

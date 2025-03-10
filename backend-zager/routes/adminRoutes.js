@@ -4,7 +4,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const multer = require("multer");
 const path = require("path");
-const Admin = require("../models/adminModel"); // Ensure this import is correct
+const Admin = require("../models/AdminModel"); // Ensure this import is correct
 
 // Import verifyAdminToken middleware
 const { verifyAdminToken } = require("../middleware/authMiddleware");

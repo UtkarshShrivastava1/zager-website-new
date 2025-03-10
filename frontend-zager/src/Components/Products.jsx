@@ -25,7 +25,7 @@ const products = [
   },
   {
     image: mysavuiorImg,
-    name: "MySavuior",
+    name: "MySaviour",
     description:
       "A comprehensive website for maintaining blood donor lists, ensuring timely and efficient donation matching.",
     link: "/products/mysavuior",

@@ -2,6 +2,10 @@ const Admin = require("../models/AdminModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+// Default Admin Credentials (Stored in .env)
+const DEFAULT_ADMIN_ID = process.env.DEFAULT_ADMIN_ID || "ZAGER12345";
+const DEFAULT_ADMIN_PASSWORD = process.env.DEFAULT_ADMIN_PASSWORD || "admin";
+
 // Generate a unique admin ID
 const generateAdminID = async () => {
   let newID;
@@ -11,6 +15,7 @@ const generateAdminID = async () => {
   return newID;
 };
 
+// Create an admin
 const createAdmin = async (req, res) => {
   try {
     const { email, role = "admin" } = req.body;
@@ -37,20 +42,35 @@ const createAdmin = async (req, res) => {
       .json({ message: "Internal server error", error: error.message });
   }
 };
-//===============================================================================================
-// Route: Login admin using POST "/api/admin/auth/login"
+
+// Admin Login
 const loginAdmin = async (req, res) => {
   try {
     const { adminID, password } = req.body;
 
-    // Validate input
     if (!adminID || !password) {
       return res
         .status(400)
         .json({ message: "Admin ID and password are required" });
     }
 
-    // Find admin by adminID
+    // Check if the provided credentials match the hardcoded admin
+    if (adminID === DEFAULT_ADMIN_ID && password === DEFAULT_ADMIN_PASSWORD) {
+      const token = jwt.sign(
+        { id: "default_admin", role: "admin" },
+        process.env.JWT_SECRET,
+        { expiresIn: "7d" }
+      );
+
+      return res.json({
+        token,
+        adminID: DEFAULT_ADMIN_ID,
+        role: "admin",
+        message: "Default admin logged in",
+      });
+    }
+
+    // Otherwise, check in the database
     const admin = await Admin.findOne({ adminID });
     if (!admin) return res.status(401).json({ message: "Invalid credentials" });
 

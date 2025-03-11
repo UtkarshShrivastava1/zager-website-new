@@ -59,7 +59,7 @@ const AboutUsSection = () => {
           }}
         ></div>
         {/* Large circle at top-right */}
-        <div className="absolute -top-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        <div className="absolute top-50 -right-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         {/* Small circle at bottom-left */}
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>

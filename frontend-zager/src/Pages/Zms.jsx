@@ -91,9 +91,9 @@ function ZagerManagementSystem() {
   }, []);
 
   return (
-    <div className="relative">
-      {/* Background Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none">
+    <div className="relative overflow-x-hidden">
+      {/* Background Gradient Overlay & Glowing Circles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="w-full h-full"
           style={{

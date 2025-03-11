@@ -18,8 +18,8 @@ router.get("/test", (req, res) => {
 // Blog routes
 router.get("/", getAllBlogs); // Get all blogs
 router.get("/:id", getBlogById); // Get single blog (NEW)
-router.post("/", verifyAdminToken, upload, createBlog);
-router.put("/:id", verifyAdminToken, upload, updateBlog);
-router.delete("/:id", verifyAdminToken, deleteBlog);
+router.post("/", upload, createBlog);
+router.put("/:id", upload, updateBlog);
+router.delete("/:id", deleteBlog);
 
 module.exports = router;

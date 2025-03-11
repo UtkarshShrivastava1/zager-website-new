@@ -90,9 +90,10 @@ function Gyaanadari() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       {/* Background Gradient Overlay & Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {" "}
         <div
           className="w-full h-full"
           style={{

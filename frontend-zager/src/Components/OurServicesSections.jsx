@@ -85,8 +85,6 @@ const OurServicesSections = () => {
           }}
         ></div>
         {/* Matching corner circles */}
-        <div className="absolute -top-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
-        <div className="absolute -bottom-32 -right-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
 
       <div className="text-center mb-12 relative z-10">

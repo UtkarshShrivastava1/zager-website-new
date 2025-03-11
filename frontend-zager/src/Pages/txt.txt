@@ -5,5 +5,5 @@ White-            #ffffff
 
 to do
 
--about us read more
--our platform buttons
+-scroll system 
+-fradient abot page

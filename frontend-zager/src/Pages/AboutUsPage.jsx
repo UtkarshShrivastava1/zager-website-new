@@ -1,4 +1,15 @@
 import { TimelineDemo } from "../Components/TimelineDemo";
+import { motion } from "framer-motion";
+
+// Generic fade-in/up variant for sections
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.8, ease: "easeOut" },
+  },
+};
 
 const AboutUsPage = () => {
   const values = [
@@ -25,165 +36,179 @@ const AboutUsPage = () => {
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          <div className="md:w-1/2">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ffbe00] mb-4">
-              We’re Changing the Way People Connect
-            </h1>
-            <p className="text-base md:text-lg text-gray-600 leading-snug">
-              At{" "}
-              <span className="text-[#051244] font-bold">
-                Zager Digital Services
-              </span>
-              , we are a passionate team of designers, developers, and
-              strategists dedicated to crafting cutting-edge solutions. Our goal
-              is to help businesses thrive in the digital landscape by providing
-              top-notch web development, media production, and creative design
-              services.
-            </p>
-          </div>
-          <div className="md:w-1/2 flex gap-3">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-              alt="Digital Marketing"
-              className="w-1/2 h-56 object-cover rounded-xl"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-              alt="Team Collaboration"
-              className="w-1/2 h-56 object-cover rounded-xl mt-2 md:mt-0"
-            />
+      <section
+        className="relative h-screen flex items-center justify-center text-center overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80')",
+        }}
+      >
+        <motion.div
+          className="absolute inset-0 bg-black"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          style={{ opacity: 0.5 }}
+        ></motion.div>
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: -50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, ease: "easeOut" },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#ffbe00] drop-shadow-lg mb-6"
+            >
+              &quot;Empowering Businesses, Elevating Digital Success!&quot;{" "}
+            </motion.h1>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, ease: "easeOut", delay: 0.3 },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-lg md:text-2xl text-white leading-relaxed drop-shadow-md"
+            >
+              At <span className="font-bold">Zager</span>, we are more than just
+              a digital marketing company.we are your growth partners in the
+              ever-evolving digital landscape. With a passion for innovation and
+              a data-driven approach, we craft result-oriented strategies that
+              help businesses thrive online.
+            </motion.p>
           </div>
         </div>
-      </div>
+      </section>
+      {/* Why Us Section */}
+      <motion.section
+        className="py-16 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#ffbe00] mb-8">
+            Why Us?
+          </h2>
+          <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed mb-6">
+            <span className="font-bold">
+              &quot;Empowering Businesses, Elevating Digital Success!&quot;
+            </span>
+          </p>
+          <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+            At <span className="font-bold">Zager</span>, we don’t just market—we
+            create impactful digital experiences that help your brand stand out,
+            engage, and grow. With a blend of data-driven insights, creative
+            storytelling, and cutting-edge strategies, we ensure your business
+            gets the attention it deserves.
+          </p>
+          <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed mt-4">
+            From website development to customized management systems, SEO to
+            social media marketing, content creation to paid ads, we specialize
+            in delivering tailor-made solutions that drive engagement, boost
+            visibility, and maximize ROI. Our team of creative minds and
+            marketing experts is dedicated to turning your brand’s vision into a
+            powerful digital presence.
+          </p>
+          <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed mt-4">
+            Let’s transform clicks into conversions and ideas into impact—
+            because{" "}
+            <span className="font-bold">your success is our mission!</span>
+          </p>
+        </div>
+      </motion.section>
+      {/* Mission & Vision Section */}
+      {/* Mission & Vision Section */}
+      <motion.section
+        className="py-16 bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+            {/* Mission */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-md flex flex-col h-full">
+              <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+                Our Mission
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed flex-grow">
+                Our mission is to provide exceptional digital marketing and IT
+                services that help businesses achieve their goals. We are
+                committed to enhancing online visibility and engagement through
+                innovative marketing strategies, delivering robust IT solutions
+                that streamline operations and drive efficiency, and empowering
+                clients to embrace the digital revolution with confidence and
+                success.
+              </p>
+            </div>
 
+            {/* Vision */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-md flex flex-col h-full">
+              <h2 className="text-3xl font-bold text-[#ffbe00] mb-4">
+                Our Vision
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed flex-grow">
+                To be a global leader in providing innovative, customized, and
+                comprehensive digital marketing and IT solutions that empower
+                businesses to thrive in the digital era. We aim to redefine
+                excellence and inspire growth by delivering cutting-edge
+                technology and creative strategies tailored to meet our
+                client&apos;s evolving needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
       {/* Our Values Section */}
-      <div className="py-12 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#ffbe00]">
+      <motion.section
+        className="py-16 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#ffbe00] mb-12">
             Our Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          <div className="flex flex-wrap justify-center gap-8">
             {values.map((value, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-[#ffbe00] bg-opacity-10 text-xl">
-                  {value.icon}
+              <motion.div
+                key={index}
+                className="w-full sm:w-1/2 lg:w-1/3 p-4 transform transition duration-300 hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center">
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto rounded-full bg-[#ffbe00] bg-opacity-10 text-3xl mb-4">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                  <p className="text-gray-500">{value.description}</p>
                 </div>
-                <div className="text-left">
-                  <h3 className="text-lg font-semibold mb-1">{value.title}</h3>
-                  {/* Increased font size from text-sm to text-base */}
-                  <p className="text-gray-500 text-base">{value.description}</p>
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Our Mission Section with Subtle Gradient Overlay */}
-      <div className="relative py-12 sm:py-16 text-center">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-            opacity: 0.1,
-          }}
-        ></div>
-        <div className="relative max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#ffbe00]">
-            Our Mission
-          </h2>
-          <p className="text-base md:text-lg tracking-normal text-gray-600 leading-snug">
-            Our mission is to provide exceptional digital marketing and IT
-            services that help businesses achieve their goals. We are committed
-            to enhancing online visibility and engagement through innovative
-            marketing strategies, delivering robust IT solutions that streamline
-            operations and drive efficiency, and empowering clients to embrace
-            the digital revolution with confidence and success.
-          </p>
-        </div>
-      </div>
-
-      {/* Highlights Section */}
-      <div className="py-12 px-6 sm:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Innovation Culture */}
-          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-md p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
-                Innovation Culture
-              </h3>
-              <p className="text-base text-gray-600 text-center">
-                Cultivating continuous innovation and improvement.
-              </p>
-            </div>
-          </div>
-          {/* Tech-Driven Problem Solving */}
-          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-md p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
-                Tech-Driven Problem Solving
-              </h3>
-              <p className="text-base text-gray-600 text-center">
-                Leveraging technology to tackle complex challenges.
-              </p>
-            </div>
-          </div>
-          {/* Global Reach */}
-          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out">
-            <div className="bg-white rounded-lg shadow-md p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
-                Global Reach
-              </h3>
-              <p className="text-base text-gray-600 text-center">
-                Connecting businesses with global opportunities.
-              </p>
-            </div>
-          </div>
-          {/* Client-Centric Solutions (Full-width on large screens) */}
-          <div className="relative hover:scale-105 transition-transform duration-200 ease-in-out lg:col-span-3">
-            <div className="bg-white rounded-lg shadow-md p-5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
-                Client-Centric Solutions
-              </h3>
-              <p className="text-base text-gray-600 text-center">
-                Delivering customized digital solutions to meet unique client
-                needs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Vision Section with Subtle Gradient Overlay */}
-      <div className="relative py-12 px-6 md:px-12">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-            opacity: 0.1,
-          }}
-        ></div>
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#ffbe00]">
-            Our Vision
-          </h2>
-          <p className="text-base md:text-lg tracking-normal text-gray-600 leading-snug mx-auto">
-            To be a global leader in providing innovative, customised, and
-            comprehensive digital marketing and IT solutions that empower
-            businesses to thrive in the digital era. We aim to redefine
-            excellence and inspire growth by delivering cutting-edge technology
-            and creative strategies tailored to meet our client&apos;s evolving
-            needs.
-          </p>
-        </div>
-      </div>
-
-      {/* Timeline Section */}
-      <TimelineDemo />
+        <TimelineDemo />
+      </motion.section>
     </div>
   );
 };

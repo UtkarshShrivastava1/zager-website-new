@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/AdminModel");
 
-// Helper function to verify JWT and role
-const verifyTokenAndRole = async (req, res, next, role) => {
+// Middleware for admin verification
+const verifyAdminToken = async (req, res, next) => {
   const token = req.header("Authorization")?.replace("Bearer ", "");
   console.log("Authorization Header:", req.header("Authorization"));
   console.log("Token received:", token);
@@ -16,41 +16,32 @@ const verifyTokenAndRole = async (req, res, next, role) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log("Decoded Token:", decoded);
 
-    // Check if the role matches
-    if (decoded.role !== role) {
-      return res
-        .status(403)
-        .json({ message: `Unauthorized role, ${role} access required` });
+    // Handle Default Admin
+    if (
+      decoded.id === "default_admin" &&
+      decoded.adminID === process.env.DEFAULT_ADMIN_ID
+    ) {
+      req.admin = {
+        _id: "default_admin",
+        adminID: process.env.DEFAULT_ADMIN_ID,
+        role: "admin",
+      };
+      console.log("Default Admin authenticated.");
+      return next();
     }
 
-    // Fetch specific fields based on role
-    let loggedInUser;
-    if (role === "admin") {
-      loggedInUser = await Admin.findById(decoded.id, "name adminID");
+    // Fetch database admin
+    const loggedInAdmin = await Admin.findById(decoded.id, "name adminID");
+    if (!loggedInAdmin) {
+      return res.status(404).json({ message: "Admin not found" });
     }
 
-    if (!loggedInUser) {
-      return res.status(404).json({
-        message: `${role.charAt(0).toUpperCase() + role.slice(1)} not found`,
-      });
-    }
-
-    req[role] = loggedInUser; // Attach the partial document with required fields
-    console.log(
-      `${
-        role.charAt(0).toUpperCase() + role.slice(1)
-      } data attached to request:`,
-      req[role]
-    );
+    req.admin = loggedInAdmin;
+    console.log("Admin data attached to request:", req.admin);
     next();
   } catch (error) {
     handleTokenError(error, res);
   }
-};
-
-// Middleware for admin verification
-const verifyAdminToken = (req, res, next) => {
-  verifyTokenAndRole(req, res, next, "admin");
 };
 
 // Common error handler for JWT verification issues
@@ -66,12 +57,9 @@ const handleTokenError = (error, res) => {
     return res.status(401).json({ message: "Token is not valid" });
   }
 
-  console.error("Token verification failed", error.message);
   return res
     .status(500)
     .json({ message: "Token verification failed", error: error.message });
 };
 
-module.exports = {
-  verifyAdminToken,
-};
+module.exports = { verifyAdminToken };

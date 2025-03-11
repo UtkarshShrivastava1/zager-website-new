@@ -91,7 +91,7 @@ const HeroSection = () => {
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
-          <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
+          <div className="absolute top-100 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         </div>
 
         <div className="relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-12">

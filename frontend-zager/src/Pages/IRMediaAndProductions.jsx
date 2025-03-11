@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import iramediaImg from "../assets/iramedia.jpeg";
+import PropTypes from "prop-types";
 
 function IRMediaAndProductions() {
   const workValues = [
@@ -36,7 +37,7 @@ function IRMediaAndProductions() {
         "https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VklERU8lMjBQUk9EVUNUSU9OfGVufDB8MXwwfHx8MA%3D%3D",
     },
     {
-      name: "RESERACH",
+      name: "RESEARCH",
       description:
         "Our research services deliver valuable insights and data to inform your media strategies. We conduct thorough research to understand market trends, audience behavior, and competitive landscape, ensuring that your media efforts are grounded in evidence.",
       imageUrl:
@@ -50,19 +51,20 @@ function IRMediaAndProductions() {
         "https://plus.unsplash.com/premium_photo-1664195074915-9d850d75da1f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8TUVESUElMjBDT05TVUxUSU5HfGVufDB8MXwwfHx8MA%3D%3D",
     },
   ];
+
   const words = "Welcome to Ira Media & Productions,";
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Set initial states for scroll-triggered elements
+    // GSAP initial states
     gsap.set([contentRef.current, imageRef.current], {
       y: 100,
       opacity: 0,
     });
 
-    // Create scroll trigger animation for text and image
+    // GSAP scroll trigger
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -77,7 +79,7 @@ function IRMediaAndProductions() {
       opacity: 1,
       duration: 1.5,
       ease: "power3.out",
-      stagger: 0.2, // Slight delay between text and image animation
+      stagger: 0.2,
     });
 
     return () => {
@@ -85,8 +87,40 @@ function IRMediaAndProductions() {
     };
   }, []);
 
+  const Card = ({ value }) => (
+    <div className="max-w-xs w-full group/card">
+      <div
+        className={cn(
+          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
+        )}
+        style={{
+          backgroundImage: `url(${value.imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute w-full h-full top-0 left-0 transition duration-300 bg-black opacity-40 group-hover/card:bg-black hover:opacity-60"></div>
+        <div className="text content">
+          <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
+            {value.name}
+          </h1>
+          <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
+            {value.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+  Card.propTypes = {
+    value: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+    }).isRequired,
+  };
+
   return (
-    <>
+    <div className="relative overflow-x-hidden">
       <div className="mt-15">
         <Heading value={"IRA MEDIA & PRODUCTIONS"} />
         <div className="flex flex-col items-center justify-center py-5 gap-2">
@@ -102,14 +136,9 @@ function IRMediaAndProductions() {
           </p>
         </div>
 
-        {/* Our Mission Section - Adjusted gap and alignment */}
+        {/* Our Mission Section */}
         <section ref={sectionRef} className="py-12">
           <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
-            {/*
-              Adjust the 'mt-[-16]' value here:
-                - More negative (e.g., mt-[-20]) pushes it closer.
-                - Less negative (e.g., mt-[-12]) increases the gap.
-            */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Text Content */}
               <div ref={contentRef} className="text-center md:text-left">
@@ -143,32 +172,21 @@ function IRMediaAndProductions() {
           <Heading value={"What we Do?"} />
         </div>
 
-        {/* Work Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10 justify-items-center">
-          {workValues.map((value, index) => (
-            <div key={index} className="max-w-xs w-full group/card">
-              <div
-                className={cn(
-                  "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
-                )}
-                style={{
-                  backgroundImage: `url(${value.imageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="absolute w-full h-full top-0 left-0 transition duration-300 bg-black opacity-40 group-hover/card:bg-black hover:opacity-60"></div>
-                <div className="text content">
-                  <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                    {value.name}
-                  </h1>
-                  <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Work Values Grid with 2 rows, 4 columns:
+            Row 1: 0->DIGITAL MEDIA SERVICE, 1->FILMS, 2->DIGITAL ADS, 3->VIDEO PRODUCTION
+            Row 2: empty, 5->MEDIA CONSULTING, 4->RESEARCH, empty */}
+        <div className="grid grid-cols-4 gap-6 px-10 justify-items-center">
+          {/* Row 1 */}
+          <Card value={workValues[0]} />
+          <Card value={workValues[1]} />
+          <Card value={workValues[2]} />
+          <Card value={workValues[3]} />
+
+          {/* Row 2 */}
+          <div></div>
+          <Card value={workValues[5]} />
+          <Card value={workValues[4]} />
+          <div></div>
         </div>
 
         {/* Final Section */}
@@ -189,7 +207,7 @@ function IRMediaAndProductions() {
       </div>
 
       {/* Background Gradient Overlay & Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="w-full h-full"
           style={{
@@ -201,7 +219,7 @@ function IRMediaAndProductions() {
         <div className="top-glow absolute -top-5 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
         <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -4,20 +4,19 @@ import design from "../assets/design1.mp4"; // Ensure this is the correct video 
 
 const ServicesIntro = () => {
   return (
-    <section className="relative w-full py-16 px-6 overflow-hidden">
-      {/* Decorative Background Elements */}
+    <section className="relative w-full py-16 px-6 overflow-hidden bg-white">
+      {/* Decorative Background Elements - Gradient on Left Side */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gradient Overlay */}
+        {/* Subtle Gradient Effect - Now only on the left */}
         <div
           className="w-full h-full"
           style={{
             background:
-              "linear-gradient(80deg, transparent 0%, #ffbe00 30%, transparent 100%)",
-            opacity: 0.1,
+              "linear-gradient(90deg, rgba(255, 190, 0, 0.15) 0%, transparent 40%)",
           }}
         ></div>
-        {/* Decorative circle at bottom-right */}
-        <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+        {/* Decorative Element - Moved to Left */}
+        <div className="absolute top-100 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
 
       {/* Main Grid Layout */}
@@ -38,7 +37,7 @@ const ServicesIntro = () => {
         </div>
 
         {/* Right: Video/Graphic Design */}
-        <div className="relative mx-auto w-full max-w-4xl aspect-video shadow-2xl rounded-lg overflow-hidden">
+        <div className="relative mx-auto w-full max-w-4xl aspect-video overflow-hidden bg-white">
           <video
             src={design}
             autoPlay
@@ -48,20 +47,6 @@ const ServicesIntro = () => {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Overlay container with hover effect */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-opacity-80 transition duration-500 ease-in-out hover:bg-opacity-50">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-              We are your
-            </h3>
-            <h3 className="text-3xl md:text-5xl font-extrabold mt-2">
-              <span className="bg-[#ffbe00] text-gray-900 px-4 py-2 rounded-lg shadow-md">
-                DIGITAL MEDIA MAESTRO
-              </span>
-            </h3>
-            <p className="mt-4 text-lg md:text-xl text-gray-700 italic">
-              Elevating your brand to new heights.
-            </p>
-          </div>
         </div>
       </div>
     </section>

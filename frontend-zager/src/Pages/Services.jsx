@@ -98,21 +98,31 @@ const Services = () => {
       {/* Intro Section */}
       <ServicesIntro />
 
-      {/* Sticky Scroll Section with flipped gradient overlay and decorative background effects */}
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white text-[#051224] p-6 md:p-10 relative">
-        {/* Added: Flipped Gradient overlay and decorative circle */}
+      {/* Sticky Scroll Section with top-left and bottom gradient effect */}
+      <div className="min-h-screen bg-gradient-to-t from-gray-50 to-white text-[#051224] p-6 md:p-10 relative">
+        {/* Gradient Effects */}
         <div className="absolute inset-0 pointer-events-none">
+          {/* Top-left gradient effect */}
           <div
-            className="w-full h-full"
+            className="absolute -top-0 left-0 w-full h-full"
             style={{
               background:
-                "linear-gradient(260deg, transparent 0%, #ffbe00 30%, transparent 100%)", // Flipped gradient
+                "linear-gradient(135deg, #ffbe00 10%, transparent 50%)", // Top-left gradient
               opacity: 0.1,
             }}
           ></div>
-          <div className="absolute -top-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+          <div className="absolute top-100 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
+
+          {/* Bottom gradient effect */}
+          <div
+            className="absolute bottom-0 w-full h-32"
+            style={{
+              background: "linear-gradient(0deg, #ffbe00 10%, transparent 50%)",
+              opacity: 0.1,
+            }}
+          ></div>
         </div>
-        {/* End added effects */}
+        {/* End Gradient Effects */}
 
         {/* Section Header */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative">
@@ -128,7 +138,6 @@ const Services = () => {
             Our Services{" "}
           </h4>
           <p className="text-lg md:text-xl text-gray-600 mt-1 leading-snug">
-            {/* Edited: Reduced margin from mt-2 to mt-1 and changed line-height from leading-tight to leading-snug */}
             Explore our range of services designed to boost your digital
             presence.
           </p>

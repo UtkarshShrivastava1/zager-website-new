@@ -28,9 +28,22 @@ app.use(express.json());
 
 // Middleware: CORS configuration
 if (isProduction) {
+  // Split the comma-separated string into an array and trim whitespace
+  const allowedOrigins = process.env.FRONTEND_URL.split(",").map((origin) =>
+    origin.trim()
+  );
+
   app.use(
     cors({
-      origin: [process.env.FRONTEND_URL], // Your production frontend URL
+      origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
       credentials: true,
     })
   );

@@ -7,7 +7,9 @@ const StickyScroll = ({ content, contentClassName }) => {
   const [activeCard, setActiveCard] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const ref = useRef(null);
-
+  const cardLength = content.length;
+  // Update breakpoints calculation: divide by (cardLength - 1) so the last breakpoint is exactly 1.
+  const breakpoints = content.map((_, index) => index / (cardLength - 1));
   // Update isMobile state based on window width.
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -22,8 +24,6 @@ const StickyScroll = ({ content, contentClassName }) => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardLength = content.length;
-    const breakpoints = content.map((_, index) => index / cardLength);
     const closestIndex = breakpoints.reduce((acc, point, index) => {
       return Math.abs(latest - point) < Math.abs(latest - breakpoints[acc])
         ? index
@@ -31,7 +31,6 @@ const StickyScroll = ({ content, contentClassName }) => {
     }, 0);
     setActiveCard(closestIndex);
   });
-
   // Define variants for the text blocks.
   const textVariants = {
     active: { opacity: 1, scale: 1 },

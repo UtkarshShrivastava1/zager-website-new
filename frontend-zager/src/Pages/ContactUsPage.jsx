@@ -1,3 +1,5 @@
+"use client";
+
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FloatingDock } from "../Components/ui/floating-dock";
@@ -56,13 +58,11 @@ function ContactUsPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Set initial states for animations
     const leftColumn = leftColumnRef.current;
     const rightColumn = rightColumnRef.current;
     gsap.set(leftColumn, { x: -200, opacity: 0 });
     gsap.set(rightColumn, { x: 200, opacity: 0 });
 
-    // Create the scroll trigger animation
     ScrollTrigger.create({
       trigger: containerRef.current,
       start: "top center",
@@ -82,7 +82,6 @@ function ContactUsPage() {
       },
     });
 
-    // Clean up on unmount
     return () => {
       gsap.killTweensOf(leftColumn);
       gsap.killTweensOf(rightColumn);
@@ -96,11 +95,9 @@ function ContactUsPage() {
     setErrorMessage("");
 
     try {
-      // POST formData to /api/contacts (expects JSON payload)
       const response = await api.post("/contacts", formData);
       console.log("Form submitted:", response.data);
       setSuccessMessage("Your message has been sent successfully!");
-      // Clear form fields
       setFormData({
         name: "",
         companyName: "",
@@ -129,13 +126,8 @@ function ContactUsPage() {
     <>
       <div className="bg-white min-h-screen overflow-hidden mt-15 md:mt-5">
         <h4
-          style={{
-            fontWeight: "700",
-            fontSize: "2.5rem",
-            color: "#ffbe00",
-            marginBottom: "0px",
-          }}
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Contact us
         </h4>
@@ -143,9 +135,9 @@ function ContactUsPage() {
           ref={containerRef}
           className="container mx-auto px-4 py-12 md:py-20 !pt-4"
         >
-          <div className="grid md:grid-cols-2 gap-12 items-center px-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-10">
             {/* Left Column */}
-            <div ref={leftColumnRef} className="space-y-6 ">
+            <div ref={leftColumnRef} className="space-y-6">
               <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 TRANSFORM YOUR BUSINESS WITH
               </h2>
@@ -157,7 +149,6 @@ function ContactUsPage() {
                   Strategic Solutions
                 </h2>
               </div>
-
               <div className="pt-8">
                 <FloatingDock mobileClassName="translate-y-20" items={links} />
               </div>
@@ -166,7 +157,7 @@ function ContactUsPage() {
             {/* Right Column - Form */}
             <div
               ref={rightColumnRef}
-              className="bg-white rounded-lg p-6 md:p-8 shadow-lg"
+              className="bg-white rounded-lg p-6 md:p-8 shadow-lg w-full max-w-md mx-auto"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                 Start a conversation with us

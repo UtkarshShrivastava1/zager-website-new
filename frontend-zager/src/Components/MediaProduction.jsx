@@ -1,12 +1,11 @@
-import React from "react";
-import { 
-  FaVideo, 
-  FaCamera, 
-  FaFacebook, 
-  FaPaintBrush, 
-  FaFileAlt, 
-  FaChartBar, 
-  FaCalendarCheck 
+import {
+  FaVideo,
+  FaCamera,
+  FaFacebook,
+  FaPaintBrush,
+  FaFileAlt,
+  FaChartBar,
+  FaCalendarCheck,
 } from "react-icons/fa";
 
 const DigitalMarketing = () => {
@@ -17,7 +16,10 @@ const DigitalMarketing = () => {
     { title: "Graphic Design Services", icon: <FaPaintBrush size={24} /> },
     { title: "Content Strategy & Development", icon: <FaFileAlt size={24} /> },
     { title: "Media Consulting & Research", icon: <FaChartBar size={24} /> },
-    { title: "Event Production & Management", icon: <FaCalendarCheck size={24} /> },
+    {
+      title: "Event Production & Management",
+      icon: <FaCalendarCheck size={24} />,
+    },
   ];
 
   return (
@@ -29,7 +31,9 @@ const DigitalMarketing = () => {
             key={index}
             className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm font-medium px-4 py-3 rounded-lg shadow-md transition-all duration-300 cursor-pointer"
           >
-            <div className="bg-yellow-500 text-white p-2 rounded-full">{item.icon}</div>
+            <div className="bg-yellow-500 text-white p-2 rounded-full">
+              {item.icon}
+            </div>
             <span>{item.title}</span>
           </div>
         ))}

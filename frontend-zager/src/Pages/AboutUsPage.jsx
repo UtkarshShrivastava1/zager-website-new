@@ -43,6 +43,21 @@ const AboutUsPage = () => {
             "url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80')",
         }}
       >
+        {/* Gradient Overlay & Glowing Circles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+              opacity: 0.3,
+            }}
+          ></div>
+          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+        </div>
+
+        {/* Existing Black Overlay */}
         <motion.div
           className="absolute inset-0 bg-black"
           initial={{ scale: 1 }}
@@ -55,6 +70,8 @@ const AboutUsPage = () => {
           }}
           style={{ opacity: 0.5 }}
         ></motion.div>
+
+        {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <motion.h1
@@ -70,7 +87,7 @@ const AboutUsPage = () => {
               animate="visible"
               className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#ffbe00] drop-shadow-lg mb-6"
             >
-              &quot;Empowering Businesses, Elevating Digital Success!&quot;{" "}
+              &quot;Empowering Businesses, Elevating Digital Success!&quot;
             </motion.h1>
             <motion.p
               variants={{
@@ -86,7 +103,7 @@ const AboutUsPage = () => {
               className="text-lg md:text-2xl text-white leading-relaxed drop-shadow-md"
             >
               At <span className="font-bold">Zager</span>, we are more than just
-              a digital marketing company.we are your growth partners in the
+              a digital marketing company. We are your growth partners in the
               ever-evolving digital landscape. With a passion for innovation and
               a data-driven approach, we craft result-oriented strategies that
               help businesses thrive online.
@@ -94,6 +111,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
+
       {/* Why Us Section */}
       <motion.section
         className="py-16 bg-gray-50"
@@ -133,7 +151,7 @@ const AboutUsPage = () => {
           </p>
         </div>
       </motion.section>
-      {/* Mission & Vision Section */}
+
       {/* Mission & Vision Section */}
       <motion.section
         className="py-16 bg-white"
@@ -177,6 +195,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </motion.section>
+
       {/* Our Values Section */}
       <motion.section
         className="py-16 bg-gray-50"

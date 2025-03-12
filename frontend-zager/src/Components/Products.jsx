@@ -126,7 +126,9 @@ const OurProducts = () => {
       >
         Our Products
       </h4>
+
       <div className="relative w-full overflow-hidden mb-10">
+        {/* Carousel */}
         <div
           ref={carouselRef}
           className="flex w-full transition-transform duration-1000"
@@ -150,17 +152,40 @@ const OurProducts = () => {
                 <p className="text-base md:text-lg text-gray-500 mb-6 overflow-hidden min-h-28 overflow-y-auto">
                   {product.description}
                 </p>
-                {/*    <a
+                {/*
+                Uncomment the link below if you want to include a button to view the product
+                <a
                   href={product.link}
                   className="bg-[#ffbe00] w-[100px] md:w-[120px] py-2 px-4 rounded-md hover:scale-110 transition duration-300 text-white flex items-center justify-center gap-2"
                 >
                   See Product <span className="font-bold text-xl">→</span>
-                </a> */}
+                </a>
+                */}
               </div>
             </div>
           ))}
         </div>
+
+        {/* Left and Right Navigation Buttons */}
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20">
+          <button
+            onClick={() => slide(-1)}
+            className="p-2 bg-gray-200 bg-opacity-70 rounded-full hover:bg-gray-300 focus:outline-none"
+          >
+            <span className="text-2xl text-gray-700">&larr;</span>
+          </button>
+        </div>
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20">
+          <button
+            onClick={() => slide(1)}
+            className="p-2 bg-gray-200 bg-opacity-70 rounded-full hover:bg-gray-300 focus:outline-none"
+          >
+            <span className="text-2xl text-gray-700">&rarr;</span>
+          </button>
+        </div>
       </div>
+
+      {/* Navigation Dots */}
       <div className="flex justify-center mt-4">
         {products.map((_, dotIndex) => (
           <div

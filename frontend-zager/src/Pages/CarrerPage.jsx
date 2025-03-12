@@ -161,13 +161,13 @@ function CarrerPage() {
         {/* Join Our Team Heading */}
         <h4
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
-          style={{ fontWeight: "700", fontSize: "2.5rem", marginBottom: "0px" }}
+          style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Join Our Team
         </h4>
-        <div className="flex flex-col items-center justify-center py-5 gap-2">
+        <div className="flex flex-col items-center justify-center py-5 gap-2 px-4">
           <TextGenerateEffect words={heroWords} />
-          <p className="w-1/2 text-center text-gray-600">
+          <p className="w-full sm:w-1/2 text-center text-gray-600">
             At{" "}
             <span className="text-[#051244] font-bold">
               Zager Digital Services
@@ -218,7 +218,7 @@ function CarrerPage() {
         {/* Interactive Image Carousel */}
         <div
           ref={containerRef}
-          className="w-full flex items-center justify-center mt-10"
+          className="w-full flex items-center justify-center mt-10 px-4"
         >
           <div className="w-full md:w-2/3 flex gap-5 h-96">
             {images.map((image, index) => (
@@ -251,7 +251,8 @@ function CarrerPage() {
         <div className="mt-8">
           <Heading value={"Join Us"} />
         </div>
-        <div className="bg-white w-1/2 rounded-lg p-6 md:p-8 shadow-xl mx-auto mb-6">
+        {/* Responsive form container: full width on mobile with a max-width */}
+        <div className="bg-white w-full max-w-md rounded-lg p-6 md:p-8 shadow-xl mx-auto mb-6 px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
             Fill out the form to join our team
           </h2>

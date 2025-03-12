@@ -16,7 +16,6 @@ const ServicesIntro = () => {
           }}
         ></div>
         {/* Decorative Element - Moved to Left */}
-        <div className="absolute top-100 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
 
       {/* Main Grid Layout */}

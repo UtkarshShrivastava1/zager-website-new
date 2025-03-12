@@ -111,7 +111,6 @@ const Services = () => {
               opacity: 0.1,
             }}
           ></div>
-          <div className="absolute top-100 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
 
           {/* Bottom gradient effect */}
           <div

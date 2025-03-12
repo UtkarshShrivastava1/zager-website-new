@@ -101,5 +101,5 @@ const createJobApplication = async (req, res) => {
 
 module.exports = {
   createJobApplication,
-  uploadJobResume: upload.single("resume"), // expects the resume file under the field name "resume"
+  uploadJobResume: upload.single("resume"),
 };

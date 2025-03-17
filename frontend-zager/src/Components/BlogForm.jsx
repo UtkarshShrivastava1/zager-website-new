@@ -27,8 +27,7 @@ const BlogForm = ({ initialData }) => {
 
     const token = getToken();
     if (!token) {
-      setError("No token, authorization denied.");
-      setLoading(false);
+      setLoading(true);
       return;
     }
 

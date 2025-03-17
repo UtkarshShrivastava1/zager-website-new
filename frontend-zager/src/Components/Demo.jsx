@@ -6,7 +6,7 @@ const PromotionalVideos = () => {
     <section
       className="relative min-h-28 flex justify-center items-center bg-cover bg-center bg-fixed"
       style={{
-        backgroundImage: `url(${background})`, // ✅ Use the imported image
+        backgroundImage: `url(${background})`, // ✅ Use the imported image 
       }}
     >
       {/* ✅ Lighter Overlay to keep background visible */}

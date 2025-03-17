@@ -6,4 +6,4 @@ White-            #ffffff
 to do
 
 -scroll system 
--fradient abot page
+-gradient about page

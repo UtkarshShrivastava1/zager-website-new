@@ -1,6 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FaSpinner } from "react-icons/fa";
 import api from "../services/api";
 
 const BlogForm = ({ initialData }) => {
@@ -15,8 +17,8 @@ const BlogForm = ({ initialData }) => {
 
   // Get stored token from localStorage
   const getToken = () => {
-    const adminInfo = localStorage.getItem("adminInfo");
-    return adminInfo ? JSON.parse(adminInfo).token : null;
+    const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
+    return adminInfo?.token || null;
   };
 
   // Handle form submission
@@ -27,7 +29,8 @@ const BlogForm = ({ initialData }) => {
 
     const token = getToken();
     if (!token) {
-      setLoading(true);
+      setError("No token, authorization denied.");
+      setLoading(false);
       return;
     }
 
@@ -46,11 +49,15 @@ const BlogForm = ({ initialData }) => {
 
       if (initialData?._id) {
         await api.put(`/blogs/${initialData._id}`, formPayload, config);
+        toast.success("Blog updated successfully!");
       } else {
         await api.post("/blogs", formPayload, config);
+        toast.success("Blog added successfully!");
       }
 
-      navigate("/admin/admin-dashboard");
+      setTimeout(() => {
+        navigate("/admin/admin-dashboard");
+      }, 1500); // Navigate after 1.5s
     } catch (error) {
       console.error("Submission error:", error);
       setError(error.response?.data?.message || "Something went wrong.");
@@ -122,9 +129,16 @@ const BlogForm = ({ initialData }) => {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400"
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 flex items-center justify-center gap-2"
       >
-        {loading ? "Saving..." : "Save Blog Post"}
+        {loading ? (
+          <>
+            <FaSpinner className="animate-spin" />
+            Saving...
+          </>
+        ) : (
+          "Save Blog Post"
+        )}
       </button>
     </form>
   );

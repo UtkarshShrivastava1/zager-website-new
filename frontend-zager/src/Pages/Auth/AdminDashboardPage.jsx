@@ -1,26 +1,8 @@
-import {
-  FaUserAlt,
-  FaBlog,
-  FaEdit,
-  FaCamera,
-  FaBars,
-  FaSignOutAlt,
-} from "react-icons/fa";
+import { FaBlog, FaEdit, FaCamera, FaBars, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const dashboardSections = [
-  {
-    title: "My Profile",
-    description: "Manage your profile and personal details.",
-    cards: [
-      {
-        icon: <FaUserAlt size={40} />,
-        title: "Profile Management",
-        page: "profile",
-      },
-    ],
-  },
   {
     title: "Features",
     description: "Manage content creation features.",

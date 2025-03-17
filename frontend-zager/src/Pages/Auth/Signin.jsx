@@ -29,7 +29,7 @@ const Signin = () => {
 
     try {
       const response = await axios.post(`${API_URL}/api/admin/auth/login`, {
-        adminID, // Ensure correct field name
+        adminID,
         password,
       });
 
@@ -44,7 +44,8 @@ const Signin = () => {
       // Save token & user details
       localStorage.setItem("token", data.token);
       localStorage.setItem("adminID", data.adminID);
-      localStorage.setItem("role", data.role);
+      localStorage.setItem("role", "admin");
+      localStorage.setItem("adminInfo", JSON.stringify(data)); // Saving entire response
 
       // Redirect to dashboard
       toast.success("Login successful!");
@@ -74,7 +75,7 @@ const Signin = () => {
               <Form.Label>Admin ID</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Zager Admin ID"
+                placeholder="Enter Admin ID"
                 value={adminID}
                 onChange={(e) => setAdminID(e.target.value.toUpperCase())}
                 required

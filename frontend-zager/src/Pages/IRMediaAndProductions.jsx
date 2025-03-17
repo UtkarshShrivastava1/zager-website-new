@@ -175,7 +175,7 @@ function IRMediaAndProductions() {
         {/* Work Values Grid with 2 rows, 4 columns:
             Row 1: 0->DIGITAL MEDIA SERVICE, 1->FILMS, 2->DIGITAL ADS, 3->VIDEO PRODUCTION
             Row 2: empty, 5->MEDIA CONSULTING, 4->RESEARCH, empty */}
-        <div className="grid grid-cols-4 gap-6 px-10 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
           {/* Row 1 */}
           <Card value={workValues[0]} />
           <Card value={workValues[1]} />

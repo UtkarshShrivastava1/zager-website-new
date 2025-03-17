@@ -62,7 +62,7 @@ const OurProducts = () => {
       // Animate the carousel slide
       gsap.to(carouselRef.current, {
         x: -newIndex * 100 + "%",
-        ease: "power2.out",
+        ease: "none",
         duration: 0.6,
       });
     },
@@ -170,17 +170,17 @@ const OurProducts = () => {
         <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20">
           <button
             onClick={() => slide(-1)}
-            className="p-2 bg-gray-200 bg-opacity-70 rounded-full hover:bg-gray-300 focus:outline-none"
+            className="p-2 bg-gray-200 bg-opacity-70 h-8 w-8 rounded-full hover:bg-gray-300 focus:outline-none flex items-center justify-center"
           >
-            <span className="text-2xl text-gray-700">&larr;</span>
+            <span className="text-2xl text-gray-700 mt-[-4.5px]">&larr;</span>
           </button>
         </div>
         <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20">
           <button
             onClick={() => slide(1)}
-            className="p-2 bg-gray-200 bg-opacity-70 rounded-full hover:bg-gray-300 focus:outline-none"
+            className="p-2 bg-gray-200 bg-opacity-70 h-8 w-8 rounded-full hover:bg-gray-300 focus:outline-none flex items-center justify-center"
           >
-            <span className="text-2xl text-gray-700">&rarr;</span>
+            <span className="text-2xl text-gray-700 mt-[-4.5px]">&rarr;</span>
           </button>
         </div>
       </div>

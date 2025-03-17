@@ -31,10 +31,11 @@ const StickyScroll = ({ content, contentClassName }) => {
     }, 0);
     setActiveCard(closestIndex);
   });
-  // Define variants for the text blocks.
+
+  // Updated variants for the text blocks - removed opacity differences
   const textVariants = {
     active: { opacity: 1, scale: 1 },
-    inactive: { opacity: 0.8, scale: 1 },
+    inactive: { opacity: 1, scale: 1 }, // Changed from 0.8 to 1
     hover: { scale: 1.03, transition: { duration: 0.1 } },
   };
 
@@ -64,22 +65,22 @@ const StickyScroll = ({ content, contentClassName }) => {
               transition={{ duration: 0.1 }}
             >
               <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.8 }}
+                initial={{ opacity: 1 }} // Changed from 0 to 1
+                animate={{ opacity: 1 }} // Always fully opaque
                 className="text-xl sm:text-2xl lg:text-4xl font-bold text-yellow-400 transition-all duration-300"
               >
                 {item.title}
               </motion.h2>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.8 }}
+                initial={{ opacity: 1 }} // Changed from 0 to 1
+                animate={{ opacity: 1 }} // Always fully opaque
                 className="text-sm sm:text-base lg:text-lg text-black max-w-3xl mt-2 sm:mt-4 transition-all duration-300"
               >
                 {item.description}
               </motion.p>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeCard === index ? 1 : 0.8 }}
+                initial={{ opacity: 1 }} // Changed from 0 to 1
+                animate={{ opacity: 1 }} // Always fully opaque
                 className="text-xs sm:text-sm lg:text-lg text-slate-300 max-w-3xl mt-1 transition-all duration-300"
               >
                 {item.tags}

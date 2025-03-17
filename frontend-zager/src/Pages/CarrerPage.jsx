@@ -215,10 +215,42 @@ function CarrerPage() {
           <TextGenerateEffect words={candidateWords} />
         </div>
 
-        {/* Interactive Image Carousel */}
+        {/* Interactive Image Carousel
         <div
           ref={containerRef}
           className="w-full flex items-center justify-center mt-10 px-4"
+        >
+          <div className="w-full md:w-2/3 flex gap-5 h-96">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+                style={{
+                  width: hoveredIndex === index ? "50%" : "20%",
+                  height: "100%",
+                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+                  <h2 className="text-white font-bold text-xl">
+                    {image.heading}
+                  </h2>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div> */}
+
+        {/* Interactive Image Carousel - Hidden on Mobile */}
+        <div
+          ref={containerRef}
+          className="hidden md:flex w-full items-center justify-center mt-10 px-4"
         >
           <div className="w-full md:w-2/3 flex gap-5 h-96">
             {images.map((image, index) => (

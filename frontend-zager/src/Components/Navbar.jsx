@@ -83,19 +83,29 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <div
-          className={`absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-50 transform transition-all duration-200 ease-in-out ${
+        {/* <div
+          className={`absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-50 transform transition-all duration-400 ease-in-out ${
             isDropdownOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-2 pointer-events-none"
           }`}
+        > */}
+        <div
+          className={`absolute left-0 mt-2 w-44 bg-white !rounded-lg shadow-md z-50 transform transition-all duration-400 ease-in-out  overflow-hidden hover:overflow-hidden${
+            isDropdownOpen
+              ? "opacity-100 translate-y-0 translate-x-0 scale-100 shadow-lg"
+              : "opacity-0 -translate-y-30 -translate-x-8  scale-0 pointer-events-none"
+          }`}
         >
-          <ul className="py-2 text-sm text-gray-700">
+          <ul className=" text-sm text-gray-700">
             <li>
               <NavLink
                 to="/ourplatforms/gyaanadari"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 shadow"
               >
                 Gyaanadari
               </NavLink>
@@ -103,8 +113,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/ourplatforms/zms"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 shadow "
               >
                 Zager Management System
               </NavLink>
@@ -112,8 +125,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/ourplatforms/ira-media-and-productions"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 shadow "
               >
                 Ira Media & Productions
               </NavLink>
@@ -121,8 +137,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/ourplatforms/jkworks"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 shadow "
               >
                 JK Works
               </NavLink>

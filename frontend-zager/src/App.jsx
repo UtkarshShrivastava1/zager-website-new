@@ -16,8 +16,6 @@ import CreateBlog from "./Pages/Blog/CreateBlog";
 import EditBlog from "./Pages/Blog/EditBlog";
 import BlogDetails from "./Pages/Blog/BlogDetails";
 import { AuthProvider } from "./context/AuthContext";
-import ForgotPassword from "./Pages/Auth/ForgotPassword";
-import ResetPassword from "./Pages/Auth/ResetPassword";
 import Blogs from "./Pages/Blogs";
 import Services from "./Pages/Services";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
@@ -41,8 +39,6 @@ function App() {
           {/* Public Routes */}
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/admin/admin-login" element={<Signin />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/aboutus" element={<AboutUsPage />} />
           <Route path="/contactus" element={<ContactUsPage />} />
           <Route path="/carrer" element={<CarrerPage />} />

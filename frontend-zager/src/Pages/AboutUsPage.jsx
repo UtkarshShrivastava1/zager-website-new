@@ -1,4 +1,4 @@
-import { TimelineDemo } from "../Components/TimelineDemo";
+import { TimelineDemo } from "../Components/AboutUsPage_Sections/AboutUsTimeline";
 import { motion } from "framer-motion";
 
 // Generic fade-in/up variant for sections
@@ -50,7 +50,7 @@ const AboutUsPage = () => {
             style={{
               background:
                 "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-              opacity: 0.3,
+              opacity: 0.1,
             }}
           ></div>
           <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
@@ -126,7 +126,7 @@ const AboutUsPage = () => {
           </h2>
           <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed mb-6">
             <span className="font-bold">
-              &quot;Empowering Businesses, Elevating Digital Success!&quot;
+              &quot;Your Growth, Our Strategy!&quot;
             </span>
           </p>
           <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">

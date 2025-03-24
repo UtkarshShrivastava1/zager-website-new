@@ -1,20 +1,45 @@
-// controllers/jobApplicationController.js
 const nodemailer = require("nodemailer");
 const multer = require("multer");
 
-// Use multer's memory storage for file uploads
+// Multer setup for file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Controller function to handle job applications
+// Email credentials list (two different sender accounts)
+const emailAccounts = [
+  {
+    user: process.env.EMAIL_USER, // "Developer's email address"
+    pass: process.env.EMAIL_PASS, // "Developer's App pass  key"
+  },
+  {
+    user: process.env.EMAIL_USER_CARRER, // "career.zager@gmail.com"
+    pass: process.env.EMAIL_PASS_CARRER, // "zainyleqazvzekyw"
+  },
+];
+
+// Function to create a transporter with given credentials
+const createTransporter = (emailAccount) => {
+  return nodemailer.createTransport({
+    host: process.env.EMAIL_HOST || "smtp.gmail.com",
+    port: Number(process.env.EMAIL_PORT) || 587,
+    secure: false,
+    auth: {
+      user: emailAccount.user,
+      pass: emailAccount.pass,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+};
+
+// Controller function for job applications
 const createJobApplication = async (req, res) => {
   try {
     console.log("Received a new job application:", req.body);
 
     const { name, companyName, email, phone } = req.body;
-    // In this form, "companyName" represents the candidate's desired role.
 
-    // Validate required fields
     if (!name || !companyName || !email || !phone) {
       console.log("Validation failed: Missing required fields");
       return res.status(400).json({
@@ -25,28 +50,18 @@ const createJobApplication = async (req, res) => {
 
     console.log("Validation passed: All required fields are provided");
 
-    // Create a Nodemailer transporter using environment settings
-    console.log("Configuring Nodemailer transporter...");
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST, // e.g., smtp.gmail.com
-      port: Number(process.env.EMAIL_PORT) || 587, // 587 for TLS
-      secure: false, // false for 587; true for 465
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
+    // Select a random email account for sending
+    const selectedAccount =
+      emailAccounts[Math.floor(Math.random() * emailAccounts.length)];
+    console.log("Selected email account:", selectedAccount.user);
 
-    console.log("Transporter successfully created. Verifying transporter...");
+    const transporter = createTransporter(selectedAccount);
 
-    // Verify transporter before sending email
+    // Verify transporter
     await transporter.verify();
-    console.log("Transporter verified successfully");
+    console.log("Transporter verified successfully for:", selectedAccount.user);
 
-    // Prepare the email content
+    // Prepare email content
     let htmlContent = `
       <h2>New Job Application Submission</h2>
       <p><strong>Name:</strong> ${name}</p>
@@ -55,36 +70,21 @@ const createJobApplication = async (req, res) => {
       <p><strong>Phone:</strong> ${phone}</p>
     `;
 
-    // If a resume file is uploaded, attach it
-    const attachments = [];
-    if (req.file) {
-      console.log(
-        `Resume received: ${req.file.originalname}, size: ${req.file.size} bytes`
-      );
-      attachments.push({
-        filename: req.file.originalname,
-        content: req.file.buffer,
-      });
-    } else {
-      console.log("No resume file uploaded");
-    }
+    const attachments = req.file
+      ? [{ filename: req.file.originalname, content: req.file.buffer }]
+      : [];
 
     const mailOptions = {
-      from: process.env.EMAIL_FROM,
+      from: selectedAccount.user,
       to: process.env.EMAIL_TO,
       subject: "New Job Application Submission",
       html: htmlContent,
-      attachments: attachments,
+      attachments,
     };
 
-    console.log("Sending job application email to:", process.env.EMAIL_TO);
-
-    // Send the email
+    console.log("Sending email from:", selectedAccount.user);
     await transporter.sendMail(mailOptions);
-    console.log(
-      "Job application email sent successfully to:",
-      process.env.EMAIL_TO
-    );
+    console.log("Email sent successfully from:", selectedAccount.user);
 
     return res.status(200).json({
       success: true,

@@ -6,6 +6,10 @@ import Heading from "../Components/Heading";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import api from "../services/api";
+import internsjob from "../assets/uploads/internjobopening.pdf";
+
+import { TbPointFilled } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 function CarrerPage() {
   const heroWords =
@@ -99,6 +103,12 @@ function CarrerPage() {
       src: "https://firebasestorage.googleapis.com/v0/b/zager-website.appspot.com/o/servicePage%2Fethic.jpg?alt=media&token=eb22e650-b102-4451-9718-3231073003ed",
       alt: "Driven",
       heading: "DRIVEN",
+    },
+  ];
+
+  const ourOpenings = [
+    {
+      title: "Web Developer Intern",
     },
   ];
 
@@ -284,92 +294,132 @@ function CarrerPage() {
           <Heading value={"Join Us"} />
         </div>
         {/* Responsive form container: full width on mobile with a max-width */}
-        <div className="bg-white w-full max-w-md rounded-lg p-6 md:p-8 shadow-xl mx-auto mb-6 px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-            Fill out the form to join our team
-          </h2>
-          {successMessage && (
-            <p className="text-green-600 font-bold text-center mb-4">
-              {successMessage}
-            </p>
-          )}
-          {errorMessage && (
-            <p className="text-red-600 font-bold text-center mb-4">
-              {errorMessage}
-            </p>
-          )}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name*"
-                required
-                className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
-                onChange={handleChange}
-                value={formData.name}
-              />
+        <div className="w-full px-10 mb-10">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
+            {/* Openings Card */}
+            <div className="bg-white w-full md:w-[48%] rounded-lg p-6 md:p-8 shadow-xl mb-6">
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 to-blue-300/20 blur-xl opacity-40"></div>
+
+              {/* Heading */}
+              <div className="relative z-10">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                  Current Openings{" "}
+                </h2>
+                <p className="text-gray-600 opacity-70 font-medium">
+                  Click on a role to see the required skills and fill out the
+                  &#39;Join Us&#39; form on the right to apply.{" "}
+                </p>
+              </div>
+
+              {/* Openings List */}
+              <div className="mt-6 grid grid-cols-1 gap-3 relative z-10">
+                {ourOpenings.map((item, index) => (
+                  <motion.a
+                    key={index}
+                    href={internsjob}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold flex items-center gap-3 text-gray-800 transition-all duration-300 hover:text-blue-600 hover:underline"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <TbPointFilled className="text-yellow-500 text-xl" />
+                    {item.title}
+                  </motion.a>
+                ))}
+              </div>
             </div>
-            <div>
-              <input
-                type="text"
-                name="role"
-                placeholder="Role*"
-                required
-                className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
-                onChange={handleChange}
-                value={formData.role}
-              />
+
+            <div className="bg-white w-full md:w-[48%] rounded-lg p-6 md:p-8 shadow-xl mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                Fill out the form to join our team
+              </h2>
+              {successMessage && (
+                <p className="text-green-600 font-bold text-center mb-4">
+                  {successMessage}
+                </p>
+              )}
+              {errorMessage && (
+                <p className="text-red-600 font-bold text-center mb-4">
+                  {errorMessage}
+                </p>
+              )}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name*"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                    onChange={handleChange}
+                    value={formData.name}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="role"
+                    placeholder="Role*"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                    onChange={handleChange}
+                    value={formData.role}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email*"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                    onChange={handleChange}
+                    value={formData.email}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone*"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                    onChange={handleChange}
+                    value={formData.phone}
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm text-gray-600">
+                    Upload Resume*
+                  </label>
+                  <input
+                    type="file"
+                    name="resume"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
+                    onChange={(e) =>
+                      setResume(e.target.files && e.target.files[0])
+                    }
+                  />
+                </div>
+                <div className="text-right">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="px-8 py-3 bg-[#ffbe00] text-white rounded transition-colors font-semibold hover:bg-yellow-600"
+                  >
+                    {loading ? "SUBMITTING..." : "SUBMIT"}
+                  </button>
+                </div>
+              </form>
+              {loading && (
+                <div className="flex justify-center mt-4">
+                  <div className="w-8 h-8 border-4 border-t-4 border-gray-200 border-t-[#ffbe00] rounded-full animate-spin"></div>
+                </div>
+              )}
             </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email*"
-                required
-                className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
-                onChange={handleChange}
-                value={formData.email}
-              />
-            </div>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone*"
-                required
-                className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
-                onChange={handleChange}
-                value={formData.phone}
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-sm text-gray-600">
-                Upload Resume*
-              </label>
-              <input
-                type="file"
-                name="resume"
-                required
-                className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors"
-                onChange={(e) => setResume(e.target.files && e.target.files[0])}
-              />
-            </div>
-            <div className="text-right">
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-8 py-3 bg-[#ffbe00] text-white rounded transition-colors font-semibold hover:bg-yellow-600"
-              >
-                {loading ? "SUBMITTING..." : "SUBMIT"}
-              </button>
-            </div>
-          </form>
-          {loading && (
-            <div className="flex justify-center mt-4">
-              <div className="w-8 h-8 border-4 border-t-4 border-gray-200 border-t-[#ffbe00] rounded-full animate-spin"></div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </>

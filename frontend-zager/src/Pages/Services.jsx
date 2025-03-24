@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import ServicesIntro from "../Components/ServicesIntro";
-import DigitalMarketing from "../Components/Digital_Marketing";
-import WebDevelopment from "../Components/WebDevelopment";
-import MediaProduction from "../Components/MediaProduction";
-import ItSolution from "../Components/ItSolution";
-import Designing from "../Components/Designing";
-import ContentCreation from "../Components/ContentCreation";
-import StickyScroll from "../Components/StickyScroll";
-import Architecture from "../Components/Architecture";
+import ServicesIntro from "../Components/ServicesPage_Sections/ServicesPage_Intro";
+import DigitalMarketing from "../Components/ServicesPage_Sections/ServicesPage_DigitalMarketing";
+import WebDevelopment from "../Components/ServicesPage_Sections/ServicesPage_WebDevelopment";
+import MediaProduction from "../Components/ServicesPage_Sections/ServicesPage_MediaProduction";
+import ItSolution from "../Components/ServicesPage_Sections/ServicesPage_ItSolution";
+import Designing from "../Components/ServicesPage_Sections/ServicesPage_Designing";
+import ContentCreation from "../Components/ServicesPage_Sections/ServicesPage_ContentCreation";
+import StickyScroll from "../Components/ServicesPage_Sections/ServicesPage_StickyScroll";
+import Architecture from "../Components/ServicesPage_Sections/ServicesPage_Architecture";
 
-// Local image imports
-import digitalMarketingImage from "../assets/design1.gif";
-import webDevelopmentImage from "../assets/design2.gif";
-import mediaProductionImage from "../assets/design3.gif";
-import itSolutionsImage from "../assets/design6.gif";
-import contentCreationImage from "../assets/design4.gif";
-import designingImage from "../assets/design2.gif";
-import architectureImage from "../assets/design5.gif";
+// Local video imports
+import digitalMarketingVideo from "../assets/design1.mp4";
+import webDevelopmentVideo from "../assets/design2.mp4";
+import mediaProductionVideo from "../assets/design3.mp4";
+import itSolutionsVideo from "../assets/design4.mp4";
+import contentCreationVideo from "../assets/design5.mp4";
+import designingVideo from "../assets/design6.mp4";
+import architectureVideo from "../assets/design7.mp4";
 
 // Content data with IDs matching the hash links for scroll anchoring
 const contentData = [
@@ -28,7 +28,7 @@ const contentData = [
     description:
       "Promote your products or services using digital channels like social media, search engines, email, and websites to engage your target audience.",
     tags: <DigitalMarketing />,
-    imageUrl: digitalMarketingImage,
+    videoUrl: digitalMarketingVideo,
   },
   {
     id: "web-development",
@@ -36,7 +36,7 @@ const contentData = [
     description:
       "Build and maintain high-performance websites with custom design, coding, and server configuration to ensure seamless user experience.",
     tags: <WebDevelopment />,
-    imageUrl: webDevelopmentImage,
+    videoUrl: webDevelopmentVideo,
   },
   {
     id: "it-solutions",
@@ -44,7 +44,7 @@ const contentData = [
     description:
       "Get comprehensive support for software, networks, and technical challenges to boost your business efficiency.",
     tags: <ItSolution />,
-    imageUrl: itSolutionsImage,
+    videoUrl: itSolutionsVideo,
   },
   {
     id: "designing",
@@ -52,7 +52,7 @@ const contentData = [
     description:
       "Enhance your brand identity with visually stunning designs that capture attention and convey your message effectively.",
     tags: <Designing />,
-    imageUrl: designingImage,
+    videoUrl: designingVideo,
   },
   {
     id: "media-production",
@@ -60,7 +60,7 @@ const contentData = [
     description:
       "Create captivating video and media content through end-to-end production—from concept development to final editing.",
     tags: <MediaProduction />,
-    imageUrl: mediaProductionImage,
+    videoUrl: mediaProductionVideo,
   },
   {
     id: "content-creation",
@@ -68,7 +68,7 @@ const contentData = [
     description:
       "Engage your audience with high-quality content in various formats that supports your marketing goals and builds your brand.",
     tags: <ContentCreation />,
-    imageUrl: contentCreationImage,
+    videoUrl: contentCreationVideo,
   },
   {
     id: "architecture",
@@ -76,7 +76,7 @@ const contentData = [
     description:
       "Design and construct aesthetically pleasing and functional structures that emphasize sustainability and innovation.",
     tags: <Architecture />,
-    imageUrl: architectureImage,
+    videoUrl: architectureVideo,
   },
 ];
 
@@ -86,10 +86,12 @@ const Services = () => {
   // Smooth scroll to section if URL contains a hash
   useEffect(() => {
     if (location.hash) {
-      const targetElement = document.getElementById(location.hash.slice(1));
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
+      setTimeout(() => {
+        const targetElement = document.getElementById(location.hash.slice(1));
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
     }
   }, [location]);
 
@@ -107,7 +109,7 @@ const Services = () => {
             className="absolute -top-0 left-0 w-full h-full"
             style={{
               background:
-                "linear-gradient(135deg, #ffbe00 10%, transparent 50%)", // Top-left gradient
+                "linear-gradient(135deg, #ffbe00 10%, transparent 50%)",
               opacity: 0.1,
             }}
           ></div>
@@ -134,7 +136,7 @@ const Services = () => {
             }}
             className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
           >
-            Our Services{" "}
+            Our Services
           </h4>
           <p className="text-lg md:text-xl text-gray-600 mt-1 leading-snug">
             Explore our range of services designed to boost your digital

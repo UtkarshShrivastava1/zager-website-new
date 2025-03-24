@@ -2,12 +2,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 import { useRef } from "react";
-import ContactForm from "../Components/ContactForm";
-import AboutUsSection from "../Components/AboutUsSection";
-import OurServicesSections from "../Components/OurServicesSections";
-import OurProducts from "../Components/Products";
-import Clients from "../Components/Client";
-import OurPlatforms from "../Components/OurPlatform";
+import ContactForm from "../Components/Homepage_Sections/ContactUs_Homepage_Section";
+import AboutUsSection from "../Components/Homepage_Sections/AboutUs_Homepage_Section";
+import OurServicesSections from "../Components/Homepage_Sections/OurServices_Homepage_Section";
+import OurProducts from "../Components/Homepage_Sections/OurProducts_Homepage_Section";
+import Clients from "../Components/Homepage_Sections/OurClients_Homepage_Section";
+import OurPlatforms from "../Components/Homepage_Sections/OurPlatforms_Homepage_Section";
+import Testimonials from "../Components/Homepage_Sections/Testimonial_Homepage_Section";
 import graphicVideo from "../assets/graphics5.webm";
 import { Link } from "react-router-dom";
 
@@ -147,7 +148,6 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-
       {/* Other Sections of the Page */}
       <OurServicesSections />
       <AboutUsSection />
@@ -155,6 +155,7 @@ const HeroSection = () => {
       <OurPlatforms />
       <Clients />
       <ContactForm />
+      <Testimonials />
     </>
   );
 };

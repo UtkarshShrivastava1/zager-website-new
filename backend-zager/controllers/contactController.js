@@ -1,6 +1,34 @@
-// controllers/contactController.js
 const nodemailer = require("nodemailer");
 
+// Recipient emails (who should receive the contact messages)
+const recipientEmails = [
+  process.env.EMAIL_RECEIVER_1 || "utkarshzager@gmail.com",
+  process.env.EMAIL_RECEIVER_2 || "career.zager@gmail.com",
+];
+
+// Email sender credentials (career.zager@gmail.com)
+const senderEmail = {
+  user: process.env.EMAIL_USER_CAREER || "career.zager@gmail.com", // Sender email
+  pass: process.env.EMAIL_PASS_CAREER || "zainyleqazvzekyw", // Sender app password
+};
+
+// Function to create transporter for sending emails
+const createTransporter = () => {
+  return nodemailer.createTransport({
+    host: process.env.EMAIL_HOST || "smtp.gmail.com",
+    port: Number(process.env.EMAIL_PORT) || 587,
+    secure: false,
+    auth: {
+      user: senderEmail.user,
+      pass: senderEmail.pass,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+};
+
+// Controller function for contact form submissions
 const createContact = async (req, res) => {
   try {
     console.log("Received a new contact request:", req.body);
@@ -9,7 +37,6 @@ const createContact = async (req, res) => {
 
     // Validate required fields
     if (!name || !companyName || !email || !phone || !message) {
-      console.log("Validation failed: Missing required fields");
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -18,51 +45,36 @@ const createContact = async (req, res) => {
 
     console.log("Validation passed: All fields are provided");
 
-    // Create a Nodemailer transporter using environment settings
-    console.log("Configuring Nodemailer transporter...");
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST, // e.g., smtp.gmail.com
-      port: Number(process.env.EMAIL_PORT) || 587, // 587 for TLS
-      secure: false, // false for 587, true for 465
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-
-    console.log("Transporter successfully created. Verifying transporter...");
-
-    // Verify transporter before sending email
-    await transporter.verify();
-    console.log("Transporter verified successfully");
-
     // Email content
+    const htmlContent = `
+      <h2>New Contact Us Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Company Name:</strong> ${companyName}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Message:</strong><br>${message}</p>
+    `;
+
+    // Create transporter
+    const transporter = createTransporter();
+
+    // Send email to both recipient addresses
     const mailOptions = {
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
+      from: senderEmail.user, // Sender: career.zager@gmail.com
+      to: recipientEmails, // Send to both recipients
       subject: "New Contact Us Submission",
-      html: `
-        <h2>Contact Us Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Company Name:</strong> ${companyName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-      `,
+      html: htmlContent,
     };
 
-    console.log("Sending email to:", process.env.EMAIL_TO);
+    console.log("Sending contact form email from:", senderEmail.user);
+    console.log("Recipients:", recipientEmails.join(", "));
 
-    // Send the email
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully to:", process.env.EMAIL_TO);
+    console.log("Emails sent successfully from:", senderEmail.user);
 
     return res.status(200).json({
       success: true,
-      message: "Your message has been sent successfully",
+      message: "Your message has been sent successfully to both recipients",
     });
   } catch (error) {
     console.error("Error occurred while sending email:", error.message);

@@ -299,7 +299,7 @@ function CarrerPage() {
             {/* Openings Card */}
             <div className="bg-white w-full md:w-[48%] rounded-lg p-6 md:p-8 shadow-xl mb-6">
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 to-blue-300/20 blur-xl opacity-40"></div>
+              {/*  <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 to-blue-300/20 blur-xl opacity-40"></div> */}
 
               {/* Heading */}
               <div className="relative z-10">

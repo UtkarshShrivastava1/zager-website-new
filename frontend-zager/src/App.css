@@ -1,0 +1,31 @@
+@keyframes pulse-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 68, 0, 0.8), 0 0 10px rgba(255, 190, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 68, 0, 1), 0 0 20px rgba(255, 190, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 68, 0, 0.8), 0 0 10px rgba(255, 190, 0, 0.8);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Tailwind Custom Animations */
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s infinite alternate;
+}
+
+.animate-ping {
+  animation: ping 1.5s infinite;
+}

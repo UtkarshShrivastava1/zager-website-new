@@ -2,7 +2,6 @@
 
 import { TextGenerateEffect } from "../Components/ui/text-generate-effect";
 import { cn } from "../lib/utils";
-import Heading from "../Components/Heading";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import api from "../services/api";
@@ -187,9 +186,14 @@ function CarrerPage() {
             collaboration, and professional growth are our priorities.
           </p>
         </div>
-
         {/* Work Values */}
-        <Heading value={"Why Work With Us"} />
+        {/* Work Values Heading */}
+        <h4
+          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          style={{ fontWeight: "700", fontSize: "2.5rem" }}
+        >
+          Why Work With Us
+        </h4>{" "}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
           {workValues.map((value, index) => (
             <div key={index} className="max-w-xs w-full group/card">
@@ -216,15 +220,18 @@ function CarrerPage() {
             </div>
           ))}
         </div>
-
         {/* Our Ideal Candidates */}
         <div className="mt-8">
-          <Heading value={"Our Ideal Candidates"} />
+          <h4
+            className="text-3xl font-bold text-center text-[#ffbe00] mb-4 mt-8"
+            style={{ fontWeight: "700", fontSize: "2.5rem" }}
+          >
+            Our Ideal Candidates
+          </h4>{" "}
         </div>
         <div className="flex flex-col items-center justify-center">
           <TextGenerateEffect words={candidateWords} />
         </div>
-
         {/* Interactive Image Carousel
         <div
           ref={containerRef}
@@ -256,7 +263,6 @@ function CarrerPage() {
             ))}
           </div>
         </div> */}
-
         {/* Interactive Image Carousel - Hidden on Mobile */}
         <div
           ref={containerRef}
@@ -288,10 +294,14 @@ function CarrerPage() {
             ))}
           </div>
         </div>
-
         {/* Join Us Form */}
         <div className="mt-8">
-          <Heading value={"Join Us"} />
+          <h4
+            className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+            style={{ fontWeight: "700", fontSize: "2.5rem" }}
+          >
+            Join Us
+          </h4>{" "}
         </div>
         {/* Responsive form container: full width on mobile with a max-width */}
         <div className="w-full px-10 mb-10">

@@ -5,6 +5,8 @@ import Footer from "./Components/Footer";
 import AboutUsPage from "./Pages/AboutUsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
 import CarrerPage from "./Pages/CarrerPage";
+import HackathonRegister from "./Pages/HackathonRegister";
+
 import Gyaanadari from "./Pages/Gyaanadari";
 import JKWorks from "./Pages/JKWorks";
 import IRMediaAndProductions from "./Pages/IRMediaAndProductions";
@@ -42,6 +44,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUsPage />} />
           <Route path="/contactus" element={<ContactUsPage />} />
           <Route path="/carrer" element={<CarrerPage />} />
+
+          <Route path="/HackathonRegister" element={<HackathonRegister />} />
           <Route path="/services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsofService />} />
@@ -85,7 +89,6 @@ function App() {
               )
             }
           />
-
           <Route
             path="/admin/edit-blogs"
             element={

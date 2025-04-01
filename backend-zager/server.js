@@ -83,13 +83,13 @@ const adminRoutes = require("./routes/adminRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const jobApplicationRoutes = require("./routes/jobApplicationRoutes");
+const hackathonRoutes = require("./routes/hackathonRoutes");
 
 app.use("/api/admin/auth", adminRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/job-applications", jobApplicationRoutes);
-
-// Serve static files from the "uploads" directory
+app.use("/api/hackathon", hackathonRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 console.log(
   `Static files are served from: ${path.join(__dirname, "uploads")}`.magenta

@@ -158,7 +158,7 @@ const HackathonRegister = () => {
                 <strong>Location:</strong> Virtual - Join from anywhere!
               </li>
               <li>
-                <strong>Registration Fee:</strong> $50 per team
+                <strong>Registration Fee:</strong> 300 Rs per team
               </li>
             </ul>
           </div>
@@ -378,7 +378,7 @@ const HackathonRegister = () => {
         >
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Zager&apos;s Hackathon Registration
+              Zager&apos;s Hackathon Registration Pass
             </h2>
             <p className="text-sm text-gray-500 mb-4">
               Registration ID: {formData.registrationID}

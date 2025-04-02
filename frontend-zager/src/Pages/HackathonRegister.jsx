@@ -5,8 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import api from "../services/api"; // Axios instance with baseURL
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import QRcode from "../assets/QRcode.jpeg";
-
+import QRcode from "../assets/QRcode.png";
+import Banner from "../assets/hackathon-banner2.png";
 // Import jsPDF and autoTable
 // Ensure jspdf-autotable is imported correctly and extends jsPDF
 
@@ -16,6 +16,7 @@ const HackathonRegister = () => {
   const leftColumnRef = useRef(null);
   const rightColumnRef = useRef(null);
   const containerRef = useRef(null);
+  const formRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isQRModalOpen, setIsQRModalOpen] = useState(false);
   const [formData, setFormData] = useState(null); // To hold the form data for modal
@@ -121,16 +122,43 @@ const HackathonRegister = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen overflow-hidden mt-15 md:mt-5">
+    <div className="bg-white min-h-screen overflow-hidden">
       <ToastContainer />
-      <h4 className="text-3xl font-bold text-center text-[#ffbe00] mb-4">
-        🚀 Hackathon Registration
-      </h4>
+
+      {/* Hero Section */}
       <div
-        ref={containerRef}
-        className="container mx-auto px-4 py-12 md:py-20 !pt-4"
+        className="relative flex flex-col justify-center items-center text-center text-white"
+        style={{
+          height: "1380px",
+          backgroundImage: `url(${Banner})`, // ✅ Use imported image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-10">
+        <div className="bg-grey bg-opacity-50 absolute inset-0"></div>
+
+        {/* Register Button - Positioned Top Right */}
+        <button
+          onClick={() => {
+            const formSection = document.querySelector(".container");
+            formSection?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="absolute top-4 right-4 px-6 py-3 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all transform hover:scale-110 animate-pulse cursor-pointer"
+        >
+          Register Now
+        </button>
+      </div>
+
+      {/* Registration Form Section */}
+      <div ref={formRef} className="container mx-auto px-4 py-12 md:py-20">
+        <h4 className="text-3xl font-bold text-center text-[#ffbe00] mb-4">
+          🚀 Hackathon Registration
+        </h4>
+
+        <div
+          ref={containerRef}
+          className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-10"
+        >
           {/* Left Column */}
           <div ref={leftColumnRef} className="space-y-6">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800">
@@ -307,13 +335,15 @@ const HackathonRegister = () => {
               {/* Payment QR Code Modal */}
               {isQRModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                  <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+                  <div className="bg-white p-6 rounded-lg shadow-lg text-center w-[90%] max-w-md">
                     <h2 className="text-lg font-bold mb-3">Scan to Pay</h2>
-                    <img
-                      src={QRcode}
-                      alt="QR Code"
-                      className="w-40 h-40 mx-auto"
-                    />
+                    <div className="flex justify-center">
+                      <img
+                        src={QRcode}
+                        alt="QR Code"
+                        className="w-64 h-64 max-w-full object-contain transition-transform duration-300 hover:scale-125"
+                      />
+                    </div>
                     <button
                       onClick={() => setIsQRModalOpen(false)}
                       className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"

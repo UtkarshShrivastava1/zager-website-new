@@ -155,25 +155,37 @@ const HackathonRegister = () => {
 
         {/* Mobile Background */}
         <div
-          className="block md:hidden w-full h-[500px] sm:h-[600px]"
+          className="block md:hidden w-full h-[700px] sm:h-[600px]"
           style={{
             backgroundImage: `url(${Banner2})`,
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         ></div>
 
         {/* Overlay for better text visibility */}
-        <div className="bg-black bg-opacity-40 absolute inset-0"></div>
+        <div className="bg-grey bg-opacity-40 absolute inset-0"></div>
 
         {/* Register Button - Positioned at the Bottom Center */}
+        {/* Register Button - PC Version */}
         <button
           onClick={() => {
             const formSection = document.querySelector(".container");
             formSection?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="absolute bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 px-5 py-3 text-base sm:text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all hover:scale-110 cursor-pointer animate-pulse"
+          className="hidden md:block absolute bottom-20 left-1/2 transform -translate-x-1/2 px-8 py-4 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer animate-pulse"
+        >
+          Register Now
+        </button>
+
+        {/* Register Button - Mobile Version */}
+        <button
+          onClick={() => {
+            const formSection = document.querySelector(".container");
+            formSection?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="block md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 text-sm font-semibold bg-yellow-600 hover:bg-yellow-500 text-white rounded-md shadow-md transition-all active:scale-95 animate-bounce"
         >
           Register Now
         </button>

@@ -1,27 +1,32 @@
 const nodemailer = require("nodemailer");
 const multer = require("multer");
+const PDFDocument = require("pdfkit"); // For generating PDFs
+const { Readable } = require("stream"); // To convert PDF to buffer
+require("dotenv").config(); // Load environment variables
+const QRCode = require("qrcode"); // QR Code Generator
+const axios = require("axios"); // For fetching images from URL
 
 // Multer setup for file uploads (Stores in memory as a Buffer)
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Email recipients
+// Email recipients (Admins)
 const recipientEmails = [
   process.env.EMAIL_RECEIVER_1 || "utkarshzager@gmail.com",
-  process.env.EMAIL_RECEIVER_2 || "career.zager@gmail.com",
+  process.env.EMAIL_RECEIVER_2 || "zhack.zager@gmail.com",
 ];
 
 // Email sender credentials
 const senderEmail = {
-  user: process.env.EMAIL_USER_CAREER || "career.zager@gmail.com",
-  pass: process.env.EMAIL_PASS_CAREER || "zainyleqazvzekyw",
+  user: process.env.EMAIL_USER_ZHACK || "zhack.zager@gmail.com",
+  pass: process.env.EMAIL_PASS_ZHACK,
 };
 
 // Create email transporter function
 const createTransporter = () => {
   return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: Number(process.env.EMAIL_PORT) || 587,
+    host: "smtp.gmail.com",
+    port: 587,
     secure: false, // Use STARTTLS
     auth: {
       user: senderEmail.user,
@@ -33,12 +38,279 @@ const createTransporter = () => {
   });
 };
 
+// Function to generate a registration pass as a PDF
+const generateRegistrationPass = async (
+  teamName,
+  registrationID,
+  email,
+  phone1,
+  hackathonType,
+  members,
+  member1
+) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const doc = new PDFDocument({ margin: 50 });
+      let buffers = [];
+
+      doc.on("data", buffers.push.bind(buffers));
+      doc.on("end", () => resolve(Buffer.concat(buffers)));
+
+      // **Dark Blue Header Background (Reduced Height)**
+      doc.rect(0, 0, 600, 100).fill("#003366");
+
+      // **Fetch Logo from URL**
+      const logoUrl =
+        "https://www.zager.in/assets/Final_Logo_White-BsljKSah.png";
+      const response = await axios.get(logoUrl, {
+        responseType: "arraybuffer",
+      });
+      const logoBuffer = Buffer.from(response.data, "binary");
+
+      // **Insert Logo at Top-Left Corner**
+      doc.image(logoBuffer, 50, 25, { width: 90 });
+
+      // **Centered Header Text**
+      doc
+        .fillColor("#FFFFFF")
+        .font("Helvetica-Bold")
+        .fontSize(22)
+        .text("Hackathon Registration Pass\n", 0, 50, { align: "center" }) // New line added
+        .moveDown(0.5);
+
+      doc.fillColor("#000000");
+
+      // **Move Down for Table**
+      doc.moveDown(2);
+
+      // **Get Current Date & Time**
+      const now = new Date();
+      const formattedDate = now.toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      // **Format Members List Correctly**
+      const memberList =
+        typeof members === "string"
+          ? members
+              .split(",")
+              .map((m) => m.trim())
+              .filter((m) => m.length > 0)
+          : Array.isArray(members)
+          ? members
+          : [];
+      console.log("✅ Raw 'members' value:", members);
+      console.log("✅ Processed Members List:", memberList);
+      console.log("✅ Type of Processed Members:", typeof memberList);
+
+      // **Table Data (excluding team members)**
+      const startX = 50;
+      let startY = doc.y;
+      const colWidths = [180, 300];
+
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(12)
+        .text("Field", startX, startY)
+        .text("Details", startX + colWidths[0], startY);
+
+      doc
+        .moveTo(startX, startY + 15)
+        .lineTo(startX + colWidths[0] + colWidths[1], startY + 15)
+        .stroke();
+      startY += 20;
+      const tableData = [
+        { field: "Team Name", value: teamName },
+        { field: "Registration ID", value: registrationID },
+        { field: "Email", value: email },
+        { field: "Contact Number", value: phone1 },
+        { field: "Hackathon Type", value: hackathonType },
+        { field: "Registration Date & Time", value: formattedDate },
+      ];
+
+      doc.font("Helvetica").fontSize(12);
+
+      tableData.forEach((row, index) => {
+        if (index % 2 === 0) {
+          doc
+            .rect(startX, startY - 5, colWidths[0] + colWidths[1], 20)
+            .fill("#E3E3E3");
+          doc.fillColor("#000000");
+        }
+        doc.text(row.field, startX, startY);
+        doc.text(row.value, startX + colWidths[0], startY);
+        startY += 20;
+        doc
+          .moveTo(startX, startY - 5)
+          .lineTo(startX + colWidths[0] + colWidths[1], startY - 5)
+          .stroke();
+      });
+
+      // **Render Team Members List Separately**
+      doc.moveDown(1);
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(12)
+        .text("Team Members:", startX, doc.y, { align: "left" });
+
+      doc.font("Helvetica").fontSize(12);
+      startY = doc.y + 10; // Capture the updated position
+
+      if (memberList.length > 0) {
+        memberList.forEach((member, index) => {
+          doc.text(`${index + 1}. ${member}`, startX + 20, startY); // Align properly
+          startY += 20; // Increase spacing for clarity
+        });
+      } else {
+        doc.text("N/A", startX + 20, startY);
+        startY += 20;
+      }
+
+      // **Move Down for Instructions**
+      doc.moveDown(2);
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(14)
+        .fillColor("#003366")
+        .text("Important Participant Guidelines:", startX, doc.y, {
+          underline: true,
+          align: "left",
+        });
+
+      doc.moveDown(0.5);
+      doc.font("Helvetica").fontSize(12).fillColor("#000000");
+
+      const instructions = [
+        "• Mandatory Documents: Participants must bring a printed copy of their registration ID slip and a valid government-issued ID card on April 12 & April 25. Students must also carry their student ID card (if applicable).",
+        "• Reporting Time:\n   • April 12: Reporting time is 11:00 AM. Participants must arrive at least 20 minutes prior.\n   • April 25: The reporting time will be communicated on April 12.",
+        "• Project Development: Teams must develop their project strictly within the given timeframe.",
+        "• Project Submission: All teams must submit their final project, source code, and demo video before the deadline.",
+        "• Documentation: Each submission must include a project description, setup instructions, and feature details.",
+        "• Submission Process: All materials must be submitted via the designated submission portal, as outlined in the project description document (to be shared on April 12).",
+        "• Project Functionality: The submitted app/web app must be fully functional or at least a working prototype.",
+        "• Mandatory Attendance: All team members must be present on April 12 & April 25 for the orientation, project briefing, and final presentation.",
+        "• Project Allocation: Projects will be assigned by the Zager team, and requests for changes will not be entertained.",
+        "• Presentation Requirement: Teams must prepare a presentation and demonstrate their working prototype during the final presentation on April 25.",
+        "• No Refund Policy: Registration fees are non-refundable under any circumstances.",
+      ];
+
+      instructions.forEach((point) => {
+        doc.text(point, startX);
+        doc.moveDown(0.5);
+      });
+
+      // **Move Down for Contact Us Section**
+      doc.moveDown(2);
+      doc
+        .font("Helvetica-Bold")
+        .fontSize(14)
+        .fillColor("#003366")
+        .text("Contact Us:", startX, doc.y, {
+          underline: true,
+          align: "left",
+        });
+
+      doc.moveDown(0.5);
+      doc
+        .font("Helvetica")
+        .fontSize(12)
+        .fillColor("#000000")
+        .text(
+          "Startup Enclave, CSIT Campus, Shivaji Nagar, Balod Road, Durg, Chhattisgarh 491001",
+          startX
+        );
+      doc.moveDown(0.3);
+      doc.text("+91-9407655717", startX);
+      doc.text("zhack.zager@gmail.com", startX);
+
+      // **Footer**
+      doc.moveDown(2);
+      doc.moveTo(50, doc.y).lineTo(550, doc.y).stroke();
+      doc.moveDown(0.5);
+      doc
+        .fontSize(10)
+        .fillColor("#007ACC")
+        .text("Thank you for registering!", { align: "center" });
+      doc
+        .fontSize(9)
+        .fillColor("#000000")
+        .text("For queries, contact us at contact.zager@gmail.com", {
+          align: "center",
+        });
+
+      doc.end();
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+// Function to send confirmation email with registration pass
+const sendConfirmationEmail = async (
+  applicantEmail,
+  teamName,
+  registrationID,
+  phone1,
+  hackathonType,
+  members
+) => {
+  try {
+    const transporter = createTransporter();
+
+    // Generate registration pass PDF
+    const pdfBuffer = await generateRegistrationPass(
+      teamName,
+      registrationID,
+      applicantEmail,
+      phone1,
+      hackathonType,
+      members,
+      members[0]
+    );
+
+    const mailOptions = {
+      from: `"Hackathon Team" <${senderEmail.user}>`,
+      to: applicantEmail,
+      subject: "✅ Hackathon Registration Confirmation & Pass",
+      html: `
+        <h2>Welcome to the Hackathon!</h2>
+        <p>Dear ${teamName},</p>
+        <p>Thank you for registering for our hackathon. Your registration ID is <strong>${registrationID}</strong>.</p>
+        <p>Your official Hackathon Registration Pass is attached.</p>
+        <p>We will contact you soon with further details.</p>
+        <p>Best Regards,</p>
+        <p><strong>Hackathon Team</strong></p>
+      `,
+      attachments: [
+        {
+          filename: `Hackathon_Pass_${registrationID}.pdf`,
+          content: pdfBuffer,
+          contentType: "application/pdf",
+        },
+      ],
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log(
+      "📩 Confirmation Email Sent with Registration Pass:",
+      applicantEmail
+    );
+  } catch (error) {
+    console.error("❌ Error Sending Confirmation Email:", error.message);
+  }
+};
+
 // Hackathon Registration Controller
 const registerForHackathon = async (req, res) => {
   try {
     console.log("🔹 Received Hackathon Registration:", req.body);
 
-    const {
+    // Extract fields from request body
+    let {
       teamName,
       email,
       phone1,
@@ -48,6 +320,16 @@ const registerForHackathon = async (req, res) => {
       hackathonType,
       registrationID,
     } = req.body;
+
+    // Convert members to an array if it is a string
+    if (typeof members === "string") {
+      members = members.split(",").map((m) => m.trim());
+    }
+
+    // Get current date and time
+    const registrationTimestamp = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Kolkata",
+    }); // Adjust timezone if needed
 
     // Validate required fields
     if (
@@ -63,7 +345,7 @@ const registerForHackathon = async (req, res) => {
       return res.status(400).json({
         success: false,
         message:
-          "All fields (Team Name, Email, Two Contact Numbers, Occupation, Members, Hackathon Type,registrationID) are required.",
+          "All fields (Team Name, Email, Two Contact Numbers, Occupation, Members, Hackathon Type, Registration ID) are required.",
       });
     }
 
@@ -92,17 +374,18 @@ const registerForHackathon = async (req, res) => {
       });
     }
 
-    // Prepare email content
-    const htmlContent = `
+    // Prepare email content for admin
+    const adminHtmlContent = `
       <h2>New Hackathon Registration</h2>
       <p><strong>Team Name:</strong> ${teamName}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Primary Contact:</strong> ${phone1}</p>
       <p><strong>Secondary Contact:</strong> ${phone2}</p>
       <p><strong>Occupation:</strong> ${Occupation}</p>
-      <p><strong>Team Members:</strong> ${members}</p>
+      <p><strong>Team Members:</strong> ${members.join(", ")}</p>
       <p><strong>Hackathon Type:</strong> ${hackathonType}</p>
       <p><strong>Registration ID:</strong> ${registrationID}</p>
+      <p><strong>Registration Time:</strong> ${registrationTimestamp}</p>
     `;
 
     // Attachment (Payment Receipt)
@@ -113,22 +396,34 @@ const registerForHackathon = async (req, res) => {
     // Create transporter
     const transporter = createTransporter();
 
-    // Mail options
-    const mailOptions = {
+    // Mail options for admin
+    const mailOptionsAdmin = {
       from: `"Hackathon Team" <${senderEmail.user}>`,
       to: recipientEmails.join(", "),
       subject: "🔹 New Hackathon Registration Submission",
-      html: htmlContent,
+      html: adminHtmlContent,
       attachments,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-    console.log("✅ Hackathon Registration Email Sent Successfully");
+    // Send email to admin
+    await transporter.sendMail(mailOptionsAdmin);
+    console.log("✅ Hackathon Registration Email Sent to Admin");
+
+    // Send confirmation email with registration pass
+    await sendConfirmationEmail(
+      email,
+      teamName,
+      registrationID,
+      phone1,
+      hackathonType,
+      members,
+      registrationTimestamp
+    );
 
     return res.status(200).json({
       success: true,
-      message: "Your hackathon registration has been submitted successfully!",
+      message:
+        "Your hackathon registration has been submitted successfully! A confirmation email with your registration pass has been sent.",
     });
   } catch (error) {
     console.error(

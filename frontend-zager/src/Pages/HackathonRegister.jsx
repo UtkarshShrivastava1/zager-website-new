@@ -6,7 +6,9 @@ import api from "../services/api"; // Axios instance with baseURL
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import QRcode from "../assets/QRcode.png";
-import Banner from "../assets/hackathon-banner2.png";
+import Banner from "../assets/hackathon-banner.png";
+import Banner2 from "../assets/banner2.png";
+
 // Import jsPDF and autoTable
 // Ensure jspdf-autotable is imported correctly and extends jsPDF
 
@@ -62,27 +64,35 @@ const HackathonRegister = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
 
+    // Function to Generate Registration ID
     const generateRegistrationID = () => {
       const now = new Date();
       const day = String(now.getDate()).padStart(2, "0");
       const month = String(now.getMonth() + 1).padStart(2, "0");
+      const year = "25"; // Assuming 2025 as the reference year
       const hours = String(now.getHours()).padStart(2, "0");
       const minutes = String(now.getMinutes()).padStart(2, "0");
       const seconds = String(now.getSeconds()).padStart(2, "0");
-      return `ZAG${day}${month}25${hours}${minutes}${seconds}`;
+      return `ZAG${day}${month}${year}${hours}${minutes}${seconds}`;
     };
 
     const registrationID = generateRegistrationID();
     data.registrationID = registrationID;
 
+    // Combine member1, member2, member3 into a single "members" field
+    data.members = [data.member1, data.member2, data.member3]
+      .filter(Boolean) // Removes empty values
+      .join(", ");
+
     console.log("Generated Registration ID:", registrationID);
+    console.log("Final Payload:", data);
 
     const formDataToSubmit = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       if (key === "paymentReceipt") {
-        formDataToSubmit.append(key, value[0]);
-      } else {
-        formDataToSubmit.append(key, value);
+        formDataToSubmit.append(key, value[0]); // Handle file uploads
+      } else if (!["member1", "member2", "member3"].includes(key)) {
+        formDataToSubmit.append(key, value); // Exclude member1, member2, member3
       }
     });
 
@@ -96,8 +106,9 @@ const HackathonRegister = () => {
           autoClose: 5000,
           hideProgressBar: true,
         });
-        setFormData(data); // Store form data to show in the modal
-        reset();
+
+        setFormData(data); // Store form data for modal
+        reset(); // Reset form
       } else {
         throw new Error("Invalid API Response");
       }
@@ -126,69 +137,123 @@ const HackathonRegister = () => {
       <ToastContainer />
 
       {/* Hero Section */}
-      <div
-        className="relative flex flex-col justify-center items-center text-center text-white"
-        style={{
-          height: "1380px",
-          backgroundImage: `url(${Banner})`, // ✅ Use imported image
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="bg-grey bg-opacity-50 absolute inset-0"></div>
+      <div className="relative flex flex-col justify-center items-center text-center text-white w-full">
+        {/* Desktop Background */}
+        <div
+          className="hidden md:block w-full"
+          style={{
+            height: "790px", // Matches the image height
+            width: "100%",
+            maxWidth: "1900px",
+            backgroundImage: `url(${Banner})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            marginTop: "-65px",
+          }}
+        ></div>
 
-        {/* Register Button - Positioned Top Right */}
+        {/* Mobile Background */}
+        <div
+          className="block md:hidden w-full"
+          style={{
+            height: "600px", // Adjusted for mobile screens
+            width: "100%",
+            backgroundImage: `url(${Banner2})`, // ✅ Mobile-optimized banner
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+
+        {/* Overlay for better text visibility */}
+        <div className="bg-grey bg-opacity-40 absolute inset-0"></div>
+
+        {/* Register Button - Positioned at the Bottom Center */}
         <button
           onClick={() => {
             const formSection = document.querySelector(".container");
             formSection?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="absolute top-4 right-4 px-6 py-3 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all transform hover:scale-110 animate-pulse cursor-pointer"
+          className="absolute bottom-20 md:bottom-23 left-1/2 transform -translate-x-1/2 px-6 py-3 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all hover:scale-110 cursor-pointer animate-better-pulse"
         >
           Register Now
         </button>
       </div>
-
       {/* Registration Form Section */}
       <div ref={formRef} className="container mx-auto px-4 py-12 md:py-20">
         <h4 className="text-3xl font-bold text-center text-[#ffbe00] mb-4">
-          🚀 Hackathon Registration
+          Hackathon Registration
         </h4>
 
         <div
           ref={containerRef}
-          className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-10"
+          className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-20"
         >
-          {/* Left Column */}
-          <div ref={leftColumnRef} className="space-y-6">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-              Join the Ultimate Hackathon!
+          {/* Left Column - Enhanced & Responsive */}
+          <div ref={leftColumnRef} className="space-y-6 px-4 md:px-0 -mt-80">
+            {/* Event Title */}
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
+              🚀 Z-HACK 2025 – The Ultimate Mobile & Web App Hackathon! 🚀
             </h2>
-            <div className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
-                Build, Compete, Innovate!
-              </h2>
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
-                Win Exciting Prizes!
+
+            {/* Main Heading */}
+            <div className="space-y-3 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent">
+                Think. Code. Disrupt.
               </h2>
             </div>
-            <ul className="text-lg list-disc list-inside">
+
+            {/* Key Details */}
+            <ul className="text-lg md:text-xl list-disc list-inside space-y-3 text-gray-800">
               <li>
-                <strong>Start Date:</strong> April 15, 2025
+                <strong>📅 Competition Dates:</strong> April 12 – April 23, 2025
               </li>
               <li>
-                <strong>End Date:</strong> April 25, 2025
+                <strong>📌 Application Deadline:</strong> April 11, 2025
               </li>
               <li>
-                <strong>Tracks:</strong> Web & Mobile Development
+                <strong>🎤 Orientation & Briefing:</strong> April 12, 2025
               </li>
               <li>
-                <strong>Location:</strong> Virtual - Join from anywhere!
+                <strong>🚀 Final Submission Deadline:</strong> April 23, 2025
+                (11:59 PM)
               </li>
               <li>
-                <strong>Registration Fee:</strong> 300 Rs per team
+                <strong>🏆 Winner Announcement & Presentation:</strong> April
+                25, 2025
+              </li>
+              <li>
+                <strong>💡 Tracks:</strong> Mobile App Development & Web App
+                Development
+              </li>
+              <li>
+                <strong>💰 Entry Fee:</strong> ₹300 per team per track
+              </li>
+              <li>
+                <strong>🌍 Location:</strong> Virtual - Join from anywhere!
               </li>
             </ul>
+
+            {/* Additional Info */}
+            <div className="mt-6 space-y-2 text-center md:text-left">
+              <p className="text-lg md:text-xl font-medium text-gray-700">
+                ⚡{" "}
+                <span className="font-bold">
+                  Double the Challenge, Double the Rewards!
+                </span>
+              </p>
+              <p className="text-lg md:text-xl font-medium text-gray-700">
+                Teams must register separately for each track.
+              </p>
+              <p className="text-lg md:text-xl font-medium text-gray-700">
+                You can compete in both tracks (with separate registrations &
+                fees).
+              </p>
+              <p className="text-lg md:text-xl font-medium text-gray-700">
+                Exclusive prizes for Web App & Mobile App winners!
+              </p>
+            </div>
           </div>
 
           {/* Right Column - Form */}
@@ -284,19 +349,53 @@ const HackathonRegister = () => {
               </div>
 
               <div>
+                <label className="block text-gray-700 font-medium mb-1">
+                  Team Member 1*
+                </label>
                 <input
-                  {...register("members", {
-                    required: "Team Members are required",
+                  {...register("member1", {
+                    required: "At least two members are required",
                   })}
                   type="text"
-                  placeholder="Team Members (Comma Separated)*"
+                  placeholder="Enter Team Member 1"
                   className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
                 />
-                {errors.members && (
+                {errors.member1 && (
                   <p className="text-red-500 text-sm">
-                    {errors.members.message}
+                    {errors.member1.message}
                   </p>
                 )}
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">
+                  Team Member 2*
+                </label>
+                <input
+                  {...register("member2", {
+                    required: "At least two members are required",
+                  })}
+                  type="text"
+                  placeholder="Enter Team Member 2"
+                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                />
+                {errors.member2 && (
+                  <p className="text-red-500 text-sm">
+                    {errors.member2.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">
+                  Team Member 3
+                </label>
+                <input
+                  {...register("member3")}
+                  type="text"
+                  placeholder="Enter Team Member 3"
+                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                />
               </div>
 
               <div>

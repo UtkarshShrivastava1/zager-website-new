@@ -142,7 +142,7 @@ const HackathonRegister = () => {
         <div
           className="hidden md:block w-full"
           style={{
-            height: "790px", // Matches the image height
+            height: "790px",
             width: "100%",
             maxWidth: "1900px",
             backgroundImage: `url(${Banner})`,
@@ -155,11 +155,9 @@ const HackathonRegister = () => {
 
         {/* Mobile Background */}
         <div
-          className="block md:hidden w-full"
+          className="block md:hidden w-full h-[500px] sm:h-[600px]"
           style={{
-            height: "600px", // Adjusted for mobile screens
-            width: "100%",
-            backgroundImage: `url(${Banner2})`, // ✅ Mobile-optimized banner
+            backgroundImage: `url(${Banner2})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -167,7 +165,7 @@ const HackathonRegister = () => {
         ></div>
 
         {/* Overlay for better text visibility */}
-        <div className="bg-grey bg-opacity-40 absolute inset-0"></div>
+        <div className="bg-black bg-opacity-40 absolute inset-0"></div>
 
         {/* Register Button - Positioned at the Bottom Center */}
         <button
@@ -175,37 +173,33 @@ const HackathonRegister = () => {
             const formSection = document.querySelector(".container");
             formSection?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="absolute bottom-20 md:bottom-23 left-1/2 transform -translate-x-1/2 px-6 py-3 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all hover:scale-110 cursor-pointer animate-better-pulse"
+          className="absolute bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 px-5 py-3 text-base sm:text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-md transition-all hover:scale-110 cursor-pointer animate-pulse"
         >
           Register Now
         </button>
       </div>
+
       {/* Registration Form Section */}
       <div ref={formRef} className="container mx-auto px-4 py-12 md:py-20">
-        <h4 className="text-3xl font-bold text-center text-[#ffbe00] mb-4">
+        <h4 className="text-2xl sm:text-3xl font-bold text-center text-[#ffbe00] mb-6">
           Hackathon Registration
         </h4>
 
-        <div
-          ref={containerRef}
-          className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-20"
-        >
+        <div className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-16">
           {/* Left Column - Enhanced & Responsive */}
-          <div ref={leftColumnRef} className="space-y-6 px-4 md:px-0 -mt-80">
+          <div className="space-y-6 text-center md:text-left">
             {/* Event Title */}
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               🚀 Z-HACK 2025 – The Ultimate Mobile & Web App Hackathon! 🚀
             </h2>
 
             {/* Main Heading */}
-            <div className="space-y-3 text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent">
-                Think. Code. Disrupt.
-              </h2>
-            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent">
+              Think. Code. Disrupt.
+            </h2>
 
             {/* Key Details */}
-            <ul className="text-lg md:text-xl list-disc list-inside space-y-3 text-gray-800">
+            <ul className="text-base sm:text-lg md:text-xl list-disc list-inside space-y-3 text-gray-800">
               <li>
                 <strong>📅 Competition Dates:</strong> April 12 – April 23, 2025
               </li>
@@ -220,12 +214,10 @@ const HackathonRegister = () => {
                 (11:59 PM)
               </li>
               <li>
-                <strong>🏆 Winner Announcement & Presentation:</strong> April
-                25, 2025
+                <strong>🏆 Winner Announcement:</strong> April 25, 2025
               </li>
               <li>
-                <strong>💡 Tracks:</strong> Mobile App Development & Web App
-                Development
+                <strong>💡 Tracks:</strong> Mobile App & Web App Development
               </li>
               <li>
                 <strong>💰 Entry Fee:</strong> ₹300 per team per track
@@ -233,24 +225,30 @@ const HackathonRegister = () => {
               <li>
                 <strong>🌍 Location:</strong> Virtual - Join from anywhere!
               </li>
+              <li>
+                <strong>🏢 On-Site Requirement:</strong> Teams must be present
+                at the venue on <strong>April 12</strong> (Orientation &
+                Briefing) and <strong>April 25, 2025</strong> (Winner
+                Announcement & Presentation).
+              </li>
             </ul>
 
             {/* Additional Info */}
-            <div className="mt-6 space-y-2 text-center md:text-left">
-              <p className="text-lg md:text-xl font-medium text-gray-700">
+            <div className="mt-4 space-y-2 text-gray-700">
+              <p className="text-base sm:text-lg md:text-xl font-medium">
                 ⚡{" "}
                 <span className="font-bold">
                   Double the Challenge, Double the Rewards!
                 </span>
               </p>
-              <p className="text-lg md:text-xl font-medium text-gray-700">
+              <p className="text-base sm:text-lg md:text-xl font-medium">
                 Teams must register separately for each track.
               </p>
-              <p className="text-lg md:text-xl font-medium text-gray-700">
+              <p className="text-base sm:text-lg md:text-xl font-medium">
                 You can compete in both tracks (with separate registrations &
                 fees).
               </p>
-              <p className="text-lg md:text-xl font-medium text-gray-700">
+              <p className="text-base sm:text-lg md:text-xl font-medium">
                 Exclusive prizes for Web App & Mobile App winners!
               </p>
             </div>

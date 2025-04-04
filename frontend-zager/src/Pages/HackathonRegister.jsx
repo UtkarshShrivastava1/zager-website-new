@@ -172,7 +172,7 @@ const HackathonRegister = () => {
             const formSection = document.querySelector(".container");
             formSection?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="hidden md:block absolute bottom-35 left-1/2 transform -translate-x-1/2 px-8 py-4 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer animate-pulse"
+          className="hidden md:block absolute top-8 right-8 px-6 py-3 text-md font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer"
         >
           Register Now
         </button>
@@ -193,21 +193,22 @@ const HackathonRegister = () => {
           Hackathon Registration
         </h4>
 
-        <div className="grid md:grid-cols-2 gap-15 items-stretch px-4 md:px-10">
-          {/* Left Column - Enhanced & Responsive */}
+        <div className="grid md:grid-cols-2 gap-10 items-start px-4 sm:px-6 md:px-10 py-8">
+          {/* Left Column - Fully Responsive */}
           <div className="space-y-6 text-center md:text-left">
             {/* Event Title */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 leading-snug">
               🚀 Z-HACK 2025 – The Ultimate Mobile & Web App Hackathon! 🚀
             </h2>
 
             {/* Main Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent leading-snug">
               Think. Code. Disrupt.
             </h2>
 
-            {/* Key Details */}
-            <ul className="text-base sm:text-lg md:text-xl list-disc list-inside space-y-3 text-gray-800">
+            {/* Key Details List */}
+            <ul className="text-sm sm:text-base md:text-lg text-left space-y-2">
+              {" "}
               <li>
                 <strong>📅 Competition Dates:</strong> April 12 – April 23, 2025
               </li>
@@ -218,8 +219,10 @@ const HackathonRegister = () => {
                 <strong>🎤 Orientation & Briefing:</strong> April 12, 2025
               </li>
               <li>
-                <strong>🚀 Final Submission Deadline:</strong> April 23, 2025
-                (11:59 PM)
+                <strong>🚀 Final Submission Deadline:</strong>{" "}
+                <span className="whitespace-nowrap">
+                  April 23, 2025 (12 PM)
+                </span>
               </li>
               <li>
                 <strong>🏆 Winner Announcement:</strong> April 25, 2025
@@ -234,31 +237,26 @@ const HackathonRegister = () => {
                 <strong>🌍 Location:</strong> Virtual - Join from anywhere!
               </li>
               <li>
-                <strong>🏢 On-Site Requirement:</strong> All the team members
-                must be present at the venue on <strong>April 12</strong>{" "}
-                (Orientation & Briefing) and <strong>April 25, 2025</strong>{" "}
-                (Winner Announcement & Presentation).
+                <strong>🏢 On-Site Requirement:</strong> All team members must
+                be present at the venue on <strong>April 12</strong> and{" "}
+                <strong>April 25</strong>.
               </li>
             </ul>
 
             {/* Additional Info */}
-            <div className="mt-4 space-y-2 text-gray-700">
-              <p className="text-base sm:text-lg md:text-xl font-medium">
+            <div className="mt-4 space-y-2 text-gray-700 text-sm sm:text-base md:text-lg font-medium text-left">
+              <p>
                 ⚡{" "}
                 <span className="font-bold">
                   Double the Challenge, Double the Rewards!
                 </span>
               </p>
-              <p className="text-base sm:text-lg md:text-xl font-medium">
-                Teams must register separately for each track.
-              </p>
-              <p className="text-base sm:text-lg md:text-xl font-medium">
+              <p>Teams must register separately for each track.</p>
+              <p>
                 You can compete in both tracks (with separate registrations &
                 fees).
               </p>
-              <p className="text-base sm:text-lg md:text-xl font-medium">
-                Exclusive prizes for Web App & Mobile App winners!
-              </p>
+              <p>Exclusive prizes for Web App & Mobile App winners!</p>
             </div>
           </div>
 

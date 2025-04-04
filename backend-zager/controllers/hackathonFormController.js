@@ -50,40 +50,35 @@ const generateRegistrationPass = async (
 ) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const doc = new PDFDocument({ margin: 50 });
-      let buffers = [];
+      const doc = new PDFDocument({
+        margin: 30,
+        size: "A4", // 🔹 Force 1-page size
+      });
 
+      let buffers = [];
       doc.on("data", buffers.push.bind(buffers));
       doc.on("end", () => resolve(Buffer.concat(buffers)));
 
-      // **Dark Blue Header Background (Reduced Height)**
-      doc.rect(0, 0, 600, 100).fill("#003366");
+      const headerHeight = 60;
+      doc.rect(0, 0, 600, headerHeight).fill("#051224");
 
-      // **Fetch Logo from URL**
       const logoUrl =
         "https://www.zager.in/assets/Final_Logo_White-BsljKSah.png";
       const response = await axios.get(logoUrl, {
         responseType: "arraybuffer",
       });
       const logoBuffer = Buffer.from(response.data, "binary");
+      doc.image(logoBuffer, 40, 15, { width: 70 });
 
-      // **Insert Logo at Top-Left Corner**
-      doc.image(logoBuffer, 50, 25, { width: 90 });
-
-      // **Centered Header Text**
       doc
-        .fillColor("#FFFFFF")
+        .fillColor("#ffffff")
         .font("Helvetica-Bold")
-        .fontSize(22)
-        .text("Hackathon Registration Pass\n", 0, 50, { align: "center" }) // New line added
-        .moveDown(0.5);
+        .fontSize(20)
+        .text("\n  Z-HACK Registration Pass", 0, 15, { align: "center" });
 
       doc.fillColor("#000000");
+      doc.moveDown(1.5);
 
-      // **Move Down for Table**
-      doc.moveDown(2);
-
-      // **Get Current Date & Time**
       const now = new Date();
       const formattedDate = now.toLocaleString("en-IN", {
         day: "2-digit",
@@ -94,36 +89,30 @@ const generateRegistrationPass = async (
         hour12: true,
       });
 
-      // **Format Members List Correctly**
       const memberList =
         typeof members === "string"
           ? members
               .split(",")
               .map((m) => m.trim())
-              .filter((m) => m.length > 0)
+              .filter((m) => m)
           : Array.isArray(members)
           ? members
           : [];
-      console.log("✅ Raw 'members' value:", members);
-      console.log("✅ Processed Members List:", memberList);
-      console.log("✅ Type of Processed Members:", typeof memberList);
 
-      // **Table Data (excluding team members)**
-      const startX = 50;
+      const startX = 40;
       let startY = doc.y;
-      const colWidths = [180, 300];
+      const colWidths = [160, 300];
 
+      doc.font("Helvetica-Bold").fontSize(11);
       doc
-        .font("Helvetica-Bold")
-        .fontSize(12)
         .text("Field", startX, startY)
         .text("Details", startX + colWidths[0], startY);
-
       doc
         .moveTo(startX, startY + 15)
         .lineTo(startX + colWidths[0] + colWidths[1], startY + 15)
         .stroke();
       startY += 20;
+
       const tableData = [
         { field: "Team Name", value: teamName },
         { field: "Registration ID", value: registrationID },
@@ -133,8 +122,7 @@ const generateRegistrationPass = async (
         { field: "Registration Date & Time", value: formattedDate },
       ];
 
-      doc.font("Helvetica").fontSize(12);
-
+      doc.font("Helvetica").fontSize(10);
       tableData.forEach((row, index) => {
         if (index % 2 === 0) {
           doc
@@ -144,104 +132,93 @@ const generateRegistrationPass = async (
         }
         doc.text(row.field, startX, startY);
         doc.text(row.value, startX + colWidths[0], startY);
-        startY += 20;
+        startY += 18;
         doc
           .moveTo(startX, startY - 5)
           .lineTo(startX + colWidths[0] + colWidths[1], startY - 5)
           .stroke();
       });
 
-      // **Render Team Members List Separately**
-      doc.moveDown(1);
+      doc.moveDown(0.5);
       doc
         .font("Helvetica-Bold")
-        .fontSize(12)
-        .text("Team Members:", startX, doc.y, { align: "left" });
-
-      doc.font("Helvetica").fontSize(12);
-      startY = doc.y + 10; // Capture the updated position
+        .fontSize(11)
+        .text("Team Members:", startX, doc.y);
+      doc.font("Helvetica").fontSize(10);
+      startY = doc.y + 8;
 
       if (memberList.length > 0) {
         memberList.forEach((member, index) => {
-          doc.text(`${index + 1}. ${member}`, startX + 20, startY); // Align properly
-          startY += 20; // Increase spacing for clarity
+          doc.text(`${index + 1}. ${member}`, startX + 20, startY);
+          startY += 14;
         });
       } else {
         doc.text("N/A", startX + 20, startY);
-        startY += 20;
+        startY += 14;
       }
 
-      // **Move Down for Instructions**
-      doc.moveDown(2);
+      doc.moveDown(0.8);
       doc
         .font("Helvetica-Bold")
-        .fontSize(14)
+        .fontSize(11)
         .fillColor("#003366")
         .text("Important Participant Guidelines:", startX, doc.y, {
           underline: true,
-          align: "left",
         });
 
-      doc.moveDown(0.5);
-      doc.font("Helvetica").fontSize(12).fillColor("#000000");
+      doc.moveDown(0.3);
+      doc.font("Helvetica").fontSize(9.5).fillColor("#000000");
 
       const instructions = [
-        "• Mandatory Documents: Participants must bring a printed copy of their registration ID slip and a valid government-issued ID card on April 12 & April 25. Students must also carry their student ID card (if applicable).",
-        "• Reporting Time:\n   • April 12: Reporting time is 11:00 AM. Participants must arrive at least 20 minutes prior.\n   • April 25: The reporting time will be communicated on April 12.",
-        "• Project Development: Teams must develop their project strictly within the given timeframe.",
-        "• Project Submission: All teams must submit their final project, source code, and demo video before the deadline.",
-        "• Documentation: Each submission must include a project description, setup instructions, and feature details.",
-        "• Submission Process: All materials must be submitted via the designated submission portal, as outlined in the project description document (to be shared on April 12).",
-        "• Project Functionality: The submitted app/web app must be fully functional or at least a working prototype.",
-        "• Mandatory Attendance: All team members must be present on April 12 & April 25 for the orientation, project briefing, and final presentation.",
-        "• Project Allocation: Projects will be assigned by the Zager team, and requests for changes will not be entertained.",
-        "• Presentation Requirement: Teams must prepare a presentation and demonstrate their working prototype during the final presentation on April 25.",
-        "• No Refund Policy: Registration fees are non-refundable under any circumstances.",
+        "Mandatory Documents: Participants must bring a printed copy of their registration ID slip and a valid government-issued ID card on April 12 & April 25. Students must also carry their student ID card (if applicable).",
+        "Reporting Time:\nApril 12: Reporting time is 11:00 AM, and participants must arrive at least 20 minutes prior.\nApril 25: The reporting time will be communicated on April 12.",
+        "Project Development: Teams must develop their project strictly within the given timeframe.",
+        "Project Submission: All teams must submit their final project, source code, and demo video before the deadline.",
+        "Documentation: Each submission must include a project description, setup instructions, and feature details.",
+        "Submission Process: All materials must be submitted via the designated submission portal, as outlined in the project description document (to be shared on April 12).",
+        "Project Functionality: The submitted app/web app must be fully functional or at least a working prototype.",
+        "Mandatory Attendance: All team members must be present on April 12 & April 25 for the orientation, project briefing, and final presentation.",
+        "Project Allocation: Projects will be assigned by the Zager team, and requests for changes will not be entertained.",
+        "Presentation Requirement: Teams must prepare a presentation and demonstrate their working prototype during the final presentation on April 25.",
+        "No Refund Policy: Registration fees are non-refundable under any circumstances.",
       ];
 
       instructions.forEach((point) => {
-        doc.text(point, startX);
-        doc.moveDown(0.5);
+        doc.text(point, {
+          width: 510,
+          lineGap: 2,
+          paragraphGap: 3,
+        });
       });
 
-      // **Move Down for Contact Us Section**
-      doc.moveDown(2);
+      doc.moveDown(0.8);
       doc
         .font("Helvetica-Bold")
-        .fontSize(14)
+        .fontSize(11)
         .fillColor("#003366")
         .text("Contact Us:", startX, doc.y, {
           underline: true,
-          align: "left",
         });
 
-      doc.moveDown(0.5);
-      doc
-        .font("Helvetica")
-        .fontSize(12)
-        .fillColor("#000000")
-        .text(
-          "Startup Enclave, CSIT Campus, Shivaji Nagar, Balod Road, Durg, Chhattisgarh 491001",
-          startX
-        );
       doc.moveDown(0.3);
+      doc.font("Helvetica").fontSize(9.5).fillColor("#000000");
+      doc.text(
+        "Zager Digital Services, Startup Enclave Building, CSIT Campus, Shivaji Nagar, Balod Road, Durg, Chhattisgarh 491001",
+        startX
+      );
       doc.text("+91-9407655717", startX);
       doc.text("zhack.zager@gmail.com", startX);
 
-      // **Footer**
-      doc.moveDown(2);
-      doc.moveTo(50, doc.y).lineTo(550, doc.y).stroke();
-      doc.moveDown(0.5);
+      doc.moveDown(1.2);
+      doc.moveTo(30, doc.y).lineTo(570, doc.y).stroke();
+      doc.moveDown(0.4);
       doc
-        .fontSize(10)
+        .fontSize(9.5)
         .fillColor("#007ACC")
         .text("Thank you for registering!", { align: "center" });
-      doc
-        .fontSize(9)
-        .fillColor("#000000")
-        .text("For queries, contact us at contact.zager@gmail.com", {
-          align: "center",
-        });
+      doc.fontSize(9).fillColor("#000000").text("", {
+        align: "center",
+      });
 
       doc.end();
     } catch (error) {
@@ -249,6 +226,7 @@ const generateRegistrationPass = async (
     }
   });
 };
+
 // Function to send confirmation email with registration pass
 const sendConfirmationEmail = async (
   applicantEmail,

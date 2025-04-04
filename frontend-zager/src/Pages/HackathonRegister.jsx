@@ -138,6 +138,7 @@ const HackathonRegister = () => {
 
       {/* Hero Section */}
       <div className="relative flex flex-col justify-center items-center text-center text-white w-full">
+        {" "}
         {/* Desktop Background */}
         <div
           className="hidden md:block w-full"
@@ -147,26 +148,23 @@ const HackathonRegister = () => {
             maxWidth: "1900px",
             backgroundImage: `url(${Banner})`,
             backgroundSize: "contain",
-            backgroundPosition: "center",
+            backgroundPosition: "top", // Ensures it starts from top
             backgroundRepeat: "no-repeat",
-            marginTop: "-65px",
+            marginTop: "0px", // 👈 Removed negative margin
           }}
         ></div>
-
         {/* Mobile Background */}
         <div
           className="block md:hidden w-full h-[700px] sm:h-[600px]"
           style={{
             backgroundImage: `url(${Banner2})`,
-            backgroundSize: "contain",
-            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundPosition: "top", // 👈 Make it consistent
             backgroundRepeat: "no-repeat",
           }}
         ></div>
-
         {/* Overlay for better text visibility */}
         <div className="bg-grey bg-opacity-40 absolute inset-0"></div>
-
         {/* Register Button - Positioned at the Bottom Center */}
         {/* Register Button - PC Version */}
         <button
@@ -174,16 +172,14 @@ const HackathonRegister = () => {
             const formSection = document.querySelector(".container");
             formSection?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="hidden md:block absolute bottom-20 left-1/2 transform -translate-x-1/2 px-8 py-4 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer animate-pulse"
+          className="hidden md:block absolute bottom-35 left-1/2 transform -translate-x-1/2 px-8 py-4 text-lg font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer animate-pulse"
         >
           Register Now
         </button>
-
         {/* Register Button - Mobile Version */}
         <button
           onClick={() => {
-            const formSection = document.querySelector(".container");
-            formSection?.scrollIntoView({ behavior: "smooth" });
+            rightColumnRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
           className="block md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 text-sm font-semibold bg-yellow-600 hover:bg-yellow-500 text-white rounded-md shadow-md transition-all active:scale-95 animate-bounce"
         >
@@ -197,7 +193,7 @@ const HackathonRegister = () => {
           Hackathon Registration
         </h4>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-16">
+        <div className="grid md:grid-cols-2 gap-15 items-stretch px-4 md:px-10">
           {/* Left Column - Enhanced & Responsive */}
           <div className="space-y-6 text-center md:text-left">
             {/* Event Title */}
@@ -238,10 +234,10 @@ const HackathonRegister = () => {
                 <strong>🌍 Location:</strong> Virtual - Join from anywhere!
               </li>
               <li>
-                <strong>🏢 On-Site Requirement:</strong> Teams must be present
-                at the venue on <strong>April 12</strong> (Orientation &
-                Briefing) and <strong>April 25, 2025</strong> (Winner
-                Announcement & Presentation).
+                <strong>🏢 On-Site Requirement:</strong> All the team members
+                must be present at the venue on <strong>April 12</strong>{" "}
+                (Orientation & Briefing) and <strong>April 25, 2025</strong>{" "}
+                (Winner Announcement & Presentation).
               </li>
             </ul>
 

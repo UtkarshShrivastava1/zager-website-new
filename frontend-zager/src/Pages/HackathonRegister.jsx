@@ -486,18 +486,57 @@ const HackathonRegister = () => {
                 )}
               </div>
 
+              {/* Submit Button */}
               <div className="text-right">
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#ffbe00] text-white rounded hover:bg-yellow-600"
+                  className="flex items-center justify-center gap-2 px-8 py-3 bg-[#ffbe00] text-white rounded hover:bg-yellow-600 disabled:opacity-70"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    <span className="animate-spin">🔄</span> // Adding spinner
+                    <>
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        ></path>
+                      </svg>
+                      <span>Registering...</span>
+                    </>
                   ) : (
                     "Register"
                   )}
                 </button>
+
+                {/* Submission message */}
+                {isSubmitting && (
+                  <p className="mt-4 text-sm text-gray-600 text-left animate-pulse">
+                    Please wait while your form is being registered...
+                    <br />
+                    This might take a few seconds.
+                    <br />
+                    <strong className="text-yellow-600">
+                      Do not close or refresh the page until confirmation
+                      appears.
+                    </strong>
+                    <br />
+                    Thank you for your patience!
+                  </p>
+                )}
               </div>
             </form>
           </div>
@@ -511,7 +550,7 @@ const HackathonRegister = () => {
         >
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Zager&apos;s Hackathon Registration Pass
+              Z-HACK Hackathon Registration Details
             </h2>
             <p className="text-sm text-gray-500 mb-4">
               Registration ID: {formData.registrationID}
@@ -543,6 +582,12 @@ const HackathonRegister = () => {
                 <strong>Hackathon Track:</strong> {formData.hackathonType}
               </li>
             </ul>
+
+            {/* Email Info */}
+            <p className="mt-6 text-sm text-green-600 font-medium">
+              📧 A digital copy of your registration pass will be sent to your
+              registered email address shortly.
+            </p>
 
             <div className="flex justify-between mt-6">
               <button

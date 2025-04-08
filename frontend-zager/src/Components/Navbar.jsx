@@ -33,18 +33,19 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/HackathonRegister"
-          onClick={() => setIsOpen(false)}
-          className="block py-2 px-4 text-lg font-bold relative text-[#ffbe00] transition transform duration-300 ease-in-out 
-               animate-pulse-glow hover:text-[#ff4400] hover:scale-110"
-        >
-          Hackathon
-          {/* Pulsating Dot (Notification Style) */}
-          <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff4400] rounded-full animate-ping"></span>
-        </NavLink>
-      </li>
+      {/*
+  <li>
+    <NavLink
+      to="/HackathonRegister"
+      onClick={() => setIsOpen(false)}
+      className="block py-2 px-4 text-lg font-bold relative text-[#ffbe00] transition transform duration-300 ease-in-out 
+           animate-pulse-glow hover:text-[#ff4400] hover:scale-110"
+    >
+      Hackathon
+      <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff4400] rounded-full animate-ping"></span>
+    </NavLink>
+  </li>
+*/}
 
       <li>
         <NavLink

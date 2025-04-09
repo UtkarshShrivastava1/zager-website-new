@@ -5,8 +5,8 @@ import Footer from "./Components/Footer";
 import AboutUsPage from "./Pages/AboutUsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
 import CarrerPage from "./Pages/CarrerPage";
-import HackathonRegister from "./Pages/HackathonRegister";
-
+import HackathonRegister from "./Pages/HackathonClosed"; //HackathonClosed : comment this when hackathon is open
+// import HackathonRegister from "./Pages/HackathonRegister"; //HackathonRegister open: Uncomment this line when hackathon is open
 import Gyaanadari from "./Pages/Gyaanadari";
 import JKWorks from "./Pages/JKWorks";
 import IRMediaAndProductions from "./Pages/IRMediaAndProductions";

@@ -16,7 +16,7 @@ const HackathonClosed = () => {
           🚫 Registration Closed
         </h1>
         <p className="text-gray-700 text-lg md:text-xl mb-6">
-          We're sorry! Registrations for <strong> Z-HACK 2025</strong> are
+          We&apos;re sorry! Registrations for <strong> Z-HACK 2025</strong> are
           currently closed and expected to be held later this year, with the
           dates to be decided at a later time.
         </p>

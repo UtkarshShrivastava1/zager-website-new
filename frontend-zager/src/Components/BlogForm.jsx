@@ -1,79 +1,169 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { FaSpinner } from "react-icons/fa";
 import api from "../services/api";
 
 const BlogForm = ({ initialData }) => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    title: initialData?.title || "",
-    content: initialData?.content || "",
+  // Initialize content from HTML if editing an existing post
+  const [formData, setFormData] = useState(() => {
+    if (initialData) {
+      return {
+        title: initialData.title,
+        // Store raw content for editing
+        content: initialData.content,
+      };
+    }
+    return {
+      title: "",
+      content: "",
+    };
   });
+
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  // Get stored token from localStorage
-  const getToken = () => {
-    const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
-    return adminInfo?.token || null;
-  };
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
-    const token = getToken();
-    if (!token) {
-      setError("No token, authorization denied.");
-      setLoading(false);
-      return;
-    }
+    const formPayload = new FormData();
+    formPayload.append("title", formData.title);
+
+    // Apply direct HTML formatting here
+    // Process headings first, before handling other formatting
+    const htmlContent = `<div>
+      ${formData.content
+        .replace(
+          /^## (.*?)$/gm,
+          '<h2 style="font-size: 1.5em; font-weight: bold; margin-top: 1.5em; margin-bottom: 0.5em;">$1</h2>'
+        )
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*(.*?)\*/g, "<em>$1</em>")
+        .replace(/\n\n/g, "</p><p>")
+        .replace(/\n/g, "<br />")}
+    </div>`;
+
+    // Clean up the HTML to handle paragraph tags properly
+    const cleanedHtml = htmlContent
+      .replace("<div><p>", "<div>") // Remove first paragraph open if present
+      .replace("</p></div>", "</div>") // Remove last paragraph close if present
+      .replace("<div>", "<div><p>") // Add opening paragraph
+      .replace("</div>", "</p></div>"); // Add closing paragraph
+
+    formPayload.append("content", cleanedHtml);
+
+    if (imageFile) formPayload.append("image", imageFile);
 
     try {
-      const formPayload = new FormData();
-      formPayload.append("title", formData.title);
-      formPayload.append("content", formData.content);
-      if (imageFile) formPayload.append("image", imageFile);
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      };
-
-      if (initialData?._id) {
-        await api.put(`/blogs/${initialData._id}`, formPayload, config);
-        toast.success("Blog updated successfully!");
+      if (initialData) {
+        await api.put(`/blogs/${initialData._id}`, formPayload, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
       } else {
-        await api.post("/blogs", formPayload, config);
-        toast.success("Blog added successfully!");
+        await api.post("/blogs", formPayload, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
       }
-
-      setTimeout(() => {
-        navigate("/admin/admin-dashboard");
-      }, 1500); // Navigate after 1.5s
+      navigate("/Dashboard");
     } catch (error) {
       console.error("Submission error:", error);
-      setError(error.response?.data?.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Insert formatting at cursor position or around selected text
+  const formatText = (formatType) => {
+    const textarea = document.getElementById("blog-content");
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = formData.content.substring(start, end);
+
+    let before = "";
+    let after = "";
+
+    switch (formatType) {
+      case "h2":
+        // Make sure to add a newline before and after the heading for proper formatting
+        before =
+          start > 0 && formData.content[start - 1] !== "\n" ? "\n## " : "## ";
+        after =
+          end < formData.content.length && formData.content[end] !== "\n"
+            ? "\n\n"
+            : "\n";
+        break;
+      case "bold":
+        before = "**";
+        after = "**";
+        break;
+      case "italic":
+        before = "*";
+        after = "*";
+        break;
+      case "paragraph":
+        before = "\n\n";
+        after = "";
+        break;
+      default:
+        break;
+    }
+
+    const newContent =
+      formData.content.substring(0, start) +
+      before +
+      (selectedText ||
+        (formatType === "h2"
+          ? "Subheading"
+          : formatType === "bold"
+          ? "bold text"
+          : formatType === "italic"
+          ? "italic text"
+          : "")) +
+      after +
+      formData.content.substring(end);
+
+    setFormData({ ...formData, content: newContent });
+
+    // Set cursor position after inserting
+    setTimeout(() => {
+      textarea.focus();
+      const newPosition =
+        start +
+        before.length +
+        (selectedText.length ||
+          (formatType === "h2"
+            ? "Subheading".length
+            : formatType === "bold"
+            ? "bold text".length
+            : formatType === "italic"
+            ? "italic text".length
+            : 0));
+      textarea.setSelectionRange(newPosition, newPosition);
+    }, 10);
+  };
+
+  // Custom styling for the preview section
+  const previewStyles = `
+    .preview-content h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+    .preview-content p {
+      margin-bottom: 1em;
+    }
+  `;
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md"
+      className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md"
     >
-      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+      {/* Add style tag for preview styling */}
+      <style>{previewStyles}</style>
 
-      {/* Title Input */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Title
@@ -87,22 +177,81 @@ const BlogForm = ({ initialData }) => {
         />
       </div>
 
-      {/* Content Input */}
       <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
-          Content
-        </label>
+        <div className="flex justify-between items-center mb-2">
+          <label className="block text-gray-700 text-sm font-bold">
+            Content
+          </label>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => formatText("h2")}
+              className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-bold"
+              title="Add Subheading"
+            >
+              H2
+            </button>
+            <button
+              type="button"
+              onClick={() => formatText("bold")}
+              className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-bold"
+              title="Bold Text"
+            >
+              B
+            </button>
+            <button
+              type="button"
+              onClick={() => formatText("italic")}
+              className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm italic"
+              title="Italic Text"
+            >
+              I
+            </button>
+            <button
+              type="button"
+              onClick={() => formatText("paragraph")}
+              className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm"
+              title="Add Paragraph Break"
+            >
+              ¶
+            </button>
+          </div>
+        </div>
+
+        <div className="text-xs text-gray-500 mb-2">
+          Format text using markdown: ## for headings, ** for bold, * for
+          italic. Double line breaks create new paragraphs.
+        </div>
+
         <textarea
+          id="blog-content"
           value={formData.content}
           onChange={(e) =>
             setFormData({ ...formData, content: e.target.value })
           }
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-64"
+          className="w-full h-64 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono whitespace-pre-wrap"
           required
         />
+
+        {/* Preview Section with enhanced styling */}
+        <div className="mt-4 border rounded-lg overflow-hidden">
+          <div className="bg-gray-100 px-4 py-2 text-sm font-medium border-b">
+            Preview
+          </div>
+          <div
+            className="p-4 prose prose-sm max-w-none preview-content"
+            dangerouslySetInnerHTML={{
+              __html: formData.content
+                .replace(/^## (.*?)$/gm, "<h2>$1</h2>")
+                .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                .replace(/\*(.*?)\*/g, "<em>$1</em>")
+                .replace(/\n\n/g, "</p><p>")
+                .replace(/\n/g, "<br />"),
+            }}
+          />
+        </div>
       </div>
 
-      {/* Image Upload */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Blog Image
@@ -125,33 +274,24 @@ const BlogForm = ({ initialData }) => {
         )}
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 flex items-center justify-center gap-2"
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400"
       >
-        {loading ? (
-          <>
-            <FaSpinner className="animate-spin" />
-            Saving...
-          </>
-        ) : (
-          "Save Blog Post"
-        )}
+        {loading ? "Saving..." : "Save Blog Post"}
       </button>
     </form>
   );
 };
-
 BlogForm.propTypes = {
   initialData: PropTypes.shape({
-    _id: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,
     image: PropTypes.shape({
       url: PropTypes.string,
     }),
+    _id: PropTypes.string,
   }),
 };
 

@@ -7,6 +7,8 @@ import ContactUsPage from "./Pages/ContactUsPage";
 import CarrerPage from "./Pages/CarrerPage";
 import HackathonRegister from "./Pages/HackathonClosed"; //HackathonClosed : comment this when hackathon is open
 // import HackathonRegister from "./Pages/HackathonRegister"; //HackathonRegister open: Uncomment this line when hackathon is open
+import VTRegister from "./Pages/VTRegister";
+
 import Gyaanadari from "./Pages/Gyaanadari";
 import JKWorks from "./Pages/JKWorks";
 import IRMediaAndProductions from "./Pages/IRMediaAndProductions";
@@ -46,6 +48,7 @@ function App() {
           <Route path="/carrer" element={<CarrerPage />} />
 
           <Route path="/HackathonRegister" element={<HackathonRegister />} />
+          <Route path="/VTRegister" element={<VTRegister />} />
           <Route path="/services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsofService />} />

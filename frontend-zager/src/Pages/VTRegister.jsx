@@ -451,7 +451,17 @@ const VocationalTrainingRegister = () => {
                 className="w-full px-6 py-3 bg-[#ffbe00] text-white rounded-md hover:bg-yellow-600 disabled:opacity-70"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Submitting..." : "Submit Registration"}
+                {isSubmitting ? (
+                  <div className="space-y-2">
+                    <div>Submitting... Please wait a moment.</div>
+                    <div className="text-sm opacity-80">
+                      Please wait, it may take some time. If it seems stuck, try
+                      reloading the page and submitting again.
+                    </div>
+                  </div>
+                ) : (
+                  "Submit Registration"
+                )}
               </button>
             </form>
           </div>
@@ -465,14 +475,19 @@ const VocationalTrainingRegister = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Registration Successful!
             </h2>
-            <p className="text-sm text-gray-500 mb-4">
+
+            <p className="text-sm text-gray-500 mb-2">
               Registration ID: {formData.registrationID}
+            </p>
+
+            <p className="text-sm text-gray-500 mb-4">
+              Please check your registered email for a confirmation message.
             </p>
 
             <div className="mt-6">
               <button
                 onClick={() => setFormData(null)}
-                className="px-6 py-2 bg-[#ffbe00] text-white rounded-md w-full"
+                className="px-6 py-2 bg-[#ffbe00] text-white rounded-md w-full cursor-pointer"
               >
                 Close
               </button>

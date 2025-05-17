@@ -251,6 +251,12 @@ const VocationalTrainingRegister = () => {
                 office.
               </p>
             </div>
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-[#ffbe00]">
+                Registration Fee
+              </h3>
+              <p className="text-lg">₹4,000 (Rupees Four Thousand Only)</p>
+            </div>
 
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-[#ffbe00]">
@@ -274,8 +280,22 @@ const VocationalTrainingRegister = () => {
                   <br />
                   CSIT Durg, C.G.
                 </p>
-                <p>📞 +91-9201239968</p>
-                <p>📲 +91-9407655777</p>
+                <p>
+                  <a
+                    href="tel:+919201239968"
+                    className="text-gray-800 hover:text-[#ffbe00] transition-colors inline-flex items-center"
+                  >
+                    📞 +91-9201239968
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:vt.zager@gmail.com"
+                    className="text-gray-800 hover:text-[#ffbe00] transition-colors inline-flex items-center"
+                  >
+                    📧 vt.zager@gmail.com
+                  </a>
+                </p>
               </div>
             </div>
           </div>

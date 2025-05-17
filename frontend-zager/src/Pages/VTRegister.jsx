@@ -264,10 +264,8 @@ const VocationalTrainingRegister = () => {
               </ul>
             </div>
 
-            <div className="space-y-4 bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-[#ffbe00]">
-                Contact & MORE INFO
-              </h3>
+            <div className="space-y-4 ">
+              <h3 className="text-xl font-bold text-[#ffbe00]">CONTACT US</h3>
               <div className="space-y-2">
                 <p>
                   📍 Zager Digital Services,

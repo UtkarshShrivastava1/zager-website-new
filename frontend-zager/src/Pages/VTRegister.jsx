@@ -256,6 +256,13 @@ const VocationalTrainingRegister = () => {
                 Vocational Training Fee
               </h3>
               <p className="text-lg">₹4,000 (Rupees Four Thousand Only)</p>
+              {/* Important Note */}
+              <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-md mt-2">
+                <p className="text-yellow-800 font-semibold">
+                  <span className="font-bold">Important Note:</span> Students
+                  must have their own laptops for the training.
+                </p>
+              </div>
             </div>
 
             <div className="space-y-4">

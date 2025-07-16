@@ -97,6 +97,14 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 console.log(
   `Static files are served from: ${path.join(__dirname, "uploads")}`.magenta
 );
+// Health check route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Backend API is live ✅",
+    env: process.env.NODE_ENV,
+    timestamp: new Date().toISOString(),
+  });
+});
 
 // Global error handler for unhandled errors during runtime
 app.use((err, req, res, next) => {

@@ -38,18 +38,18 @@ function App() {
       <NavBar />
       <div className="min-h-screen">
         <Routes>
-          {/* Redirect root to /homepage */}
-          <Route path="/" element={<Navigate to="/homepage" replace />} />
+          {/* Redirect root to /Home */}
+          <Route path="/" element={<Navigate to="/Home" replace />} />
           {/* Public Routes */}
-          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/Home" element={<Homepage />} />
           <Route path="/admin/admin-login" element={<Signin />} />
-          <Route path="/aboutus" element={<AboutUsPage />} />
-          <Route path="/contactus" element={<ContactUsPage />} />
-          <Route path="/carrer" element={<CarrerPage />} />
+          <Route path="/About" element={<AboutUsPage />} />
+          <Route path="/Contact" element={<ContactUsPage />} />
+          <Route path="/Careers" element={<CarrerPage />} />
 
           <Route path="/HackathonRegister" element={<HackathonRegister />} />
           <Route path="/VTRegister" element={<VTRegister />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/Services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsofService />} />
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
@@ -59,8 +59,8 @@ function App() {
             path="/ourplatforms/ira-media-and-productions"
             element={<IRMediaAndProductions />}
           />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="/Blogs" element={<Blogs />} />
+          <Route path="/Blogs/:id" element={<BlogDetails />} />
           {/* Protected Routes */}
           <Route
             path="/admin/admin-dashboard"
@@ -83,7 +83,7 @@ function App() {
             }
           />
           <Route
-            path="/blogs/:id/edit"
+            path="/Blogs/:id/edit"
             element={
               isAuthenticated() ? (
                 <EditBlog />

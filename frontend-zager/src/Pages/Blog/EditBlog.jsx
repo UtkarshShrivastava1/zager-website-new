@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import api from "../../services/api";
+import api from "../../Services/api";
 import BlogForm from "../../Components/BlogForm";
 
 const getToken = () => {
@@ -23,7 +23,7 @@ const EditBlog = () => {
       }
 
       try {
-        const { data } = await api.get(`/blogs/${id}`, {
+        const { data } = await api.get(`/Blogs/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBlog(data.data);

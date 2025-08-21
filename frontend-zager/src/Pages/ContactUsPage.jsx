@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import api from "../services/api"; // Ensure your axios instance has the proper baseURL
+import api from "../Services/api"; // Ensure your axios instance has the proper baseURL
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,7 +129,7 @@ function ContactUsPage() {
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
-          Contact us
+          Contact
         </h4>
         <div
           ref={containerRef}

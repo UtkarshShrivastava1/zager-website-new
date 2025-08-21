@@ -22,7 +22,7 @@ const Navbar = () => {
     <>
       <li>
         <NavLink
-          to="/homepage"
+          to="/Home"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block text-lg py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out ${
@@ -46,7 +46,7 @@ const Navbar = () => {
     </NavLink>
   </li>
 */}
-      <li>
+      {/* <li>
         <NavLink
           to="/VTRegister"
           onClick={() => setIsOpen(false)}
@@ -56,11 +56,11 @@ const Navbar = () => {
           VT Registration
           <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff4400] rounded-full animate-ping"></span>
         </NavLink>
-      </li>
+      </li> */}
 
       <li>
         <NavLink
-          to="/aboutus"
+          to="/About"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
@@ -73,7 +73,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/services"
+          to="/Services"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
@@ -176,7 +176,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/contactus"
+          to="/Contact"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
@@ -189,7 +189,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/carrer"
+          to="/Careers"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
@@ -202,7 +202,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/blogs"
+          to="/Blogs"
           onClick={() => setIsOpen(false)}
           className={({ isActive }) =>
             `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
@@ -219,7 +219,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#051224] border-gray-200 w-full">
       <div className="flex items-center justify-between px-8 py-4">
-        <NavLink to="/homepage" className="flex items-center space-x-3">
+        <NavLink to="/Home" className="flex items-center space-x-3">
           <img src={logo} className="h-12" alt="Zager Logo" />
         </NavLink>
 

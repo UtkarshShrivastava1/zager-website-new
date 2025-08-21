@@ -9,49 +9,49 @@ import serviceVideo4 from "../../assets/design4.mp4";
 import serviceVideo5 from "../../assets/design5.mp4";
 import serviceVideo6 from "../../assets/design6.mp4";
 
-// Updated links use a common /services page with a hash for each service.
+// Updated links use a common /Services page with a hash for each service.
 const services = [
   {
     title: "Website Design and Development",
     description:
       "We design and develop both static and dynamic websites for different sectors.",
     video: serviceVideo1,
-    link: "/services#website-design-and-development",
+    link: "/Services#website-design-and-development",
   },
   {
     title: "Custom Web Application Development",
     description:
       "We are experienced in developing custom web applications for a variety of businesses.",
     video: serviceVideo2,
-    link: "/services#custom-web-application-development",
+    link: "/Services#custom-web-application-development",
   },
   {
     title: "Digital Marketing",
     description:
       "Custom Digital solutions and Digital Marketing for your Business.",
     video: serviceVideo6,
-    link: "/services#digital-media",
+    link: "/Services#digital-media",
   },
   {
     title: "Designing",
     description:
       "Our creative team designs stunning visuals that align with your brand identity.",
     video: serviceVideo4,
-    link: "/services#designing",
+    link: "/Services#designing",
   },
   {
     title: "Content Creation",
     description:
       "We develop engaging content, from blogs to social media, that drives engagement.",
     video: serviceVideo5,
-    link: "/services#content-creation",
+    link: "/Services#content-creation",
   },
   {
     title: "Media Production",
     description:
       "We produce high-quality videos and media content for your business needs.",
     video: serviceVideo3,
-    link: "/services#media-production",
+    link: "/Services#media-production",
   },
 ];
 

@@ -96,7 +96,7 @@ const AboutUsSection = () => {
               drive growth and success.
             </p>
             <button
-              onClick={() => navigate("/aboutus")}
+              onClick={() => navigate("/About")}
               className="mt-6 bg-[#ffbe00] text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition cursor-pointer"
             >
               Read More

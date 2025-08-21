@@ -1,3 +1,10 @@
 {
+  "redirects": [
+    { "source": "/about", "destination": "/About", "permanent": true },
+    { "source": "/aboutus", "destination": "/About", "permanent": true },
+    { "source": "/career", "destination": "/Careers", "permanent": true },
+    { "source": "/carrer", "destination": "/Careers", "permanent": true },
+    { "source": "/jobs", "destination": "/Careers", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }

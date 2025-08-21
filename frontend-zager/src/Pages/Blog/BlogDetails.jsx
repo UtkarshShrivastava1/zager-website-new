@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import api from "../../Services/api";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -11,7 +11,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const { data } = await api.get(`/blogs/${id}`);
+        const { data } = await api.get(`/Blogs/${id}`);
         setBlog(data.data);
       } catch (error) {
         console.error(error);
@@ -23,7 +23,7 @@ const BlogDetails = () => {
   }, [id]);
 
   const handleBackClick = () => {
-    // Redirect to the dashboard instead of '/blogs'
+    // Redirect to the dashboard instead of '/Blogs'
     navigate("/Dashboard");
   };
 

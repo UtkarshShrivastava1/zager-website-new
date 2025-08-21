@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 const BlogCard = ({ blog }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/blogs/${blog._id}`, {
+      await axios.delete(`/api/Blogs/${blog._id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

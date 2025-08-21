@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../../services/api";
+import api from "../../Services/api";
 import Heading from "../../Components/Heading";
 import PublicBlogList from "../../Components/BlogList";
 
@@ -16,7 +16,7 @@ function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const { data } = await api.get("/blogs");
+        const { data } = await api.get("/Blogs");
         setBlogs(data.data || []);
       } catch (error) {
         console.error(error);

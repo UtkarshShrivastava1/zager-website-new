@@ -118,12 +118,12 @@ const HeroSection = () => {
             </p>
             {/* Call-to-Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Link to="/contactus">
+              <Link to="/Contact">
                 <button className="bg-[#ffbe00] text-[#180f31] px-4 md:px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300 shadow-lg transform hover:scale-105">
                   Get Started
                 </button>
               </Link>
-              <Link to="/services">
+              <Link to="/Services">
                 <button className="bg-transparent text-[#ffbe00] px-4 md:px-6 py-3 border-2 border-[#ffbe00] rounded-lg font-semibold hover:bg-[#ffbe00] hover:text-[#051224] transition-all duration-300 shadow-lg transform hover:scale-105">
                   Learn More
                 </button>

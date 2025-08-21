@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import api from "../services/api";
+import api from "../Services/api";
 
 const BlogForm = ({ initialData }) => {
   // Initialize content from HTML if editing an existing post
@@ -57,11 +57,11 @@ const BlogForm = ({ initialData }) => {
 
     try {
       if (initialData) {
-        await api.put(`/blogs/${initialData._id}`, formPayload, {
+        await api.put(`/Blogs/${initialData._id}`, formPayload, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } else {
-        await api.post("/blogs", formPayload, {
+        await api.post("/Blogs", formPayload, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       }

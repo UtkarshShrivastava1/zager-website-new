@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import moment from "moment";
-import api from "../services/api";
+import api from "../Services/api";
 import { toast } from "react-toastify";
 
 const getToken = () => {
@@ -23,7 +23,7 @@ const BlogList = ({ blogs, setBlogs }) => {
     }
 
     try {
-      await api.delete(`/blogs/${id}`, {
+      await api.delete(`/Blogs/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
@@ -65,7 +65,7 @@ const BlogList = ({ blogs, setBlogs }) => {
               <div className="flex justify-between items-center">
                 <div className="space-x-2">
                   <Link
-                    to={`/blogs/${blog._id}/edit`}
+                    to={`/Blogs/${blog._id}/edit`}
                     className="text-blue-600 hover:text-blue-800 transition-colors"
                   >
                     Edit
@@ -79,7 +79,7 @@ const BlogList = ({ blogs, setBlogs }) => {
                 </div>
 
                 <Link
-                  to={`/blogs/${blog._id}`}
+                  to={`/Blogs/${blog._id}`}
                   className="text-gray-600 hover:text-gray-800 text-sm"
                 >
                   View →

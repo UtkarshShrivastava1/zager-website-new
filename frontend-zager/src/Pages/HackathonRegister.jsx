@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import api from "../services/api"; // Axios instance with baseURL
+import api from "../Services/api"; // Axios instance with baseURL
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import QRcode from "../assets/QRcode.png";

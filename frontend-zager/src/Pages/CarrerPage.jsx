@@ -156,14 +156,32 @@ function CareerPage() {
     setFormData((prev) => ({ ...prev, role: job.title }));
   };
 
-  const handleDownloadPDF = (job) => {
-    // Option 1: Direct download from public folder
-    const link = document.createElement("a");
-    link.href = job.pdfUrl;
-    link.download = `${job.title.replace(/\s+/g, "_")}_JD.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadPDF = async (job) => {
+    try {
+      // Option 1: Fetch and download (prevents corruption)
+      const response = await fetch(job.pdfUrl);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch PDF");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${job.title.replace(/\s+/g, "_")}_JD.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Clean up the object URL
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+      // Fallback: Open in new tab
+      window.open(job.pdfUrl, "_blank");
+    }
   };
 
   const handleSubmit = async (e) => {

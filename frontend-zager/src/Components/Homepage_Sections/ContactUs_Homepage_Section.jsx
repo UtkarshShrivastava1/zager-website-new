@@ -5,7 +5,7 @@ import { FloatingDock } from "../ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect, useState } from "react";
-import api from "../../Services/api"; // Ensure your axios instance has the proper baseURL
+import api from "../../services/api"; // Ensure your axios instance has the proper baseURL
 
 gsap.registerPlugin(ScrollTrigger);
 

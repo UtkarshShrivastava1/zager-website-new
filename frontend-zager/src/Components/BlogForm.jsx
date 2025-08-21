@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import api from "../Services/api";
+import api from "../services/api";
 
 const BlogForm = ({ initialData }) => {
   // Initialize content from HTML if editing an existing post

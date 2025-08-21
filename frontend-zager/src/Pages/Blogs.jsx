@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../Services/api";
+import api from "../services/api";
 import Heading from "../Components/Heading";
 import PublicBlogList from "../Components/PublicBlogList";
 

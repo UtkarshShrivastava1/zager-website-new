@@ -4,7 +4,7 @@ import { TextGenerateEffect } from "../Components/ui/text-generate-effect";
 import { cn } from "../lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import api from "../Services/api";
+import api from "../services/api";
 
 import { TbPointFilled } from "react-icons/tb";
 import { motion } from "framer-motion";

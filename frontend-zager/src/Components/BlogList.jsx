@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import moment from "moment";
-import api from "../Services/api";
+import api from "../services/api";
 import { toast } from "react-toastify";
 
 const getToken = () => {

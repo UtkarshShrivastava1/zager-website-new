@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import api from "../Services/api";
+import api from "../services/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Banner from "../assets/Banner_VT_PC.png"; // Replace with VT banner

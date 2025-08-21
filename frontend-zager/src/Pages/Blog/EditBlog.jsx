@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import api from "../../Services/api";
+import api from "../../services/api";
 import BlogForm from "../../Components/BlogForm";
 
 const getToken = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import api from "../Services/api";
+import api from "../services/api";
 import { toast } from "react-toastify";
 
 function PublicBlogList({ blogs, setBlogs }) {

@@ -125,18 +125,6 @@ const Navbar = () => {
           <ul className=" text-sm text-gray-700">
             <li>
               <NavLink
-                to="/ourplatforms/gyaanadari"
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
-                className="block px-4 py-2 hover:bg-gray-100 shadow"
-              >
-                Gyaanadari
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/ourplatforms/zms"
                 onClick={() => {
                   setIsOpen(false);
@@ -161,18 +149,31 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/ourplatforms/jkworks"
+                to="/ourplatforms/gyaanadari"
                 onClick={() => {
                   setIsOpen(false);
                   setIsDropdownOpen(!isDropdownOpen);
                 }}
-                className="block px-4 py-2 hover:bg-gray-100 shadow "
+                className="block px-4 py-2 hover:bg-gray-100 shadow"
               >
-                JK Works
+                Gyaanadari
               </NavLink>
             </li>
           </ul>
         </div>
+      </li>
+      <li>
+        <NavLink
+          to="/clients"
+          onClick={() => setIsOpen(false)}
+          className={({ isActive }) =>
+            `block py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out text-lg ${
+              isActive ? "border-b-2 border-[#ffbe00]" : ""
+            }`
+          }
+        >
+          Clients
+        </NavLink>
       </li>
       <li>
         <NavLink
@@ -220,7 +221,7 @@ const Navbar = () => {
     <nav className="bg-[#051224] border-gray-200 w-full">
       <div className="flex items-center justify-between px-8 py-4">
         <NavLink to="/Home" className="flex items-center space-x-3">
-          <img src={logo} className="h-12" alt="Zager Logo" />
+          <img src={logo} className="h-12" alt="logo" />
         </NavLink>
 
         {/* Desktop Menu */}

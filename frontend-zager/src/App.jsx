@@ -10,7 +10,7 @@ import HackathonRegister from "./Pages/HackathonClosed"; //HackathonClosed : com
 import VTRegister from "./Pages/VTRegister";
 
 import Gyaanadari from "./Pages/Gyaanadari";
-import JKWorks from "./Pages/JKWorks";
+import Clients from "./Pages/Clients";
 import IRMediaAndProductions from "./Pages/IRMediaAndProductions";
 import Signin from "./Pages/Auth/Signin";
 import Dashboard from "./Pages/Auth/AdminDashboardPage";
@@ -54,7 +54,7 @@ function App() {
           <Route path="/terms" element={<TermsofService />} />
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
           <Route path="/ourplatforms/zms" element={<ZagerManagementSystem />} />
-          <Route path="/ourplatforms/jkworks" element={<JKWorks />} />
+          <Route path="/clients" element={<Clients />} />
           <Route
             path="/ourplatforms/ira-media-and-productions"
             element={<IRMediaAndProductions />}

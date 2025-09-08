@@ -23,14 +23,6 @@ import architectureVideo from "../assets/design7.mp4";
 // Content data with IDs matching the hash links for scroll anchoring
 const contentData = [
   {
-    id: "digital-media",
-    title: "Digital Marketing",
-    description:
-      "Promote your products or services using digital channels like social media, search engines, email, and websites to engage your target audience.",
-    tags: <DigitalMarketing />,
-    videoUrl: digitalMarketingVideo,
-  },
-  {
     id: "web-development",
     title: "Web Development",
     description:
@@ -38,6 +30,15 @@ const contentData = [
     tags: <WebDevelopment />,
     videoUrl: webDevelopmentVideo,
   },
+  {
+    id: "digital-media",
+    title: "Digital Marketing",
+    description:
+      "Promote your products or services using digital channels like social media, search engines, email, and websites to engage your target audience.",
+    tags: <DigitalMarketing />,
+    videoUrl: digitalMarketingVideo,
+  },
+
   {
     id: "it-solutions",
     title: "IT Solutions and Services",

@@ -14,9 +14,9 @@ const Footer = () => {
     <footer className="bg-[#051224] text-white py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Us Section */}
+          {/* About Section */}
           <div>
-            <h2 className="text-xl font-semibold mb-4">About Us</h2>
+            <h2 className="text-xl font-semibold mb-4">About</h2>
             <p className="text-gray-300">
               At Zager Digital Services, we believe that exceptional Digital
               Marketing and IT solutions stem from a core commitment to

@@ -76,7 +76,7 @@ const AboutUsSection = () => {
             }}
             className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
           >
-            About Us
+            About
           </h4>
         </div>
 
@@ -107,7 +107,7 @@ const AboutUsSection = () => {
           <div ref={imageRef} className="flex justify-center">
             <img
               src="https://images.pexels.com/photos/4549411/pexels-photo-4549411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="About Us"
+              alt="About"
               className="rounded-lg shadow-lg w-full md:w-96"
             />
           </div>

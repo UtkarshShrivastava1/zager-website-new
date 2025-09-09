@@ -21,13 +21,16 @@ import logo6 from "../assets/clientLogos/logo_client6.jpg";
  * - Shows Client Name, What we did, Testimonial
  * - "Visit Website" appears as a CTA button where website is provided
  * - GSAP enter animations (uses ScrollTrigger if available)
+ *
+ * Client Name is now in its own block so it lines up with other sections
+ * and shows fully (wraps) instead of truncating.
  */
 
 const clients = [
   {
     id: "er-ajay-verma",
     company: "CSIT DURG",
-    person: "ER. AJAY PRAKASH VERMA — Chairman",
+    person: "Er. Ajay Prakash Verma — Chairman",
     logo: logo1,
     work: "At Zager Digital Services, we redesigned and rebuilt the official website of CSIT Durg, giving it a modern, responsive, and user-friendly design. With improved navigation, faster performance, and a refreshed look, the new website reflects the institution’s prestige and provides a seamless experience for students, parents, and visitors.",
     testimonial:
@@ -103,6 +106,7 @@ export default function Clients() {
       if (!gsap.plugins || !gsap.plugins.ScrollTrigger)
         gsap.registerPlugin(ScrollTrigger);
     } catch {}
+    // animate in
     gsap.set(".client-card", { y: 24, opacity: 0 });
     gsap.to(".client-card", {
       y: 0,
@@ -171,7 +175,6 @@ export default function Clients() {
             view their project summary and testimonial.
           </p>
         </div>
-
         {/* Search */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <input
@@ -182,12 +185,7 @@ export default function Clients() {
             className="w-full sm:w-1/2 px-4 py-3 rounded-lg border border-gray-200 shadow-sm focus:outline-none focus:ring-4 focus:ring-[#ffbe00]/20"
             aria-label="Search clients"
           />
-          <div className="text-sm text-gray-600">
-            Showing <span className="font-semibold">{filtered.length}</span> of{" "}
-            <span className="font-semibold">{clients.length}</span> clients
-          </div>
         </div>
-
         {/* Grid */}
         <div
           ref={gridRef}
@@ -196,7 +194,10 @@ export default function Clients() {
           {filtered.map((c) => (
             <article
               key={c.id}
-              className="client-card bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+              className={cn(
+                "client-card group bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer",
+                "flex flex-col h-full"
+              )}
               onClick={() => setSelected(c)}
               role="button"
               tabIndex={0}
@@ -208,59 +209,90 @@ export default function Clients() {
               }}
               aria-labelledby={`${c.id}-title`}
             >
-              <div className="flex items-start gap-4">
-                <img
-                  src={c.logo}
-                  alt={`${c.company} logo`}
-                  className="w-20 h-20 object-contain rounded-md bg-gray-50 p-2"
-                />
-                <div className="flex-1">
+              {/* Header: logo + company */}
+              <div
+                className="flex items-center gap-4"
+                style={{ minHeight: 64 }}
+              >
+                <div className="w-20 h-20 rounded-md bg-gray-50 p-2 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img
+                    src={c.logo}
+                    alt={`${c.company} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div className="flex-1 min-w-0">
                   <h3
                     id={`${c.id}-title`}
-                    className="text-lg font-bold text-gray-900"
+                    className="text-base sm:text-lg font-semibold text-gray-900 truncate"
+                    title={c.company}
                   >
                     {c.company}
                   </h3>
-                  <p className="text-sm text-gray-700 mt-1">
-                    Client Name - {c.person}
-                  </p>
                 </div>
               </div>
 
-              <div className="mt-3 text-sm text-gray-700">
-                <h4 className="font-semibold mb-1">What we did -</h4>
-                <p className="line-clamp-3">{c.work}</p>
+              {/* Client Name: moved to its own full-width block so it lines up with sections below */}
+              <div className="mt-2">
+                <p
+                  className="text-sm text-gray-700"
+                  style={{ whiteSpace: "normal" }}
+                >
+                  <span className="font-medium text-gray-800">
+                    Client Name -{" "}
+                  </span>
+                  <span>{c.person}</span>
+                </p>
               </div>
 
-              <div className="mt-3 text-sm text-gray-700">
-                <h4 className="font-semibold mb-1">Testimonial -</h4>
-                <blockquote className="italic line-clamp-2">
-                  “{c.testimonial}”
-                </blockquote>
+              {/* Body: What we did (takes remaining space; clamp long text) */}
+              <div className="mt-3 text-sm text-gray-700 flex-1">
+                <h4 className="font-semibold mb-1 text-sm text-gray-800">
+                  What we did -
+                </h4>
+                <p className="text-sm text-gray-700 line-clamp-4">{c.work}</p>
               </div>
 
-              {/* CTA button instead of plain link */}
-              {c.website && (
-                <div className="mt-4 flex items-center justify-end">
-                  <button
-                    onClick={(e) => {
-                      // prevent card click (opening modal)
-                      e.stopPropagation();
-                      // open in new tab
-                      window.open(c.website, "_blank", "noopener,noreferrer");
-                    }}
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#ffbe00] text-black font-semibold shadow-sm hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#ffbe00]/40"
-                    aria-label={`Visit ${c.company} website`}
-                  >
-                    <span className="text-sm">Visit Website</span>
-                    <ExternalIcon size={14} />
-                  </button>
+              {/* Footer: Testimonial + CTA */}
+              <div className="mt-4 pt-3 border-t border-gray-100">
+                <h4 className="font-semibold mb-1 text-sm text-gray-800">
+                  Testimonial -
+                </h4>
+
+                <div className="flex items-start justify-between gap-4">
+                  <blockquote className="italic text-sm text-gray-700 line-clamp-2 flex-1 mr-3">
+                    “{c.testimonial}”
+                  </blockquote>
+
+                  {c.website ? (
+                    <div className="flex-shrink-0 self-start">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(
+                            c.website,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        }}
+                        className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#ffbe00] text-black font-semibold shadow-sm hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#ffbe00]/40"
+                        aria-label={`Visit ${c.company} website`}
+                        title={`Open ${c.company} website`}
+                      >
+                        <span className="text-sm hidden sm:inline">
+                          Visit Website
+                        </span>
+                        <ExternalIcon size={14} />
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
-              )}
+              </div>
             </article>
           ))}
         </div>
-
+        {/* Modal */}
         {/* Modal */}
         {selected && (
           <div
@@ -276,11 +308,14 @@ export default function Clients() {
               ref={modalRef}
             >
               <div className="flex items-start gap-4">
-                <img
-                  src={selected.logo}
-                  alt={`${selected.company} logo`}
-                  className="w-20 h-20 object-contain rounded-md bg-gray-50 p-2"
-                />
+                <div className="w-24 h-24 rounded-md bg-gray-50 p-2 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={selected.logo}
+                    alt={`${selected.company} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
                 <div className="flex-1">
                   <h2 id="client-modal-title" className="text-2xl font-bold">
                     {selected.company}
@@ -289,24 +324,24 @@ export default function Clients() {
                     Client Name - {selected.person}
                   </p>
                 </div>
-                <div className="flex-shrink-0">
-                  {selected.website && (
-                    <button
-                      onClick={() =>
-                        window.open(
-                          selected.website,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                      className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#ffbe00] text-black font-semibold shadow-sm hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#ffbe00]/40"
-                      aria-label={`Visit ${selected.company} website`}
-                    >
-                      <span className="text-sm">Visit Website</span>
-                      <ExternalIcon size={14} />
-                    </button>
-                  )}
-                </div>
+
+                {/* Keep only this button */}
+                {selected.website && (
+                  <button
+                    onClick={() =>
+                      window.open(
+                        selected.website,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#ffbe00] text-black font-semibold shadow-sm hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#ffbe00]/40"
+                    aria-label={`Visit ${selected.company} website`}
+                  >
+                    <span className="text-sm">Visit Website</span>
+                    <ExternalIcon size={14} />
+                  </button>
+                )}
               </div>
 
               <div className="mt-4">
@@ -328,22 +363,6 @@ export default function Clients() {
                 >
                   Close
                 </button>
-
-                {selected.website && (
-                  <button
-                    onClick={() =>
-                      window.open(
-                        selected.website,
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded bg-[#111827] text-white hover:opacity-95"
-                  >
-                    Open Website
-                    <ExternalIcon size={14} />
-                  </button>
-                )}
               </div>
             </div>
           </div>

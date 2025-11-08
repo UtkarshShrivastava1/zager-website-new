@@ -1,43 +1,27 @@
-const nodemailer = require("nodemailer");
 const multer = require("multer");
+const { Resend } = require("resend");
 
 // Multer setup for file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Recipient emails (who should receive the job applications)
+// Recipients (to receive job applications)
 const recipientEmails = [
   process.env.EMAIL_RECEIVER_1 || "utkarshzager@gmail.com",
   process.env.EMAIL_RECEIVER_2 || "career.zager@gmail.com",
 ];
 
-// Email sender credentials (career.zager@gmail.com)
-const senderEmail = {
-  user: process.env.EMAIL_USER_CAREER || "career.zager@gmail.com", // Sender email
-  pass: process.env.EMAIL_PASS_CAREER || "zainyleqazvzekyw", // Sender app password
-};
+// Sender info
+const senderEmail = process.env.EMAIL_USER_CAREER || "career.zager@gmail.com";
+const resendApiKey = process.env.RESEND_API_KEY; // ✅ Must be added in Render Dashboard
 
-// Function to create transporter for sending emails
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: Number(process.env.EMAIL_PORT) || 587,
-    secure: false,
-    auth: {
-      user: senderEmail.user,
-      pass: senderEmail.pass,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
-};
+// Initialize Resend client
+const resend = new Resend(resendApiKey);
 
 // Controller function for job applications
 const createJobApplication = async (req, res) => {
   try {
     console.log("Received a new job application:", req.body);
-
     const { name, companyName, email, phone } = req.body;
 
     if (!name || !companyName || !email || !phone) {
@@ -47,37 +31,41 @@ const createJobApplication = async (req, res) => {
       });
     }
 
-    // Prepare email content
+    // ✅ Prepare email body
     const htmlContent = `
-      <h2>New Job Application Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Role:</strong> ${companyName}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
+      <div style="font-family: system-ui, sans-serif; line-height: 1.5;">
+        <h2>New Job Application Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Role:</strong> ${companyName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+      </div>
     `;
 
-    // Handle resume attachment
-    const attachments = req.file
-      ? [{ filename: req.file.originalname, content: req.file.buffer }]
-      : [];
+    // Handle resume attachment if uploaded
+    let attachments = [];
+    if (req.file) {
+      attachments.push({
+        filename: req.file.originalname,
+        content: req.file.buffer.toString("base64"),
+        path: undefined,
+        contentType: req.file.mimetype,
+      });
+    }
 
-    // Create transporter
-    const transporter = createTransporter();
-
-    // Send email to both recipient addresses
-    const mailOptions = {
-      from: senderEmail.user, // Sender: career.zager@gmail.com
-      to: recipientEmails, // Send to both recipients
-      subject: "New Job Application Submission",
-      html: htmlContent,
-      attachments,
-    };
-
-    console.log("Sending job application email from:", senderEmail.user);
+    console.log("Sending job application email via Resend...");
     console.log("Recipients:", recipientEmails.join(", "));
 
-    await transporter.sendMail(mailOptions);
-    console.log("Emails sent successfully from:", senderEmail.user);
+    // ✅ Send email using Resend API
+    await resend.emails.send({
+      from: `Zager Careers <${senderEmail}>`,
+      to: recipientEmails,
+      subject: "New Job Application Submission",
+      html: htmlContent,
+      attachments: attachments.length ? attachments : undefined,
+    });
+
+    console.log("Emails sent successfully via Resend from:", senderEmail);
 
     return res.status(200).json({
       success: true,
@@ -85,7 +73,7 @@ const createJobApplication = async (req, res) => {
         "Your job application has been sent successfully to both recipients",
     });
   } catch (error) {
-    console.error("Error sending job application email:", error.message);
+    console.error("Error sending job application email:", error);
     return res.status(500).json({
       success: false,
       message: "Server error while processing your application",

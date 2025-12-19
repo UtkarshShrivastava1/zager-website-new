@@ -81,7 +81,7 @@ const HeroSection = () => {
   return (
     <>
       {/* HERO / HEADER */}
-      <header className="relative min-h-screen flex items-center justify-center bg-white text-[#051224] py-8 md:py-12 overflow-hidden">
+      <header className="relative min-h-fit flex items-center justify-center bg-white text-[#051224] py-8 md:py-12 overflow-hidden  ">
         {/* Decorative Background */}
         <div
           className="absolute inset-0 pointer-events-none"

@@ -230,11 +230,12 @@ function ContactUsPage() {
                     value={formData.inqury}
                   >
                     <option value="">Please select *</option>
-                    <option value="swaad-setu">Swaad setu</option>
-                    <option value="doctor-z">Doctor Z</option>
                     <option value="career">Career</option>
-                    <option value="intern">Intern</option>
                     <option value="digital-marketing">Digital Marketing</option>
+                    <option value="doctor-z">Doctor Z</option>
+                    <option value="sms">School Management System</option>
+                    <option value="swaad-setu">Swaad setu</option>
+                    <option value="others">Others</option>
                   </select>
                 </div>
 

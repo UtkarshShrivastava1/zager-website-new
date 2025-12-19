@@ -12,7 +12,7 @@ const DigitalMarketing = () => {
   const services = [
     { title: "Film & Video Production", icon: <FaVideo size={24} /> },
     { title: "Digital Media & Photography", icon: <FaCamera size={24} /> },
-    { title: "Social Media Management", icon: <FaFacebook size={24} /> },
+    // { title: "Social Media Management", icon: <FaFacebook size={24} /> },
     { title: "Graphic Design Services", icon: <FaPaintBrush size={24} /> },
     { title: "Content Strategy & Development", icon: <FaFileAlt size={24} /> },
     { title: "Media Consulting & Research", icon: <FaChartBar size={24} /> },

@@ -1,3 +1,4 @@
+import { Megaphone } from "lucide-react";
 import {
   FaBullhorn,
   FaGlobe,
@@ -10,6 +11,8 @@ import {
   FaMousePointer,
   FaClipboardCheck,
 } from "react-icons/fa";
+import MetaIcon from "../../assets/icons/MetaIcon";
+
 
 const DigitalMarketing = () => {
   return (
@@ -28,10 +31,14 @@ const DigitalMarketing = () => {
           { title: "Branding", icon: <FaBullhorn size={20} /> },
           { title: "Analytics", icon: <FaChartLine size={20} /> },
           { title: "Influencer Marketing", icon: <FaUsers size={20} /> },
-          { title: "Pay-Per-Click", icon: <FaMousePointer size={20} /> },
+          // { title: "Pay-Per-Click", icon: <FaMousePointer size={20} /> },
+          // {
+          //   title: "Conversion Rate Optimization",
+          //   icon: <FaClipboardCheck size={20} />,
+          // },
           {
-            title: "Conversion Rate Optimization",
-            icon: <FaClipboardCheck size={20} />,
+            title: "Meta Ads",
+            icon: <MetaIcon size={20} />,
           },
           { title: "Email Marketing", icon: <FaEnvelopeOpenText size={20} /> },
           {

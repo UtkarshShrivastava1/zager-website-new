@@ -31,6 +31,14 @@ const contentData = [
     videoUrl: webDevelopmentVideo,
   },
   {
+    id: "it-solutions",
+    title: "IT Solutions and Services",
+    description:
+      "Get comprehensive support for software, networks, and technical challenges to boost your business efficiency.",
+    tags: <ItSolution />,
+    videoUrl: itSolutionsVideo,
+  },
+  {
     id: "digital-media",
     title: "Digital Marketing",
     description:
@@ -39,14 +47,7 @@ const contentData = [
     videoUrl: digitalMarketingVideo,
   },
 
-  {
-    id: "it-solutions",
-    title: "IT Solutions and Services",
-    description:
-      "Get comprehensive support for software, networks, and technical challenges to boost your business efficiency.",
-    tags: <ItSolution />,
-    videoUrl: itSolutionsVideo,
-  },
+  
   {
     id: "designing",
     title: "Graphic Designing & Branding",
@@ -71,14 +72,14 @@ const contentData = [
     tags: <ContentCreation />,
     videoUrl: contentCreationVideo,
   },
-  {
-    id: "architecture",
-    title: "Architecture",
-    description:
-      "Design and construct aesthetically pleasing and functional structures that emphasize sustainability and innovation.",
-    tags: <Architecture />,
-    videoUrl: architectureVideo,
-  },
+  // {
+  //   id: "architecture",
+  //   title: "Architecture",
+  //   description:
+  //     "Design and construct aesthetically pleasing and functional structures that emphasize sustainability and innovation.",
+  //   tags: <Architecture />,
+  //   videoUrl: architectureVideo,
+  // },
 ];
 
 const Services = () => {

@@ -35,11 +35,11 @@ const platforms = [
     icon: <Film className="text-[#ffbe00] w-10 h-10" />,
   },
   {
-    title: "JK WORKS",
+    title: "Swaad Setu",
     description:
-      "Welcome to JK Works, your premier partner in architecture and interior design.",
+      "Works for single cafes up to multi-outlet restaurant groups and cloud kitchens.",
     imageUrl: jkworksImg,
-    link: "/ourplatforms/jkworks",
+    link: "/ourplatforms/swaadsetu",
     icon: <Building className="text-[#ffbe00] w-10 h-10" />,
   },
 ];

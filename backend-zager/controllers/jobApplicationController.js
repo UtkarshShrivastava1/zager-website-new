@@ -22,12 +22,13 @@ const resend = new Resend(resendApiKey);
 const createJobApplication = async (req, res) => {
   try {
     console.log("Received a new job application:", req.body);
-    const { name, companyName, email, phone } = req.body;
+    const { name, companyName, email, phone,workasa } = req.body;
+    console.log(req.body);
 
-    if (!name || !companyName || !email || !phone) {
+    if (!name || !companyName || !email || !phone || !workasa) {
       return res.status(400).json({
         success: false,
-        message: "Name, Role, Email, and Phone are required",
+        message: "Name, Role, Work as, Email, and Phone are required",
       });
     }
 
@@ -38,6 +39,7 @@ const createJobApplication = async (req, res) => {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Role:</strong> ${companyName}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Work as:</strong> ${workasa}</p>
         <p><strong>Phone:</strong> ${phone}</p>
       </div>
     `;

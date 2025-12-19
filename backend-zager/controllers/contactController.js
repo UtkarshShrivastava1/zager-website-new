@@ -36,12 +36,29 @@ const createContact = async (req, res) => {
   try {
     console.log("📩 Received a new contact request:", req.body);
 
-    const { name, companyName, email, phone, message } = req.body;
+    // 1. Include inqury from body
+    const { name, companyName, email, phone, inqury, message } = req.body;
 
-    if (!name || !companyName || !email || !phone || !message) {
+    // 2. Validate all fields including inqury
+    if (!name || !companyName || !email || !phone || !inqury || !message) {
       return res.status(400).json({
         success: false,
         message: "All fields are required",
+      });
+    }
+
+    // 3. Optional: extra safety if you want to mirror the enum in the model
+    const allowedInquries = [
+      "swaad-setu",
+      "doctor-z",
+      "career",
+      "intern",
+      "digital-marketing",
+    ];
+    if (!allowedInquries.includes(inqury)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid inquiry type",
       });
     }
 
@@ -52,19 +69,16 @@ const createContact = async (req, res) => {
         <p><strong>Company Name:</strong> ${companyName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Inquiry Type:</strong> ${inqury}</p>
         <p><strong>Message:</strong><br>${message}</p>
       </div>
     `;
 
-    // Detect Render or local environment
     const isRender =
       process.env.RENDER === "true" || process.env.NODE_ENV === "production";
 
     console.log("Environment:", isRender ? "Render (Resend)" : "Local (Gmail)");
 
-    /* ---------------------------------------------
-       🔹 Render (Resend) Mode
-    --------------------------------------------- */
     if (isRender) {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -77,9 +91,6 @@ const createContact = async (req, res) => {
 
       console.log("✅ Email sent successfully via Resend API");
     } else {
-      /* ---------------------------------------------
-       🔸 Local (Gmail SMTP) Mode
-    --------------------------------------------- */
       const transporter = createTransporter();
 
       const mailOptions = {

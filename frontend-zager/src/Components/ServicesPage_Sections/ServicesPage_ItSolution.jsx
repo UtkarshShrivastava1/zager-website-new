@@ -16,17 +16,17 @@ import {
 const ItSolution = () => {
   const services = [
     { title: "Consulting Services", icon: <FaUsersCog size={24} /> },
-    {
-      title: "Software Development & Integration",
-      icon: <FaLaptopCode size={24} />,
-    },
-    { title: "Cyber Security Services", icon: <FaShieldAlt size={24} /> },
-    { title: "Network Services", icon: <FaNetworkWired size={24} /> },
-    { title: "Data Management & Analytics", icon: <FaDatabase size={24} /> },
-    {
-      title: "IT Training & Education",
-      icon: <FaChalkboardTeacher size={24} />,
-    },
+    // {
+    //   title: "Software Development & Integration",
+    //   icon: <FaLaptopCode size={24} />,
+    // },
+    // { title: "Cyber Security Services", icon: <FaShieldAlt size={24} /> },
+    // { title: "Network Services", icon: <FaNetworkWired size={24} /> },
+    // { title: "Data Management & Analytics", icon: <FaDatabase size={24} /> },
+    // {
+    //   title: "IT Training & Education",
+    //   icon: <FaChalkboardTeacher size={24} />,
+    // },
     {
       title: "Vendor Management Services",
       icon: <FaProjectDiagram size={24} />,
@@ -36,10 +36,10 @@ const ItSolution = () => {
     { title: "IT Support & Help Desk", icon: <FaServer size={24} /> },
     { title: "Managed IT Services", icon: <FaUsersCog size={24} /> },
     { title: "Cloud Services", icon: <FaCloud size={24} /> },
-    {
-      title: "IT Infrastructure & Digital Services",
-      icon: <FaCode size={24} />,
-    },
+    // {
+    //   title: "IT Infrastructure & Digital Services",
+    //   icon: <FaCode size={24} />,
+    // },
   ];
 
   return (

@@ -30,7 +30,7 @@ const Designing = () => {
     { title: "Advertising", icon: <FaBullhorn size={24} /> },
     { title: "Illustration", icon: <FaBrush size={24} /> },
     { title: "Brand Identity", icon: <FaIdBadge size={24} /> },
-    { title: "WordPress & Shopify", icon: <FaWordpress size={24} /> },
+    // { title: "WordPress & Shopify", icon: <FaWordpress size={24} /> },
   ];
 
   return (

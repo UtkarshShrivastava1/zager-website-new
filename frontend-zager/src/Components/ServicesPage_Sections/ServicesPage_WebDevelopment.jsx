@@ -14,7 +14,7 @@ const Webdevelopment = () => {
           { title: "Static Website", icon: <FiGlobe size={24} /> },
           { title: "Ecommerce Development", icon: <FiShoppingCart size={24} /> },
           { title: "Dynamic Website", icon: <FiMonitor size={24} /> },
-          { title: "CMS", icon: <FiLayers size={24} /> },
+          // { title: "CMS", icon: <FiLayers size={24} /> },
           { title: "PWA Development", icon: <FiZap size={24} /> },
           { title: "Single Page App", icon: <FiSettings size={24} /> },
           { title: "API Development", icon: <FiCode size={24} /> },

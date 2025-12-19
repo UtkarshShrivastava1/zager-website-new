@@ -47,13 +47,13 @@ const products = [
       "Digital prescriptions, appointment scheduling, billing and EMR to streamline clinic workflows.",
     link: "/ourplatforms/zms#clinic-management",
   },
-  {
-    image: inventoryImg,
-    name: "Inventory Management System",
-    description:
-      "Real-time stock tracking, multi-warehouse support, barcode/QR and automated reorder alerts.",
-    link: "/ourplatforms/zms#inventory-management",
-  },
+  // {
+  //   image: inventoryImg,
+  //   name: "Inventory Management System",
+  //   description:
+  //     "Real-time stock tracking, multi-warehouse support, barcode/QR and automated reorder alerts.",
+  //   link: "/ourplatforms/zms#inventory-management",
+  // },
 ];
 
 const OurProducts = () => {

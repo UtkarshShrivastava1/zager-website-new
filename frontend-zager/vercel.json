@@ -1,0 +1,52 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "/About", "permanent": true },
+    { "source": "/aboutus", "destination": "/About", "permanent": true },
+    { "source": "/about-us", "destination": "/About", "permanent": true },
+    { "source": "/abt", "destination": "/About", "permanent": true },
+    { "source": "/Aboutus", "destination": "/About", "permanent": true },
+    { "source": "/AboutUs", "destination": "/About", "permanent": true },
+
+    { "source": "/career", "destination": "/Careers", "permanent": true },
+    { "source": "/careers", "destination": "/Careers", "permanent": true },
+    { "source": "/Career", "destination": "/Careers", "permanent": true },
+    { "source": "/Careers", "destination": "/Careers", "permanent": true },
+    { "source": "/carrer", "destination": "/Careers", "permanent": true },
+    { "source": "/carrers", "destination": "/Careers", "permanent": true },
+    { "source": "/jobs", "destination": "/Careers", "permanent": true },
+    { "source": "/job", "destination": "/Careers", "permanent": true },
+    { "source": "/joinus", "destination": "/Careers", "permanent": true },
+    { "source": "/join-us", "destination": "/Careers", "permanent": true },
+
+    { "source": "/contact", "destination": "/Contact", "permanent": true },
+    { "source": "/contacts", "destination": "/Contact", "permanent": true },
+    { "source": "/contactus", "destination": "/Contact", "permanent": true },
+    { "source": "/contact-us", "destination": "/Contact", "permanent": true },
+    { "source": "/getintouch", "destination": "/Contact", "permanent": true },
+    { "source": "/get-in-touch", "destination": "/Contact", "permanent": true },
+
+    { "source": "/service", "destination": "/Services", "permanent": true },
+    { "source": "/services", "destination": "/Services", "permanent": true },
+    { "source": "/ourservices", "destination": "/Services", "permanent": true },
+    {
+      "source": "/our-services",
+      "destination": "/Services",
+      "permanent": true
+    },
+    { "source": "/Service", "destination": "/Services", "permanent": true },
+    { "source": "/Services", "destination": "/Services", "permanent": true },
+
+    { "source": "/home", "destination": "/Home", "permanent": true },
+    { "source": "/homepage", "destination": "/Home", "permanent": true },
+    { "source": "/index", "destination": "/Home", "permanent": true },
+    { "source": "/start", "destination": "/Home", "permanent": true },
+
+    { "source": "/blog", "destination": "/Blogs", "permanent": true },
+    { "source": "/blogs", "destination": "/Blogs", "permanent": true },
+    { "source": "/blogpost", "destination": "/Blogs", "permanent": true },
+    { "source": "/blogposts", "destination": "/Blogs", "permanent": true },
+    { "source": "/articles", "destination": "/Blogs", "permanent": true },
+    { "source": "/news", "destination": "/Blogs", "permanent": true }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}

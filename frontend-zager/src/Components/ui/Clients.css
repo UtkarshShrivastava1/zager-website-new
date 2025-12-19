@@ -1,0 +1,94 @@
+/* Clients.css */
+/* *{
+    background: #000;
+}  */
+.clients-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.25rem; /* pt-5 */
+}
+
+.clients-box {
+    height: 40vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clients-title {
+    text-align: center;
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold;
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.clients-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* bg-opacity-10 */
+    border-radius: 140px 140px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gradient-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.gradient-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(to left, white, transparent);
+}
+
+.scroll-container {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 18s linear infinite; /* Adjust duration as needed */
+}
+
+.scroll-container img {
+    height: 15vh; /* h-[10vh] */
+    /* max-height: 80px; max-h-[60px] */
+    object-fit: contain; /* object-contain */
+    padding: 0 1vw; /* px-[1vw] */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 12s linear infinite;
+  }

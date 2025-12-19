@@ -1,0 +1,29 @@
+@import "tailwindcss";
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+} */
+@keyframes better-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-better-pulse {
+  animation: better-pulse 1.5s infinite ease-in-out;
+}

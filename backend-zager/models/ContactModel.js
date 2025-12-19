@@ -19,6 +19,20 @@ const contactSchema = new mongoose.Schema(
       type: String,
       required: [true, "Phone number is required"],
     },
+    inqury: {
+      type: String,
+      required: [true, "Inquiry type is required"],
+      enum: {
+        values: [
+          "swaad-setu",
+          "doctor-z",
+          "career",
+          "intern",
+          "digital-marketing",
+        ],
+        message: "Invalid inquiry type",
+      },
+    },
     message: {
       type: String,
       required: [true, "Message is required"],

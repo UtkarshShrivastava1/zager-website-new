@@ -45,11 +45,14 @@ function ContactUsPage() {
     },
   ];
 
+
+
   const [formData, setFormData] = useState({
     name: "",
     companyName: "",
     email: "",
     phone: "",
+    inqury:"",
     message: "",
   });
 
@@ -98,13 +101,14 @@ function ContactUsPage() {
       const response = await api.post("/contacts", formData);
       console.log("Form submitted:", response.data);
       setSuccessMessage("Your message has been sent successfully!");
-      setFormData({
-        name: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
+     setFormData({
+      name: "",
+      companyName: "",
+      email: "",
+      phone: "",
+      inqury: "",
+      message: "",
+    });
     } catch (error) {
       console.error("Error submitting contact form:", error);
       setErrorMessage(
@@ -217,6 +221,24 @@ function ContactUsPage() {
                     value={formData.phone}
                   />
                 </div>
+                <div>
+                  <select
+                    name="inqury"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors bg-white"
+                    onChange={handleChange}
+                    value={formData.inqury}
+                  >
+                    <option value="">Please select *</option>
+                    <option value="career">Career</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="doctor-z">Doctor Z</option>
+                    <option value="sms">School Management System</option>
+                    <option value="swaad-setu">Swaad setu</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+
                 <div>
                   <textarea
                     name="message"

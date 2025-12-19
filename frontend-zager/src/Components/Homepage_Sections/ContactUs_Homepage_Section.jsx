@@ -50,6 +50,7 @@ const ContactForm = () => {
     companyName: "",
     email: "",
     phone: "",
+    inqury:"",
     message: "",
   });
 
@@ -108,6 +109,7 @@ const ContactForm = () => {
         companyName: "",
         email: "",
         phone: "",
+        inqury:"",
         message: "",
       });
     } catch (error) {
@@ -241,7 +243,23 @@ const ContactForm = () => {
                   value={formData.phone}
                 />
               </div>
-              <div>
+               <div>
+                  <select
+                    name="inqury"
+                    required
+                    className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none transition-colors bg-white"
+                    onChange={handleChange}
+                    value={formData.inqury}
+                  >
+                    <option value="">Please select *</option>
+                    <option value="swaad-setu">Swaad setu</option>
+                    <option value="doctor-z">Doctor Z</option>
+                    <option value="career">Career</option>
+                    <option value="intern">Intern</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                  </select>
+                </div>
+                <div>
                 <textarea
                   name="message"
                   placeholder="Your Message*"

@@ -91,6 +91,7 @@ function CareerPage() {
     role: "",
     email: "",
     phone: "",
+    workasa: "",//workAsA
   });
   const [resume, setResume] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
@@ -195,6 +196,7 @@ function CareerPage() {
     data.append("companyName", formData.role); // using "companyName" field in backend as role
     data.append("email", formData.email);
     data.append("phone", formData.phone);
+    data.append("workasa", formData.workasa);
     if (resume) {
       data.append("resume", resume);
     }
@@ -208,10 +210,11 @@ function CareerPage() {
       );
       // Clear form fields
       setFormData({
-        name: "",
+         name: "",
         role: "",
         email: "",
         phone: "",
+        workasa: "",//work as a
       });
       setResume(null);
       setSelectedJob(null);
@@ -488,6 +491,21 @@ function CareerPage() {
                     value={formData.phone}
                   />
                 </div>
+                 <div>
+                  <select
+                    name="workasa"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all "
+                    onChange={handleChange}
+                    value={formData.workasa}
+                  >
+                    <option value="" className="">Work as  *</option>
+                    <option value="employee">Employee</option>
+                    <option value="intern">Intern</option>
+                  
+                  </select>
+                </div>
+
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-700">
                     Upload Resume* (PDF, DOC, DOCX - Max 5MB)

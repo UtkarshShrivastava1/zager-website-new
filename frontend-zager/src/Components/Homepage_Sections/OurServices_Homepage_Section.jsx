@@ -73,7 +73,7 @@ const OurServicesSections = () => {
   }, []);
 
   return (
-    <section className="relative services-bg py-16 text-[#051224] overflow-hidden">
+    <section className="relative services-bg py-16 text-[#051224] overflow-hidden ">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div

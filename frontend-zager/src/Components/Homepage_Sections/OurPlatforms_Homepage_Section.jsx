@@ -34,14 +34,14 @@ const platforms = [
     link: "/ourplatforms/ira-media-and-productions",
     icon: <Film className="text-[#ffbe00] w-10 h-10" />,
   },
-  {
-    title: "JK WORKS",
-    description:
-      "Welcome to JK Works, your premier partner in architecture and interior design.",
-    imageUrl: jkworksImg,
-    link: "/ourplatforms/jkworks",
-    icon: <Building className="text-[#ffbe00] w-10 h-10" />,
-  },
+  // {
+  //   title: "Swaad Setu",
+  //   description:
+  //     "Works for single cafes up to multi-outlet restaurant groups and cloud kitchens.",
+  //   imageUrl: jkworksImg,
+  //   link: "/ourplatforms/swaadsetu",
+  //   icon: <Building className="text-[#ffbe00] w-10 h-10" />,
+  // },
 ];
 
 const OurPlatform = () => {

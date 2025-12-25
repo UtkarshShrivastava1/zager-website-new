@@ -1,3 +1,5 @@
+import React from "react";
+
 "use client";
 
 import { gsap } from "gsap";
@@ -10,7 +12,6 @@ import circuitImg from "../../assets/products/Circuit.jpg";
 import employeeErpImg from "../../assets/products/EmployeeErp.jpg";
 import clinicImg from "../../assets/products/Clinic.jpg";
 import inventoryImg from "../../assets/products/inventory.jpg";
-
 const products = [
   {
     image: smsImg,
@@ -345,3 +346,4 @@ const OurProducts = () => {
 };
 
 export default OurProducts;
+

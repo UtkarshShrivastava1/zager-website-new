@@ -29,12 +29,12 @@ const DigitalMarketing = () => {
         {services.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm font-medium px-4 py-3 rounded-lg shadow-md transition-all duration-300 cursor-pointer"
+            className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm font-medium px-4 py-3 rounded-lg shadow-md transition-all duration-300 cursor-pointer "
           >
             <div className="bg-yellow-500 text-white p-2 rounded-full">
               {item.icon}
             </div>
-            <span>{item.title}</span>
+            <span >{item.title}</span>
           </div>
         ))}
       </div>

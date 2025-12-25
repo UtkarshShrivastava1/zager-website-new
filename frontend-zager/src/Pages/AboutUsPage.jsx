@@ -187,7 +187,7 @@ const AboutUsPage = () => {
         <div className="container mx-auto px-6 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-3xl font-bold tracking-[0.3em] text-[#ffbe00] uppercase">
+            <span className="text-3xl font-bold tracking-[0.2em] text-[#ffbe00] uppercase">
               Why Zager
             </span>
 

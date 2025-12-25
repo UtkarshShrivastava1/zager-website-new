@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsSection = () => {
+  
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const contentRef = useRef(null);

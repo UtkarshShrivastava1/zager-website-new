@@ -9,7 +9,6 @@ import restaurantImg from "../../assets/products/Restaurant.jpg";
 import circuitImg from "../../assets/products/Circuit.jpg";
 import employeeErpImg from "../../assets/products/EmployeeErp.jpg";
 import clinicImg from "../../assets/products/Clinic.jpg";
-import inventoryImg from "../../assets/products/inventory.jpg";
 
 const products = [
   {
@@ -217,7 +216,7 @@ const OurProducts = () => {
 
   return (
     <div
-      className="products-bg relative overflow-hidden"
+      className="products-bg relative overflow-hidden "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocusIn}
@@ -236,13 +235,16 @@ const OurProducts = () => {
           }}
         />
       </div>
+      <div className="flex items-center justify-center ">
 
       <h4
-        className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+        className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1  mt-5"
         style={{ fontWeight: 700, fontSize: "2.2rem" }}
       >
         Our Products
       </h4>
+      </div>
+
 
       <div className="relative w-full overflow-hidden mb-8">
         <div

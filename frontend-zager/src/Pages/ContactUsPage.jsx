@@ -133,7 +133,7 @@ function ContactUsPage() {
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
-          Contact
+          Contact Us
         </h4>
         <div
           ref={containerRef}
@@ -142,17 +142,22 @@ function ContactUsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center px-4 md:px-10">
             {/* Left Column */}
             <div ref={leftColumnRef} className="space-y-6">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
-                TRANSFORM YOUR BUSINESS WITH
+              <h2 className="text-xl md:text-5xl font-bold text-gray-800 leading-relaxed">
+                 Transform Your Bussines With {""} <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
+                   Digital Innovation & {" "}
+                 </span>
+                 <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
+                        Strategic Solutions
+                 </span>
               </h2>
-              <div className="space-y-2">
-                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
-                  Digital Innovation &
-                </h2>
-                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
-                  Strategic Solutions
-                </h2>
-              </div>
+              {/* <div className="space-y-2">
+               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
+                Digital Innovation &
+              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
+                Strategic Solutions
+              </h2>
+              </div> */}
               <div className="pt-8">
                 <FloatingDock mobileClassName="translate-y-20" items={links} />
               </div>

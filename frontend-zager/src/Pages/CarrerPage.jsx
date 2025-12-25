@@ -236,10 +236,10 @@ function CareerPage() {
         <div className="bottom-glow absolute -bottom-10 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
       </div>
 
-      <div className="mt-5 overflow-hidden relative z-10">
+      <div className="mt-5 overflow-hidden relative z-10 ">
         {/* Join Our Team Heading */}
         <h4
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Join Our Team
@@ -267,26 +267,29 @@ function CareerPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
           {workValues.map((value, index) => (
             <div key={index} className="max-w-xs w-full group/card">
-              <div
-                className={cn(
-                  "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4"
-                )}
-                style={{
-                  backgroundImage: `url(${value.imageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="absolute inset-0 transition duration-300 group-hover/card:bg-black group-hover/card:opacity-60"></div>
-                <div className="relative z-10">
-                  <h1 className="font-bold text-xl md:text-2xl text-gray-50">
-                    {value.name}
-                  </h1>
-                  <p className="font-normal text-sm text-gray-50 my-4">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
+             <div
+  className={cn(
+    "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
+  )}
+  style={{
+    backgroundImage: `url(${value.imageUrl})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/60 group-hover/card:bg-black/80 transition duration-300"></div>
+
+  <div className="relative z-10 text content">
+    <h1 className="font-bold text-xl md:text-2xl text-gray-100">
+      {value.name}
+    </h1>
+    <p className="font-normal text-sm text-gray-100 my-4">
+      {value.description}
+    </p>
+  </div>
+</div>
+
             </div>
           ))}
         </div>

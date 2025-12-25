@@ -57,7 +57,7 @@ const services = [
 
 const OurServicesSections = () => {
   useGSAP(() => {
-    gsap.fromTo(
+    gsap.fromTo( 
       ".services-bg",
       {
         opacity: 0,
@@ -88,6 +88,8 @@ const OurServicesSections = () => {
       </div>
 
       <div className="text-center mb-12 relative z-10">
+        <div className=" flex items-center justify-center w-full text-center ">
+
         <h4
           style={{
             fontWeight: "700",
@@ -95,10 +97,11 @@ const OurServicesSections = () => {
             color: "#ffbe00",
             marginBottom: "20px",
           }}
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          className="text-3xl font-bold text-center text-[#ffbe00] mb-4  outline-3 outline-[#ffbe00] rounded-2xl   p-2 "
         >
           Our Services
         </h4>{" "}
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">
           Custom Digital Solutions for <br /> Your Successful Business
         </h2>

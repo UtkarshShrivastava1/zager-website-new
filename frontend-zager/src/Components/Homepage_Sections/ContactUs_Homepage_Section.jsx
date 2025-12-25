@@ -148,6 +148,9 @@ const ContactForm = () => {
         <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
+
+      <div className="flex items-center justify-center ">
+
       <h4
         style={{
           fontWeight: "700",
@@ -155,27 +158,28 @@ const ContactForm = () => {
           color: "#ffbe00",
           marginBottom: "0px",
         }}
-        className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+        className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1  mt-5"
       >
         Contact us
       </h4>
+      </div>
       <div
         ref={containerRef}
         className="container mx-auto px-4 py-12 md:py-20 !pt-4"
       >
         <div className="grid md:grid-cols-2 gap-12 items-center px-10">
           {/* Left Column */}
-          <div ref={leftColumnRef} className="space-y-6">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-              TRANSFORM YOUR BUSINESS WITH
+          <div ref={leftColumnRef} className="space-y-2">
+            <h1 className="text-5xl md:text-4xl font-bold text-[#ffbe00] pb-2">
+              Transform Your Bussines with
             </h1>
-            <div className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
+              <h2 className="text-4xl md:text-4xl font-bold bg-gradient-to-r from-[#cc9900] to-[#ffbe00] bg-clip-text text-transparent pb-2">
                 Digital Innovation &
               </h2>
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
+              <h2 className="text-4xl md:text-4xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
                 Strategic Solutions
               </h2>
+            <div className="space-y-2">
             </div>
             <div className="pt-8">
               <FloatingDock mobileClassName="translate-y-20" items={links} />

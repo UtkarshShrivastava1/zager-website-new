@@ -15,50 +15,41 @@ import MetaIcon from "../../assets/icons/MetaIcon";
 
 
 const DigitalMarketing = () => {
+  const services = [
+    { title: "Content Marketing", icon: FaClipboardCheck },
+    { title: "Website Marketing", icon: FaGlobe },
+    { title: "Social Media Marketing", icon: FaUserFriends },
+    { title: "Paid Search", icon: FaMoneyBillWave },
+    { title: "SEO", icon: FaSearchDollar },
+    { title: "Branding", icon: FaBullhorn },
+    { title: "Analytics", icon: FaChartLine },
+    { title: "Influencer Marketing", icon: FaUsers },
+    { title: "Meta Ads", icon: MetaIcon },
+    { title: "Email Marketing", icon: FaEnvelopeOpenText },
+    { title: "Social Media Management", icon: FaUserFriends },
+  ];
+
   return (
     <section className="w-full flex flex-col items-center px-4 md:px-6 lg:px-8 py-10 bg-white text-black">
-      {/* Grid of Digital Marketing Services */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
-        {[
-          { title: "Content Marketing", icon: <FaClipboardCheck size={20} /> },
-          { title: "Website Marketing", icon: <FaGlobe size={20} /> },
-          {
-            title: "Social Media Marketing",
-            icon: <FaUserFriends size={20} />,
-          },
-          { title: "Paid Search", icon: <FaMoneyBillWave size={20} /> },
-          { title: "SEO", icon: <FaSearchDollar size={20} /> },
-          { title: "Branding", icon: <FaBullhorn size={20} /> },
-          { title: "Analytics", icon: <FaChartLine size={20} /> },
-          { title: "Influencer Marketing", icon: <FaUsers size={20} /> },
-          // { title: "Pay-Per-Click", icon: <FaMousePointer size={20} /> },
-          // {
-          //   title: "Conversion Rate Optimization",
-          //   icon: <FaClipboardCheck size={20} />,
-          // },
-          {
-            title: "Meta Ads",
-            icon: <MetaIcon size={20} />,
-          },
-          { title: "Email Marketing", icon: <FaEnvelopeOpenText size={20} /> },
-          {
-            title: "Social Media Management",
-            icon: <FaUserFriends size={20} />,
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm md:text-base font-medium p-4 md:p-5 rounded-lg shadow-md transition-all duration-300 cursor-pointer"
-          >
-            <div className="bg-yellow-500 text-white p-2 rounded-full">
-              {item.icon}
+        {services.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className="flex items-center gap-3 bg-[#ffbe00] hover:bg-[#F7931E] hover:text-white text-black text-sm md:text-base font-medium px-4 py-3 rounded-lg shadow-md transition-all duration-300 cursor-pointer"
+            >
+              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-500 text-white">
+                <Icon size={18} />
+              </div>
+              <span className="leading-tight">{item.title}</span>
             </div>
-            <span>{item.title}</span>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
 };
 
 export default DigitalMarketing;
+

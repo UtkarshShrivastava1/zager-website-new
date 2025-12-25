@@ -18,12 +18,7 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-semibold mb-4">About</h2>
             <p className="text-gray-300">
-              At Zager Digital Services, we believe that exceptional Digital
-              Marketing and IT solutions stem from a core commitment to
-              integrity, innovation, and excellence. Founded with the mission to
-              empower businesses through cutting-edge technology and strategic
-              marketing, we take pride in delivering tailored solutions that
-              drive growth and success.
+            We build scalable digital products and intelligent technology solutions using modern technologies and AI-enabled automation to help businesses grow efficiently.
             </p>
           </div>
 
@@ -140,9 +135,17 @@ const Footer = () => {
                 <LinkedinIcon className="w-6 h-6" />
               </Link>
             </div>
-            <div className="flex flex-col md:flex-row items-center space-x-4">
-              <p className="text-gray-300 text-sm">
-                © 2025 Zager Digital Services. All rights reserved.
+            <div className="hidden md:inline-block  md:flex-row items-center space-x-4">
+              <p className="text-gray-300 text-sm whitespace-pre-line">
+                © 2025 Zager Digital Services Pvt. Ltd. All rights reserved.
+              </p>
+            </div>
+            <div className=" md:hidden  flex flex-col md:flex-row items-center space-x-4">
+              <p className="text-gray-300 text-sm whitespace-pre-line">
+                © 2025 Zager Digital Services Pvt.Ltd. 
+              </p>
+              <p className="text-gray-300 text-sm whitespace-pre-line">
+                All rights reserved. 
               </p>
             </div>
           </div>

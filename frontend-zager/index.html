@@ -2,11 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zager</title>
 
-    <!-- React refresh preamble for Vite -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Zager – Smart Digital Solutions & Web Development</title>
+    <meta
+      name="description"
+      content="Zager provides modern web development, software solutions, and digital services to grow your business with scalable and secure technology."
+    />
+    <meta
+      name="keywords"
+      content="Zager, web development, software company, IT services, React development, business solutions"
+    />
+    <meta name="author" content="Zager" />
+
+    <!-- Open Graph (for WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:title" content="Zager – Smart Digital Solutions" />
+    <meta
+      property="og:description"
+      content="Modern web development and software solutions to grow your business."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.zager.in/" />
+    <meta property="og:image" content="https://www.zager.in/Final_Logo_White.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zager – Smart Digital Solutions" />
+    <meta
+      name="twitter:description"
+      content="Professional web and software development services."
+    />
+    <meta name="twitter:image" content="https://www.zager.in/Final_Logo_White.png" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zager",
+    "url": "https://www.zager.in",
+    "logo": "https://www.zager.in/Final_Logo_White.png",
+   "sameAs": [
+    "https://in.linkedin.com/company/zagerdigitalservices"
+  ]
+  }
+  </script>
+
+    <!-- React refresh (Vite) -->
     <script type="module">
       import RefreshRuntime from "/@react-refresh";
       RefreshRuntime.injectIntoGlobalHook(window);
@@ -15,6 +66,7 @@
       window.__vite_plugin_react_preamble_installed__ = true;
     </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

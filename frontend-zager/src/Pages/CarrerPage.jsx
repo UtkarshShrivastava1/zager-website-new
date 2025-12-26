@@ -231,6 +231,23 @@ function CareerPage() {
 
   return (
     <>
+    <Helmet>
+      <title>Careers at Zager - Join Our Team</title>
+      <meta
+        name="description"
+        content="Explore career opportunities at Zager Digital Services. Join our team of talented IT & Digital Marketing professionals and grow your career."
+      />
+      <link rel="canonical" href="https://www.zager.in/careers" />
+
+      {/* Open Graph */}
+      <meta property="og:title" content="Careers at Zager - Join Our Team" />
+      <meta
+        property="og:description"
+        content="Explore career opportunities at Zager Digital Services. Join our team of talented IT & Digital Marketing professionals and grow your career."
+      />
+      <meta property="og:url" content="https://www.zager.in/careers" />
+      <meta property="og:type" content="website" />
+    </Helmet>
       {/* Background Effects - Glowing Circles */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="bottom-glow absolute -bottom-10 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>

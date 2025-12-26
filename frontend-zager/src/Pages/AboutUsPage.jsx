@@ -4,6 +4,7 @@ import { Rocket, Palette, Settings, TrendingUp } from "lucide-react";
 import { Target, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import aboutBanner from "../assets/aboutBanner.png"
+import { Helmet } from "react-helmet-async";
 
 // Generic fade-in/up variant for sections
 const fadeInUp = {
@@ -37,7 +38,7 @@ const cardVariants = {
 };
 
 const AboutUsPage = () => {
-  const navigate = useNavigate();
+ 
   const values = [
     {
       icon: "👥",
@@ -63,6 +64,23 @@ const navigate = useNavigate();
 
   return (
     <div className="w-full bg-white">
+       <Helmet>
+        <title>About Us - Zager</title>
+        <meta
+          name="description"
+          content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
+        />
+        <link rel="canonical" href="https://www.zager.in/about" />
+        {/* Open Graph / Social Sharing */}
+        <meta property="og:title" content="About Us - Zager" />
+        <meta
+          property="og:description"
+          content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
+        />
+        <meta property="og:url" content="https://www.zager.in/about" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
     <section
   className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden bg-[#051224]"
   style={{

@@ -6,6 +6,7 @@ import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import api from "../services/api"; // Ensure your axios instance has the proper baseURL
+import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,6 +129,23 @@ function ContactUsPage() {
 
   return (
     <>
+        <Helmet>
+        <title>Contact Us - Zager</title>
+        <meta
+          name="description"
+          content="Get in touch with Zager Digital Services for digital marketing, IT solutions, and more. Start your growth journey today!"
+        />
+        <link rel="canonical" href="https://www.zager.in/contact" />
+        {/* Open Graph / Social Sharing */}
+        <meta property="og:title" content="Contact Us - Zager" />
+        <meta
+          property="og:description"
+          content="Get in touch with Zager Digital Services for digital marketing, IT solutions, and more. Start your growth journey today!"
+        />
+        <meta property="og:url" content="https://www.zager.in/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="bg-white min-h-screen overflow-hidden mt-15 md:mt-5">
         <h4
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"

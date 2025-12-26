@@ -14,6 +14,7 @@ import logo3 from "../assets/clientLogos/logo_client3.png";
 import logo4 from "../assets/clientLogos/logo_client4.png";
 import logo5 from "../assets/clientLogos/logo_client5.jpg";
 import logo6 from "../assets/clientLogos/logo_client6.jpg";
+import { Helmet } from "react-helmet-async";
 
 /**
  * Clients page
@@ -163,6 +164,15 @@ export default function Clients() {
   );
 
   return (
+    <>
+   <Helmet>
+      <title>Our Clients - Zager Digital Services</title>
+      <meta
+        name="description"
+        content="Explore our clients and projects at Zager Digital Services. See testimonials, case studies, and the impact of our web & digital marketing solutions."
+      />
+      <link rel="canonical" href="https://www.zager.in/clients" />
+    </Helmet>
     <div className="relative overflow-x-hidden bg-gray-50 min-h-screen py-12">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Heading value={"OUR CLIENTS"} />
@@ -369,5 +379,6 @@ export default function Clients() {
         )}
       </div>
     </div>
+    </>
   );
 }

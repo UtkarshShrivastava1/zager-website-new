@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import iramediaImg from "../assets/iramedia.jpeg";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async";
 
 function IRMediaAndProductions() {
   const workValues = [
@@ -120,6 +121,21 @@ function IRMediaAndProductions() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>IR Media & Productions | Digital Media, Films & Video Production</title>
+        <meta
+          name="description"
+          content="IR Media & Productions offers digital media services, films, video production, digital ads, media consulting, and research. Transform your vision into engaging content."
+        />
+        <meta property="og:title" content="IR Media & Productions" />
+        <meta
+          property="og:description"
+          content="Delivering high-quality media solutions including digital ads, films, video production, and media consulting."
+        />
+      
+      </Helmet>
+
     <div className="relative overflow-x-hidden">
       <div className="mt-15">
         <Heading value={"IRA MEDIA & PRODUCTIONS"} />
@@ -220,6 +236,7 @@ function IRMediaAndProductions() {
         <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
       </div>
     </div>
+    </>
   );
 }
 

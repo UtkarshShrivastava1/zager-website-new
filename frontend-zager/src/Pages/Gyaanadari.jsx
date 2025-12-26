@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
 import gyaanadariImg from "../assets/gyanadari.jpeg";
+import { Helmet } from "react-helmet-async";
 
 function Gyaanadari() {
   const workValues = [
@@ -90,6 +91,14 @@ function Gyaanadari() {
   }, []);
 
   return (
+    <>
+     <Helmet>
+        <title>Gyaanadari - Insights, Podcasts, & Content</title>
+        <meta
+          name="description"
+          content="Gyaanadari offers high-quality content, podcasts, interviews, and updates to inform, inspire, and entertain audiences."
+        />
+      </Helmet>
     <div className="relative overflow-x-hidden">
       {/* Background Gradient Overlay & Glowing Circles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -209,6 +218,7 @@ function Gyaanadari() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

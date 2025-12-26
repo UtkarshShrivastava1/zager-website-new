@@ -14,6 +14,7 @@ import employeeErpImg from "../assets/products/EmployeeErp.jpg";
 import clinicImg from "../assets/products/Clinic.jpg";
 import inventoryImg from "../assets/products/inventory.jpg";
 import zmsPlatformImg from "../assets/zms.jpeg";
+import { Helmet } from "react-helmet-async";
 
 export default function ZagerManagementSystem() {
   const solutions = [
@@ -283,6 +284,20 @@ export default function ZagerManagementSystem() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Zager Management System (ZMS) | ERP Modules</title>
+        <meta
+          name="description"
+          content="Explore Zager Management System (ZMS) – a modular ERP platform with school, restaurant, HR, clinic, inventory, and task management solutions."
+        />
+        <meta property="og:title" content="Zager Management System (ZMS)" />
+        <meta
+          property="og:description"
+          content="Modular ERP platform with industry-specific solutions for school, restaurant, HR, clinic, inventory, and task management."
+        />
+        
+      </Helmet>
     <div className="relative overflow-x-hidden bg-gray-50 min-h-screen">
       {/* background glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -566,5 +581,6 @@ export default function ZagerManagementSystem() {
         </div>
       </div>
     </div>
+    </>
   );
 }

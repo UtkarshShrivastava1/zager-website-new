@@ -67,7 +67,7 @@ const AboutUsSection = () => {
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         {/* Title Section: Centered across the full container */}
-        <div className="text-center mb-12">
+        <div className="flex items-center justify-center text-center mb-12 ">
           <h4
             style={{
               fontWeight: "700",
@@ -75,7 +75,7 @@ const AboutUsSection = () => {
               color: "#ffbe00",
               marginBottom: "20px",
             }}
-            className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+            className="text-2xl font-bold text-center  text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           >
             About
           </h4>

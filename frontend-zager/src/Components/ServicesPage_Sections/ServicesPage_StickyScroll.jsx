@@ -76,7 +76,7 @@ const StickyScroll = ({ content, contentClassName }) => {
               <motion.p
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                className="text-sm sm:text-base lg:text-lg text-black max-w-3xl mt-2 sm:mt-4 transition-all duration-300"
+                className="text-sm sm:text-base lg:text-sm text-black max-w-3xl mt-2 sm:mt-4 transition-all duration-300"
               >
                 {item.description}
               </motion.p>

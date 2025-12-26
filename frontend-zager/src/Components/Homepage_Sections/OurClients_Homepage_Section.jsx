@@ -13,7 +13,7 @@ const Clients = () => {
         <div className="absolute -bottom-32 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
-      <div className="clients-box">
+      <div className="clients-box mb-3">
         <h4
           style={{
             fontWeight: "700",
@@ -21,7 +21,7 @@ const Clients = () => {
             color: "#ffbe00",
             marginBottom: "20px",
           }}
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+          className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1  mt-5"
         >
           Our Clients
         </h4>

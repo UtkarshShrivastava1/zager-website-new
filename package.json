@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-snap": "^1.23.0"
+  },
+  "devDependencies": {
+    "vite-plugin-prerender": "^1.0.8"
+  }
+}

@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { Rocket, Palette, Settings, TrendingUp } from "lucide-react";
 import { Target, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import aboutBanner from "../assets/aboutBanner.png"
-
 // Generic fade-in/up variant for sections
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -14,8 +12,6 @@ const fadeInUp = {
     transition: { duration: 1.8, ease: "easeOut" },
   },
 };
-
-
 
 
 const containerVariants = {
@@ -37,6 +33,7 @@ const cardVariants = {
 };
 
 const AboutUsPage = () => {
+  const navigate = useNavigate();
   const values = [
     {
       icon: "👥",
@@ -58,76 +55,86 @@ const AboutUsPage = () => {
     },
   ];
 
-const navigate = useNavigate();
-
   return (
     <div className="w-full bg-white">
-    <section
-  className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden bg-[#051224]"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(5,18,36,0.85), rgba(5,18,36,0.85)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80')",
-    backgroundSize: "cover",
-    backgroundPosition: "center 50%",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  {/* Yellow glow accents */}
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
-    <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
-  </div>
-
-  {/* Subtle animated dark overlay */}
-  <motion.div
-    className="absolute inset-0 bg-[#051224]"
-    initial={{ opacity: 0.6 }}
-    animate={{ opacity: 0.8 }}
-    transition={{
-      duration: 2,
-      ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "reverse",
-    }}
-  />
-
-  {/* Hero Content */}
-  <div className="relative z-10 container mx-auto px-4 py-6 md:py-10">
-    <div className="max-w-4xl mx-auto space-y-6 ">
-      {/* Example heading using yellow + white */}
-      {/* 
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#ffbe00] drop-shadow-lg">
-        Empowering Businesses, Elevating Digital Success!
-      </h1>
-      */}
-
-      <img
-        src={aboutBanner}
-        alt="About Zager"
-        className="mx-auto max-w-full h-auto mb-4 "
-      />
-
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1, ease: "easeOut", delay: 0.2 },
-          },
+      {/* Hero Section */}
+      <section
+        className="relative h-screen flex items-center justify-center text-center overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80')",
         }}
-        initial="hidden"
-        animate="visible"
-        className="text-base text-left   p-5 md:text-lg lg:text-xl text-white leading-relaxed drop-shadow-md text-center"
       >
-        At <span className="font-bold text-[#ffbe00]">Zager</span> builds scalable digital products and end-to-end technology solutions for modern businesses. We integrate modern technologies, AI-enabled automation, and performance-driven digital marketing to streamline operations, strengthen digital presence, and drive sustainable growth. Our focus remains on delivering reliable, high-performance systems that create long-term business value.
-      </motion.p>
-    </div>
-  </div>
-</section>
+        {/* Gradient Overlay & Glowing Circles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+              opacity: 0.1,
+            }}
+          ></div>
+          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+        </div>
 
+        {/* Existing Black Overlay */}
+        <motion.div
+          className="absolute inset-0 bg-black"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.05 }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          style={{ opacity: 0.5 }}
+        ></motion.div>
 
- {/* Why Us Section */}
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: -50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, ease: "easeOut" },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#ffbe00] drop-shadow-lg mb-6"
+            >
+              &quot;Empowering Businesses, Elevating Digital Success!&quot;
+            </motion.h1>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, ease: "easeOut", delay: 0.3 },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-lg md:text-2xl text-white leading-relaxed drop-shadow-md"
+            >
+              At <span className="font-bold">Zager</span>, we are more than just
+              a digital marketing company. We are your growth partners in the
+              ever-evolving digital landscape. With a passion for innovation and
+              a data-driven approach, we craft result-oriented strategies that
+              help businesses thrive online.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Us Section */}
       {/* <motion.section
         className="py-16 bg-gray-50"
         initial="hidden"
@@ -180,7 +187,7 @@ const navigate = useNavigate();
         <div className="container mx-auto px-6 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-3xl font-bold tracking-[0.3em] text-[#ffbe00] uppercase">
+            <span className="text-3xl font-bold tracking-[0.2em] text-[#ffbe00] uppercase">
               Why Zager
             </span>
 

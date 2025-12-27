@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, Palette, Settings, TrendingUp } from "lucide-react";
 import { Target, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import aboutbanner from "../assets/aboutbanner.png";
 // Generic fade-in/up variant for sections
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -59,79 +60,17 @@ const AboutUsPage = () => {
     <div className="w-full bg-white">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80')",
-        }}
+        className="relative h-screen flex items-center justify-center text-center overflow-hidden bg-[#051224] border-t-2 border-white/10" 
       >
-        {/* Gradient Overlay & Glowing Circles */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div
-            className="w-full h-full"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-              opacity: 0.1,
-            }}
-          ></div>
-          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+        <div className="max-w-7xl">
+
+        <img src={aboutbanner} className="w-4xl h-auto  p-1 " />
+          <p className="text-lg text-white text-center max-w-4xl mx-auto leading-relaxed  p-4">
+            At <span className="font-bold text-[#ffbe00]">Zager</span>, We are more than just a digital marketing company.We are your growth partner in the ever-evolving digital landscape. With a passion for innovation and a data-driven approach, we craft result-oriented strategies that help businesses thrive online. 
+          </p>
         </div>
 
-        {/* Existing Black Overlay */}
-        <motion.div
-          className="absolute inset-0 bg-black"
-          initial={{ scale: 1 }}
-          animate={{ scale: 1.05 }}
-          transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          style={{ opacity: 0.5 }}
-        ></motion.div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <motion.h1
-              variants={{
-                hidden: { opacity: 0, y: -50 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, ease: "easeOut" },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#ffbe00] drop-shadow-lg mb-6"
-            >
-              &quot;Empowering Businesses, Elevating Digital Success!&quot;
-            </motion.h1>
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 1, ease: "easeOut", delay: 0.3 },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-              className="text-lg md:text-2xl text-white leading-relaxed drop-shadow-md"
-            >
-              At <span className="font-bold">Zager</span>, we are more than just
-              a digital marketing company. We are your growth partners in the
-              ever-evolving digital landscape. With a passion for innovation and
-              a data-driven approach, we craft result-oriented strategies that
-              help businesses thrive online.
-            </motion.p>
-          </div>
-        </div>
+        
       </section>
 
       {/* Why Us Section */}

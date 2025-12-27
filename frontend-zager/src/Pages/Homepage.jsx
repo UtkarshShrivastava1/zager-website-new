@@ -13,6 +13,7 @@ import OurPlatforms from "../Components/Homepage_Sections/OurPlatforms_Homepage_
 import Testimonials from "../Components/Homepage_Sections/Testimonial_Homepage_Section";
 
 import graphicVideo from "../assets/graphics5.webm";
+import { Helmet } from "react-helmet-async";
 
 const HeroSection = () => {
   const textRef = useRef(null);
@@ -80,6 +81,24 @@ const HeroSection = () => {
 
   return (
     <>
+
+     <Helmet>
+      <title>Zager - IT & Digital Marketing Solutions</title>
+      <meta
+        name="description"
+        content="Empowering businesses with cutting-edge IT solutions and digital marketing strategies. Boost your online presence and grow your brand with Zager."
+      />
+      <link rel="canonical" href="https://www.zager.in/" />
+
+      {/* Open Graph for social media sharing */}
+      <meta property="og:title" content="Zager - IT & Digital Marketing Solutions" />
+      <meta
+        property="og:description"
+        content="Empowering businesses with cutting-edge IT solutions and digital marketing strategies. Boost your online presence and grow your brand with Zager."
+      />
+      <meta property="og:url" content="https://www.zager.in/" />
+      <meta property="og:type" content="website" />
+    </Helmet>
       {/* HERO / HEADER */}
       <header className="relative min-h-fit flex items-center justify-center bg-white text-[#051224] py-8 md:py-12 overflow-hidden  ">
         {/* Decorative Background */}

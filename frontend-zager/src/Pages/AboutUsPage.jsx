@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, Palette, Settings, TrendingUp } from "lucide-react";
 import { Target, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import aboutbanner from "../assets/aboutbanner.png";
+import aboutbanner from "../assets/aboutBanner.png";
 // Generic fade-in/up variant for sections
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },

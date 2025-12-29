@@ -250,18 +250,21 @@ function CareerPage() {
       <meta property="og:type" content="website" />
     </Helmet>
       {/* Background Effects - Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none mb-5">
         <div className="bottom-glow absolute -bottom-10 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
       </div>
 
       <div className="mt-5 overflow-hidden relative z-10 ">
         {/* Join Our Team Heading */}
+        <div className="flex justify-center items-center mt-5">
+
         <h4
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Join Our Team
         </h4>
+        </div>
         <div className="flex flex-col items-center justify-center py-5 gap-2 px-4">
           <TextGenerateEffect words={heroWords} />
           <p className="w-full sm:w-1/2 text-center text-gray-600">

@@ -238,7 +238,7 @@ function CareerPage() {
         name="description"
         content="Explore career opportunities at Zager Digital Services. Join our team of talented IT & Digital Marketing professionals and grow your career."
       />
-      <link rel="canonical" href="https://www.zager.in/careers" />
+      <link rel="canonical" href="https://www.zager.in/Careers" />
 
       {/* Open Graph */}
       <meta property="og:title" content="Careers at Zager - Join Our Team" />
@@ -246,7 +246,7 @@ function CareerPage() {
         property="og:description"
         content="Explore career opportunities at Zager Digital Services. Join our team of talented IT & Digital Marketing professionals and grow your career."
       />
-      <meta property="og:url" content="https://www.zager.in/careers" />
+      <meta property="og:url" content="https://www.zager.in/Careers" />
       <meta property="og:type" content="website" />
     </Helmet>
       {/* Background Effects - Glowing Circles */}

@@ -106,14 +106,14 @@ const Services = () => {
           name="description"
           content="Discover Zager's range of digital services including Web Development, IT Solutions, Digital Marketing, Graphic Designing, Media Production, and Content Creation."
         />
-        <link rel="canonical" href="https://www.zager.in/services" />
+        <link rel="canonical" href="https://www.zager.in/Services" />
         {/* Open Graph / Social Sharing */}
         <meta property="og:title" content="Our Services - Zager" />
         <meta
           property="og:description"
           content="Discover Zager's range of digital services including Web Development, IT Solutions, Digital Marketing, Graphic Designing, Media Production, and Content Creation."
         />
-        <meta property="og:url" content="https://www.zager.in/services" />
+        <meta property="og:url" content="https://www.zager.in/Services" />
         <meta property="og:type" content="website" />
       </Helmet>
       {/* Intro Section */}

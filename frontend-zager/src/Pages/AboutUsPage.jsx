@@ -70,14 +70,14 @@ const navigate = useNavigate();
           name="description"
           content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
         />
-        <link rel="canonical" href="https://www.zager.in/about" />
+        <link rel="canonical" href="https://www.zager.in/About" />
         {/* Open Graph / Social Sharing */}
         <meta property="og:title" content="About Us - Zager" />
         <meta
           property="og:description"
           content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
         />
-        <meta property="og:url" content="https://www.zager.in/about" />
+        <meta property="og:url" content="https://www.zager.in/About" />
         <meta property="og:type" content="website" />
       </Helmet>
 

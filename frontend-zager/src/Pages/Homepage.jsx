@@ -13,7 +13,7 @@ import OurPlatforms from "../Components/Homepage_Sections/OurPlatforms_Homepage_
 import Testimonials from "../Components/Homepage_Sections/Testimonial_Homepage_Section";
 
 import graphicVideo from "../assets/graphics5.webm";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const HeroSection = () => {
   const textRef = useRef(null);

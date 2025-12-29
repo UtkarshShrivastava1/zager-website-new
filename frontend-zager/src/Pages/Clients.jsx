@@ -14,7 +14,7 @@ import logo3 from "../assets/clientLogos/logo_client3.png";
 import logo4 from "../assets/clientLogos/logo_client4.png";
 import logo5 from "../assets/clientLogos/logo_client5.jpg";
 import logo6 from "../assets/clientLogos/logo_client6.jpg";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 /**
  * Clients page

@@ -4,7 +4,7 @@ import { cn } from "../lib/utils";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
 import gyaanadariImg from "../assets/gyanadari.jpeg";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 function Gyaanadari() {
   const workValues = [

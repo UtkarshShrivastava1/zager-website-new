@@ -14,7 +14,7 @@ import employeeErpImg from "../assets/products/EmployeeErp.jpg";
 import clinicImg from "../assets/products/Clinic.jpg";
 import inventoryImg from "../assets/products/inventory.jpg";
 import zmsPlatformImg from "../assets/zms.jpeg";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 export default function ZagerManagementSystem() {
   const solutions = [

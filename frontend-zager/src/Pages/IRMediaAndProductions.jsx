@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import iramediaImg from "../assets/iramedia.jpeg";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 function IRMediaAndProductions() {
   const workValues = [

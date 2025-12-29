@@ -6,7 +6,7 @@ import { FloatingDock } from "../Components/ui/floating-dock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import api from "../services/api"; // Ensure your axios instance has the proper baseURL
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 gsap.registerPlugin(ScrollTrigger);
 

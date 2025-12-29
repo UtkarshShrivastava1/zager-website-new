@@ -8,6 +8,7 @@ import api from "../services/api";
 
 import { TbPointFilled } from "react-icons/tb";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 // Job openings data structure - easily scalable
 const JOB_OPENINGS = [

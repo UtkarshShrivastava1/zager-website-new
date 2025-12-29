@@ -18,6 +18,7 @@ import mediaProductionVideo from "../assets/design3.mp4";
 import itSolutionsVideo from "../assets/design4.mp4";
 import contentCreationVideo from "../assets/design5.mp4";
 import designingVideo from "../assets/design6.mp4";
+import { Helmet } from "react-helmet-async";
 // import architectureVideo from "../assets/design7.mp4";
 
 // Content data with IDs matching the hash links for scroll anchoring

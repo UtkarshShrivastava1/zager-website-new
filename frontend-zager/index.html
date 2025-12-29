@@ -64,14 +64,24 @@
       }
     </script>
 
+  <!-- //-- Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCY7413RNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JCY7413RNX');
+</script>
+
+
     <!-- React refresh (Vite) -->
-    <script type="module">
+    <!-- <script type="module">
       import RefreshRuntime from "/@react-refresh";
       RefreshRuntime.injectIntoGlobalHook(window);
       window.$RefreshReg$ = () => {};
       window.$RefreshSig$ = () => (type) => type;
       window.__vite_plugin_react_preamble_installed__ = true;
-    </script>
+    </script> -->
   </head>
 
   <body>

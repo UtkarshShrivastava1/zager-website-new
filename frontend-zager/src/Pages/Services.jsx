@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 import ServicesIntro from "../Components/ServicesPage_Sections/ServicesPage_Intro";
 import DigitalMarketing from "../Components/ServicesPage_Sections/ServicesPage_DigitalMarketing";
@@ -9,7 +10,7 @@ import ItSolution from "../Components/ServicesPage_Sections/ServicesPage_ItSolut
 import Designing from "../Components/ServicesPage_Sections/ServicesPage_Designing";
 import ContentCreation from "../Components/ServicesPage_Sections/ServicesPage_ContentCreation";
 import StickyScroll from "../Components/ServicesPage_Sections/ServicesPage_StickyScroll";
-import Architecture from "../Components/ServicesPage_Sections/ServicesPage_Architecture";
+// import Architecture from "../Components/ServicesPage_Sections/ServicesPage_Architecture";
 
 // Local video imports
 import digitalMarketingVideo from "../assets/design1.mp4";

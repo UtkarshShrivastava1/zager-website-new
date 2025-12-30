@@ -135,14 +135,14 @@ function ContactUsPage() {
           name="description"
           content="Get in touch with Zager Digital Services for digital marketing, IT solutions, and more. Start your growth journey today!"
         />
-        <link rel="canonical" href="https://www.zager.in/contact" />
+        <link rel="canonical" href="https://www.zager.in/Contact" />
         {/* Open Graph / Social Sharing */}
         <meta property="og:title" content="Contact Us - Zager" />
         <meta
           property="og:description"
           content="Get in touch with Zager Digital Services for digital marketing, IT solutions, and more. Start your growth journey today!"
         />
-        <meta property="og:url" content="https://www.zager.in/contact" />
+        <meta property="og:url" content="https://www.zager.in/Contact" />
         <meta property="og:type" content="website" />
       </Helmet>
 

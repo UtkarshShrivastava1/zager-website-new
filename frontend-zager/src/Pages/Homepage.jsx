@@ -120,7 +120,6 @@ const HeroSection = () => {
               className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tighter lg:text-5xl sm:text-3xl hidden md:block"
             >
               Empowering <span className="text-[#ffbe00]">Businesses</span> with{" "}
-            
               <span className="text-[#ffbe00]">IT</span> Solutions <br />&
               Digital <span className="text-[#ffbe00]">Marketing</span>
             </h1>

@@ -99,6 +99,7 @@ const HeroSection = () => {
       <meta property="og:url" content="https://www.zager.in/" />
       <meta property="og:type" content="website" />
     </Helmet>
+    
       {/* HERO / HEADER */}
       <header className="relative min-h-fit flex items-center justify-center bg-white text-[#051224] py-8 md:py-12 overflow-hidden  ">
         {/* Decorative Background */}
@@ -112,12 +113,25 @@ const HeroSection = () => {
 
         <div className="relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-12">
           {/* Left Content */}
+          {/* For Desktop and tab  */}
           <article className="content-div flex-1 text-left">
             <h1
               ref={textRef}
-              className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tighter lg:text-5xl sm:text-3xl"
+              className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tighter lg:text-5xl sm:text-3xl hidden md:block"
             >
               Empowering <span className="text-[#ffbe00]">Businesses</span> with{" "}
+            
+              <span className="text-[#ffbe00]">IT</span> Solutions <br />&
+              Digital <span className="text-[#ffbe00]">Marketing</span>
+            </h1>
+
+             {/* For moblie  */}
+             <h1
+              ref={textRef}
+              className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tighter lg:text-5xl sm:text-3xl md:hidden"
+            >
+              Empowering <span className="text-[#ffbe00]">Businesses</span> with{" "}
+               <br/>
               <span className="text-[#ffbe00]">IT</span> Solutions <br />&
               Digital <span className="text-[#ffbe00]">Marketing</span>
             </h1>

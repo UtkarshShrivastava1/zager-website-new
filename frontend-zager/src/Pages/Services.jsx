@@ -145,7 +145,9 @@ const Services = () => {
         {/* End Gradient Effects */}
 
         {/* Section Header */}
-        <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative ">
+          <div className="flex justify-center items-center ">
+
           <h4
             style={{
               fontWeight: "700",
@@ -153,16 +155,20 @@ const Services = () => {
               color: "#ffbe00",
               marginBottom: "20px",
             }}
-            className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
+            className="text-3xl font-bold text-center text-[#ffbe00] outline-2 outline-[#ffbe00]  md:text-4xl rounded-2xl px-2 py-1"
           >
             Our Services
           </h4>
+          </div>
           <p className="text-lg md:text-xl text-gray-600 mt-1 leading-snug">
             Explore our range of services designed to boost your digital
             presence.
           </p>
         </div>
+      
+
         <StickyScroll content={contentData} />
+    
       </div>
     </div>
   );

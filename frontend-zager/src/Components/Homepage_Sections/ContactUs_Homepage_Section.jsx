@@ -130,7 +130,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="relative bg-white min-h-screen overflow-hidden mt-15 md:mt-0">
+    <div className="relative bg-white min-h-screen overflow-hidden mt-1 md:mt-0 py-14">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient Overlay */}
@@ -189,7 +189,7 @@ const ContactForm = () => {
           {/* Right Column - Form */}
           <div
             ref={rightColumnRef}
-            className="bg-white rounded-lg p-6 md:p-8 shadow-lg"
+            className="bg-white rounded-lg p-6 md:p-8 shadow-lg "
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Start a conversation with us
@@ -202,7 +202,7 @@ const ContactForm = () => {
             {errorMessage && (
               <p className="text-red-600 font-semibold mb-4">{errorMessage}</p>
             )}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 ">
               <div>
                 <input
                   type="text"

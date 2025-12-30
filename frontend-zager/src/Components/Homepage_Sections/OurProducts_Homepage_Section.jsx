@@ -217,7 +217,7 @@ const OurProducts = () => {
 
   return (
     <div
-      className="products-bg relative overflow-hidden "
+      className="products-bg relative overflow-hidden  py-14"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocusIn}

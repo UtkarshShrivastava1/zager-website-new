@@ -49,7 +49,7 @@ const StickyScroll = ({ content, contentClassName }) => {
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       className={`h-auto max-h-[40rem] overflow-y-auto flex flex-col lg:flex-row justify-center relative space-y-6 lg:space-x-10 rounded-md p-4 sm:p-6 lg:p-10 no-scrollbar transition-all duration-500 ease-in-out shadow-lg ${
-        isMobile ? "pt-1120" : ""
+        isMobile ? "pt-830" : ""
       }`}
       ref={ref}
     >

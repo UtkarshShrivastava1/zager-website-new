@@ -46,7 +46,7 @@ const platforms = [
 
 const OurPlatform = () => {
   return (
-    <section className="relative bg-white py-20 px-5 md:px-20 overflow-hidden">
+    <section className="relative bg-white py-14 px-5 md:px-20 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Large circle at top-right */}
@@ -64,7 +64,7 @@ const OurPlatform = () => {
             color: "#ffbe00",
             marginBottom: "20px",
           }}
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1  mt-5"
+          className="text-3xl  font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl md:px-6 py-1 px-3   mt-5"
         >
           Our Platforms
         </h4>

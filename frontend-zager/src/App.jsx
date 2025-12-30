@@ -39,9 +39,9 @@ function App() {
       <div className="min-h-screen">
         <Routes>
           {/* Redirect root to /Home */}
-          <Route path="/" element={<Navigate to="/Home" replace />} />
+          <Route path="/Home" element={<Navigate to="/" replace />} />
           {/* Public Routes */}
-          <Route path="/Home" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/admin/admin-login" element={<Signin />} />
           <Route path="/About" element={<AboutUsPage />} />
           <Route path="/Contact" element={<ContactUsPage />} />

@@ -73,7 +73,7 @@ const OurServicesSections = () => {
   }, []);
 
   return (
-    <section className="relative services-bg py-16 text-[#051224] overflow-hidden ">
+    <section className="relative services-bg py-14 text-[#051224] overflow-hidden  ">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -86,6 +86,15 @@ const OurServicesSections = () => {
         ></div>
         {/* Matching corner circles */}
       </div>
+
+
+       <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
+          <div className="absolute top-600 -left-5 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse"></div>
+        </div>
 
       <div className="text-center mb-12 relative z-10">
         <div className=" flex items-center justify-center w-full text-center ">

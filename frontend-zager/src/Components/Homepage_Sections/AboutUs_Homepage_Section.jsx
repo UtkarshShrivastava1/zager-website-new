@@ -46,7 +46,7 @@ const AboutUsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 bg-white overflow-hidden"
+      className="relative py-10 bg-white overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -64,6 +64,8 @@ const AboutUsSection = () => {
         {/* Small circle at bottom-left */}
         <div className="absolute -bottom-32 -left-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl animate-pulse pointer-events-none"></div>
       </div>
+
+      
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         {/* Title Section: Centered across the full container */}

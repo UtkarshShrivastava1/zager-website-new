@@ -147,12 +147,21 @@ function ContactUsPage() {
       </Helmet>
 
       <div className="bg-white min-h-screen overflow-hidden mt-15 md:mt-5">
-        <h4
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
-          style={{ fontWeight: "700", fontSize: "2.5rem" }}
-        >
-          Contact Us
-        </h4>
+        <div className="flex justify-center items-center mt-4 ">
+
+          <h4
+            style={{
+              fontWeight: "700",
+              fontSize: "2.5rem",
+              color: "#ffbe00",
+              marginBottom: "20px",
+            }}
+            className="text-3xl font-bold text-center text-[#ffbe00] outline-2 outline-[#ffbe00]  md:text-4xl rounded-2xl px-2 py-1"
+          >
+             Contact Us
+          </h4>
+          </div>
+       
         <div
           ref={containerRef}
           className="container mx-auto px-4 py-12 md:py-20 !pt-4"

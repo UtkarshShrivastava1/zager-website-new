@@ -2,7 +2,7 @@ import "../ui/Clients.css"; // Import the CSS file
 
 const Clients = () => {
   return (
-    <div className="clients-container relative overflow-hidden">
+    <div className="clients-container relative overflow-hidden py-14 ">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Large circle at top-right */}

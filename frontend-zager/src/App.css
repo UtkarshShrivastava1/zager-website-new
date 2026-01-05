@@ -29,3 +29,8 @@
 .animate-ping {
   animation: ping 1.5s infinite;
 }
+
+a{
+  text-decoration: none;
+  
+}

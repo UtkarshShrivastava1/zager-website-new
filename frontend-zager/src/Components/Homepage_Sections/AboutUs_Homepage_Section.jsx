@@ -79,7 +79,7 @@ const AboutUsSection = () => {
             }}
             className="text-2xl font-bold text-center  text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           >
-            About
+            About Us
           </h4>
         </div>
 

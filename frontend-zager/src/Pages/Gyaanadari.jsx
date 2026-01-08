@@ -98,6 +98,7 @@ function Gyaanadari() {
           name="description"
           content="Gyaanadari offers high-quality content, podcasts, interviews, and updates to inform, inspire, and entertain audiences."
         />
+          <link rel="canonical" href="https://www.zager.in/ourplatforms/gyaanadari" />
       </Helmet>
     <div className="relative overflow-x-hidden">
       {/* Background Gradient Overlay & Glowing Circles */}

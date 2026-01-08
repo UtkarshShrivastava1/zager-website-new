@@ -296,7 +296,8 @@ export default function ZagerManagementSystem() {
           property="og:description"
           content="Modular ERP platform with industry-specific solutions for school, restaurant, HR, clinic, inventory, and task management."
         />
-        
+        <link rel="canonical" href="https://www.zager.in/ourplatforms/zms" />
+
       </Helmet>
     <div className="relative overflow-x-hidden bg-gray-50 min-h-screen">
       {/* background glows */}

@@ -133,7 +133,8 @@ function IRMediaAndProductions() {
           property="og:description"
           content="Delivering high-quality media solutions including digital ads, films, video production, and media consulting."
         />
-      
+      <link rel="canonical" href="https://www.zager.in/ourplatforms/ira-media-and-productions" />
+
       </Helmet>
 
     <div className="relative overflow-x-hidden">

@@ -77,7 +77,7 @@ const AboutUsSection = () => {
             }}
             className="text-2xl font-bold text-center  text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           >
-            About
+            About Zager
           </h4>
         </div>
 
@@ -90,7 +90,8 @@ const AboutUsSection = () => {
             </h2>
             <p className="text-gray-600 mt-4 text-lg leading-relaxed">
               At Zager Digital Services, we believe that exceptional Digital
-              Marketing and IT solutions stem from a core commitment to
+              Marketing and IT solutions for modern businesses
+ stem from a core commitment to
               integrity, innovation, and excellence. Founded with the mission to
               empower businesses through cutting-edge technology and strategic
               marketing, we take pride in delivering tailored solutions that
@@ -108,7 +109,9 @@ const AboutUsSection = () => {
           <div ref={imageRef} className="flex justify-center">
             <img
               src="https://images.pexels.com/photos/4549411/pexels-photo-4549411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="About"
+              // alt="About"
+              alt="About Zager Digital Services and our approach to digital innovation"
+
               className="rounded-lg shadow-lg w-full md:w-96"
             />
           </div>

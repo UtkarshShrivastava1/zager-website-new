@@ -166,7 +166,7 @@ export default function Clients() {
   return (
     <>
    <Helmet>
-      <title>Our Clients - Zager Digital Services</title>
+      <title>Our Clients-Zager Digital Services</title>
       <meta
         name="description"
         content="Explore our clients and projects at Zager Digital Services. See testimonials, case studies, and the impact of our web & digital marketing solutions."

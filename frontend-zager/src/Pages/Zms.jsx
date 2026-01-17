@@ -285,7 +285,7 @@ export default function ZagerManagementSystem() {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Zager Management System (ZMS) | ERP Modules</title>
         <meta
           name="description"
@@ -297,291 +297,302 @@ export default function ZagerManagementSystem() {
           content="Modular ERP platform with industry-specific solutions for school, restaurant, HR, clinic, inventory, and task management."
         />
         <link rel="canonical" href="https://www.zager.in/ourplatforms/zms" />
-
       </Helmet>
-    <div className="relative overflow-x-hidden bg-gray-50 min-h-screen">
-      {/* background glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="w-full h-full"
-          style={{
-            background:
-              "radial-gradient(800px 400px at 10% 10%, rgba(255,190,0,0.06), transparent 12%), radial-gradient(600px 300px at 90% 90%, rgba(17,24,39,0.02), transparent 12%)",
-          }}
-        />
-        <div
-          ref={topGlowRef}
-          className="absolute -top-12 -right-12 w-72 h-72 bg-gradient-to-br from-[#ffefb8] to-[#ffbe00] rounded-full opacity-25 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          ref={bottomGlowRef}
-          className="absolute -bottom-40 -left-16 w-80 h-80 bg-gradient-to-tr from-[#fff1d6] to-[#ffbe00] rounded-full opacity-22 blur-3xl"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Heading value={"ZAGER MANAGEMENT SYSTEM"} />
-
-        <div className="flex flex-col items-center justify-center py-6 gap-4">
-          <TextGenerateEffect words={words} />
-          <p className="max-w-3xl text-center text-base sm:text-lg text-gray-700">
-            Zager Management System (ZMS) is a modular ERP platform with
-            industry-specific modules. Click a module card below to jump to a
-            full description with visuals, features and CTAs.
-          </p>
+      <div className="relative overflow-x-hidden bg-gray-50 min-h-screen">
+        {/* background glows */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "radial-gradient(800px 400px at 10% 10%, rgba(255,190,0,0.06), transparent 12%), radial-gradient(600px 300px at 90% 90%, rgba(17,24,39,0.02), transparent 12%)",
+            }}
+          />
+          <div
+            ref={topGlowRef}
+            className="absolute -top-12 -right-12 w-72 h-72 bg-gradient-to-br from-[#ffefb8] to-[#ffbe00] rounded-full opacity-25 blur-3xl"
+            aria-hidden="true"
+          />
+          <div
+            ref={bottomGlowRef}
+            className="absolute -bottom-40 -left-16 w-80 h-80 bg-gradient-to-tr from-[#fff1d6] to-[#ffbe00] rounded-full opacity-22 blur-3xl"
+            aria-hidden="true"
+          />
         </div>
 
-        {/* vision & hero */}
-        <section ref={sectionRef} className="py-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div
-              ref={contentRef}
-              className="text-center md:text-left space-y-4"
-            >
-              <h2 className="text-[#ffbe00] text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-                Our Vision & Mission
-              </h2>
-              <p className="text-gray-700 leading-relaxed">
-                We build configurable ERP modules that plug into your business
-                with minimal friction. Focus on outcomes: faster operations,
-                lower waste and better visibility.
-              </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h1 className="sr-only">
+            ZMS – Smart Digital Management System by Zager Digital Services
+          </h1>
 
-              <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-                <a
-                  href="/Contact"
-                  className="inline-flex items-center gap-2 bg-[#111827] text-white px-5 py-2.5 rounded-md shadow-md hover:opacity-95"
-                >
-                  Contact Sales
-                </a>
-                <button
-                  onClick={() => {
-                    if (typeof window !== "undefined")
-                      window.location.hash = `#${solutions[0].id}`;
-                    scrollTo(solutions[0].id);
-                  }}
-                  className="inline-flex items-center gap-2 border border-gray-300 px-4 py-2.5 rounded-md text-gray-800 bg-white"
-                >
-                  Explore Modules
-                </button>
-              </div>
-            </div>
+          <Heading value={"ZAGER MANAGEMENT SYSTEM"} />
 
-            <div ref={imageRef} className="flex justify-center">
-              <img
-                src={zmsPlatformImg}
-                alt="ZMS Platform screenshot"
-                className="rounded-xl w-full max-w-sm sm:max-w-md shadow-2xl object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* solutions grid */}
-        <div className="mt-8">
-          <div ref={solutionsTitleRef} id="our-solutions" className="mb-4">
-            <Heading value={"Our Solutions"} />
+          <div className="flex flex-col items-center justify-center py-6 gap-4">
+            <TextGenerateEffect words={words} />
+            <p className="max-w-3xl text-center text-base sm:text-lg text-gray-700">
+              Zager Management System (ZMS) is a modular ERP platform with
+              industry-specific modules. Click a module card below to jump to a
+              full description with visuals, features and CTAs.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {solutions.map((solution) => (
-              <div key={solution.id} className="group">
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => {
-                    if (typeof window !== "undefined")
-                      window.location.hash = `#${solution.id}`;
-                    scrollTo(solution.id);
-                  }}
-                  onKeyDown={(e) => handleCardKeyDown(e, solution.id)}
-                  className={cn(
-                    "relative cursor-pointer h-56 md:h-72 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center p-4 transition-transform transform group-hover:-translate-y-1",
-                    "focus:outline-none focus:ring-4 focus:ring-[#ffbe00]/30"
-                  )}
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 65%), url(${solution.imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundColor: "#0b1220",
-                  }}
-                  aria-label={`Open ${solution.name} details`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-                  <div className="relative z-10 text-white text-center px-3">
-                    <h4 className="text-base sm:text-lg font-semibold leading-tight">
-                      {solution.name}
-                    </h4>
-                    <p className="mt-2 text-sm text-gray-100 hidden sm:block">
-                      {solution.description?.[0]?.slice(0, 80) ?? ""}...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* detailed sections: alternate image left/right */}
-        <div className="mt-12 space-y-14">
-          {solutions.map((s, idx) => {
-            const isLeftImage = idx % 2 === 0;
-            const imageCol = isLeftImage ? "md:order-1" : "md:order-2";
-            const textCol = isLeftImage ? "md:order-2" : "md:order-1";
-
-            return (
-              <section
-                id={s.id}
-                key={s.id}
-                className="bg-white rounded-2xl shadow-lg p-6 md:p-10 scroll-mt-28"
+          {/* vision & hero */}
+          <section ref={sectionRef} className="py-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div
+                ref={contentRef}
+                className="text-center md:text-left space-y-4"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div
-                    className={cn("flex items-center justify-center", imageCol)}
+                <h2 className="text-[#ffbe00] text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+                  {/* Our Vision & Mission */}
+                  Our Vision & Mission – Modular ERP for Schools, Restaurants &
+                  Businesses
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  We build configurable ERP modules that plug into your business
+                  with minimal friction. Focus on outcomes: faster operations,
+                  lower waste and better visibility.
+                </p>
+
+                <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                  <a
+                    href="/Contact"
+                    className="inline-flex items-center gap-2 bg-[#111827] text-white px-5 py-2.5 rounded-md shadow-md hover:opacity-95"
                   >
-                    <div className="w-full max-w-lg rounded-lg overflow-hidden shadow-inner transform transition-transform duration-300 hover:scale-[1.02]">
-                      <img
-                        src={s.imageUrl}
-                        alt={`${s.name} screenshot`}
-                        className="w-full h-48 sm:h-56 md:h-64 object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                    Contact Sales
+                  </a>
+                  <button
+                    onClick={() => {
+                      if (typeof window !== "undefined")
+                        window.location.hash = `#${solutions[0].id}`;
+                      scrollTo(solutions[0].id);
+                    }}
+                    className="inline-flex items-center gap-2 border border-gray-300 px-4 py-2.5 rounded-md text-gray-800 bg-white"
+                  >
+                    Explore Modules
+                  </button>
+                </div>
+              </div>
 
-                  <div className={cn("space-y-4", textCol)}>
-                    <h3
-                      id={`${s.id}-title`}
-                      className="text-2xl md:text-3xl font-extrabold text-[#111827]"
-                    >
-                      {s.name}
-                    </h3>
+              <div ref={imageRef} className="flex justify-center">
+                <img
+                  src={zmsPlatformImg}
+                  alt="ZMS Platform screenshot"
+                  className="rounded-xl w-full max-w-sm sm:max-w-md shadow-2xl object-cover"
+                />
+              </div>
+            </div>
+          </section>
 
-                    {s.description &&
-                      s.description.map((p, i) => (
-                        <p key={i} className="text-gray-700">
-                          {p}
-                        </p>
-                      ))}
+          {/* solutions grid */}
+          <div className="mt-8">
+            <div ref={solutionsTitleRef} id="our-solutions" className="mb-4">
+              <Heading value={"Our Solutions"} />
+            </div>
 
-                    {s.features && s.features.length > 0 && (
-                      <>
-                        <h4 className="font-semibold text-gray-900 mt-2">
-                          Key features
-                        </h4>
-                        <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
-                          {s.features.map((f, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-3 bg-gray-50 p-3 rounded-md border border-gray-100"
-                            >
-                              {/* consistent check icon */}
-                              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#ffbe00] shrink-0 flex-none">
-                                <svg
-                                  width="14"
-                                  height="10"
-                                  viewBox="0 0 14 10"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  aria-hidden="true"
-                                  focusable="false"
-                                >
-                                  <path
-                                    d="M1 5.2L5 9L13 1"
-                                    stroke="black"
-                                    strokeWidth="1.6"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </span>
-                              <span className="leading-tight text-sm md:text-base">
-                                {f}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {solutions.map((solution) => (
+                <div key={solution.id} className="group">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      if (typeof window !== "undefined")
+                        window.location.hash = `#${solution.id}`;
+                      scrollTo(solution.id);
+                    }}
+                    onKeyDown={(e) => handleCardKeyDown(e, solution.id)}
+                    className={cn(
+                      "relative cursor-pointer h-56 md:h-72 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center p-4 transition-transform transform group-hover:-translate-y-1",
+                      "focus:outline-none focus:ring-4 focus:ring-[#ffbe00]/30"
                     )}
-
-                    {s.benefits && s.benefits.length > 0 && (
-                      <>
-                        <h4 className="font-semibold text-gray-900 mt-4">
-                          Benefits
-                        </h4>
-                        <ul className="mt-2 list-disc list-inside text-gray-700">
-                          {s.benefits.map((b, i) => (
-                            <li key={i} className="text-sm md:text-base">
-                              {b}
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <a
-                        href={`/Contact?product=${encodeURIComponent(s.name)}`}
-                        className="inline-flex items-center gap-2 bg-[#ffbe00] text-black font-semibold px-4 py-2 rounded-lg shadow hover:brightness-95"
-                      >
-                        Request Demo
-                      </a>
-
-                      <button
-                        onClick={() => {
-                          if (typeof window !== "undefined")
-                            window.location.hash = "#our-solutions";
-                          robustScrollToId("our-solutions", {
-                            offset: 88,
-                            maxAttempts: 10,
-                            interval: 50,
-                          });
-                        }}
-                        className="inline-flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-lg text-gray-800 bg-white"
-                      >
-                        Back to modules
-                      </button>
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 65%), url(${solution.imageUrl})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundColor: "#0b1220",
+                    }}
+                    aria-label={`Open ${solution.name} details`}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                    <div className="relative z-10 text-white text-center px-3">
+                      <h4 className="text-base sm:text-lg font-semibold leading-tight">
+                        {solution.name}
+                      </h4>
+                      <p className="mt-2 text-sm text-gray-100 hidden sm:block">
+                        {solution.description?.[0]?.slice(0, 80) ?? ""}...
+                      </p>
                     </div>
                   </div>
                 </div>
-              </section>
-            );
-          })}
-        </div>
+              ))}
+            </div>
+          </div>
 
-        {/* CTA */}
-        <div className="mt-12 mb-20 text-center">
-          <h3 className="text-3xl font-extrabold text-[#111827]">
-            Ready to get started?
-          </h3>
-          <p className="mt-3 text-gray-700 max-w-2xl mx-auto">
-            Book a demo and we'll walk you through a tailored implementation
-            plan.
-          </p>
+          {/* detailed sections: alternate image left/right */}
+          <div className="mt-12 space-y-14">
+            {solutions.map((s, idx) => {
+              const isLeftImage = idx % 2 === 0;
+              const imageCol = isLeftImage ? "md:order-1" : "md:order-2";
+              const textCol = isLeftImage ? "md:order-2" : "md:order-1";
 
-          <div className="mt-6 flex justify-center gap-4 flex-wrap">
-            <a
-              href="/Contact"
-              className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full shadow-lg"
-            >
-              Contact Sales
-            </a>
-            <button
-              onClick={() => {
-                if (typeof window !== "undefined")
-                  window.location.hash = `#${solutions[0].id}`;
-                scrollTo(solutions[0].id);
-              }}
-              className="inline-flex items-center gap-2 border border-gray-300 px-5 py-3 rounded-full text-gray-800 bg-white"
-            >
-              Explore Modules
-            </button>
+              return (
+                <section
+                  id={s.id}
+                  key={s.id}
+                  className="bg-white rounded-2xl shadow-lg p-6 md:p-10 scroll-mt-28"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div
+                      className={cn(
+                        "flex items-center justify-center",
+                        imageCol
+                      )}
+                    >
+                      <div className="w-full max-w-lg rounded-lg overflow-hidden shadow-inner transform transition-transform duration-300 hover:scale-[1.02]">
+                        <img
+                          src={s.imageUrl}
+                          alt={`${s.name} screenshot`}
+                          className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    <div className={cn("space-y-4", textCol)}>
+                      <h3
+                        id={`${s.id}-title`}
+                        className="text-2xl md:text-3xl font-extrabold text-[#111827]"
+                      >
+                        {s.name}
+                      </h3>
+
+                      {s.description &&
+                        s.description.map((p, i) => (
+                          <p key={i} className="text-gray-700">
+                            {p}
+                          </p>
+                        ))}
+
+                      {s.features && s.features.length > 0 && (
+                        <>
+                          <h4 className="font-semibold text-gray-900 mt-2">
+                            Key features
+                          </h4>
+                          <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
+                            {s.features.map((f, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 bg-gray-50 p-3 rounded-md border border-gray-100"
+                              >
+                                {/* consistent check icon */}
+                                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#ffbe00] shrink-0 flex-none">
+                                  <svg
+                                    width="14"
+                                    height="10"
+                                    viewBox="0 0 14 10"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                  >
+                                    <path
+                                      d="M1 5.2L5 9L13 1"
+                                      stroke="black"
+                                      strokeWidth="1.6"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </span>
+                                <span className="leading-tight text-sm md:text-base">
+                                  {f}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+
+                      {s.benefits && s.benefits.length > 0 && (
+                        <>
+                          <h4 className="font-semibold text-gray-900 mt-4">
+                            Benefits
+                          </h4>
+                          <ul className="mt-2 list-disc list-inside text-gray-700">
+                            {s.benefits.map((b, i) => (
+                              <li key={i} className="text-sm md:text-base">
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        <a
+                          href={`/Contact?product=${encodeURIComponent(
+                            s.name
+                          )}`}
+                          className="inline-flex items-center gap-2 bg-[#ffbe00] text-black font-semibold px-4 py-2 rounded-lg shadow hover:brightness-95"
+                        >
+                          {/* Request Demo */}
+                          Request Demo for {s.name}
+                        </a>
+
+                        <button
+                          onClick={() => {
+                            if (typeof window !== "undefined")
+                              window.location.hash = "#our-solutions";
+                            robustScrollToId("our-solutions", {
+                              offset: 88,
+                              maxAttempts: 10,
+                              interval: 50,
+                            });
+                          }}
+                          className="inline-flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-lg text-gray-800 bg-white"
+                        >
+                          Back to modules
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-12 mb-20 text-center">
+            <h3 className="text-3xl font-extrabold text-[#111827]">
+              Ready to get started?
+            </h3>
+            <p className="mt-3 text-gray-700 max-w-2xl mx-auto">
+              Book a demo and we'll walk you through a tailored implementation
+              plan.
+            </p>
+
+            <div className="mt-6 flex justify-center gap-4 flex-wrap">
+              <a
+                href="/Contact"
+                className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full shadow-lg"
+              >
+                Contact Sales
+              </a>
+              <button
+                onClick={() => {
+                  if (typeof window !== "undefined")
+                    window.location.hash = `#${solutions[0].id}`;
+                  scrollTo(solutions[0].id);
+                }}
+                className="inline-flex items-center gap-2 border border-gray-300 px-5 py-3 rounded-full text-gray-800 bg-white"
+              >
+                Explore Modules
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

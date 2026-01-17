@@ -165,7 +165,7 @@ function ContactUsPage() {
                    Digital Innovation & {" "}
                  </span>
                  <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
-                        Strategic Solutions
+                        Strategic IT Solutions
                  </span>
               </h2>
               {/* <div className="space-y-2">

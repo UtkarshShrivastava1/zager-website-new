@@ -122,121 +122,137 @@ function IRMediaAndProductions() {
 
   return (
     <>
-    <Helmet>
-        <title>IR Media & Productions | Digital Media, Films & Video Production</title>
-        <meta
+      <Helmet>
+        {/* <title>IR Media & Productions | Digital Media, Films & Video Production</title> */}
+        <title>
+          IR Media & Productions - Digital Media Services, Films & Video
+          Production in India
+        </title>
+        {/* <meta
           name="description"
           content="IR Media & Productions offers digital media services, films, video production, digital ads, media consulting, and research. Transform your vision into engaging content."
+        /> */}
+        <meta
+          name="description"
+          content="IR Media & Productions provides professional digital media services, films, video production, digital advertising, media consulting, and research in India. Transform your ideas into engaging content."
         />
         <meta property="og:title" content="IR Media & Productions" />
         <meta
           property="og:description"
           content="Delivering high-quality media solutions including digital ads, films, video production, and media consulting."
         />
-      <link rel="canonical" href="https://www.zager.in/ourplatforms/ira-media-and-productions" />
-
+        <link
+          rel="canonical"
+          href="https://www.zager.in/ourplatforms/ira-media-and-productions"
+        />
       </Helmet>
 
-    <div className="relative overflow-x-hidden">
-      <div className="mt-15">
-        <Heading value={"IRA MEDIA & PRODUCTIONS"} />
-        <div className="flex flex-col items-center justify-center py-5 gap-2">
-          <TextGenerateEffect words={words} />
-          <p className="w-full text-center text-lg">
-            Where creativity meets strategy to bring your media projects to
-            life. At Ira Media & Productions, we specialize in delivering a
-            comprehensive range of media and production services that include
-            video productions, digital ads, films, digital media services, media
-            consulting, and research. Our mission is to transform your vision
-            into impactful and engaging content that resonates with your
-            audience.
-          </p>
-        </div>
+      <div className="relative overflow-x-hidden">
+        <div className="mt-15">
+          <h1 className="sr-only">
+            IR Media & Productions – Digital Media & Video Production Company in
+            India
+          </h1>
 
-        {/* Our Mission Section */}
-        <section ref={sectionRef} className="py-12">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              {/* Text Content */}
-              <div ref={contentRef} className="text-center md:text-left">
-                <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
-                  Our Mission
-                </h3>
-                <p className="text-gray-900 mt-4 text-lg leading-relaxed">
-                  At Ira Media & Productions, our mission is to elevate your
-                  brand through innovative media solutions and high-quality
-                  productions. We are dedicated to crafting compelling
-                  narratives and creating visually stunning content that not
-                  only captures attention but also drives results. Our goal is
-                  to be your trusted partner in navigating the ever-evolving
-                  media landscape.
-                </p>
-              </div>
+          <Heading value={"IRA MEDIA & PRODUCTIONS"} />
+          <div className="flex flex-col items-center justify-center py-5 gap-2">
+            <TextGenerateEffect words={words} />
+            <p className="w-full text-center text-lg">
+              Where creativity meets strategy to bring your media projects to
+              life. At Ira Media & Productions, we specialize in delivering a
+              comprehensive range of media and production services that include
+              video productions, digital ads, films, digital media services,
+              media consulting, and research. Our mission is to transform your
+              vision into impactful and engaging content that resonates with
+              your audience.
+            </p>
+          </div>
 
-              {/* Image Section */}
-              <div ref={imageRef} className="flex justify-center">
-                <img
-                  src={iramediaImg}
-                  alt="IR Media Platform"
-                  className="rounded-lg w-full md:w-96"
-                />
+          {/* Our Mission Section */}
+          <section ref={sectionRef} className="py-12">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                {/* Text Content */}
+                <div ref={contentRef} className="text-center md:text-left">
+                  <h3 className="text-[#ffbe00] text-4xl font-bold tracking-normal">
+                    {/* Our Mission */}
+                    Our Mission: High-Quality Video, Ads & Media Consulting
+                  </h3>
+                  <p className="text-gray-900 mt-4 text-lg leading-relaxed">
+                    At Ira Media & Productions, our mission is to elevate your
+                    brand through innovative media solutions and high-quality
+                    productions. We are dedicated to crafting compelling
+                    narratives and creating visually stunning content that not
+                    only captures attention but also drives results. Our goal is
+                    to be your trusted partner in navigating the ever-evolving
+                    media landscape.
+                  </p>
+                </div>
+
+                {/* Image Section */}
+                <div ref={imageRef} className="flex justify-center">
+                  <img
+                    src={iramediaImg}
+                    alt="IR Media & Productions - Digital Media Services, Films & Video Production"
+                    className="rounded-lg w-full md:w-96"
+                  />
+                </div>
               </div>
             </div>
+          </section>
+
+          <div className="mt-17">
+            <Heading value={"What we Do?"} />
           </div>
-        </section>
 
-        <div className="mt-17">
-          <Heading value={"What we Do?"} />
-        </div>
-
-        {/* Work Values Grid with 2 rows, 4 columns:
+          {/* Work Values Grid with 2 rows, 4 columns:
             Row 1: 0->DIGITAL MEDIA SERVICE, 1->FILMS, 2->DIGITAL ADS, 3->VIDEO PRODUCTION
             Row 2: empty, 5->MEDIA CONSULTING, 4->RESEARCH, empty */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10">
-          {/* Row 1 */}
-          <Card value={workValues[0]} />
-          <Card value={workValues[1]} />
-          <Card value={workValues[2]} />
-          <Card value={workValues[3]} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10">
+            {/* Row 1 */}
+            <Card value={workValues[0]} />
+            <Card value={workValues[1]} />
+            <Card value={workValues[2]} />
+            <Card value={workValues[3]} />
 
-          {/* Row 2 */}
-          {/* <div></div> */}
-          <Card value={workValues[5]} />
-          <Card value={workValues[4]} />
-          <div></div>
+            {/* Row 2 */}
+            {/* <div></div> */}
+            <Card value={workValues[5]} />
+            <Card value={workValues[4]} />
+            <div></div>
+          </div>
+
+          {/* Final Section */}
+          <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-12">
+            <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center capitalize">
+              why choose ira media & productions?
+            </h2>
+            <p className="w-full text-center text-lg">
+              Our team of experienced professionals brings a wealth of knowledge
+              and skill to every project, ensuring exceptional results. We offer
+              a full suite of services to meet all your media needs, from video
+              production and digital ads to media consulting and research. With
+              our client-focused approach, we tailor our services to fit your
+              unique needs and objectives, providing personalized solutions that
+              deliver real value.
+            </p>
+          </div>
         </div>
 
-        {/* Final Section */}
-        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-12">
-          <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center capitalize">
-            why choose ira media & productions?
-          </h2>
-          <p className="w-full text-center text-lg">
-            Our team of experienced professionals brings a wealth of knowledge
-            and skill to every project, ensuring exceptional results. We offer a
-            full suite of services to meet all your media needs, from video
-            production and digital ads to media consulting and research. With
-            our client-focused approach, we tailor our services to fit your
-            unique needs and objectives, providing personalized solutions that
-            deliver real value.
-          </p>
+        {/* Background Gradient Overlay & Glowing Circles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+              opacity: 0.1,
+            }}
+          ></div>
+          <div className="top-glow absolute -top-5 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+          <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
         </div>
       </div>
-
-      {/* Background Gradient Overlay & Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="w-full h-full"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-            opacity: 0.1,
-          }}
-        ></div>
-        <div className="top-glow absolute -top-5 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-        <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-      </div>
-    </div>
     </>
   );
 }

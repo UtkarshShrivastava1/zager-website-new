@@ -277,9 +277,9 @@ const OurProducts = () => {
               </div>
 
               <div className="flex flex-col justify-center w-full md:w-[55%] p-2 md:p-4">
-                <h4 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">
                   {product.name}
-                </h4>
+                </h3>
                 <p className="text-base md:text-lg text-gray-600 mb-4">
                   {product.description}
                 </p>

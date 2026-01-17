@@ -27,7 +27,9 @@ const contentData = [
     id: "web-development",
     title: "Web Development",
     description:
-      "Build and maintain high-performance websites with custom design, coding, and server configuration to ensure seamless user experience.",
+      // "Build and maintain high-performance websites with custom design, coding, and server configuration to ensure seamless user experience.",
+      "Build high-performance websites with custom web development and website design services tailored for startups and enterprises.",
+
     tags: <WebDevelopment />,
     videoUrl: webDevelopmentVideo,
   },
@@ -35,7 +37,9 @@ const contentData = [
     id: "it-solutions",
     title: "IT Solutions and Services",
     description:
-      "Get comprehensive support for software, networks, and technical challenges to boost your business efficiency.",
+      // "Get comprehensive support for software, networks, and technical challenges to boost your business efficiency.",
+      "Get comprehensive IT solutions and services for software, networks, and technical challenges to boost overall business efficiency.",
+
     tags: <ItSolution />,
     videoUrl: itSolutionsVideo,
   },
@@ -43,17 +47,19 @@ const contentData = [
     id: "digital-media",
     title: "Digital Marketing",
     description:
-      "Promote your products or services using digital channels like social media, search engines, email, and websites to engage your target audience.",
+      // "Promote your products or services using digital channels like social media, search engines, email, and websites to engage your target audience.",
+      "Promote your products or services using digital marketing services across channels like social media, search engines, email, and websites to engage your target audience.",
     tags: <DigitalMarketing />,
     videoUrl: digitalMarketingVideo,
   },
 
-  
   {
     id: "designing",
     title: "Graphic Designing & Branding",
     description:
-      "Enhance your brand identity with visually stunning designs that capture attention and convey your message effectively.",
+      // "Enhance your brand identity with visually stunning designs that capture attention and convey your message effectively.",
+      "Enhance your brand identity with professional graphic designing and branding services that capture attention and clearly convey your message.",
+
     tags: <Designing />,
     videoUrl: designingVideo,
   },
@@ -61,7 +67,9 @@ const contentData = [
     id: "media-production",
     title: "Media Production",
     description:
-      "Create captivating video and media content through end-to-end production—from concept development to final editing.",
+      // "Create captivating video and media content through end-to-end production—from concept development to final editing.",
+      "Create captivating video and media content with media production services covering end-to-end production, from concept development to final editing.",
+
     tags: <MediaProduction />,
     videoUrl: mediaProductionVideo,
   },
@@ -69,7 +77,9 @@ const contentData = [
     id: "content-creation",
     title: "Content Creation",
     description:
-      "Engage your audience with high-quality content in various formats that supports your marketing goals and builds your brand.",
+      // "Engage your audience with high-quality content in various formats that supports your marketing goals and builds your brand.",
+      "Engage your audience with high-quality content creation services in various formats that support your marketing goals and help build your brand.",
+
     tags: <ContentCreation />,
     videoUrl: contentCreationVideo,
   },
@@ -101,10 +111,15 @@ const Services = () => {
   return (
     <div>
       <Helmet>
-        <title>Our Services - Zager</title>
+        {/* <title>Our Services - Zager</title> */}
+        <title>
+          Our Services | Web Development & Digital Marketing Services – Zager
+        </title>
+
         <meta
           name="description"
-          content="Discover Zager's range of digital services including Web Development, IT Solutions, Digital Marketing, Graphic Designing, Media Production, and Content Creation."
+          content="Zager is an IT services company offering web development services, digital marketing services, graphic designing, media production, and content creation for businesses in India.
+"
         />
         <link rel="canonical" href="https://www.zager.in/Services" />
         {/* Open Graph / Social Sharing */}
@@ -146,6 +161,10 @@ const Services = () => {
 
         {/* Section Header */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 text-center relative">
+          <h1 className="sr-only">
+            Web Development, Digital Marketing & IT Services Company in India
+          </h1>
+
           <h4
             style={{
               fontWeight: "700",

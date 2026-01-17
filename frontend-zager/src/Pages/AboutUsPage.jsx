@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, Palette, Settings, TrendingUp } from "lucide-react";
 import { Target, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import aboutBanner from "../assets/aboutBanner.png"
+import aboutBanner from "../assets/aboutBanner.png";
 import { Helmet } from "react-helmet-async";
 
 // Generic fade-in/up variant for sections
@@ -15,9 +15,6 @@ const fadeInUp = {
     transition: { duration: 1.8, ease: "easeOut" },
   },
 };
-
-
-
 
 const containerVariants = {
   hidden: {},
@@ -38,7 +35,6 @@ const cardVariants = {
 };
 
 const AboutUsPage = () => {
- 
   const values = [
     {
       icon: "👥",
@@ -60,93 +56,113 @@ const AboutUsPage = () => {
     },
   ];
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full bg-white">
-       <Helmet>
-        <title>About Us - Zager</title>
+      <Helmet>
+        {/* <title>About Us - Zager</title> */}
+        <title>
+          About Zager | IT Services, Digital Marketing & Web Development Company
+          in India
+        </title>
+        {/* 
         <meta
           name="description"
           content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
+        /> */}
+        <meta
+          name="description"
+          content="Learn more About Zager, a technology company delivering scalable digital products, business technology solutions, and end-to-end digital solutions for modern businesses in India."
         />
         <link rel="canonical" href="https://www.zager.in/About" />
         {/* Open Graph / Social Sharing */}
-        <meta property="og:title" content="About Us - Zager" />
+        <meta
+          property="og:title"
+          content="About Zager | IT Services, Digital Marketing & Web Development Company in India"
+        />
         <meta
           property="og:description"
-          content="Learn more about Zager – we build scalable digital products and technology solutions that drive business growth."
+          content="Learn more About Zager, a technology company delivering scalable digital products, business technology solutions, and end-to-end digital solutions for modern businesses in India.
+"
         />
         <meta property="og:url" content="https://www.zager.in/About" />
         <meta property="og:type" content="website" />
       </Helmet>
 
-    <section
-  className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden bg-[#051224]"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(5,18,36,0.85), rgba(5,18,36,0.85)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80')",
-    backgroundSize: "cover",
-    backgroundPosition: "center 50%",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  {/* Yellow glow accents */}
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
-    <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
-  </div>
+      <section
+        className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden bg-[#051224]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(5,18,36,0.85), rgba(5,18,36,0.85)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 50%",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Yellow glow accents */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl"></div>
+        </div>
 
-  {/* Subtle animated dark overlay */}
-  <motion.div
-    className="absolute inset-0 bg-[#051224]"
-    initial={{ opacity: 0.6 }}
-    animate={{ opacity: 0.8 }}
-    transition={{
-      duration: 2,
-      ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "reverse",
-    }}
-  />
+        {/* Subtle animated dark overlay */}
+        <motion.div
+          className="absolute inset-0 bg-[#051224]"
+          initial={{ opacity: 0.6 }}
+          animate={{ opacity: 0.8 }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
 
-  {/* Hero Content */}
-  <div className="relative z-10 container mx-auto px-4 py-6 md:py-10">
-    <div className="max-w-4xl mx-auto space-y-6 ">
-      {/* Example heading using yellow + white */}
-      {/* 
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-4 py-6 md:py-10">
+          <div className="max-w-4xl mx-auto space-y-6 ">
+            {/* Example heading using yellow + white */}
+            {/* 
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#ffbe00] drop-shadow-lg">
         Empowering Businesses, Elevating Digital Success!
       </h1>
       */}
 
-      <img
-        src={aboutBanner}
-        alt="About Zager"
-        className="mx-auto max-w-full h-auto mb-4 "
-      />
+            <img
+              src={aboutBanner}
+              alt="About Zager"
+              className="mx-auto max-w-full h-auto mb-4 "
+            />
 
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1, ease: "easeOut", delay: 0.2 },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="text-base text-left   p-5 md:text-lg lg:text-xl text-white leading-relaxed drop-shadow-md text-center"
-      >
-        At <span className="font-bold text-[#ffbe00]">Zager</span> builds scalable digital products and end-to-end technology solutions for modern businesses. We integrate modern technologies, AI-enabled automation, and performance-driven digital marketing to streamline operations, strengthen digital presence, and drive sustainable growth. Our focus remains on delivering reliable, high-performance systems that create long-term business value.
-      </motion.p>
-    </div>
-  </div>
-</section>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 1, ease: "easeOut", delay: 0.2 },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              className="text-base text-left   p-5 md:text-lg lg:text-xl text-white leading-relaxed drop-shadow-md text-center"
+            >
+              {/* At <span className="font-bold text-[#ffbe00]">Zager</span> builds
+              scalable digital products and end-to-end technology solutions for
+              modern businesses. We integrate modern technologies, AI-enabled
+              automation, and performance-driven digital marketing to streamline
+              operations, strengthen digital presence, and drive sustainable
+              growth. Our focus remains on delivering reliable, high-performance
+              systems that create long-term business value. */}
+              At <span className="font-bold text-[#ffbe00]">Zager</span>, we are a technology company focused on building scalable digital products and end-to-end technology solutions for modern businesses. We integrate modern technologies, AI-enabled automation, and performance-driven digital marketing to streamline operations, strengthen digital presence, and drive sustainable growth. Our focus remains on delivering reliable business technology solutions that create long-term value.
 
+            </motion.p>
+          </div>
+        </div>
+      </section>
 
- {/* Why Us Section */}
+      {/* Why Us Section */}
       {/* <motion.section
         className="py-16 bg-gray-50"
         initial="hidden"
@@ -260,7 +276,10 @@ const navigate = useNavigate();
                       <Icon className="text-[#e9ba2b]" size={26} />
                     </div>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3"  style={{ textShadow: "none" }}>
+                    <h3
+                      className="text-xl font-semibold text-gray-900 mb-3"
+                      style={{ textShadow: "none" }}
+                    >
                       {item.title}
                     </h3>
 

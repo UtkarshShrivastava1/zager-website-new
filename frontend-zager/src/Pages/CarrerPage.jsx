@@ -50,7 +50,8 @@ const JOB_OPENINGS = [
 
 function CareerPage() {
   const heroWords =
-    "Are you passionate about Digital Marketing and IT solutions?";
+    // "Are you passionate about Digital Marketing and IT solutions?";
+    "Are you passionate about Digital Marketing and IT solutions and looking to build your career with a growing digital agency?";
   const candidateWords = "We are looking for individuals who are:";
 
   const workValues = [
@@ -233,7 +234,8 @@ function CareerPage() {
   return (
     <>
     <Helmet>
-      <title>Careers at Zager - Join Our Team</title>
+      <title>Careers at Zager Digital Services | Jobs & Internships in IT & Digital Marketing
+</title>
       <meta
         name="description"
         content="Explore career opportunities at Zager Digital Services. Join our team of talented IT & Digital Marketing professionals and grow your career."
@@ -256,12 +258,16 @@ function CareerPage() {
 
       <div className="mt-5 overflow-hidden relative z-10 ">
         {/* Join Our Team Heading */}
-        <h4
+        <h1 className="sr-only">
+  Careers at Zager Digital Services
+</h1>
+
+        <h2
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4 outline-3 outline-[#ffbe00] rounded-2xl px-6 py-1"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Join Our Team
-        </h4>
+        </h2>
         <div className="flex flex-col items-center justify-center py-5 gap-2 px-4">
           <TextGenerateEffect words={heroWords} />
           <p className="w-full sm:w-1/2 text-center text-gray-600">
@@ -276,12 +282,12 @@ function CareerPage() {
         </div>
 
         {/* Work Values */}
-        <h4
+        <h2
           className="text-3xl font-bold text-center text-[#ffbe00] mb-4"
           style={{ fontWeight: "700", fontSize: "2.5rem" }}
         >
           Why Work With Us
-        </h4>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
           {workValues.map((value, index) => (
             <div key={index} className="max-w-xs w-full group/card">
@@ -299,9 +305,9 @@ function CareerPage() {
   <div className="absolute inset-0 bg-black/60 group-hover/card:bg-black/80 transition duration-300"></div>
 
   <div className="relative z-10 text content">
-    <h1 className="font-bold text-xl md:text-2xl text-gray-100">
+    <h3 className="font-bold text-xl md:text-2xl text-gray-100">
       {value.name}
-    </h1>
+    </h3>
     <p className="font-normal text-sm text-gray-100 my-4">
       {value.description}
     </p>
@@ -314,12 +320,12 @@ function CareerPage() {
 
         {/* Our Ideal Candidates */}
         <div className="mt-8">
-          <h4
+          <h2
             className="text-3xl font-bold text-center text-[#ffbe00] mb-4 mt-8"
             style={{ fontWeight: "700", fontSize: "2.5rem" }}
           >
             Our Ideal Candidates
-          </h4>
+          </h2>
         </div>
         <div className="flex flex-col items-center justify-center">
           <TextGenerateEffect words={candidateWords} />

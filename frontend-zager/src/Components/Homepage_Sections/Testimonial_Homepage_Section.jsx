@@ -95,7 +95,8 @@ export default function TestimonialAlt({ autoMs = 6000 }) {
     >
       <div className="max-w-4xl mx-auto px-4">
         <h3 className="text-3xl md:text-4xl font-extrabold text-center text-[#ffbe00] mb-3">
-          What clients say
+          {/* What Clients say */}
+What Clients Say About Zager Digital Services
         </h3>
         <p className="text-center text-gray-600 mb-6">
           Selected project outcomes and direct testimonials from our partners.

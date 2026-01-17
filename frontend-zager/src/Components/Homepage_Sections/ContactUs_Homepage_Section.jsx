@@ -177,7 +177,7 @@ const ContactForm = () => {
                 Digital Innovation &
               </h2>
               <h2 className="text-4xl md:text-4xl font-bold bg-gradient-to-r from-[#051224] to-[#97bdf1] bg-clip-text text-transparent pb-2">
-                Strategic Solutions
+                Strategic IT Solutions
               </h2>
             <div className="space-y-2">
             </div>

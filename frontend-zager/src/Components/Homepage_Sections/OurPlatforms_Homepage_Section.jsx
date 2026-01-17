@@ -13,7 +13,7 @@ const platforms = [
   {
     title: "Gyaanadri ",
     description:
-      "Welcome to Gyaanadri, your premier destination for insightful content and engaging media.",
+      "Welcome to Gyaanadri, your premier destination for insightful educational content and engaging digital media.",
     imageUrl: gyaanadariImg,
     link: "/ourplatforms/gyaanadari",
     icon: <BookOpen className="text-[#ffbe00] w-10 h-10" />,

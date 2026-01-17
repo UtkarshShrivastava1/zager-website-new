@@ -12,42 +12,55 @@ import serviceVideo6 from "../../assets/design6.mp4";
 // Updated links use a common /Services page with a hash for each service.
 const services = [
   {
-    title: "Website Design and Development",
+    // title: "Website Design and Development",
+    title: "Website Design & Development Services",
+
     description:
-      "We design and develop both static and dynamic websites for different sectors.",
+      // "We design and develop both static and dynamic websites for different sectors.",
+      "We design and develop static and dynamic websites tailored for startups, businesses, and enterprises.",
+
     video: serviceVideo1,
     link: "/Services#website-design-and-development",
   },
   {
     title: "Custom Web Application Development",
     description:
-      "We are experienced in developing custom web applications for a variety of businesses.",
+      // "We are experienced in developing custom web applications for a variety of businesses.",
+      "We build scalable custom web applications that support business growth and digital transformation.",
+
     video: serviceVideo2,
     link: "/Services#custom-web-application-development",
   },
   {
     title: "Digital Marketing",
     description:
-      "Custom Digital solutions and Digital Marketing for your Business.",
+      // "Custom Digital solutions and Digital Marketing for your Business.",
+      "Result-driven digital marketing solutions to improve online visibility and customer engagement.",
     video: serviceVideo6,
     link: "/Services#digital-media",
   },
   {
-    title: "Designing",
+    // title: "Designing",
+    title: "Graphic Designing & Branding",
+
     description:
       "Our creative team designs stunning visuals that align with your brand identity.",
     video: serviceVideo4,
     link: "/Services#designing",
   },
   {
-    title: "Content Creation",
+    // title: "Content Creation",
+    title: "Content Creation & Strategy",
+
     description:
       "We develop engaging content, from blogs to social media, that drives engagement.",
     video: serviceVideo5,
     link: "/Services#content-creation",
   },
   {
-    title: "Media Production",
+    // title: "Media Production",
+    title: "Video & Media Production",
+
     description:
       "We produce high-quality videos and media content for your business needs.",
     video: serviceVideo3,
@@ -57,7 +70,7 @@ const services = [
 
 const OurServicesSections = () => {
   useGSAP(() => {
-    gsap.fromTo( 
+    gsap.fromTo(
       ".services-bg",
       {
         opacity: 0,
@@ -89,21 +102,24 @@ const OurServicesSections = () => {
 
       <div className="text-center mb-12 relative z-10">
         <div className=" flex items-center justify-center w-full text-center ">
-
-        <h4
-          style={{
-            fontWeight: "700",
-            fontSize: "2.5rem",
-            color: "#ffbe00",
-            marginBottom: "20px",
-          }}
-          className="text-3xl font-bold text-center text-[#ffbe00] mb-4  outline-3 outline-[#ffbe00] rounded-2xl   p-2 "
-        >
-          Our Services
-        </h4>{" "}
+          <h4
+            style={{
+              fontWeight: "700",
+              fontSize: "2.5rem",
+              color: "#ffbe00",
+              marginBottom: "20px",
+            }}
+            className="text-3xl font-bold text-center text-[#ffbe00] mb-4  outline-3 outline-[#ffbe00] rounded-2xl   p-2 "
+          >
+            Our Services
+          </h4>{" "}
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold mt-2">
+        {/* <h2 className="text-3xl md:text-4xl font-bold mt-2">
           Custom Digital Solutions for <br /> Your Successful Business
+        </h2> */}
+        <h2 className="text-3xl md:text-4xl font-bold mt-2">
+          Custom Digital Solutions & IT Services <br />
+          for Growing Businesses
         </h2>
         <div className="w-16 h-1 bg-[#ffbe00] mx-auto mt-3"></div>
       </div>

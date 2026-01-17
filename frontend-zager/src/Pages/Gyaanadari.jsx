@@ -92,90 +92,103 @@ function Gyaanadari() {
 
   return (
     <>
-     <Helmet>
-        <title>Gyaanadari - Insights, Podcasts, & Content</title>
-        <meta
+      <Helmet>
+        {/* <title>Gyaanadari - Insights, Podcasts, & Content</title> */}
+        <title>Gyaanadari - Educational Content, Podcasts & Interviews</title>
+        {/* <meta
           name="description"
           content="Gyaanadari offers high-quality content, podcasts, interviews, and updates to inform, inspire, and entertain audiences."
+        /> */}
+        <meta
+          name="description"
+          content="Gyaanadari is your online knowledge platform offering educational content, podcasts, interviews, and the latest updates to inform, inspire, and entertain audiences."
         />
-          <link rel="canonical" href="https://www.zager.in/ourplatforms/gyaanadari" />
+        <link
+          rel="canonical"
+          href="https://www.zager.in/ourplatforms/gyaanadari"
+        />
       </Helmet>
-    <div className="relative overflow-x-hidden">
-      {/* Background Gradient Overlay & Glowing Circles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {" "}
-        <div
-          className="w-full h-full"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
-            opacity: 0.1,
-          }}
-        ></div>
-        <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-        <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-      </div>
-
-      {/* Main Content with higher z-index */}
-      <div className="mt-15 relative z-10">
-        <Heading value={"GYAANADRI"} />
-        <div className="flex flex-col items-center justify-center py-5 gap-2">
-          <TextGenerateEffect words={words} />
-          <p className="w-[100%] text-center text-lg">
-            Your premier destination for insightful content and engaging media.
-            At Gyaanadri, we’re dedicated to delivering high-quality,
-            informative content that informs, inspires, and entertains. Our
-            platform is designed to be a hub for diverse content ranging from
-            the latest updates and in-depth interviews to captivating podcasts
-            and informative articles.
-          </p>
+      <div className="relative overflow-x-hidden">
+        {/* Background Gradient Overlay & Glowing Circles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {" "}
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, #ffbe00 50%, transparent 100%)",
+              opacity: 0.1,
+            }}
+          ></div>
+          <div className="top-glow absolute -top-10 -right-10 w-64 h-64 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+          <div className="bottom-glow absolute -bottom-32 -left-20 w-72 h-72 bg-[#ffbe00] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
         </div>
 
-        {/* Our Mission Section - Adjusted gap */}
-        <section ref={sectionRef} className="py-12">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
-            {/*
+        {/* Main Content with higher z-index */}
+        <div className="mt-15 relative z-10">
+          <h1 className="sr-only">
+            Gyaanadari – Blogs, Podcasts, Interviews & Knowledge Platform
+          </h1>
+
+          <Heading value={"GYAANADRI"} />
+          <div className="flex flex-col items-center justify-center py-5 gap-2">
+            <TextGenerateEffect words={words} />
+            <p className="w-[100%] text-center text-lg">
+              Your premier destination for insightful content and engaging
+              media. At Gyaanadri, we’re dedicated to delivering high-quality,
+              informative content that informs, inspires, and entertains. Our
+              platform is designed to be a hub for diverse content ranging from
+              the latest updates and in-depth interviews to captivating podcasts
+              and informative articles.
+            </p>
+          </div>
+
+          {/* Our Mission Section - Adjusted gap */}
+          <section ref={sectionRef} className="py-12">
+            <div className="container mx-auto px-6 md:px-12 lg:px-16 mt-[-16]">
+              {/*
               Adjust the 'mt-[-16]' value here:
                 - More negative (e.g., mt-[-20]) pushes it closer.
                 - Less negative (e.g., mt-[-12]) increases the gap.
             */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-              {/* Text Content */}
-              <div ref={contentRef} className="text-center md:text-left">
-                <h3 className="text-[#ffbe00] text-5xl font-bold tracking-normal">
-                  Our Mission
-                </h3>
-                <p className="text-gray-900 mt-4 text-lg leading-relaxed">
-                  Our mission at Gyaanadri is to empower our audience with
-                  valuable knowledge and perspectives through a variety of
-                  content formats. We strive to be a trusted source for the
-                  latest updates, thought-provoking interviews, and enriching
-                  podcasts. By curating and creating content that resonates with
-                  our audience, we aim to foster a more informed and connected
-                  community.
-                </p>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                {/* Text Content */}
+                <div ref={contentRef} className="text-center md:text-left">
+                  <h3 className="text-[#ffbe00] text-5xl font-bold tracking-normal">
+                    {/* Our Mission */}
+                    Our Mission: Providing Insightful Knowledge to Learners
+                  </h3>
+                  <p className="text-gray-900 mt-4 text-lg leading-relaxed">
+                    Our mission at Gyaanadri is to empower our audience with
+                    valuable knowledge and perspectives through a variety of
+                    content formats. We strive to be a trusted source for the
+                    latest updates, thought-provoking interviews, and enriching
+                    podcasts. By curating and creating content that resonates
+                    with our audience, we aim to foster a more informed and
+                    connected community.
+                  </p>
+                </div>
 
-              {/* Image Section */}
-              {/* Image Section */}
-              <div ref={imageRef} className="flex justify-center">
-                <img
-                  src={gyaanadariImg}
-                  alt="ZMS Platform"
-                  className="rounded-lg w-full md:w-96 "
-                />
+                {/* Image Section */}
+                {/* Image Section */}
+                <div ref={imageRef} className="flex justify-center">
+                  <img
+                    src={gyaanadariImg}
+                    alt="ZMS Platform"
+                    className="rounded-lg w-full md:w-96 "
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <div className="mt-17">
-          <Heading value={"What we Do?"} />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
-          {workValues.map((value, index) => (
-            <div key={index} className="max-w-xs w-full group/card">
-              <div
+          <div className="mt-17">
+            <Heading value={"What we Do?"} />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
+            {workValues.map((value, index) => (
+              <div key={index} className="max-w-xs w-full group/card">
+                <div
                   className={cn(
                     "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4"
                   )}
@@ -197,28 +210,27 @@ function Gyaanadari() {
                     </p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
 
-            </div>
-          ))}
-        </div>
-
-        {/* Join Us Section with additional bottom margin for logical gap */}
-        <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-20">
-          {/*
+          {/* Join Us Section with additional bottom margin for logical gap */}
+          <div className="flex flex-col items-center justify-center py-5 gap-2 mt-15 mb-20">
+            {/*
             Added 'mb-12' to create a clear gap after the section ends.
           */}
-          <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
-            Join Us On Our Journey
-          </h2>
-          <p className="w-[100%] text-center text-lg">
-            Explore the world of Gyaanadri and discover a wealth of content
-            designed to enrich your knowledge and entertain your mind. Connect
-            with us through social media, and stay tuned for the latest updates
-            and content releases.
-          </p>
+            <h2 className="text-4xl md:text-4xl font-bold mb-2 text-[#ffbe00] text-center">
+              Join Us On Our Journey
+            </h2>
+            <p className="w-[100%] text-center text-lg">
+              Explore the world of Gyaanadri and discover a wealth of content
+              designed to enrich your knowledge and entertain your mind. Connect
+              with us through social media, and stay tuned for the latest
+              updates and content releases.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

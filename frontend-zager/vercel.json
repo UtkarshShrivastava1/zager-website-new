@@ -48,5 +48,5 @@
     { "source": "/articles", "destination": "/Blogs", "permanent": true },
     { "source": "/news", "destination": "/Blogs", "permanent": true }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

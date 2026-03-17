@@ -5,8 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import api from "../services/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Banner from "../assets/Banner_VT_PC.png"; // Replace with VT banner
-import Banner2 from "../assets/Banner_VT_Mobile.png"; // Replace with VT mobile banner
+import { CheckCircle2, MapPin, Phone, Mail, GraduationCap, Briefcase, IndianRupee, Sparkles } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +16,6 @@ const VocationalTrainingRegister = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState(null);
   const [showOtherBranch, setShowOtherBranch] = useState(false); // New state for "Other" branch
-  const [showFloatingButton, setShowFloatingButton] = useState(false); // State for floating button
 
   const {
     register,
@@ -55,37 +53,6 @@ const VocationalTrainingRegister = () => {
       gsap.killTweensOf(leftColumn);
       gsap.killTweensOf(rightColumn);
     };
-  }, []);
-
-  // Scroll event to show/hide floating button
-  useEffect(() => {
-    const handleScroll = () => {
-      const formElement = rightColumnRef.current;
-      if (!formElement) return;
-
-      const bannerHeight = window.innerWidth >= 768 ? 790 : 700; // Match your banner heights
-      const scrollPosition = window.scrollY;
-      const formPosition =
-        formElement.getBoundingClientRect().top + scrollPosition;
-
-      // Show button when:
-      // 1. At the top of page (in banner)
-      // 2. Until we get close to the form
-      const shouldShowButton =
-        scrollPosition <= bannerHeight || // Show in banner section
-        scrollPosition < formPosition - 200; // Hide when close to form
-
-      setShowFloatingButton(shouldShowButton);
-    };
-
-    // Initialize button state to true when component mounts
-    setShowFloatingButton(true);
-
-    // Run the handler immediately to set initial state
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const onSubmit = async (data) => {
@@ -146,37 +113,22 @@ const VocationalTrainingRegister = () => {
     "Other",
   ];
 
-  const semesterOptions = ["4th", "6th"];
-
-  // Update the scrollToForm function
-  const scrollToForm = () => {
-    if (rightColumnRef.current) {
-      const yOffset = -20; // Add some padding from top
-      const element = rightColumnRef.current;
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
-    }
-  };
+  const semesterOptions = ["4th", "6th", "Final"];
 
   return (
     <div className="bg-white min-h-screen overflow-hidden">
       <ToastContainer />
 
-      {/* Hero Section */}
+      {/*
+      Hero Section hidden for now so the form appears higher on the page.
       <div className="relative flex flex-col justify-center items-center text-center text-white w-full overflow-hidden">
-        {/* Desktop Background */}
         <div
           className="hidden md:block w-full"
           style={{
             height: "auto",
             width: "100%",
             maxWidth: "100%",
-            aspectRatio: "16/9", // Adjust this ratio based on your banner image
+            aspectRatio: "16/9",
             backgroundImage: `url(${Banner})`,
             backgroundSize: "contain",
             backgroundPosition: "center top",
@@ -184,7 +136,6 @@ const VocationalTrainingRegister = () => {
           }}
         ></div>
 
-        {/* Mobile Background */}
         <div
           className="block md:hidden w-full"
           style={{
@@ -198,21 +149,18 @@ const VocationalTrainingRegister = () => {
           }}
         ></div>
 
-        {/* Overlay for better text visibility */}
         <div className="bg-grey bg-opacity-40 absolute inset-0"></div>
 
-        {/* Register Button - PC Version */}
         <button
           onClick={scrollToForm}
-          className="hidden md:block absolute top-8 right-8 px-6 py-3 text-md font-semibold bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-110 cursor-pointer"
+          className="hidden md:block absolute top-8 right-8 px-6 py-3 text-md font-semibold bg-gradient-to-r from-[#ffbe00] to-[#e6ab00] hover:shadow-xl text-white rounded-lg shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
         >
           Register Now
         </button>
 
-        {/* Register Button - Mobile Version */}
         <button
           onClick={scrollToForm}
-          className={`block md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 text-sm font-semibold bg-[#ffbe00] hover:bg-yellow-600 text-white rounded-md shadow-md transition-all duration-300 active:scale-95 animate-bounce ${
+          className={`block md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 text-sm font-semibold bg-gradient-to-r from-[#ffbe00] to-[#e6ab00] text-white rounded-full shadow-lg transition-all duration-300 active:scale-95 animate-bounce ${
             showFloatingButton
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-16"
@@ -225,9 +173,10 @@ const VocationalTrainingRegister = () => {
           Register Now ↓
         </button>
       </div>
+      */}
 
       {/* Registration Form Section */}
-      <div ref={formRef} className="container mx-auto px-4 py-12 md:py-20">
+      <div ref={formRef} className="container mx-auto px-4 py-8 md:py-12">
         <h4 className="text-2xl sm:text-3xl font-bold text-center text-[#ffbe00] mb-6">
           Vocational Training Registration
         </h4>
@@ -238,69 +187,76 @@ const VocationalTrainingRegister = () => {
             ref={leftColumnRef}
             className="space-y-8 text-center md:text-left"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-              🎓 VOCATIONAL TRAINING 2025
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug flex flex-col md:flex-row items-center justify-center md:justify-start gap-3">
+              <GraduationCap className="w-10 h-10 text-[#ffbe00]" />
+              Training and Internship Program 2026
             </h2>
 
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-[#ffbe00]">WE OFFER</h3>
-              <p className="text-lg">
-                Web Development Training in MERN Stack technology for 4th & 6th
-                Semester Students! Get practical experience in web development
-                with MongoDB, Express, React, and Node.js, while working in our
-                office.
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-4 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-[#ffbe00] flex items-center gap-2 justify-center md:justify-start">
+                <Briefcase className="w-6 h-6" /> WE OFFER
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-left">
+                Full-Stack Software Development Training (MERN Stack) for Students. Gain practical experience building real-world applications using MongoDB, Express, React, and Node.js, along with AI-assisted coding using tools like ChatGPT and GitHub Copilot. Available in both Online and Offline modes, with hands-on training in a professional development environment.
               </p>
             </div>
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-[#ffbe00]">
-                Vocational Training Fee
+            
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-4 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-[#ffbe00] flex items-center gap-2 justify-center md:justify-start">
+                <IndianRupee className="w-6 h-6" /> Vocational Training Fee
               </h3>
-              <p className="text-lg">₹4,000 (Rupees Four Thousand Only)</p>
+              <p className="text-2xl font-bold text-gray-800 text-left flex items-center gap-2 justify-center md:justify-start">
+                ₹4,000 <span className="text-base font-normal text-gray-500">(Rupees Four Thousand Only)</span>
+              </p>
               {/* Important Note */}
-              <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-md mt-2">
-                <p className="text-yellow-800 font-semibold">
-                  <span className="font-bold">Important Note:</span> Students
+              <div className="bg-yellow-50 border-l-4 border-[#ffbe00] p-4 rounded-r-md mt-4">
+                <p className="text-yellow-800 font-medium text-left">
+                  <span className="font-bold text-yellow-900">Important Note:</span> Students
                   must have their own laptops for the training.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-[#ffbe00]">
-                WHY CHOOSE US
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-4 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-[#ffbe00] flex items-center gap-2 justify-center md:justify-start">
+                <Sparkles className="w-6 h-6" /> What Students Gain / Why Choose Us
               </h3>
-              <ul className="text-lg space-y-2">
-                <li>✅ EXPERIENCED TRAINERS</li>
-                <li>✅ GET CHANCE TO WORK ON REAL TIME PROJECTS</li>
-                <li>✅ WORK IN PROFESSIONAL ENVIRONMENT</li>
-                <li>✅ SUPPORTIVE ENVIRONMENT</li>
+              <ul className="text-gray-700 space-y-3 text-left">
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-[#ffbe00] shrink-0" /> <span>Hands-on development experience</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-[#ffbe00] shrink-0" /> <span>Exposure to real development workflow</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-[#ffbe00] shrink-0" /> <span>Experience working in a professional environment</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-[#ffbe00] shrink-0" /> <span>Understanding of AI-assisted coding tools</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-[#ffbe00] shrink-0" /> <span>Internship / Vocational Training Certificate</span></li>
               </ul>
             </div>
 
-            <div className="space-y-4 ">
-              <h3 className="text-xl font-bold text-[#ffbe00]">CONTACT US</h3>
-              <div className="space-y-2">
-                <p>
-                  📍 Zager Digital Services,
-                  <br />
-                  Startup Enclave Building,
-                  <br />
-                  CSIT Durg, C.G.
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-4 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-[#ffbe00] flex items-center gap-2 justify-center md:justify-start">
+                <Mail className="w-6 h-6" /> CONTACT US
+              </h3>
+              <div className="space-y-4 text-left">
+                <p className="flex items-start gap-3 text-gray-700">
+                  <MapPin className="w-6 h-6 text-[#ffbe00] shrink-0" />
+                  <span>
+                    Zager Digital Services,<br />
+                    Startup Enclave Building,<br />
+                    CSIT Durg, C.G.
+                  </span>
                 </p>
                 <p>
                   <a
                     href="tel:+919201239968"
-                    className="text-gray-800 hover:text-[#ffbe00] transition-colors inline-flex items-center"
+                    className="flex items-center gap-3 text-gray-700 hover:text-[#ffbe00] transition-colors"
                   >
-                    📞 +91-9201239968
+                    <Phone className="w-6 h-6 text-[#ffbe00] shrink-0" /> +91-9201239968
                   </a>
                 </p>
                 <p>
                   <a
                     href="mailto:vt.zager@gmail.com"
-                    className="text-gray-800 hover:text-[#ffbe00] transition-colors inline-flex items-center"
+                    className="flex items-center gap-3 text-gray-700 hover:text-[#ffbe00] transition-colors"
                   >
-                    📧 vt.zager@gmail.com
+                    <Mail className="w-6 h-6 text-[#ffbe00] shrink-0" /> vt.zager@gmail.com
                   </a>
                 </p>
               </div>
@@ -310,7 +266,7 @@ const VocationalTrainingRegister = () => {
           {/* Right Column - Updated Form */}
           <div
             ref={rightColumnRef}
-            className="bg-white rounded-lg p-6 md:p-8 shadow-lg w-full max-w-md mx-auto"
+            className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100 w-full max-w-md mx-auto"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Register Now
@@ -322,7 +278,7 @@ const VocationalTrainingRegister = () => {
                   {...register("name", { required: "Full name is required" })}
                   type="text"
                   placeholder="Full Name*"
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -334,7 +290,7 @@ const VocationalTrainingRegister = () => {
                   {...register("semester", {
                     required: "Semester is required",
                   })}
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none bg-white"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 >
                   <option value="">Select Semester*</option>
                   {semesterOptions.map((sem) => (
@@ -357,7 +313,7 @@ const VocationalTrainingRegister = () => {
                   })}
                   type="tel"
                   placeholder="Phone Number*"
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm">{errors.phone.message}</p>
@@ -375,7 +331,7 @@ const VocationalTrainingRegister = () => {
                   })}
                   type="email"
                   placeholder="Email Address*"
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">{errors.email.message}</p>
@@ -389,7 +345,7 @@ const VocationalTrainingRegister = () => {
                     onChange: (e) =>
                       setShowOtherBranch(e.target.value === "Other"),
                   })}
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none bg-white"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 >
                   <option value="">Select Branch/Department*</option>
                   {branchOptions.map((branch) => (
@@ -412,7 +368,7 @@ const VocationalTrainingRegister = () => {
                       })}
                       type="text"
                       placeholder="Please specify your branch*"
-                      className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                     />
                     {errors.otherBranch && (
                       <p className="text-red-500 text-sm">
@@ -430,7 +386,7 @@ const VocationalTrainingRegister = () => {
                   })}
                   type="text"
                   placeholder="College Name*"
-                  className="w-full px-4 py-2 border-b-2 border-gray-300 focus:border-blue-500 outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all"
                 />
                 {errors.college && (
                   <p className="text-red-500 text-sm">
@@ -444,7 +400,7 @@ const VocationalTrainingRegister = () => {
                   {...register("address", { required: "Address is required" })}
                   placeholder="Complete Address*"
                   rows="3"
-                  className="w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:border-blue-500 outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#ffbe00] focus:bg-white focus:ring-2 focus:ring-[#ffbe00]/20 outline-none transition-all resize-none"
                 />
                 {errors.address && (
                   <p className="text-red-500 text-sm">
@@ -455,7 +411,7 @@ const VocationalTrainingRegister = () => {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-[#ffbe00] text-white rounded-md hover:bg-yellow-600 disabled:opacity-70"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[#ffbe00] to-[#e6ab00] text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/Final_Logo_White.png";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/Final_Logo_White.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +46,7 @@ const Navbar = () => {
     </NavLink>
   </li>
 */}
-      {/* <li>
+      <li>
         <NavLink
           to="/VTRegister"
           onClick={() => setIsOpen(false)}
@@ -56,7 +56,7 @@ const Navbar = () => {
           VT Registration
           <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff4400] rounded-full animate-ping"></span>
         </NavLink>
-      </li> */}
+      </li>
 
       <li>
         <NavLink

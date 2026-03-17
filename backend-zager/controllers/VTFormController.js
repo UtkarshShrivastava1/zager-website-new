@@ -1,7 +1,5 @@
 const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
-const fs = require("fs");
-const path = require("path");
 const axios = require("axios");
 require("dotenv").config();
 
@@ -42,7 +40,7 @@ const generateRegistrationPass = async (
   semester,
   branch,
   college,
-  address
+  address,
 ) => {
   const now = new Date();
   const formattedDate = now.toLocaleString("en-IN", {
@@ -84,7 +82,7 @@ const generateConfirmationPDF = async (
   semester,
   branch,
   college,
-  address
+  address,
 ) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -94,14 +92,9 @@ const generateConfirmationPDF = async (
         autoFirstPage: true,
         bufferPages: true,
       });
-      const fileName = `VT_Registration_${registrationID}.pdf`;
-      const filePath = path.join(__dirname, "../temp", fileName);
-
-      if (!fs.existsSync(path.join(__dirname, "../temp"))) {
-        fs.mkdirSync(path.join(__dirname, "../temp"));
-      }
-
-      doc.pipe(fs.createWriteStream(filePath));
+      let buffers = [];
+      doc.on("data", buffers.push.bind(buffers));
+      doc.on("end", () => resolve(Buffer.concat(buffers)));
 
       // Header with updated background color
       doc.rect(0, 0, doc.page.width, 120).fill("#051224");
@@ -304,10 +297,6 @@ const generateConfirmationPDF = async (
         .stroke();
 
       doc.end();
-
-      doc.on("end", () => {
-        resolve(filePath);
-      });
     } catch (error) {
       reject(error);
     }
@@ -323,7 +312,7 @@ const sendConfirmationEmail = async (
   semester,
   branch,
   college,
-  address
+  address,
 ) => {
   try {
     const transporter = createTransporter();
@@ -335,11 +324,11 @@ const sendConfirmationEmail = async (
       semester,
       branch,
       college,
-      address
+      address,
     );
 
     // Generate PDF
-    const pdfPath = await generateConfirmationPDF(
+    const pdfBuffer = await generateConfirmationPDF(
       name,
       registrationID,
       email,
@@ -347,7 +336,7 @@ const sendConfirmationEmail = async (
       semester,
       branch,
       college,
-      address
+      address,
     );
 
     const mailOptions = {
@@ -368,18 +357,14 @@ const sendConfirmationEmail = async (
       attachments: [
         {
           filename: `VT_Registration_${registrationID}.pdf`,
-          path: pdfPath,
+          content: pdfBuffer,
+          contentType: "application/pdf",
         },
       ],
     };
 
     await transporter.sendMail(mailOptions);
     console.log("📩 Confirmation Email Sent:", email);
-
-    // Clean up - delete the temporary PDF file
-    fs.unlink(pdfPath, (err) => {
-      if (err) console.error("Error deleting temporary PDF:", err);
-    });
   } catch (error) {
     console.error("❌ Error Sending Confirmation Email:", error.message);
   }
@@ -504,7 +489,7 @@ const registerForTraining = async (req, res) => {
                         timeZone: "Asia/Kolkata",
                         dateStyle: "full",
                         timeStyle: "medium",
-                      }
+                      },
                     )}</span>
                 </p>
             </div>
@@ -540,7 +525,7 @@ const registerForTraining = async (req, res) => {
       semester,
       branch,
       college,
-      address
+      address,
     );
 
     return res.status(200).json({

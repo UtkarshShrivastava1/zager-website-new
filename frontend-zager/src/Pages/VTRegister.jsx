@@ -181,11 +181,69 @@ const VocationalTrainingRegister = () => {
           Vocational Training Registration
         </h4>
 
+        <div className="md:hidden mb-8">
+          <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#fff7db] via-white to-[#fff1b8] border border-[#ffe08a] shadow-[0_18px_40px_rgba(230,171,0,0.12)] p-6">
+            <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-[#ffbe00]/15 blur-2xl"></div>
+            <div className="absolute -bottom-10 -left-8 h-24 w-24 rounded-full bg-[#ffbe00]/10 blur-2xl"></div>
+
+            <div className="relative space-y-5">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-[#c08b00] uppercase shadow-sm">
+                <Sparkles className="w-4 h-4" />
+                2026 Program
+              </div>
+
+              <div>
+                <h2 className="text-3xl font-bold leading-tight text-gray-900">
+                  Training and Internship Program
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  Build real-world MERN stack projects with AI-assisted coding support in a practical professional environment.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-2xl bg-white/90 border border-white p-4 shadow-sm">
+                  <p className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
+                    Training Fee
+                  </p>
+                  <p className="mt-1 text-xl font-bold text-gray-900">Rs. 4,000</p>
+                </div>
+                <div className="rounded-2xl bg-white/90 border border-white p-4 shadow-sm">
+                  <p className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
+                    Mode
+                  </p>
+                  <p className="mt-1 text-base font-bold text-gray-900">Online / Offline</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white/80 border border-white p-4">
+                <p className="text-sm font-semibold text-gray-900 mb-3">
+                  Quick Highlights
+                </p>
+                <div className="grid gap-2 text-sm text-gray-700">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                    <span>Hands-on development experience</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                    <span>Exposure to real development workflow</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                    <span>Certificate on successful completion</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-10 items-start px-4 sm:px-6 md:px-10 py-8">
           {/* Left Column - Updated Program Details */}
           <div
             ref={leftColumnRef}
-            className="space-y-8 text-center md:text-left"
+            className="hidden md:block order-2 md:order-1 space-y-8 text-center md:text-left"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug flex flex-col md:flex-row items-center justify-center md:justify-start gap-3">
               <GraduationCap className="w-10 h-10 text-[#ffbe00]" />
@@ -266,7 +324,7 @@ const VocationalTrainingRegister = () => {
           {/* Right Column - Updated Form */}
           <div
             ref={rightColumnRef}
-            className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100 w-full max-w-md mx-auto"
+            className="order-1 md:order-2 bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100 w-full max-w-md mx-auto"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Register Now
@@ -428,6 +486,101 @@ const VocationalTrainingRegister = () => {
               </button>
             </form>
           </div>
+        </div>
+
+        <div className="md:hidden mt-8 space-y-4">
+          <details className="group rounded-2xl border border-gray-200 bg-white shadow-sm" open>
+            <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-semibold text-gray-900">
+              <span className="flex items-center gap-2">
+                <Briefcase className="w-5 h-5 text-[#ffbe00]" />
+                Program Details
+              </span>
+              <span className="text-[#ffbe00] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div className="px-5 pb-5 text-sm leading-6 text-gray-700">
+              Full-Stack Software Development Training (MERN Stack) with practical project work using MongoDB, Express, React, and Node.js, along with AI-assisted coding using tools like ChatGPT and GitHub Copilot.
+            </div>
+          </details>
+
+          <details className="group rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-semibold text-gray-900">
+              <span className="flex items-center gap-2">
+                <IndianRupee className="w-5 h-5 text-[#ffbe00]" />
+                Fee & Requirement
+              </span>
+              <span className="text-[#ffbe00] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div className="px-5 pb-5 text-sm leading-6 text-gray-700">
+              <p className="font-semibold text-gray-900">Training Fee: Rs. 4,000</p>
+              <p className="mt-2">Students must have their own laptops for the training.</p>
+            </div>
+          </details>
+
+          <details className="group rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-semibold text-gray-900">
+              <span className="flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-[#ffbe00]" />
+                Why Choose Us
+              </span>
+              <span className="text-[#ffbe00] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div className="px-5 pb-5">
+              <ul className="space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                  <span>Hands-on development experience</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                  <span>Professional development workflow exposure</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                  <span>Experience with AI-assisted coding tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#ffbe00] shrink-0" />
+                  <span>Internship or vocational training certificate</span>
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details className="group rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-semibold text-gray-900">
+              <span className="flex items-center gap-2">
+                <Mail className="w-5 h-5 text-[#ffbe00]" />
+                Contact
+              </span>
+              <span className="text-[#ffbe00] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div className="px-5 pb-5 space-y-3 text-sm text-gray-700">
+              <p className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 mt-1 text-[#ffbe00] shrink-0" />
+                <span>
+                  Zager Digital Services,
+                  <br />
+                  Startup Enclave Building,
+                  <br />
+                  CSIT Durg, C.G.
+                </span>
+              </p>
+              <a
+                href="tel:+919201239968"
+                className="flex items-center gap-3 hover:text-[#ffbe00] transition-colors"
+              >
+                <Phone className="w-4 h-4 text-[#ffbe00] shrink-0" />
+                <span>+91-9201239968</span>
+              </a>
+              <a
+                href="mailto:vt.zager@gmail.com"
+                className="flex items-center gap-3 hover:text-[#ffbe00] transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#ffbe00] shrink-0" />
+                <span>vt.zager@gmail.com</span>
+              </a>
+            </div>
+          </details>
         </div>
       </div>
 

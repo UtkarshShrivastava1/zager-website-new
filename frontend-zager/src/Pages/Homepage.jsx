@@ -189,7 +189,7 @@ const HeroSection = () => {
         <AboutUsSection />
         <OurProducts />
         <OurPlatforms />
-        <Clients />
+        {/* <Clients /> */}
         <ContactForm />
         <Testimonials />
       </main>

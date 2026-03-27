@@ -46,7 +46,7 @@ const Navbar = () => {
     </NavLink>
   </li>
 */}
-      <li>
+      {/* <li>
         <NavLink
           to="/VTRegister"
           onClick={() => setIsOpen(false)}
@@ -56,7 +56,7 @@ const Navbar = () => {
           VT Registration
           <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff4400] rounded-full animate-ping"></span>
         </NavLink>
-      </li>
+      </li> */}
 
       <li>
         <NavLink

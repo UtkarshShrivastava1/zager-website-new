@@ -3,7 +3,7 @@ const multer = require("multer");
 const PDFDocument = require("pdfkit"); // For generating PDFs
 const { Readable } = require("stream"); // To convert PDF to buffer
 require("dotenv").config(); // Load environment variables
-const QRCode = require("qrcode"); // QR Code Generator
+const QRCode = require("qrcode"); // QR Code Generator 
 const axios = require("axios"); // For fetching images from URL
 
 // Multer setup for file uploads (Stores in memory as a Buffer)

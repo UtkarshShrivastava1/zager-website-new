@@ -26,7 +26,7 @@
     "colors": "^1.4.0",
     "compression": "^1.7.5",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "express": "^4.22.1",
     "express-validator": "^7.0.1",
     "helmet": "^8.0.0",
@@ -37,7 +37,7 @@
     "nodemailer": "^6.10.0",
     "pdfkit": "^0.16.0",
     "qrcode": "^1.5.4",
-    "resend": "^6.4.2",
+    "resend": "^6.9.4",
     "zager-website-backend": "file:"
   },
   "devDependencies": {

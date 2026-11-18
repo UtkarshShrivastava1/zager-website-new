@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import ContactForm from "../Components/Homepage_Sections/ContactUs_Homepage_Section";
 import AboutUsSection from "../Components/Homepage_Sections/AboutUs_Homepage_Section";
 import OurServicesSections from "../Components/Homepage_Sections/OurServices_Homepage_Section";
-import OurProducts from "../Components/Homepage_Sections/OurProducts_Homepage_Section";
-import Clients from "../Components/Homepage_Sections/OurClients_Homepage_Section";
+// import OurProducts from "../Components/Homepage_Sections/OurProducts_Homepage_Section";
+// import Clients from "../Components/Homepage_Sections/OurClients_Homepage_Section";
 import OurPlatforms from "../Components/Homepage_Sections/OurPlatforms_Homepage_Section";
 import Testimonials from "../Components/Homepage_Sections/Testimonial_Homepage_Section";
 
@@ -187,7 +187,7 @@ const HeroSection = () => {
       <main>
         <OurServicesSections />
         <AboutUsSection />
-        <OurProducts />
+        {/* <OurProducts />   */}
         <OurPlatforms />
         {/* <Clients /> */}
         <ContactForm />

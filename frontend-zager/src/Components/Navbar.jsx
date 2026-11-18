@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/Final_Logo_White.png";
+import { products } from "../data/products";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,16 +85,19 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      {/* Dropdown for Platforms */}
+      {/* Dropdown for Products */}
       <li className="relative dropdown-container text-lg">
         <button
+          type="button"
+          aria-expanded={isDropdownOpen}
+          aria-haspopup="true"
           onClick={(e) => {
             e.stopPropagation();
             setIsDropdownOpen(!isDropdownOpen);
           }}
           className="flex items-center py-2 px-3 text-white hover:opacity-70 hover:scale-105 transition transform duration-200 ease-in-out cursor-pointer"
         >
-          Platforms
+          Products
           <svg
             className="w-3 h-3 ml-2"
             fill="none"
@@ -108,61 +112,41 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        {/* <div
-          className={`absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-md z-50 transform transition-all duration-400 ease-in-out ${
-            isDropdownOpen
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
-        > */}
         <div
-          className={`absolute left-0 mt-2 w-44 bg-white !rounded-lg shadow-md z-50 transform transition-all duration-400 ease-in-out  overflow-hidden hover:overflow-hidden${
+          className={`absolute left-0 mt-2 w-56 bg-white !rounded-lg shadow-md z-50 transform transition-all duration-300 ease-in-out overflow-hidden ${
             isDropdownOpen
-              ? "opacity-100 translate-y-0 translate-x-0 scale-100 shadow-lg"
-              : "opacity-0 -translate-y-30 -translate-x-8  scale-0 pointer-events-none"
+              ? "opacity-100 translate-y-0 scale-100 shadow-lg"
+              : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
           }`}
         >
-          <ul className=" text-sm text-gray-700">
-            <li>
-              <NavLink
-                to="/ourplatforms/zms"
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
-                className="block px-4 py-2 hover:bg-gray-100 shadow "
-              >
-                Zager Management System
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/ourplatforms/ira-media-and-productions"
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
-                className="block px-4 py-2 hover:bg-gray-100 shadow "
-              >
-                Ira Media & Productions
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/ourplatforms/gyaanadari"
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
-                className="block px-4 py-2 hover:bg-gray-100 shadow"
-              >
-                Gyaanadari
-              </NavLink>
-            </li>
+          <ul className="text-sm text-gray-700 divide-y divide-gray-100">
+            {products.map((product) => (
+              <li key={product.slug}>
+                <NavLink
+                  to={product.link}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsDropdownOpen(false);
+                  }}
+                  className={({ isActive }) =>
+                    `block px-4 py-2.5 hover:bg-gray-100 transition ${
+                      isActive ? "bg-amber-50 font-semibold text-[#051224]" : ""
+                    }`
+                  }
+                >
+                  <span className="block font-medium text-[#051224]">
+                    {product.title}
+                  </span>
+                  <span className="block text-xs text-gray-500">
+                    {product.category}
+                  </span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/clients"
           onClick={() => setIsOpen(false)}
@@ -174,7 +158,7 @@ const Navbar = () => {
         >
           Clients
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to="/Contact"

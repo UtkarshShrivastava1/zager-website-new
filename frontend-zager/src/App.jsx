@@ -25,6 +25,8 @@ import Services from "./Pages/Services";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsofService from "./Pages/TermsofService";
 import ZagerManagementSystem from "./Pages/Zms";
+import ProductsPage from "./Pages/ProductsPage";
+import ProductDetail from "./Pages/ProductDetail";
 import ScrollToTop from "./ScrollToTop";
 function App() {
   // Function to check if the user is authenticated
@@ -52,6 +54,8 @@ function App() {
           <Route path="/Services" element={<Services />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsofService />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/ourplatforms/gyaanadari" element={<Gyaanadari />} />
           <Route path="/ourplatforms/zms" element={<ZagerManagementSystem />} />
           <Route path="/clients" element={<Clients />} />

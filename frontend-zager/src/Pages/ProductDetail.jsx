@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   ArrowRight,
   Briefcase,
-  CheckCircle2,
   GraduationCap,
   Layers,
   Stethoscope,
@@ -248,18 +247,14 @@ const ProductDetail = () => {
                   }}
                   className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333333%-1rem)] bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-t-4 border-t-[#ffbe00] hover:shadow-lg transition flex flex-col"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#ffbe00]/15 text-[#051224] font-bold text-sm">
+                  <div className="flex items-center gap-3.5 mb-3">
+                    <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#ffbe00]/15 text-[#051224] font-bold text-sm">
                       {String(idx + 1).padStart(2, "0")}
                     </span>
-                    <CheckCircle2
-                      className="w-5 h-5 text-[#ffbe00]"
-                      aria-hidden="true"
-                    />
+                    <h3 className="text-base sm:text-lg font-bold text-[#051224] leading-snug">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="text-lg font-bold text-[#051224] mb-2.5">
-                    {item.title}
-                  </h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {item.description}
                   </p>
